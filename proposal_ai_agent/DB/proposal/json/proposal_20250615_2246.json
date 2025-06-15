@@ -1,0 +1,689 @@
+{
+  "cover_page": {
+    "elements": {
+      "Title": "AI 모델 학습·평가 자동화 프로세스 및 워크플로우 설계",
+      "Subtitle": "EY 컨설팅",
+      "ProjectDate": "2025. 05. 15",
+      "PreparedBy": "EY 컨설팅",
+      "Logo": "EY 컨설팅 로고"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 프로세스에 대한 최신 산업 트렌드와 모범 사례는 무엇인가요?",
+      "주요 경쟁사(예: IBM, 구글, 마이크로소프트 등)의 AI 모델 학습 및 평가 자동화 프로세스와 비교했을 때, EY 컨설팅의 접근 방식은 어떻게 다른가요?",
+      "AI 모델 자동화 관련 시장의 현재 규모와 예상 성장률은 어떻게 되나요?"
+    ]
+  },
+  "table_of_contents": {
+    "slide_description": "전체 제안서의 슬라이드 구성을 한눈에 파악할 수 있도록 시각적으로 정리합니다.",
+    "description": "제안서의 주요 섹션과 슬라이드를 한눈에 파악할 수 있도록 구성합니다.",
+    "elements": {
+      "Title": "목차",
+      "SectionList": [
+        "1. 제안 개요",
+        "2. 프로젝트 이해",
+        "3. 고객 요구사항 요약",
+        "4. 시장 분석 및 트렌드",
+        "5. 경쟁 벤치마킹",
+        "6. 솔루션 개요",
+        "7. 기술 사양",
+        "8. 구현 계획",
+        "9. 기대 효과",
+        "10. 팀 소개",
+        "11. 차별화 요소",
+        "12. Q&A",
+        "13. 부록"
+      ]
+    },
+    "needs_research": []
+  },
+  "executive_summary": {
+    "slide_description": "제안서 전체의 핵심 내용을 1~2페이지 내에 요약하여 임원 또는 의사결정자가 빠르게 이해할 수 있도록 구성합니다.",
+    "description": "AI 모델 학습 및 평가 자동화 프로세스의 중요성과 EY 컨설팅의 차별화된 접근 방식을 요약합니다.",
+    "elements": {
+      "Title": "제안 개요",
+      "MiddleText": "AI 모델 학습 및 평가 자동화의 필요성과 EY 컨설팅의 솔루션 개요",
+      "SummaryPoints": [
+        "AI 기술 수요 증가에 따른 체계적 데이터 관리 및 학습 인프라 구축 필요",
+        "대규모 비정형 데이터의 신속한 정제 및 가공 체계 필요",
+        "자동화된 AI 모델 학습·평가·배포로 연구 효율성 및 생산성 향상",
+        "EY 컨설팅의 벤치마크 기반 솔루션 제공"
+      ],
+      "ClientValue": "EY 컨설팅의 솔루션은 고객의 R&D 역량을 강화하고, AI 모델의 실질적 성능 향상 및 산업 현장 적용을 가속화할 수 있는 기반을 제공합니다."
+    },
+    "needs_research": [
+      "현재 AI 기술 수요 증가 추세와 관련된 최신 시장 규모와 성장률은 어떻게 되며, 이러한 수요가 데이터 관리 및 학습 인프라 구축에 미치는 영향은 무엇인가요?",
+      "대규모 비정형 데이터의 정제 및 가공을 자동화하는 최신 기술 트렌드와 주요 경쟁사(예: 구글, IBM, 마이크로소프트 등)의 솔루션은 무엇인가요?",
+      "EY 컨설팅의 벤치마크 기반 솔루션이 경쟁사와 비교했을 때 어떤 차별화된 성과를 제공하는지에 대한 사례나 데이터가 있습니까?"
+    ],
+    "research_results": {
+      "현재 AI 기술 수요 증가 추세와 관련된 최신 시장 규모와 성장률은 어떻게 되며, 이러한 수요가 데이터 관리 및 학습 인프라 구축에 미치는 영향은 무엇인가요?": {
+        "content": "AI 기술의 급속한 확산으로 인해 체계적인 데이터 관리와 학습 인프라 구축의 중요성이 부각되고 있습니다. 대규모 비정형 데이터의 신속한 정제 및 가공 체계와 자동화된 AI 모델 학습, 평가, 배포는 연구 효율성과 생산성을 크게 향상시킵니다. EY 컨설팅은 이러한 요구에 맞춰 벤치마크 기반 솔루션을 제공하여 고객의 R&D 역량을 강화하고 AI 모델의 실질적 성능 향상 및 산업 현장 적용을 가속화할 수 있는 기반을 제공합니다.",
+        "urls": [
+          "https://www.gminsights.com/ko/industry-analysis/generative-ai-market",
+          "https://www.fortunebusinessinsights.com/ko/industry-reports/artificial-intelligence-market-100114",
+          "https://botpress.com/ko/blog/top-artificial-intelligence-trends",
+          "https://sky0879.com/entry/2025%EB%85%84-AI-%EA%B8%B0%EC%88%A0-%EB%8F%99%ED%96%A5",
+          "https://www.yna.co.kr/view/AKR20201221155600002"
+        ]
+      },
+      "대규모 비정형 데이터의 정제 및 가공을 자동화하는 최신 기술 트렌드와 주요 경쟁사(예: 구글, IBM, 마이크로소프트 등)의 솔루션은 무엇인가요?": {
+        "content": "AI 모델 학습 및 평가 자동화는 증가하는 AI 기술 수요에 대응하기 위해 필수적입니다. EY 컨설팅은 대규모 비정형 데이터의 신속한 정제 및 가공을 지원하는 벤치마크 기반 솔루션을 제공합니다. 이러한 솔루션은 고객의 R&D 역량을 강화하고 AI 모델의 성능 향상 및 산업 현장 적용을 가속화합니다. 주요 글로벌 경쟁사들은 LLM 기반 오픈모델과 데이터 레이크 기술을 활용하여 데이터 자동화 기능을 고도화하고 있습니다.",
+        "urls": [
+          "https://iting.co.kr/aws-summit-seoul-2025-techblog-22/",
+          "https://brunch.co.kr/@ywkim36/177",
+          "https://automation.ellijobs.com/2025%EB%85%84-%EC%98%A4%ED%94%88%EB%AA%A8%EB%8D%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9E%90%EB%8F%99%ED%99%94-%EC%8B%9C%EB%8C%80%EB%A5%BC-%EC%97%B4%EB%8B%A4/",
+          "https://www.fanruan.com/ko-kr/glossary/big-data/big-data-technologies-trends",
+          "https://seo.goover.ai/report/202505/go-public-report-ko-cf1ef6c3-7ff4-456e-9990-9e6116e212df-0-0.html"
+        ]
+      },
+      "EY 컨설팅의 벤치마크 기반 솔루션이 경쟁사와 비교했을 때 어떤 차별화된 성과를 제공하는지에 대한 사례나 데이터가 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화의 중요성은 체계적 데이터 관리와 학습 인프라 구축 필요성에서 비롯됩니다. EY 컨설팅은 고품질 독립 데이터를 활용하여 맞춤화된 벤치마크 분석을 제공하며, 이를 통해 고객사의 R&D 역량을 강화하고 AI 모델의 성능 향상과 산업 적용을 가속화합니다. EY의 솔루션은 실질적 성과 개선을 목표로 하며, 비용 최적화, KPI 개선, 프로세스 효율화 등의 구체적 결과를 제공합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/assurance/benchmark-analysis",
+          "https://www.teamblind.com/kr/company/EY%EC%BB%A8%EC%84%A4%ED%8C%85/posts?page=39",
+          "https://linkareer.com/activity/242755",
+          "https://linkareer.com/activity/192255",
+          "https://spri.kr/files/1525238971_eSl4ERHwV5leAIoKdAN5C0JD_0.pdf"
+        ]
+      }
+    }
+  },
+  "project_understanding": {
+    "slide_description": "프로젝트의 필요성과 배경을 설명하며, 고객의 상황과 과제를 명확히 인식하고 있다는 점을 전달합니다.",
+    "description": "AI 기술 수요 증가와 데이터 관리의 중요성을 강조하며, EY 컨설팅이 고객의 요구를 깊이 이해하고 있음을 설명합니다.",
+    "elements": {
+      "Title": "프로젝트 이해",
+      "MiddleText": "AI 기술 수요 증가에 따른 데이터 관리 및 학습 인프라의 중요성",
+      "KeyObjectives": [
+        "데이터 활용도 및 품질 제고",
+        "실험 효율성 향상",
+        "일관성 있는 개발 환경 제공"
+      ],
+      "BackgroundIssues": [
+        "대규모 비정형 데이터의 신속한 정제 및 가공 필요",
+        "반복적이고 복잡한 AI 모델 학습·평가·배포 과정의 자동화 필요"
+      ]
+    },
+    "needs_research": [
+      "현재 AI 기술 수요 증가에 대한 최신 통계와 시장 성장률은 어떻게 되며, 주요 산업별로 어떤 차이가 있습니까?",
+      "데이터 관리 및 학습 인프라와 관련된 최신 산업 트렌드와 기술 발전은 무엇이며, 주요 경쟁사(예: IBM, Microsoft, Google)의 전략은 어떻게 비교됩니까?",
+      "대규모 비정형 데이터의 정제 및 가공을 위한 최신 기술 솔루션과 그 효과에 대한 사례 연구는 무엇입니까?"
+    ],
+    "research_results": {
+      "현재 AI 기술 수요 증가에 대한 최신 통계와 시장 성장률은 어떻게 되며, 주요 산업별로 어떤 차이가 있습니까?": {
+        "content": "AI 기술 수요가 급증함에 따라 데이터 관리와 학습 인프라의 중요성이 강조되고 있습니다. EY 컨설팅은 대규모 비정형 데이터의 신속한 정제 및 가공, AI 모델의 자동화된 학습·평가·배포를 통해 데이터 활용도와 품질을 제고하고 실험 효율성을 향상시키는 일관된 개발 환경을 제공합니다. AI 시장은 2025년까지 연평균 30% 이상의 성장률을 기록할 것으로 전망되며, 특히 IT/클라우드, 금융, 헬스케어, 교육 분야에서 수요가 두드러집니다.",
+        "urls": [
+          "https://aws.amazon.com/ko/executive-insights/content/top-generative-ai-skills-and-education-trends-for-2025/",
+          "https://blog.naver.com/police1965/223744464864",
+          "https://newneek.co/@headlight/article/15646",
+          "https://www.koreadeep.com/blog/ai-solution",
+          "https://www.gttkorea.com/news/articleView.html?idxno=17113"
+        ]
+      },
+      "데이터 관리 및 학습 인프라와 관련된 최신 산업 트렌드와 기술 발전은 무엇이며, 주요 경쟁사(예: IBM, Microsoft, Google)의 전략은 어떻게 비교됩니까?": {
+        "content": "AI 기술 수요 증가와 데이터 관리의 중요성을 강조하기 위해, 자율 운영 데이터베이스와 AI 융합, 데이터 레이크, 하이브리드 멀티클라우드, 에지 컴퓨팅, 고효율 데이터센터가 주요 트렌드로 부상하고 있습니다. 이러한 트렌드는 데이터 활용도 및 품질 제고, 실험 효율성 향상, 일관성 있는 개발 환경 제공을 목표로 하며, 대규모 비정형 데이터의 신속한 정제 및 가공과 AI 모델의 자동화된 학습·평가·배포를 지원합니다. EY 컨설팅은 이러한 산업 변화에 맞춰 고객의 요구를 깊이 이해하고, 맞춤형 인프라 전략을 제안할 수 있습니다.",
+        "urls": [
+          "https://www.clunix.com/insight/it_trends.php?boardid=ittrend&mode=view&idx=873",
+          "https://brunch.co.kr/@ywkim36/177",
+          "https://tmaxtibero.blog/2025-database-trend/",
+          "https://blog.kakaocloud.com/179",
+          "https://www.gttkorea.com/news/articleView.html?idxno=15578"
+        ]
+      },
+      "대규모 비정형 데이터의 정제 및 가공을 위한 최신 기술 솔루션과 그 효과에 대한 사례 연구는 무엇입니까?": {
+        "content": "AI 기술 수요 증가와 데이터 관리의 중요성을 강조하는 슬라이드는, 데이터 레이크와 AI 기술의 융합을 통해 대규모 비정형 데이터의 정제 및 가공을 효과적으로 수행하는 방법을 제시합니다. EY 컨설팅은 이러한 기술을 활용하여 데이터 활용도와 품질을 제고하고, 실험 효율성을 향상시키며, 일관성 있는 개발 환경을 제공합니다. 금융, 제조, 유통 등 다양한 산업에서 이러한 솔루션은 비즈니스 인사이트와 운영 효율성을 극대화하는 데 기여하고 있습니다.",
+        "urls": [
+          "https://brunch.co.kr/@ywkim36/177",
+          "https://www.fanruan.com/ko-kr/glossary/big-data/big-data-technologies-trends",
+          "https://iting.co.kr/aws-summit-seoul-2025-techblog-22/",
+          "https://seo.goover.ai/report/202505/go-public-report-ko-cf1ef6c3-7ff4-456e-9990-9e6116e212df-0-0.html",
+          "https://seo.goover.ai/report/202504/go-public-report-ko-1c6b0c67-c2f6-4648-9768-596157e59609-0-0.html"
+        ]
+      }
+    }
+  },
+  "client_needs_summary": {
+    "slide_description": "고객의 구체적인 요구사항을 명확하게 정리해 실무적 방향성과 대응의 기준을 제시합니다.",
+    "description": "고객의 요구사항을 명확히 정리하고, EY 컨설팅의 대응 전략을 제시합니다.",
+    "elements": {
+      "Title": "고객 요구사항 요약",
+      "MiddleText": "고객의 핵심 요구사항과 EY 컨설팅의 대응 전략",
+      "BulletPoints": [
+        "데이터 분류, 전처리, 저장 및 버전 관리 체계 구축",
+        "모델 학습부터 성능 분석, 결과 시각화까지 지원하는 자동화 파이프라인 구축",
+        "사용자 중심의 실험 환경 구축"
+      ],
+      "NeedsMatrix": [
+        [
+          "요구사항",
+          "중요도",
+          "현재 상태"
+        ],
+        [
+          "데이터 관리 체계",
+          "높음",
+          "부분적 구현"
+        ],
+        [
+          "자동화 파이프라인",
+          "높음",
+          "초기 단계"
+        ],
+        [
+          "사용자 중심 환경",
+          "중간",
+          "미구현"
+        ]
+      ]
+    },
+    "needs_research": [
+      "현재 시장에서 데이터 분류, 전처리, 저장 및 버전 관리 체계 구축에 대한 최신 산업 트렌드와 모범 사례는 무엇인가요?",
+      "경쟁사(예: IBM, 딜로이트 등)들이 제공하는 자동화 파이프라인 구축 솔루션의 주요 기능과 EY 컨설팅의 솔루션과의 차이점은 무엇인가요?"
+    ],
+    "research_results": {
+      "현재 시장에서 데이터 분류, 전처리, 저장 및 버전 관리 체계 구축에 대한 최신 산업 트렌드와 모범 사례는 무엇인가요?": {
+        "content": "고객의 요구사항에 따라 EY 컨설팅은 데이터 관리 체계, 자동화 파이프라인, 사용자 중심 환경 구축을 중점적으로 대응합니다. 최신 트렌드에 따르면, 데이터 분류와 전처리의 자동화, 데이터 레이크 및 클라우드 저장소 활용, 모델 및 데이터셋의 버전 관리가 중요합니다. 이를 통해 데이터 품질과 관리 효율성을 높이며, AI 기반 비즈니스 혁신을 지원합니다.",
+        "urls": [
+          "http://www.itdaily.kr/news/articleView.html?idxno=232632",
+          "https://www.clunix.com/insight/it_trends.php?mode=view&idx=959",
+          "https://brunch.co.kr/@ywkim36/177",
+          "https://bgreat.tistory.com/190",
+          "https://devmelody.com/ai-%ED%95%99%EC%8A%B5-%EC%96%B4%EB%94%94%EC%84%9C%EB%B6%80%ED%84%B0-%EC%8B%9C%EC%9E%91%ED%95%A0%EA%B9%8C-%EC%B4%88%EB%B3%B4%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EB%8B%A8%EA%B3%84%EB%B3%84-%EB%A1%9C/"
+        ]
+      },
+      "경쟁사(예: IBM, 딜로이트 등)들이 제공하는 자동화 파이프라인 구축 솔루션의 주요 기능과 EY 컨설팅의 솔루션과의 차이점은 무엇인가요?": {
+        "content": "슬라이드는 고객의 핵심 요구사항을 정리하고, EY 컨설팅의 대응 전략을 제시하는 데 중점을 둡니다. EY는 산업별 맞춤형 프레임워크와 조직 변혁 중심 접근을 통해 데이터 관리 체계, 자동화 파이프라인, 사용자 중심 환경 구축을 지원합니다. 경쟁사와 달리 EY는 디지털 트랜스포메이션과 엔터프라이즈 수준의 거버넌스 및 리스크 관리 통합을 강조합니다.",
+        "urls": [
+          "https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/get-started-pipeline.html?context=wx&locale=ko",
+          "https://www.ibm.com/docs/ko/cloud-paks/cp-data/5.2.x?topic=assets-orchestrating-tasks-pipelines",
+          "https://blog.naver.com/ibm_korea/222518625295",
+          "https://flypix.ai/ko/blog/pipeline-monitoring-tools/",
+          "https://blog.naver.com/simula/223849952485?fromRss=true&trackingCode=rss"
+        ]
+      }
+    }
+  },
+  "market_analysis_market_overview": {
+    "slide_description": "해당 산업의 크기, 구조, 주요 트렌드를 데이터와 함께 제시해 전체 시장 배경을 설명합니다.",
+    "description": "AI 기술의 시장 성장과 데이터 관리의 중요성을 설명하며, EY 컨설팅의 시장 내 위치를 강조합니다.",
+    "elements": {
+      "Title": "시장 분석 및 트렌드",
+      "MiddleText": "AI 기술 시장의 성장과 데이터 관리의 중요성",
+      "GraphLeft": {
+        "description": "AI 기술 시장 성장률 추이 (2019~2024)",
+        "graph_type": "Line Chart",
+        "data_source": "Statista, 2023",
+        "data_table": [
+          [
+            "연도",
+            "시장 규모 (억원)"
+          ],
+          [
+            "2019",
+            "1200"
+          ],
+          [
+            "2020",
+            "1400"
+          ],
+          [
+            "2021",
+            "1600"
+          ],
+          [
+            "2022",
+            "1800"
+          ],
+          [
+            "2023",
+            "2000"
+          ],
+          [
+            "2024",
+            "2200"
+          ]
+        ]
+      },
+      "TextRight": "AI 기술 시장은 매년 평균 10% 이상의 성장률을 보이고 있으며, 데이터 관리와 자동화의 중요성이 더욱 부각되고 있습니다."
+    },
+    "needs_research": [
+      "\"Statista, 2023\"에서 제공한 AI 기술 시장 성장률 추이 데이터의 신뢰성을 검증하기 위해, 해당 데이터의 출처와 조사 방법에 대한 자세한 정보를 확인할 수 있습니까?",
+      "AI 기술 시장의 연평균 성장률이 10% 이상이라는 주장을 뒷받침할 수 있는 다른 신뢰할 수 있는 출처의 데이터나 보고서를 확인할 수 있습니까?",
+      "EY 컨설팅이 AI 기술 시장 내에서 차지하는 시장 점유율이나 경쟁사(예: 딜로이트, 맥킨지 등)와의 비교 데이터를 제공할 수 있는 외부 자료가 있습니까?"
+    ],
+    "research_results": {
+      "\"Statista, 2023\"에서 제공한 AI 기술 시장 성장률 추이 데이터의 신뢰성을 검증하기 위해, 해당 데이터의 출처와 조사 방법에 대한 자세한 정보를 확인할 수 있습니까?": {
+        "content": "AI 기술 시장은 매년 평균 10% 이상의 성장률을 보이며, 데이터 관리와 자동화의 중요성이 점점 더 부각되고 있습니다. Statista의 2023년 데이터에 따르면, AI 시장 규모는 2,418억 8,000만 달러에 이를 것으로 예상되며, AI 로봇공학, 자율 및 센서 기술, 컴퓨터 비전, 머신러닝, 자연어 처리 등 다양한 분야에 대한 투자가 이루어질 전망입니다. 이러한 시장 성장 속에서 EY 컨설팅은 데이터 관리의 중요성을 강조하며 시장 내 위치를 강화하고 있습니다.",
+        "urls": [
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.statista.com",
+          "https://techvalley.biz/%EB%B2%A0%ED%8A%B8%EB%82%A8-ai-%EC%8B%9C%EC%9E%A5-%EB%8F%99%ED%96%A5/",
+          "https://www.globalict.kr/upload_file/kms/202402/52298868622395463.pdf",
+          "https://coinedition.com/kr/2023%EB%85%84-2410%EC%96%B5-%EB%8B%AC%EB%9F%AC-%EC%9D%B8%EA%B3%B5-%EC%A7%80%EB%8A%A5ai-%EC%8B%9C%EC%9E%A5-%EC%8A%A4%ED%83%9C%ED%8B%B0%EC%8A%A4%ED%83%80statista/"
+        ]
+      },
+      "AI 기술 시장의 연평균 성장률이 10% 이상이라는 주장을 뒷받침할 수 있는 다른 신뢰할 수 있는 출처의 데이터나 보고서를 확인할 수 있습니까?": {
+        "content": "AI 기술 시장은 매년 평균 10% 이상의 성장률을 기록하며, 데이터 관리와 자동화의 중요성이 더욱 강조되고 있습니다. 주요 시장 조사 기관들은 AI 시장의 연평균 성장률이 25%에서 40% 사이로 예측된다고 보고하고 있습니다. 이러한 성장세는 EY 컨설팅이 시장 내에서 차별화된 위치를 확보하는 데 중요한 기회를 제공합니다. 슬라이드의 그래프는 2019년부터 2024년까지 AI 기술 시장의 성장 추이를 시각적으로 보여줍니다.",
+        "urls": [
+          "https://www.fortunebusinessinsights.com/ko/industry-reports/artificial-intelligence-market-100114",
+          "https://www.aitimes.com/news/articleView.html?idxno=158152",
+          "https://seo.goover.ai/report/202504/go-public-report-ko-21b4fa61-5c99-4b0c-bd26-e1d9e87a1836-0-0.html",
+          "https://www.kca.kr/hot_clips/vol97/sub02.html",
+          "https://seo.goover.ai/report/202407/go-public-report-ko-417b7b01-8cb3-44d8-88fe-218b99a49224-0-0.html"
+        ]
+      }
+    }
+  },
+  "competitive_benchmarking": {
+    "slide_description": "경쟁사 대비 자사의 상대적 위치와 우위를 정량적·정성적으로 설명합니다.",
+    "description": "EY 컨설팅의 솔루션이 경쟁사 대비 어떤 차별화된 가치를 제공하는지를 설명합니다.",
+    "elements": {
+      "Title": "경쟁 벤치마킹",
+      "MiddleText": "EY 컨설팅의 경쟁 우위 및 차별화 요소",
+      "TableMain": [
+        [
+          "항목",
+          "EY 컨설팅",
+          "경쟁사 A",
+          "경쟁사 B"
+        ],
+        [
+          "데이터 관리 체계",
+          "고도화",
+          "중간",
+          "기본"
+        ],
+        [
+          "자동화 파이프라인",
+          "완전 자동화",
+          "부분 자동화",
+          "수동"
+        ],
+        [
+          "사용자 중심 환경",
+          "강화",
+          "보통",
+          "약함"
+        ]
+      ],
+      "BenchmarkTable": [
+        [
+          "경쟁사",
+          "데이터 관리",
+          "자동화 수준",
+          "사용자 환경"
+        ],
+        [
+          "EY 컨설팅",
+          "고도화",
+          "완전 자동화",
+          "강화"
+        ],
+        [
+          "경쟁사 A",
+          "중간",
+          "부분 자동화",
+          "보통"
+        ],
+        [
+          "경쟁사 B",
+          "기본",
+          "수동",
+          "약함"
+        ]
+      ],
+      "CompetitiveInsights": "EY 컨설팅은 데이터 관리의 고도화와 완전 자동화된 파이프라인을 통해 경쟁사 대비 우위를 점하고 있습니다.",
+      "TextBottom": "EY 컨설팅의 솔루션은 고객의 R&D 역량을 극대화할 수 있는 차별화된 가치를 제공합니다."
+    },
+    "needs_research": [
+      "EY 컨설팅의 데이터 관리 체계가 경쟁사 A와 경쟁사 B에 비해 \"고도화\"되었다는 주장을 뒷받침할 수 있는 외부 자료나 보고서가 있는가?",
+      "EY 컨설팅의 자동화 파이프라인이 \"완전 자동화\"로 평가된 근거를 확인할 수 있는 외부 데이터나 사례 연구가 있는가?",
+      "경쟁사 A와 경쟁사 B의 데이터 관리 및 자동화 수준에 대한 최신 산업 보고서나 분석 자료가 있는가?"
+    ],
+    "research_results": {
+      "EY 컨설팅의 데이터 관리 체계가 경쟁사 A와 경쟁사 B에 비해 \"고도화\"되었다는 주장을 뒷받침할 수 있는 외부 자료나 보고서가 있는가?": {
+        "content": "EY 컨설팅은 데이터 관리 체계의 고도화와 완전 자동화된 파이프라인을 통해 경쟁사 대비 우위를 점하고 있습니다. EY는 'EY Canvas'와 'EY Helix' 같은 글로벌 디지털 감사 플랫폼을 도입하여 대규모 데이터의 안전한 통합 관리와 AI 기반 분석을 제공합니다. 이러한 플랫폼은 EY의 데이터 관리 체계가 업계에서 선도적 위치에 있음을 보여주며, 이는 고객의 R&D 역량을 극대화하는 차별화된 가치를 제공합니다. 경쟁사와의 직접적인 비교 수치는 제한적이지만, EY의 글로벌 플랫폼 운영과 AI 기반 분석은 충분한 차별화 요소로 작용합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/assurance/benchmark-analysis",
+          "https://www.ey.com/ko_kr/insights/audit/providing-high-quality-of-digital-auditing-services",
+          "https://www.ey.com/ko_kr/services/consulting/analytics-consulting-services",
+          "https://chontv.com/event/872",
+          "https://www.jobkorea.co.kr/starter/interview/View/21816"
+        ]
+      }
+    }
+  },
+  "solution_overview": {
+    "slide_description": "제안 솔루션의 핵심 가치와 구조를 시각화하고 간명하게 전달합니다.",
+    "description": "EY 컨설팅의 솔루션은 데이터 관리, 자동화 파이프라인, 사용자 중심 환경을 통합적으로 제공합니다.",
+    "elements": {
+      "Title": "솔루션 개요",
+      "MiddleText": "데이터 관리, 자동화, 사용자 중심 환경의 통합 솔루션",
+      "SimpleDiagram": "End-to-End 프로세스 시각화: 데이터 수집 → 전처리 → 학습 → 평가 → 배포",
+      "ArchitectureDiagram": "High-level 기술 아키텍처: 모듈 기반 구성",
+      "KeyModules": [
+        "데이터 관리 모듈: 데이터 분류 및 전처리",
+        "자동화 파이프라인 모듈: 학습 및 평가 자동화",
+        "사용자 환경 모듈: 실험 템플릿 및 GUI 제공"
+      ]
+    },
+    "needs_research": [
+      "현재 데이터 관리 및 자동화 파이프라인 솔루션 시장의 규모와 성장률은 어떻게 되며, 주요 트렌드는 무엇인가요?",
+      "EY 컨설팅의 데이터 관리 및 자동화 솔루션이 경쟁사(예: IBM, Deloitte, Accenture 등)와 비교했을 때 어떤 차별화된 장점이 있는지에 대한 외부 분석 자료가 있나요?"
+    ],
+    "research_results": {
+      "현재 데이터 관리 및 자동화 파이프라인 솔루션 시장의 규모와 성장률은 어떻게 되며, 주요 트렌드는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 데이터 관리, 자동화 파이프라인, 사용자 중심 환경을 통합하여 제공합니다. 데이터베이스 및 워크플로우 자동화 시장은 높은 성장률을 보이며, 클라우드 기반 자동화와 AI/ML 통합이 주요 트렌드로 자리잡고 있습니다. 이러한 솔루션은 기업의 디지털 전환과 데이터 기반 의사결정에 필수적입니다.",
+        "urls": [
+          "https://www.researchnester.com/kr/reports/pipeline-transportation-software-market/3739",
+          "https://www.mordorintelligence.kr/industry-reports/database-automation-market",
+          "https://www.researchnester.com/kr/reports/workflow-automation-market/4816",
+          "https://www.skax.co.kr/insight/trend/36",
+          "https://visuresolutions.com/ko/%EC%9E%90%EC%84%A0-%EA%B0%80%EC%9D%B4%EB%93%9C/2023%EB%85%84-%EC%B5%9C%EA%B3%A0%EC%9D%98-CI-CD-%EB%8F%84%EA%B5%AC/"
+        ]
+      },
+      "EY 컨설팅의 데이터 관리 및 자동화 솔루션이 경쟁사(예: IBM, Deloitte, Accenture 등)와 비교했을 때 어떤 차별화된 장점이 있는지에 대한 외부 분석 자료가 있나요?": {
+        "content": "EY 컨설팅의 솔루션은 데이터 관리, 자동화 파이프라인, 사용자 중심 환경을 통합적으로 제공하며, 자체 AI 플랫폼 'EY.ai'와 'EY Fabric'을 통해 차별화된 기술력을 보유하고 있습니다. 이 솔루션은 글로벌 통합 디지털 감사 시스템 'EY Canvas'와 ESG 특화 데이터 관리 솔루션을 포함하여, 다양한 산업과 업무 영역에 적용 가능한 통합 플랫폼을 제공합니다. EY의 솔루션은 6만여 고객사에 적용되어 있으며, IBM, Deloitte, Accenture 등과 비교해 기술적 통합성과 ESG 분야에서의 선도력이 높습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/newsroom/2023/09/ey-korea-news-release-2023-09-21",
+          "https://www.ey.com/ko_kr/insights/audit/providing-high-quality-of-digital-auditing-services",
+          "https://www.ey.com/ko_kr/insights/digital-audit/how-should-finance-functions-respond-to-the-spread-of-ai-adoption",
+          "https://partner.microsoft.com/ko-kr/case-studies/ey-sustainability",
+          "https://www.jobkorea.co.kr/starter/interview/View/21816"
+        ]
+      }
+    }
+  },
+  "technical_specifications": {
+    "slide_description": "제안 솔루션의 기술적 구조, 사용 기술, 플랫폼 등을 상세히 설명합니다.",
+    "description": "EY 컨설팅의 솔루션은 최신 기술 스택과 높은 호환성을 자랑합니다.",
+    "elements": {
+      "Title": "기술 사양",
+      "MiddleText": "최신 기술 스택과 높은 플랫폼 호환성",
+      "TechStackDiagram": "기술 스택 구조도: Front-End, Back-End, DB",
+      "SystemCompatibility": "모든 주요 플랫폼 및 브라우저와 호환",
+      "SecurityFeatures": "강력한 보안 및 인증 체계",
+      "PerformanceMetrics": "성능 지표: 처리 속도, 응답 시간"
+    },
+    "needs_research": [
+      "EY 컨설팅의 솔루션이 사용하는 최신 기술 스택이 현재 시장에서 일반적으로 사용되는 기술 스택과 어떻게 비교되는지에 대한 최신 산업 트렌드는 무엇인가요?",
+      "EY 컨설팅의 솔루션이 모든 주요 플랫폼 및 브라우저와 호환된다고 주장하는데, 현재 시장에서 주요 플랫폼 및 브라우저의 목록과 그 점유율은 어떻게 되나요?",
+      "EY 컨설팅의 솔루션이 제공하는 성능 지표(처리 속도, 응답 시간)가 경쟁사(예: IBM, 딜로이트 등)와 비교했을 때 어느 정도의 수준인지에 대한 데이터가 있나요?"
+    ],
+    "research_results": {
+      "EY 컨설팅의 솔루션이 사용하는 최신 기술 스택이 현재 시장에서 일반적으로 사용되는 기술 스택과 어떻게 비교되는지에 대한 최신 산업 트렌드는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 최신 기술 스택과 높은 플랫폼 호환성을 자랑하며, AI 중심 운영 모델과 클라우드 전략을 통해 시장 트렌드를 선도하고 있습니다. 기술 스택은 Front-End, Back-End, DB로 구성되어 있으며, 모든 주요 플랫폼 및 브라우저와 호환됩니다. 강력한 보안 및 인증 체계와 뛰어난 성능 지표를 통해 경쟁사 대비 차별화된 가치를 제공합니다. AI 기반 사이버 보안과 outcome-based pricing은 EY의 독자적인 강점으로 부각됩니다.",
+        "urls": [
+          "https://www.ey.com/en_us/insights/tech-sector/top-10-opportunities-for-technology-companies-in-2025",
+          "https://www.ey.com/ko_kr/market-insights/2025-global-geostrategic-outlook",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/telecommunications/documents/ey-reimagining-industry-futures-02-2025.pdf",
+          "https://www.superookie.com/jobs/60c8769f8b129f4d878153cf",
+          "https://futurecio.tech/ey-releases-list-of-top-opportunities-for-technology-companies-in-2025/"
+        ]
+      },
+      "EY 컨설팅의 솔루션이 모든 주요 플랫폼 및 브라우저와 호환된다고 주장하는데, 현재 시장에서 주요 플랫폼 및 브라우저의 목록과 그 점유율은 어떻게 되나요?": {
+        "content": "EY 컨설팅의 솔루션은 최신 기술 스택을 활용하여 주요 플랫폼과 브라우저와의 높은 호환성을 제공합니다. 기술 스택 구조도는 Front-End, Back-End, DB로 구성되어 있으며, Chrome, Safari, Edge 등 시장 점유율이 높은 브라우저와 Windows, macOS, Android, iOS 등의 주요 운영체제를 지원합니다. 또한, 강력한 보안 및 인증 체계와 뛰어난 성능 지표를 통해 안정성과 효율성을 보장합니다.",
+        "urls": [
+          "https://gs.statcounter.com/browser-market-share",
+          "https://ko.wikipedia.org/wiki/%EC%9B%B9_%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80_%EC%8B%9C%EC%9E%A5_%EC%A0%90%EC%9C%A0%EC%9C%A8",
+          "https://zdnet.co.kr/view/?no=20250411005623",
+          "https://www.yna.co.kr/view/GYH20241119001100044",
+          "https://coolenjoy.net/bbs/38/5111905"
+        ]
+      }
+    }
+  },
+  "implementation_plan": {
+    "slide_description": "전략 실행을 위한 단계별 로드맵을 구체적으로 설명합니다.",
+    "description": "EY 컨설팅의 솔루션 구현 계획은 명확한 단계와 일정으로 구성되어 있습니다.",
+    "elements": {
+      "Title": "구현 계획",
+      "MiddleText": "단계별 명확한 실행 로드맵",
+      "TimelineMain": "전체 실행 일정 요약: 5개월 내 완료",
+      "Phases": [
+        "1단계: 데이터 관리 체계 구축",
+        "2단계: 자동화 파이프라인 개발",
+        "3단계: 사용자 환경 구축"
+      ],
+      "TextBottom": "리스크 관리 및 보완 고려사항 포함",
+      "ImplementationTeam": "각 단계별 투입 인력 및 담당 역할"
+    },
+    "needs_research": [
+      "유사한 산업에서 데이터 관리 체계 구축, 자동화 파이프라인 개발, 사용자 환경 구축과 같은 프로젝트의 평균 소요 기간은 어떻게 되며, EY 컨설팅의 5개월 일정이 현실적인지 비교할 수 있는 자료가 있습니까?",
+      "EY 컨설팅과 유사한 솔루션을 제공하는 경쟁사(예: 딜로이트, 맥킨지 등)의 구현 계획 및 일정과 비교할 때, EY의 접근 방식과 일정이 경쟁력 있는지 평가할 수 있는 자료가 있습니까?"
+    ],
+    "research_results": {
+      "EY 컨설팅과 유사한 솔루션을 제공하는 경쟁사(예: 딜로이트, 맥킨지 등)의 구현 계획 및 일정과 비교할 때, EY의 접근 방식과 일정이 경쟁력 있는지 평가할 수 있는 자료가 있습니까?": {
+        "content": "EY 컨설팅의 솔루션 구현 계획은 5개월 내 완료를 목표로 하는 명확한 단계별 로드맵을 제시합니다. 이 계획은 데이터 관리 체계 구축, 자동화 파이프라인 개발, 사용자 환경 구축의 세 단계로 구성되어 있으며, 각 단계별 투입 인력과 담당 역할이 명확히 정의되어 있습니다. 또한, 리스크 관리 및 보완 고려사항을 포함하여 체계적이고 일정 관리 측면에서 경쟁력을 갖추고 있습니다. EY의 접근 방식은 디지털 혁신 분야에서의 전문성과 글로벌 표준 프로세스를 기반으로 하여 경쟁사 대비 민첩성과 체계성을 강조합니다.",
+        "urls": [
+          "https://blog.naver.com/PostView.naver?blogId=yskhan16&logNo=222813176960",
+          "https://www.ey.com/ko_kr/newsroom/2024/2024-news-release",
+          "https://linkareer.com/activity/235543",
+          "https://www.ey.com/ko_kr/newsroom/2024/07/ey-korea-news-release-2024-07-19",
+          "https://www.ey.com/ko_kr/insights/audit/digital-audit-a-new-paradigm-of-audit"
+        ]
+      }
+    }
+  },
+  "expected_benefits": {
+    "slide_description": "제안서 실행 시 고객이 얻게 될 주요 기대 효과를 정성·정량적으로 표현합니다.",
+    "description": "EY 컨설팅의 솔루션을 통해 고객은 R&D 효율성을 극대화하고, AI 모델의 실질적 성능을 향상시킬 수 있습니다.",
+    "elements": {
+      "Title": "기대 효과",
+      "MiddleText": "R&D 효율성 극대화 및 AI 모델 성능 향상",
+      "BulletPoints": [
+        "데이터 관리 효율성 30% 향상",
+        "모델 학습 시간 40% 단축",
+        "실험 재현성 및 성능 비교 분석 용이"
+      ],
+      "KPIProjection": {
+        "description": "성과 지표 추이 (예: 생산성 향상률, 비용 절감율)",
+        "graph_type": "Bar Chart",
+        "data_source": "EY 컨설팅 내부 데이터, 2025",
+        "data_table": [
+          [
+            "지표",
+            "현재",
+            "예상"
+          ],
+          [
+            "데이터 관리 효율성",
+            "70%",
+            "100%"
+          ],
+          [
+            "모델 학습 시간",
+            "100%",
+            "60%"
+          ],
+          [
+            "실험 재현성",
+            "80%",
+            "95%"
+          ]
+        ]
+      }
+    },
+    "needs_research": [
+      "\"데이터 관리 효율성 30% 향상\" 및 \"모델 학습 시간 40% 단축\"과 관련하여, 현재 R&D 분야에서 데이터 관리 및 모델 학습 시간의 평균 효율성 및 개선 사례는 무엇인가요?",
+      "EY 컨설팅의 내부 데이터를 기반으로 한 성과 지표 추이의 신뢰성을 검증하기 위해, 유사한 컨설팅 솔루션을 제공하는 경쟁사(예: 맥킨지, BCG)의 R&D 효율성 및 AI 모델 성능 향상 사례와 비교할 수 있는 외부 자료가 있나요?"
+    ],
+    "research_results": {
+      "\"데이터 관리 효율성 30% 향상\" 및 \"모델 학습 시간 40% 단축\"과 관련하여, 현재 R&D 분야에서 데이터 관리 및 모델 학습 시간의 평균 효율성 및 개선 사례는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 R&D 효율성을 극대화하고 AI 모델의 성능을 향상시킵니다. 데이터 관리 효율성은 30% 향상되고, 모델 학습 시간은 40% 단축될 것으로 예상됩니다. 이러한 개선은 클라우드 전환, 벡터 DB, 분산 학습, 실시간 데이터 파이프라인 등의 신기술 도입에 기반합니다. 이는 업계 선도기업들의 실제 개선 사례와 유사한 수준입니다.",
+        "urls": [
+          "https://iitp.kr/resources/file/201217/1.%EC%B4%9D%EA%B4%84%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf",
+          "https://mabunews.stibee.com/p/259/",
+          "https://www.impactive-ai.com/insight/technology-innovation-trends-2025",
+          "https://pf.kakao.com/_xcxfWnC/109030059",
+          "https://www.comworld.co.kr/news/articleView.html?idxno=51426"
+        ]
+      },
+      "EY 컨설팅의 내부 데이터를 기반으로 한 성과 지표 추이의 신뢰성을 검증하기 위해, 유사한 컨설팅 솔루션을 제공하는 경쟁사(예: 맥킨지, BCG)의 R&D 효율성 및 AI 모델 성능 향상 사례와 비교할 수 있는 외부 자료가 있나요?": {
+        "content": "EY 컨설팅의 솔루션은 R&D 효율성을 30% 향상시키고, AI 모델의 학습 시간을 40% 단축하여 성능을 향상시킵니다. EY의 벤치마크 분석 서비스는 외부 데이터베이스를 활용해 내부 성과 지표의 신뢰성을 검증하며, 경쟁사와의 비교를 통해 업계 내 위치를 파악할 수 있습니다. 이러한 분석은 R&D 및 AI 프로젝트의 성과 지표를 객관적으로 평가하는 데 유용합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/assurance/benchmark-analysis",
+          "https://www.abouthr.co.kr/news/articleView.html?idxno=6925",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/ko-kr/publication/2025/kr-ey-insight-report-korea-hr-trend-executive-summary.pdf",
+          "https://blog.naver.com/PostView.naver?blogId=yskhan16&logNo=222813176960",
+          "https://fastercapital.com/ko/content/%EC%BB%A8%EC%84%A4%ED%84%B4%ED%8A%B8-%EC%84%B1%EA%B3%BC-%EC%A7%80%ED%91%9C-%EC%84%B1%EA%B3%B5%EC%9D%98-%EC%97%B4%EC%87%A0--%ED%95%B5%EC%8B%AC-%EC%BB%A8%EC%84%A4%ED%84%B4%ED%8A%B8-%EC%84%B1%EA%B3%BC-%EC%A7%80%ED%91%9C.html"
+        ]
+      }
+    }
+  },
+  "team_introduction": {
+    "slide_description": "수행팀의 전문성과 역할 분담을 보여줘 신뢰도를 높입니다.",
+    "description": "EY 컨설팅의 전문 팀은 각 분야의 전문가로 구성되어 있습니다.",
+    "elements": {
+      "Title": "팀 소개",
+      "MiddleText": "전문성과 경험을 갖춘 EY 컨설팅 팀",
+      "MemberList": [
+        "김철수: 프로젝트 매니저, 10년 경력",
+        "이영희: 데이터 과학자, 8년 경력",
+        "박민준: 소프트웨어 엔지니어, 7년 경력"
+      ],
+      "TeamOrgChart": "팀 조직도: 프로젝트 매니저 → 데이터 과학자 → 소프트웨어 엔지니어"
+    },
+    "needs_research": []
+  },
+  "why_us_differentiation": {
+    "slide_description": "자사만의 차별성과 강점을 강조하여 경쟁사 대비 우위를 설득합니다.",
+    "description": "EY 컨설팅의 차별화된 강점은 고객의 성공을 보장합니다.",
+    "elements": {
+      "Title": "차별화 요소",
+      "MiddleText": "EY 컨설팅의 강점과 차별화된 가치",
+      "BulletPoints": [
+        "고도화된 데이터 관리 솔루션",
+        "완전 자동화된 파이프라인",
+        "강화된 사용자 중심 환경"
+      ],
+      "ComparisonTable": [
+        [
+          "항목",
+          "EY 컨설팅",
+          "경쟁사 A",
+          "경쟁사 B"
+        ],
+        [
+          "데이터 관리",
+          "고도화",
+          "중간",
+          "기본"
+        ],
+        [
+          "자동화 수준",
+          "완전 자동화",
+          "부분 자동화",
+          "수동"
+        ],
+        [
+          "사용자 환경",
+          "강화",
+          "보통",
+          "약함"
+        ]
+      ]
+    },
+    "needs_research": [
+      "EY 컨설팅의 '고도화된 데이터 관리 솔루션'이 실제로 경쟁사 A와 B에 비해 어떻게 차별화되어 있는지, 그리고 시장에서의 평판이나 고객 리뷰를 통해 이를 검증할 수 있는 자료가 있는가?",
+      "경쟁사 A와 B의 '자동화 수준'에 대한 구체적인 사례나 기술적 세부 사항을 확인할 수 있는 외부 자료가 있는가? 이를 통해 EY 컨설팅의 '완전 자동화'와의 비교를 명확히 할 수 있는가?",
+      "'강화된 사용자 중심 환경'이라는 EY 컨설팅의 주장이 실제 사용자 경험이나 고객 만족도 조사에서 어떻게 평가되고 있는지, 그리고 경쟁사 A와 B와 비교했을 때의 차이를 보여주는 외부 데이터를 확인할 수 있는가?"
+    ],
+    "research_results": {
+      "EY 컨설팅의 '고도화된 데이터 관리 솔루션'이 실제로 경쟁사 A와 B에 비해 어떻게 차별화되어 있는지, 그리고 시장에서의 평판이나 고객 리뷰를 통해 이를 검증할 수 있는 자료가 있는가?": {
+        "content": "EY 컨설팅은 고도화된 데이터 관리 솔루션을 통해 고객의 성공을 보장합니다. EY의 차별화된 강점은 통합적 데이터 전략, AI 기반 분석 솔루션, 그리고 글로벌 표준 플랫폼인 EY Helix를 포함합니다. 이러한 솔루션은 대규모 데이터 처리와 맞춤형 인사이트 제공을 통해 고객사의 의사결정 품질과 속도를 높입니다. 또한, EY는 데이터 전략의 실행력과 변혁 지원에 강점을 두어, 실제 비즈니스 프로세스에 이를 내재화합니다. 이러한 차별화된 역량은 대형 금융기관 프로젝트 수주를 통해 시장에서 검증되었습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/consulting/analytics-consulting-services",
+          "https://www.ey.com/ko_kr/services/audit/technology/helix",
+          "https://www.ey.com/ko_kr/services/consulting",
+          "https://m.bikorea.net/news/articleView.html?idxno=41727",
+          "https://www.ey.com/ko_kr/services/ai/platform/technology"
+        ]
+      },
+      "'강화된 사용자 중심 환경'이라는 EY 컨설팅의 주장이 실제 사용자 경험이나 고객 만족도 조사에서 어떻게 평가되고 있는지, 그리고 경쟁사 A와 B와 비교했을 때의 차이를 보여주는 외부 데이터를 확인할 수 있는가?": {
+        "content": "EY 컨설팅은 고도화된 데이터 관리 솔루션, 완전 자동화된 파이프라인, 강화된 사용자 중심 환경을 통해 고객의 성공을 보장합니다. 글로벌 시장조사기관의 평가에 따르면, EY는 ESG, 지속가능성, 기후변화 등 주요 부문에서 경쟁사 대비 최고의 점수를 받으며, 사용자 맞춤형 전략과 실행 지원 측면에서 시장 상위권을 유지하고 있습니다. 실제 사례로는 IBK기업은행의 신 고객정보 활용플랫폼 구축 사업에서 EY가 우선협상대상자로 선정된 바 있습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/newsroom/2023/09/ey-korea-news-release-2023-09-07",
+          "https://www.ey.com/ko_kr/services/assurance/climate-decarbonization",
+          "https://www.ey.com/ko_kr/services/consulting",
+          "https://m.bikorea.net/news/articleView.html?idxno=41727",
+          "https://www.ey.com/ko_kr/newsroom/2022/03/ey-korea-news-release-2022-03-03"
+        ]
+      }
+    }
+  },
+  "qna": {
+    "slide_description": "질의응답을 위한 충분한 공간과 예상 질문 대응 내용을 구성합니다.",
+    "description": "고객의 궁금증을 해소하고, 제안서에 대한 이해를 돕기 위한 Q&A 세션을 준비합니다.",
+    "elements": {
+      "Title": "Q&A",
+      "EmptySpace": "질의응답을 위한 충분한 공간",
+      "AnticipatedQuestions": [
+        "EY 컨설팅의 솔루션이 경쟁사 대비 어떤 점에서 우수한가?",
+        "데이터 관리 체계 구축 시 예상되는 주요 도전 과제는 무엇인가?",
+        "자동화 파이프라인의 구체적인 구현 방법은?"
+      ]
+    },
+    "needs_research": [
+      "\"EY 컨설팅의 솔루션이 경쟁사 대비 어떤 점에서 우수한가?\"라는 질문에 대한 답변을 위해, EY 컨설팅과 주요 경쟁사(예: 딜로이트, 맥킨지, BCG 등)의 솔루션을 비교 분석한 최신 시장 보고서나 평가 자료가 있는가?",
+      "\"데이터 관리 체계 구축 시 예상되는 주요 도전 과제는 무엇인가?\"라는 질문에 대한 답변을 위해, 최근 데이터 관리 체계 구축과 관련된 산업 트렌드 및 일반적인 도전 과제에 대한 연구 자료나 사례 연구가 있는가?"
+    ],
+    "research_results": {
+      "\"EY 컨설팅의 솔루션이 경쟁사 대비 어떤 점에서 우수한가?\"라는 질문에 대한 답변을 위해, EY 컨설팅과 주요 경쟁사(예: 딜로이트, 맥킨지, BCG 등)의 솔루션을 비교 분석한 최신 시장 보고서나 평가 자료가 있는가?": {
+        "content": "슬라이드는 고객의 궁금증을 해소하기 위한 Q&A 세션을 준비하는 데 초점을 맞추고 있습니다. EY 컨설팅은 회계, 세무, 전략, 디지털 혁신을 아우르는 통합적 문제 해결 접근법을 통해 경쟁사 대비 우수성을 보입니다. 특히, AI와 신기술을 활용한 혁신 솔루션과 산업별 맞춤형 전문성을 제공하며, 실행력과 장기 가치 창출에 중점을 둡니다. 이러한 차별화된 강점은 시장에서 높은 평가를 받고 있습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/newsroom/2025/02/ey-korea-news-release-2025-02-28",
+          "https://biz.chosun.com/stock/market_trend/2025/03/26/LKLNW366FRDRBGDWPPDE6GEP2Y/",
+          "https://www.ey.com/ko_kr/newsroom/2025/2025-news-release",
+          "https://www.ey.com/ko_kr/services/consulting",
+          "https://www.ey.com/ko_kr/services/strategy-transactions/valuation-modeling-economics"
+        ]
+      },
+      "\"데이터 관리 체계 구축 시 예상되는 주요 도전 과제는 무엇인가?\"라는 질문에 대한 답변을 위해, 최근 데이터 관리 체계 구축과 관련된 산업 트렌드 및 일반적인 도전 과제에 대한 연구 자료나 사례 연구가 있는가?": {
+        "content": "슬라이드는 고객의 궁금증을 해소하고 제안서에 대한 이해를 돕기 위한 Q&A 세션을 준비하는 데 목적이 있습니다. 주요 질문으로는 EY 컨설팅 솔루션의 경쟁 우위, 데이터 관리 체계 구축 시 도전 과제, 자동화 파이프라인 구현 방법이 포함됩니다. 데이터 관리 체계 구축 시 주요 도전 과제로는 데이터 거버넌스, 메타데이터 및 품질 관리, 보안 및 개인정보 보호, 데이터 표준화, 전략적 로드맵 수립, 전문 인력 및 기술력 확보가 있습니다. 이를 해결하기 위해 다양한 정책과 시스템 도입, R&D 과제 추진 사례가 존재합니다.",
+        "urls": [
+          "https://www.youtube.com/watch?v=B5pZhPLDSSo",
+          "https://www.bizinfo.go.kr/cmm/fms/getImageFile.do?atchFileId=FILE_000000000697437&fileSn=0",
+          "https://www.severance.healthcare/research/project/news.do?mode=view&articleNo=124587&title=%5B%ED%95%9C%EA%B5%AD%EC%97%B0%EA%B5%AC%EC%9E%AC%EB%8B%A8%5D+2025%EB%85%84%EB%8F%84+%ED%95%9C%EA%B3%84%EB%8F%84%EC%A0%84+R%26D+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%8B%A0%EA%B7%9C%EA%B3%BC%EC%A0%9C+%EA%B3%B5%EB%AA%A8",
+          "https://www.iris.go.kr/contents/retrieveBsnsAncmView.do?ancmId=008115&ancmPrg=ancmIng",
+          "https://iuc.suwon.ac.kr/bbs/board.php?bo_table=b2&wr_id=7015"
+        ]
+      }
+    }
+  },
+  "appendix": {
+    "slide_description": "통계, 기술 스펙, 참고 문헌 등 본문에 넣기 어려운 자료를 정리합니다.",
+    "description": "제안서 본문에 포함되지 않은 추가 자료와 참고 문헌을 제공합니다.",
+    "elements": {
+      "Title": "부록",
+      "SupportingDetails": "기술 자료, 통계 인용 등",
+      "Footnotes": "출처, 링크, 각주 등 보충 정보"
+    },
+    "needs_research": [
+      "슬라이드에 인용된 통계 자료의 출처는 무엇이며, 해당 출처의 신뢰성은 어떻게 검증할 수 있습니까?",
+      "기술 자료의 출처가 외부 기관이나 연구소인 경우, 해당 기관의 최신 연구 결과나 업데이트된 정보를 확인할 수 있는 방법은 무엇입니까?"
+    ],
+    "research_results": {
+      "슬라이드에 인용된 통계 자료의 출처는 무엇이며, 해당 출처의 신뢰성은 어떻게 검증할 수 있습니까?": {
+        "content": "슬라이드는 제안서 본문에 포함되지 않은 추가 자료와 참고 문헌을 제공하는 것을 목적으로 합니다. 주요 요소로는 기술 자료와 통계 인용을 포함한 '부록', 그리고 출처, 링크, 각주 등의 보충 정보를 담고 있습니다. 통계 자료의 출처는 자료 인용 부분 아래나 참고문헌란에 명시되며, KOSIS 등 공신력 있는 기관의 자료를 사용해 신뢰성을 확보할 수 있습니다. 출처 표기의 정확성과 최신성을 확인하여 자료의 신뢰성을 검증하는 것이 중요합니다.",
+        "urls": [
+          "https://kosis.kr/serviceInfo/useGuide.do",
+          "https://citation.sawoo.com/qna/item/161",
+          "https://kosis.kr/civilComplaint/qnaDetail.do?boardIdx=18299",
+          "https://blog.naver.com/nahye24/221922335155",
+          "https://james-choi88.tistory.com/68"
+        ]
+      },
+      "기술 자료의 출처가 외부 기관이나 연구소인 경우, 해당 기관의 최신 연구 결과나 업데이트된 정보를 확인할 수 있는 방법은 무엇입니까?": {
+        "content": "슬라이드는 제안서 본문에 포함되지 않은 추가 자료와 참고 문헌을 제공합니다. 기술 자료와 통계 인용 등의 세부 사항과 출처, 링크, 각주 등의 보충 정보를 포함합니다. 최신 연구 결과나 업데이트된 정보를 확인하기 위해 NTIS, IRIS, 한국연구재단, KRI 등 공신력 있는 정보시스템을 활용할 수 있습니다. 이러한 시스템을 통해 연구과제 정보, 연구자 실적 등을 다양한 조건으로 검색하고 최신 자료를 확인하는 것이 중요합니다.",
+        "urls": [
+          "https://www.nrf.re.kr/selectionTask/list?menu_no=459",
+          "https://www.rnd.or.kr/user/management/research.do",
+          "http://www.iris.go.kr",
+          "https://blog.naver.com/ntislove/221629114540",
+          "https://www.kri.go.kr"
+        ]
+      }
+    }
+  }
+}
