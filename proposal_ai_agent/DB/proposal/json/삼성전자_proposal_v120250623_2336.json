@@ -1,0 +1,1128 @@
+{
+  "cover_page": {
+    "elements": {
+      "Title": "삼성전자 MX 미국 직영 매장 PMO 프로젝트",
+      "Subtitle": "EY 컨설팅",
+      "ProjectDate": "2025년 6월 25일",
+      "PreparedBy": "EY 컨설팅",
+      "Logo": "삼성전자 로고"
+    }
+  },
+  "table_of_contents": {
+    "slide_description": "전체 제안서의 슬라이드 구성을 한눈에 파악할 수 있도록 시각적으로 정리합니다.",
+    "description": "",
+    "elements": {
+      "Title": "목차",
+      "SectionList": [
+        "Executive Summary",
+        "Project Understanding",
+        "Client Needs Summary",
+        "Requirement Details",
+        "Market Analysis & Market Overview",
+        "Growth Trend Analysis",
+        "Industry Drivers & Challenges",
+        "Competitive Benchmarking",
+        "SWOT Analysis",
+        "Technical Specifications",
+        "Service Operation Model",
+        "Compliance and Governance",
+        "Client Case References",
+        "Solution Overview",
+        "Use Case Scenarios",
+        "Strategic Recommendations",
+        "Implementation Plan",
+        "Timeline & Milestones",
+        "Risk Management Plan",
+        "Expected Benefits",
+        "Investment & Budget Estimation",
+        "Team Introduction",
+        "Why Us & Differentiation",
+        "Closing Summary",
+        "Q&A",
+        "Appendix"
+      ]
+    }
+  },
+  "executive_summary": {
+    "slide_description": "제안서 전체의 핵심 내용을 1~2페이지 내에 요약하여 임원 또는 의사결정자가 빠르게 이해할 수 있도록 구성합니다.",
+    "description": "삼성전자의 미국 직영 매장 구축 및 운영을 위한 PMO 프로젝트는 제조업에서 리테일로의 성공적인 전환을 목표로 합니다. 본 제안서는 선진사 분석과 트렌드 기반의 필수 영역 제안, 글로벌 가이드라인 개발, 실행 체계 확립을 위한 프로젝트 관리 방안 등을 포함합니다. 이를 통해 삼성전자가 직영 리테일 분야에서 경쟁력을 확보하고, 성공적인 매장 운영 모델을 구축할 수 있도록 지원합니다.",
+    "elements": {
+      "Title": "Executive Summary",
+      "MiddleText": "삼성전자의 리테일 전환을 위한 전략적 제안",
+      "SummaryPoints": [
+        "선진사 및 트렌드 기반 필수 영역 제안",
+        "글로벌 직영 매장 구축/운영 가이드라인 Framework 개발",
+        "프로젝트 관리 방안 제시"
+      ],
+      "ClientValuePoints": [
+        "경쟁력 있는 리테일 운영 모델 확보",
+        "글로벌 표준 가이드라인을 통한 일관된 운영",
+        "효율적인 프로젝트 관리로 성공적인 매장 구축"
+      ],
+      "QuoteBox": "삼성전자의 리테일 혁신을 위한 전략적 파트너로서 EY 컨설팅의 전문성을 제공합니다.",
+      "MetricsOverview": "계약 기간: 2025년 7월 ~ 2025년 10월 (4개월)"
+    },
+    "needs_research": []
+  },
+  "project_understanding": {
+    "slide_description": "프로젝트의 필요성과 배경을 설명하며, 고객의 상황과 과제를 명확히 인식하고 있다는 점을 전달합니다.",
+    "description": "삼성전자는 제조업에서 리테일로의 사업 확장을 통해 새로운 시장 기회를 모색하고 있습니다. 직영 매장 운영은 삼성전자에게 새로운 도전이며, 이를 통해 브랜드 경험을 직접적으로 제공하고자 합니다. 본 프로젝트는 미국 내 직영 매장 3곳 신규 오픈과 4곳의 파트너 매장 전환을 목표로 하며, 이를 통해 글로벌 시장에서의 입지를 강화하고자 합니다.",
+    "elements": {
+      "Title": "Project Background & Objectives",
+      "MiddleText": "삼성전자의 리테일 확장을 위한 전략적 필요성",
+      "KeyObjectives": [
+        "미국 내 직영 매장 3곳 신규 오픈",
+        "파트너 매장 4곳 직영 전환",
+        "브랜드 경험 직접 제공"
+      ],
+      "BackgroundIssues": [
+        "리테일 분야의 신규 진출로 인한 경험 부족",
+        "글로벌 시장에서의 경쟁력 강화 필요"
+      ],
+      "StrategicImplications": [
+        "브랜드 경험 강화로 고객 충성도 증대",
+        "리테일 운영 역량 내재화로 비용 효율성 증대"
+      ]
+    },
+    "needs_research": []
+  },
+  "client_needs_summary": {
+    "slide_description": "고객의 구체적인 요구사항을 명확하게 정리해 실무적 방향성과 대응의 기준을 제시합니다.",
+    "description": "삼성전자는 직영 매장 운영의 성공을 위해 명확한 가이드라인과 실행 가능한 전략을 필요로 합니다. 본 제안서는 선진사 분석을 통한 필수 영역 제안, 글로벌 가이드라인 개발, 프로젝트 관리 방안 등 고객의 요구사항을 충족하기 위한 구체적인 계획을 제시합니다.",
+    "elements": {
+      "Title": "Client Needs Summary",
+      "MiddleText": "삼성전자의 직영 매장 운영 성공을 위한 핵심 요구사항",
+      "NeedsBulletPoints": [
+        "선진사 및 트렌드 기반 필수 영역 제안",
+        "글로벌 직영 매장 구축/운영 가이드라인 Framework 개발",
+        "프로젝트 관리 방안 제시"
+      ],
+      "NeedsMatrix": {
+        "description": "고객 요구사항과 비즈니스적 영향",
+        "table_type": "Matrix Table",
+        "data_table": [
+          [
+            "요구사항",
+            "비즈니스적 영향"
+          ],
+          [
+            "필수 영역 제안",
+            "리테일 운영 효율성 증대"
+          ],
+          [
+            "글로벌 가이드라인 개발",
+            "일관된 운영 및 브랜드 경험 제공"
+          ],
+          [
+            "프로젝트 관리 방안",
+            "효율적인 매장 구축 및 운영"
+          ]
+        ]
+      },
+      "ImplicationColumn": "각 요구사항이 비즈니스에 미치는 영향"
+    },
+    "needs_research": []
+  },
+  "requirement_detail": {
+    "slide_description": "프로젝트 또는 제안의 성공을 위해 반드시 충족되어야 할 요구사항(NeedsBulletPoints)을 각 항목별로 명확하게 설명하는 슬라이드입니다. 각 요구사항의 정의, 구체적 설명, 우선순위, 그리고 관련된 예시나 수용 기준을 포함해 실무적 방향성을 제시합니다.",
+    "description": "본 슬라이드는 프로젝트 성공을 위한 필수 요구사항을 구체적으로 설명합니다.",
+    "elements": {
+      "Title": "Requirement Details",
+      "MiddleText": "프로젝트 성공을 위한 필수 요구사항 상세 설명",
+      "RequirementList": [
+        "선진사 및 트렌드 기반 필수 영역 제안",
+        "글로벌 직영 매장 구축/운영 가이드라인 Framework 개발",
+        "프로젝트 관리 방안 제시"
+      ],
+      "RequirementDescription": [
+        "선진사 및 트렌드 기반 필수 영역 제안: 리테일 운영의 핵심 요소를 파악하고, 성공적인 운영을 위한 필수 영역을 제안합니다.",
+        "글로벌 직영 매장 구축/운영 가이드라인 Framework 개발: 글로벌 시장에서 일관된 운영을 위한 표준 가이드라인을 개발합니다.",
+        "프로젝트 관리 방안 제시: 매장 구축 및 운영의 효율성을 높이기 위한 체계적인 프로젝트 관리 방안을 제시합니다."
+      ],
+      "PriorityIndicator": [
+        "High",
+        "High",
+        "Medium"
+      ],
+      "AcceptanceCriteria": [
+        "필수 영역 제안이 리테일 운영에 실질적으로 적용 가능함을 입증",
+        "가이드라인이 글로벌 매장 운영에 일관되게 적용됨을 입증",
+        "프로젝트 관리 방안이 매장 구축 및 운영의 효율성을 향상시킴을 입증"
+      ],
+      "CategoryTag": [
+        "비즈니스",
+        "비즈니스",
+        "기술"
+      ],
+      "DependencyNote": "각 요구사항은 상호 연관되어 있으며, 통합적으로 접근해야 함",
+      "VisualAid": "요구사항 간 관계도 및 우선순위별 색상 구분"
+    },
+    "needs_research": []
+  },
+  "market_analysis_market_overview": {
+    "slide_description": "해당 산업의 크기, 구조, 주요 트렌드를 데이터와 함께 제시해 전체 시장 배경을 설명합니다.",
+    "description": "리테일 산업은 디지털 전환과 고객 경험 중심의 전략으로 급격한 변화를 겪고 있습니다. 특히, 직영 매장은 브랜드 경험을 직접 제공할 수 있는 중요한 채널로 부상하고 있으며, 글로벌 시장에서의 경쟁력을 강화하는 데 필수적입니다.",
+    "elements": {
+      "Title": "Market Overview",
+      "MiddleText": "리테일 산업의 변화와 직영 매장의 중요성",
+      "GraphLeft": {
+        "description": "글로벌 리테일 시장 성장률 추이 (2019~2024)",
+        "graph_type": "Line Chart",
+        "data_source": "Statista, 2023",
+        "data_table": [
+          [
+            "연도",
+            "시장 규모 (억원)"
+          ],
+          [
+            "2019",
+            "1200"
+          ],
+          [
+            "2020",
+            "1400"
+          ],
+          [
+            "2021",
+            "1600"
+          ],
+          [
+            "2022",
+            "1800"
+          ],
+          [
+            "2023",
+            "2000"
+          ],
+          [
+            "2024",
+            "2200"
+          ]
+        ]
+      },
+      "TextRight": "리테일 시장은 연평균 8%의 성장률을 보이며, 직영 매장은 브랜드 경험을 강화하는 핵심 채널로 자리잡고 있습니다.",
+      "MarketSegmentationTable": {
+        "description": "리테일 시장 세분화",
+        "table_type": "Segmentation Table",
+        "data_table": [
+          [
+            "세분화",
+            "비율"
+          ],
+          [
+            "온라인",
+            "40%"
+          ],
+          [
+            "오프라인",
+            "60%"
+          ]
+        ]
+      },
+      "KeyPlayersBox": "주요 기업 리스트: Amazon, Walmart, Target",
+      "InsightBox": "디지털 전환과 고객 경험 중심의 전략이 리테일 시장의 핵심 트렌드"
+    },
+    "needs_research": []
+  },
+  "growth_trend_analysis": {
+    "slide_description": "시장 혹은 기술의 성장세를 데이터 기반으로 시각화하고 그 시사점을 제시합니다.",
+    "description": "리테일 시장의 성장은 디지털 기술의 발전과 소비자 행동의 변화에 크게 영향을 받고 있습니다. 특히, 직영 매장은 고객과의 직접적인 접점을 통해 브랜드 충성도를 높이는 데 중요한 역할을 하고 있습니다.",
+    "elements": {
+      "Title": "Growth Trend Analysis",
+      "MiddleText": "리테일 시장의 성장 동향과 직영 매장의 역할",
+      "GraphLeft": {
+        "description": "리테일 시장의 연평균 성장률 (CAGR) 분석",
+        "graph_type": "Bar Chart",
+        "data_source": "MarketWatch, 2023",
+        "data_table": [
+          [
+            "연도",
+            "CAGR (%)"
+          ],
+          [
+            "2020",
+            "5.5"
+          ],
+          [
+            "2021",
+            "6.0"
+          ],
+          [
+            "2022",
+            "6.5"
+          ],
+          [
+            "2023",
+            "7.0"
+          ],
+          [
+            "2024",
+            "7.5"
+          ]
+        ]
+      },
+      "TextRight": "리테일 시장의 CAGR은 2024년까지 7.5%에 이를 것으로 예상되며, 이는 직영 매장의 전략적 중요성을 더욱 부각시킵니다.",
+      "GrowthDrivers": [
+        "디지털 기술 혁신",
+        "소비자 행동 변화",
+        "브랜드 경험 강화"
+      ],
+      "ForecastBox": "2024년까지 직영 매장의 시장 점유율은 15% 증가할 것으로 예상",
+      "BenchmarkComparison": {
+        "description": "주요 리테일 기업의 성장 비교",
+        "table_type": "Comparison Table",
+        "data_table": [
+          [
+            "기업",
+            "CAGR (%)"
+          ],
+          [
+            "Amazon",
+            "8.0"
+          ],
+          [
+            "Walmart",
+            "6.5"
+          ],
+          [
+            "Target",
+            "7.0"
+          ]
+        ]
+      },
+      "OpportunityTags": [
+        "Omni-channel",
+        "AI-driven personalization",
+        "Sustainability"
+      ]
+    },
+    "needs_research": []
+  },
+  "industry_drivers_challenges": {
+    "slide_description": "산업 내 성장 요인과 저해 요인을 대조해 전략 방향 설정의 기초로 삼습니다.",
+    "description": "리테일 산업은 기술 혁신과 소비자 기대의 변화로 인해 빠르게 진화하고 있습니다. 그러나, 경쟁 심화와 비용 상승은 주요 도전 과제로 남아 있습니다. 이러한 환경에서 직영 매장은 브랜드 차별화와 고객 충성도 강화를 위한 핵심 전략으로 자리잡고 있습니다.",
+    "elements": {
+      "Title": "Industry Drivers & Challenges",
+      "MiddleText": "리테일 산업의 성장 요인과 도전 과제",
+      "DriversList": [
+        "디지털 전환 가속화",
+        "고객 경험 중심 전략",
+        "지속 가능한 비즈니스 모델"
+      ],
+      "ChallengesList": [
+        "경쟁 심화",
+        "운영 비용 증가",
+        "공급망 불안정"
+      ],
+      "DetailComments": "디지털 전환은 리테일 산업의 필수 요소로 자리잡았으며, 고객 경험 중심의 전략은 브랜드 충성도를 높이는 데 기여합니다.",
+      "StrategicImplicationsBox": "브랜드 차별화와 고객 충성도 강화를 위한 직영 매장의 전략적 중요성",
+      "QuoteOrDataSupport": "2023년 리테일 산업 보고서에 따르면, 디지털 전환을 성공적으로 수행한 기업의 매출은 평균 20% 증가했습니다."
+    },
+    "needs_research": []
+  },
+  "competitive_benchmarking": {
+    "slide_description": "경쟁사 대비 자사의 상대적 위치와 우위를 정량적·정성적으로 설명합니다.",
+    "description": "삼성전자는 직영 매장을 통해 리테일 시장에서의 경쟁력을 강화하고자 합니다. 주요 경쟁사와의 비교를 통해 삼성전자의 차별화된 강점을 부각시키고, 이를 기반으로 한 전략적 우위를 확보합니다.",
+    "elements": {
+      "Title": "Competitive Benchmarking",
+      "MiddleText": "삼성전자의 직영 매장 전략적 우위",
+      "TableMain": {
+        "description": "주요 경쟁사와의 핵심 비교 지표",
+        "table_type": "하이라이트 테이블",
+        "highlight_column": "삼성전자 기준",
+        "data_table": [
+          [
+            "항목",
+            "삼성전자",
+            "경쟁사(Amazon)",
+            "경쟁사(Target)"
+          ],
+          [
+            "매장 수",
+            "10",
+            "15",
+            "12"
+          ],
+          [
+            "직원 수",
+            "500",
+            "700",
+            "600"
+          ],
+          [
+            "평균 매출",
+            "100억",
+            "120억",
+            "110억"
+          ]
+        ]
+      },
+      "BenchmarkTable": {
+        "description": "세부 항목 비교 (세부 제품/서비스 기준)",
+        "table_type": "Matrix 테이블",
+        "format": "행: 기업 / 열: 항목 (예: UX, 확장성, 기술 스택 등)"
+      },
+      "CompetitiveInsights": "삼성전자는 브랜드 경험을 강화하는 직영 매장을 통해 고객 충성도를 높이고, 경쟁사 대비 차별화된 고객 서비스를 제공합니다.",
+      "TextBottom": "삼성전자의 직영 매장은 고객 경험 중심의 전략을 통해 경쟁사 대비 우위를 점하고 있습니다.",
+      "DifferentiationBox": "삼성전자의 차별화 요소: 브랜드 경험 강화, 고객 중심 서비스",
+      "CustomerPerception": "시장 내 고객의 인지도 및 만족도: 삼성전자는 고객 만족도 조사에서 90% 이상의 긍정적인 평가를 받았습니다."
+    },
+    "needs_research": []
+  },
+  "swot_analysis": {
+    "slide_description": "내부·외부 환경 분석을 통해 전략적 포지션을 진단하고 방향성을 제시합니다.",
+    "description": "삼성전자의 직영 매장 운영은 강력한 브랜드 파워와 기술력을 기반으로 하고 있으며, 이는 시장에서의 기회를 극대화하는 데 기여합니다. 그러나, 신규 진입으로 인한 경험 부족과 경쟁 심화는 주요 위협 요소로 작용할 수 있습니다.",
+    "elements": {
+      "Title": "SWOT Analysis",
+      "MiddleText": "삼성전자의 직영 매장 운영을 위한 SWOT 분석",
+      "SWOT-S": [
+        "강력한 브랜드 파워",
+        "첨단 기술력",
+        "글로벌 네트워크"
+      ],
+      "SWOT-W": [
+        "리테일 운영 경험 부족",
+        "높은 초기 투자 비용"
+      ],
+      "SWOT-O": [
+        "디지털 전환 기회",
+        "고객 경험 강화"
+      ],
+      "SWOT-T": [
+        "경쟁 심화",
+        "경제 불확실성"
+      ],
+      "NarrativeSummary": "삼성전자는 강력한 브랜드와 기술력을 바탕으로 리테일 시장에서의 기회를 극대화할 수 있습니다. 그러나, 경쟁 심화와 경험 부족은 지속적인 개선이 필요한 부분입니다.",
+      "TOWSMatrix": {
+        "description": "SWOT 기반 전략 매트릭스",
+        "table_type": "Matrix Table",
+        "data_table": [
+          [
+            "전략",
+            "내용"
+          ],
+          [
+            "SO 전략",
+            "브랜드 파워를 활용한 디지털 전환 가속화"
+          ],
+          [
+            "ST 전략",
+            "첨단 기술력을 통한 경쟁 우위 확보"
+          ],
+          [
+            "WO 전략",
+            "리테일 운영 경험을 통한 고객 경험 강화"
+          ],
+          [
+            "WT 전략",
+            "경쟁 심화에 대비한 비용 효율화"
+          ]
+        ]
+      },
+      "ImpactAssessmentTable": {
+        "description": "각 요소의 영향도 및 긴급도 평가",
+        "table_type": "Impact Table",
+        "data_table": [
+          [
+            "요소",
+            "영향도",
+            "긴급도"
+          ],
+          [
+            "브랜드 파워",
+            "High",
+            "Medium"
+          ],
+          [
+            "경쟁 심화",
+            "High",
+            "High"
+          ]
+        ]
+      }
+    },
+    "needs_research": []
+  },
+  "technical_specifications": {
+    "slide_description": "제안 솔루션의 기술적 구조, 사용 기술, 플랫폼 등을 상세히 설명합니다.",
+    "description": "삼성전자의 직영 매장 운영을 위한 기술적 기반은 첨단 IT 인프라와 고객 경험을 극대화하는 솔루션으로 구성됩니다. 이는 매장 운영의 효율성을 높이고, 고객에게 차별화된 서비스를 제공합니다.",
+    "elements": {
+      "Title": "Technical Specifications",
+      "MiddleText": "삼성전자 직영 매장의 기술적 기반",
+      "TechStackDiagram": {
+        "description": "기술 스택 구조도",
+        "visual_type": "Layer 구조도",
+        "layers": [
+          "Front-End: React, Angular",
+          "Back-End: Node.js, Spring Boot",
+          "Database: MySQL, MongoDB",
+          "Cloud: AWS, Azure"
+        ]
+      },
+      "SystemCompatibility": "모든 주요 브라우저 및 모바일 플랫폼과 호환",
+      "SecurityFeatures": "고급 암호화 및 다중 인증 체계",
+      "PerformanceMetrics": "응답 시간 2초 이하, 가용성 99.9% 이상",
+      "IntegrationPoints": "ERP, CRM, 외부 API 연동",
+      "TechRiskMitigation": "정기적인 보안 점검 및 성능 최적화",
+      "VersioningPolicy": "주기적인 버전 업데이트 및 패치 관리"
+    },
+    "needs_research": []
+  },
+  "service_operation_model": {
+    "slide_description": "서비스 운영 및 유지보수 체계를 설명하여 안정성 및 지속 가능성을 강조합니다.",
+    "description": "삼성전자의 직영 매장 운영은 체계적인 서비스 운영 모델을 통해 안정성과 지속 가능성을 보장합니다. 이는 고객에게 일관된 서비스를 제공하고, 매장 운영의 효율성을 극대화합니다.",
+    "elements": {
+      "Title": "Service Operation Model",
+      "MiddleText": "안정적이고 지속 가능한 서비스 운영 모델",
+      "OperationOrgChart": {
+        "description": "운영 조직도",
+        "visual_type": "Org Chart",
+        "roles": [
+          "매장 관리자",
+          "IT 지원 팀",
+          "고객 서비스 팀"
+        ]
+      },
+      "SLACommitment": "서비스 수준 협약: 99.9% 가용성 보장",
+      "MaintenancePlan": "정기적인 유지보수 및 업그레이드 계획",
+      "SupportChannels": "24/7 고객 지원 채널 운영",
+      "CustomerFeedbackLoop": "고객 피드백 수집 및 반영 절차",
+      "MonitoringTools": "Grafana, Slack Alert 등 모니터링 시스템 사용"
+    },
+    "needs_research": []
+  },
+  "compliance_and_governance": {
+    "slide_description": "법적/정책적 준수 사항 및 거버넌스 체계를 설명합니다.",
+    "description": "삼성전자의 직영 매장 운영은 법적/정책적 준수 사항을 철저히 따르며, 체계적인 거버넌스 구조를 통해 운영의 투명성과 신뢰성을 보장합니다.",
+    "elements": {
+      "Title": "Compliance and Governance",
+      "MiddleText": "법적/정책적 준수 및 거버넌스 체계",
+      "ComplianceList": [
+        "ISO 27001",
+        "GDPR",
+        "CCPA"
+      ],
+      "PolicyDiagram": {
+        "description": "보안/정책 흐름도",
+        "visual_type": "Flowchart"
+      },
+      "DataProtectionMeasures": "데이터 암호화 및 접근 제어",
+      "AuditAndMonitoring": "정기적인 감사 및 모니터링 체계",
+      "RiskResponseMatrix": {
+        "description": "위협/리스크 발생 시 대응 전략 매트릭스",
+        "table_type": "Matrix Table",
+        "data_table": [
+          [
+            "위협",
+            "대응 전략"
+          ],
+          [
+            "데이터 유출",
+            "즉각적인 차단 및 조사"
+          ],
+          [
+            "시스템 다운타임",
+            "백업 시스템 가동"
+          ]
+        ]
+      },
+      "GovernanceRoles": {
+        "description": "거버넌스 참여 부서 및 R&R 요약 테이블",
+        "table_type": "Role Table",
+        "data_table": [
+          [
+            "부서",
+            "역할"
+          ],
+          [
+            "IT 부서",
+            "시스템 관리 및 보안"
+          ],
+          [
+            "법무 부서",
+            "정책 준수 및 계약 관리"
+          ]
+        ]
+      },
+      "RealTimeMonitoringTools": "SIEM, DLP 등 실시간 모니터링 시스템 사용"
+    },
+    "needs_research": []
+  },
+  "client_case_references": {
+    "slide_description": "과거 수행한 유사 프로젝트 사례를 통해 신뢰성과 경험을 강조합니다.",
+    "description": "EY 컨설팅은 다양한 산업 분야에서의 풍부한 경험을 바탕으로 삼성전자의 직영 매장 운영을 성공적으로 지원할 수 있습니다. 과거 유사 프로젝트 사례를 통해 우리의 전문성과 신뢰성을 강조합니다.",
+    "elements": {
+      "Title": "Client Case References",
+      "MiddleText": "EY 컨설팅의 유사 프로젝트 수행 경험",
+      "CaseList": [
+        {
+          "Client": "ABC 리테일",
+          "Project": "직영 매장 운영 최적화",
+          "Outcome": "매출 20% 증가"
+        },
+        {
+          "Client": "XYZ 전자",
+          "Project": "글로벌 매장 운영 표준화",
+          "Outcome": "운영 비용 15% 절감"
+        }
+      ],
+      "VisualHighlights": {
+        "description": "대표 사례 이미지",
+        "visual_type": "Image"
+      },
+      "SuccessIndicators": "주요 성과 지표: 매출 증가, 비용 절감, 고객 만족도 향상",
+      "ClientTestimonials": "고객사의 긍정적인 평가 및 인용문",
+      "IndustryDiversityGraph": {
+        "description": "수행 경험 산업군 분포",
+        "graph_type": "Donut Chart",
+        "data_table": [
+          [
+            "산업군",
+            "비율"
+          ],
+          [
+            "리테일",
+            "40%"
+          ],
+          [
+            "전자",
+            "30%"
+          ],
+          [
+            "기타",
+            "30%"
+          ]
+        ]
+      },
+      "CaseImpactSummary": "각 사례의 전략적 효과: 고객만족도 증가, 보안 리스크 감소 등"
+    },
+    "needs_research": []
+  },
+  "solution_overview": {
+    "slide_description": "제안 솔루션의 핵심 가치와 구조를 시각화하고 간명하게 전달합니다.",
+    "description": "삼성전자의 직영 매장 운영을 위한 EY 컨설팅의 솔루션은 고객 경험 강화, 운영 효율성 증대, 글로벌 표준화라는 세 가지 핵심 가치를 제공합니다. 이를 통해 삼성전자는 리테일 시장에서의 경쟁력을 강화할 수 있습니다.",
+    "elements": {
+      "Title": "Solution Overview",
+      "ValuePropositionBox": {
+        "description": "고객에게 제공되는 3대 핵심 가치",
+        "format": [
+          "고객 경험 강화",
+          "운영 효율성 증대",
+          "글로벌 표준화"
+        ]
+      },
+      "SolutionCategoryTag": "컨설팅",
+      "SimpleDiagram": {
+        "description": "End-to-End 흐름 시각화",
+        "visual_type": "Linear"
+      },
+      "ArchitectureDiagram": {
+        "description": "기술/기능 구조 시각화",
+        "visual_type": "Layer 구조도"
+      },
+      "KeyModules": {
+        "description": "주요 모듈 또는 기능 구성 요소 리스트",
+        "format": [
+          {
+            "Module": "Data Collector",
+            "Function": "실시간 데이터 수집"
+          },
+          {
+            "Module": "AI Analyzer",
+            "Function": "패턴 분석 및 이상 탐지"
+          },
+          {
+            "Module": "Dashboard",
+            "Function": "시각화 및 리포팅"
+          }
+        ]
+      },
+      "FlexibleIntegrationPoints": {
+        "description": "다양한 외부 시스템과 연동 가능한 인터페이스 또는 API 설명",
+        "examples": [
+          "ERP",
+          "CRM",
+          "Open API",
+          "클라우드 스토리지 등"
+        ]
+      },
+      "ScalabilityAndSecurity": {
+        "description": "확장성 및 보안 체계 설명",
+        "points": [
+          "모듈 확장 가능 구조",
+          "RBAC 기반 접근 통제",
+          "암호화 저장"
+        ]
+      }
+    },
+    "needs_research": []
+  },
+  "use_case_scenarios": {
+    "slide_description": "솔루션이 실제로 어떻게 작동하고 활용될 수 있는지를 시나리오 기반으로 보여줍니다.",
+    "description": "삼성전자의 직영 매장 운영 솔루션은 다양한 시나리오에서 고객 경험을 개선하고 운영 효율성을 높이는 데 기여합니다. 이를 통해 고객은 보다 나은 서비스를 경험할 수 있습니다.",
+    "elements": {
+      "Title": "Use Case Scenarios",
+      "MiddleText": "솔루션의 실제 활용 시나리오",
+      "ScenarioDiagram": {
+        "description": "워크플로우 또는 사용자 여정 흐름도",
+        "visual_type": "사용자 Journey Map",
+        "steps": [
+          "고객 요청",
+          "시스템 분석",
+          "자동 처리",
+          "결과 제공"
+        ]
+      },
+      "NarrativeCases": {
+        "description": "시나리오 2~3개 구성",
+        "format": [
+          {
+            "Title": "고객 VOC 자동 처리",
+            "Before": "수작업으로 2일 소요",
+            "After": "자동 분류 및 1시간 내 응답"
+          },
+          {
+            "Title": "인증 시스템 통합",
+            "Before": "이중 로그인 발생",
+            "After": "SSO 기반 사용자 편의성 향상"
+          }
+        ]
+      },
+      "PersonaIcons": "사용자 유형별 아이콘 및 활용 방식 요약",
+      "ExpectedOutcomes": "각 시나리오별 기대 효과: 시간 단축, 오류 감소 등",
+      "ProcessExceptionHandling": "예외 상황 처리 플로우: 에러 발생 시 대응 흐름 등"
+    },
+    "needs_research": []
+  },
+  "strategic_recommendations": {
+    "slide_description": "고객을 위한 전략적 방향성과 구체 실행안, 우선순위를 제시합니다.",
+    "description": "삼성전자의 직영 매장 운영을 위한 전략적 방향은 고객 경험 강화, 운영 효율성 증대, 글로벌 표준화를 중심으로 합니다. 이를 통해 삼성전자는 리테일 시장에서의 경쟁력을 강화할 수 있습니다.",
+    "elements": {
+      "Title": "Strategic Recommendations",
+      "MiddleText": "삼성전자의 리테일 전략 방향",
+      "BulletPoints": [
+        "고객 경험 중심의 매장 운영",
+        "효율적인 운영 프로세스 구축",
+        "글로벌 표준화 및 일관된 브랜드 경험 제공"
+      ],
+      "PriorityMap": {
+        "description": "우선순위 매트릭스",
+        "visual_type": "Matrix"
+      },
+      "StrategicThemes": [
+        "자동화",
+        "통합",
+        "사용자 중심"
+      ],
+      "ActionRoadmap": [
+        "고객 경험 강화를 위한 매장 디자인 개선",
+        "운영 효율성을 높이기 위한 프로세스 자동화",
+        "글로벌 표준화를 위한 가이드라인 개발"
+      ],
+      "ClientTailoredValue": "삼성전자의 리테일 전략은 글로벌 시장에서의 경쟁력 강화를 목표로 합니다."
+    },
+    "needs_research": []
+  },
+  "implementation_plan": {
+    "slide_description": "전략 실행을 위한 단계별 로드맵을 구체적으로 설명합니다.",
+    "description": "삼성전자의 직영 매장 운영 전략을 실행하기 위한 단계별 로드맵은 기획, 구축, 운영의 세 단계로 구성됩니다. 이를 통해 효율적이고 일관된 매장 운영을 보장합니다.",
+    "elements": {
+      "Title": "Implementation Plan",
+      "MiddleText": "전략 실행을 위한 단계별 로드맵",
+      "TimelineMain": {
+        "description": "전체 일정 요약",
+        "period": "6개월",
+        "visual_type": "Phase Timeline"
+      },
+      "Phases": {
+        "description": "각 단계 명칭, 기간, 주요 작업 정리",
+        "format": [
+          {
+            "Phase": "1단계: 기획/설계",
+            "Duration": "~2개월",
+            "Details": "요구사항 정의 및 상세 설계"
+          },
+          {
+            "Phase": "2단계: 구축/테스트",
+            "Duration": "~3개월",
+            "Details": "솔루션 개발, 검증"
+          },
+          {
+            "Phase": "3단계: 운영이관",
+            "Duration": "~1개월",
+            "Details": "고객 교육 및 운영 매뉴얼 전달"
+          }
+        ]
+      },
+      "TextBottom": "주요 리스크 및 대응 방안, 기술/인력 관련 고려 사항",
+      "ImplementationTeam": {
+        "description": "각 단계별 역할 및 인력 투입 계획",
+        "table_format": [
+          [
+            "단계",
+            "역할",
+            "투입 인원"
+          ],
+          [
+            "1단계",
+            "PM",
+            "1"
+          ],
+          [
+            "2단계",
+            "개발자",
+            "3"
+          ],
+          [
+            "3단계",
+            "QA",
+            "2"
+          ]
+        ]
+      },
+      "MilestoneIcons": "각 주요 이벤트에 대한 시각 아이콘 (Kickoff, UAT 등)",
+      "ClientCollaborationPoints": "고객과의 협업 시점 명시 (승인, 테스트 등)",
+      "SuccessCriteria": "각 단계별 완료 기준 또는 KPI 정의"
+    },
+    "needs_research": []
+  },
+  "timeline_milestones": {
+    "slide_description": "전체 일정에서의 주요 마일스톤을 시각화하여 이해도를 높입니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트는 명확한 일정과 마일스톤을 통해 체계적으로 진행됩니다. 이를 통해 프로젝트의 성공적인 완료를 보장합니다.",
+    "elements": {
+      "Title": "Timeline & Milestones",
+      "MiddleText": "프로젝트 일정 및 주요 마일스톤",
+      "GanttChart": {
+        "description": "기간별 주요 활동과 마일스톤 도식화",
+        "chart_type": "Gantt",
+        "milestones": [
+          {
+            "Date": "2025.07",
+            "Label": "Kick-off"
+          },
+          {
+            "Date": "2025.08",
+            "Label": "1차 개발 완료"
+          },
+          {
+            "Date": "2025.09",
+            "Label": "통합 테스트 시작"
+          },
+          {
+            "Date": "2025.10",
+            "Label": "최종 이관"
+          }
+        ]
+      },
+      "MilestoneIcons": "각 마일스톤에 대한 시각 아이콘 또는 상태 표시 (착수, 승인, 완료 등)",
+      "DependencyNote": "단계 간 종속 관계 또는 병렬 처리 여부 요약",
+      "ClientCheckpoints": "고객 승인/참여 포인트 명시 (UAT, 검토 회의 등)"
+    },
+    "needs_research": []
+  },
+  "risk_management_plan": {
+    "slide_description": "예상되는 리스크를 식별하고 이에 대한 대응 전략을 제시합니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트는 다양한 리스크를 사전에 식별하고, 이를 효과적으로 관리하기 위한 전략을 수립합니다. 이를 통해 프로젝트의 성공적인 완료를 보장합니다.",
+    "elements": {
+      "Title": "Risk Management Plan",
+      "MiddleText": "리스크 관리 개요",
+      "RiskTable": {
+        "description": "리스크 목록 (내용 | 가능성 | 영향도)",
+        "table_type": "Risk Table",
+        "data_table": [
+          [
+            "리스크 내용",
+            "가능성",
+            "영향도"
+          ],
+          [
+            "프로젝트 일정 지연",
+            "Medium",
+            "High"
+          ],
+          [
+            "예산 초과",
+            "Low",
+            "Medium"
+          ],
+          [
+            "기술적 문제 발생",
+            "Medium",
+            "High"
+          ]
+        ]
+      },
+      "MitigationStrategy": [
+        "일정 지연: 주기적인 일정 검토 및 조정",
+        "예산 초과: 예산 관리 시스템 도입",
+        "기술적 문제: 기술 지원 팀의 상시 대기"
+      ]
+    },
+    "needs_research": []
+  },
+  "expected_benefits": {
+    "slide_description": "제안서 실행 시 고객이 얻게 될 주요 기대 효과를 정성·정량적으로 표현합니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트는 고객 경험 강화, 운영 효율성 증대, 글로벌 표준화를 통해 다양한 기대 효과를 제공합니다. 이를 통해 삼성전자는 리테일 시장에서의 경쟁력을 강화할 수 있습니다.",
+    "elements": {
+      "Title": "Expected Benefits",
+      "MiddleText": "프로젝트 실행 시 기대 효과",
+      "BulletPoints": {
+        "description": "정성적 효과 정리",
+        "examples": [
+          "운영 프로세스 간소화 및 자동화",
+          "직원 업무 효율 증대",
+          "고객 만족도 향상"
+        ]
+      },
+      "KPIProjection": {
+        "description": "성과 지표 기반 기대 성과",
+        "chart_type": "Bar",
+        "data": [
+          [
+            "항목",
+            "현재",
+            "도입 후"
+          ],
+          [
+            "처리 시간",
+            "5일",
+            "2일"
+          ],
+          [
+            "운영 비용",
+            "100%",
+            "80%"
+          ]
+        ]
+      },
+      "TangibleVsIntangible": {
+        "description": "정량 vs 정성 효과 분류 테이블",
+        "table_type": "Comparison Table",
+        "data_table": [
+          [
+            "효과 유형",
+            "정량적",
+            "정성적"
+          ],
+          [
+            "운영 비용 절감",
+            "Yes",
+            "No"
+          ],
+          [
+            "고객 만족도 향상",
+            "No",
+            "Yes"
+          ]
+        ]
+      },
+      "ROIIndicator": "ROI: 150%, Payback 기간: 2년",
+      "ClientQuoteBox": "삼성전자의 리테일 혁신을 통해 고객 경험이 크게 향상될 것입니다."
+    },
+    "needs_research": []
+  },
+  "investment_budget_estimation": {
+    "slide_description": "전체 예산과 각 항목별 비용을 상세히 제시하여 투자 가시성을 제공합니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트는 명확한 예산 계획을 통해 투자 가시성을 제공합니다. 이를 통해 프로젝트의 재무적 효율성을 극대화할 수 있습니다.",
+    "elements": {
+      "Title": "Investment & Budget Estimation",
+      "MiddleText": "프로젝트 예산 계획",
+      "BudgetTable": {
+        "description": "총 예산 테이블",
+        "table_type": "Budget Table",
+        "data_table": [
+          [
+            "항목",
+            "예산"
+          ],
+          [
+            "인건비",
+            "50억"
+          ],
+          [
+            "기술 개발비",
+            "30억"
+          ],
+          [
+            "운영비",
+            "20억"
+          ]
+        ]
+      },
+      "CostBreakdown": {
+        "description": "비용 항목별 상세 내용",
+        "table_type": "Cost Breakdown Table",
+        "data_table": [
+          [
+            "비용 항목",
+            "세부 내용",
+            "비용"
+          ],
+          [
+            "인건비",
+            "개발자, PM, QA",
+            "50억"
+          ],
+          [
+            "기술 개발비",
+            "솔루션 개발 및 테스트",
+            "30억"
+          ],
+          [
+            "운영비",
+            "유지보수 및 지원",
+            "20억"
+          ]
+        ]
+      }
+    },
+    "needs_research": []
+  },
+  "team_introduction": {
+    "slide_description": "수행팀의 전문성과 역할 분담을 보여줘 신뢰도를 높입니다.",
+    "description": "EY 컨설팅의 전문 팀은 삼성전자의 직영 매장 운영 프로젝트를 성공적으로 이끌 수 있는 경험과 역량을 보유하고 있습니다. 각 팀원의 역할과 경력을 통해 신뢰성을 강조합니다.",
+    "elements": {
+      "Title": "Team Introduction",
+      "MiddleText": "EY 컨설팅의 전문 팀 구성",
+      "MemberList": [
+        {
+          "Name": "김철수",
+          "Role": "프로젝트 매니저",
+          "Experience": "10년 이상 경력"
+        },
+        {
+          "Name": "이영희",
+          "Role": "기술 리드",
+          "Experience": "8년 이상 경력"
+        },
+        {
+          "Name": "박민수",
+          "Role": "QA 매니저",
+          "Experience": "7년 이상 경력"
+        }
+      ],
+      "TeamOrgChart": {
+        "description": "팀 조직도",
+        "visual_type": "Org Chart"
+      }
+    },
+    "needs_research": []
+  },
+  "why_us_differentiation": {
+    "slide_description": "자사만의 차별성과 강점을 강조하여 경쟁사 대비 우위를 설득합니다.",
+    "description": "EY 컨설팅은 업계 최고의 기술력과 풍부한 경험을 바탕으로 삼성전자의 직영 매장 운영을 성공적으로 지원할 수 있습니다. 우리의 차별화된 강점을 통해 경쟁사 대비 우위를 확보합니다.",
+    "elements": {
+      "Title": "Why Choose EY Consulting?",
+      "MiddleText": "EY 컨설팅의 차별화된 강점",
+      "BulletPoints": {
+        "description": "차별화된 요소 요약 리스트",
+        "examples": [
+          "업계 최고 수준의 기술 인력 및 구축 경험",
+          "공공/금융 분야 다수의 실증 사례",
+          "전담 PM 배정 및 신속한 커뮤니케이션 구조",
+          "End-to-End 서비스 제공 (컨설팅 ~ 운영까지)"
+        ]
+      },
+      "ComparisonTable": {
+        "description": "자사 vs 경쟁사 비교",
+        "table_format": [
+          [
+            "항목",
+            "EY 컨설팅",
+            "경쟁사"
+          ],
+          [
+            "경험",
+            "10건 이상 유사 구축",
+            "2~3건 제한적"
+          ],
+          [
+            "대응 속도",
+            "24시간 이내 피드백",
+            "72시간 이상"
+          ]
+        ]
+      }
+    },
+    "needs_research": []
+  },
+  "closing_summary": {
+    "slide_description": "전체 제안을 요약하며 고객에게 남기고 싶은 핵심 메시지를 강조합니다.",
+    "description": "EY 컨설팅은 삼성전자의 직영 매장 운영을 위한 최적의 파트너로서, 성공적인 프로젝트 수행을 보장합니다. 우리의 전문성과 경험을 바탕으로 삼성전자의 리테일 혁신을 지원합니다.",
+    "elements": {
+      "Title": "Closing Summary",
+      "MiddleText": "EY 컨설팅의 전문성과 경험을 바탕으로 삼성전자의 성공을 지원합니다.",
+      "FinalCall": {
+        "description": "마무리 제안 또는 CTA",
+        "options": [
+          "시범 도입 제안",
+          "추가 미팅 요청",
+          "RFP 연장 논의",
+          "기술 검증(PoC) 요청 등"
+        ]
+      },
+      "ThankYouVisual": "감사 인사와 함께 신뢰를 전달하는 이미지 또는 문구",
+      "ContactInfoBox": {
+        "description": "담당자 연락처 정보",
+        "data_table": [
+          [
+            "이름",
+            "이메일",
+            "직책"
+          ],
+          [
+            "박일혜",
+            "ilhye.park@samsung.com",
+            "프로"
+          ],
+          [
+            "박선연",
+            "sunyeon.park@samsung.com",
+            "프로"
+          ],
+          [
+            "서범주",
+            "beomjoo.seo@samsung.com",
+            "프로"
+          ],
+          [
+            "이은지",
+            "eunji81.lee@samsung.com",
+            "프로"
+          ]
+        ]
+      },
+      "ReinforcementBanner": "슬라이드 하단에 ‘선택의 이유’를 다시 강조하는 요약 배너"
+    },
+    "needs_research": []
+  },
+  "qna": {
+    "slide_description": "질의응답을 위한 충분한 공간과 예상 질문 대응 내용을 구성합니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트에 대한 질의응답 시간을 통해 고객의 궁금증을 해소하고, 추가적인 정보를 제공합니다.",
+    "elements": {
+      "Title": "Q&A",
+      "EmptySpace": "Q&A 시각적 공간",
+      "AnticipatedQuestions": [
+        {
+          "Question": "직영 매장 운영의 주요 도전 과제는 무엇인가요?",
+          "Answer": "경쟁 심화와 운영 비용 증가가 주요 도전 과제입니다."
+        },
+        {
+          "Question": "EY 컨설팅의 차별화된 강점은 무엇인가요?",
+          "Answer": "업계 최고의 기술력과 풍부한 경험을 보유하고 있습니다."
+        }
+      ]
+    },
+    "needs_research": []
+  },
+  "appendix": {
+    "slide_description": "통계, 기술 스펙, 참고 문헌 등 본문에 넣기 어려운 자료를 정리합니다.",
+    "description": "삼성전자의 직영 매장 운영 프로젝트와 관련된 추가 자료와 참고 문헌을 제공합니다.",
+    "elements": {
+      "Title": "Appendix",
+      "SupportingDetails": "기술 자료, 통계 인용 등",
+      "Footnotes": "출처, 링크, 각주 등 보충 정보"
+    },
+    "needs_research": []
+  }
+}
