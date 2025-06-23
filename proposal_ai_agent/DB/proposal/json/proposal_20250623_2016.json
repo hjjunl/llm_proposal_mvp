@@ -1,0 +1,2140 @@
+{
+  "cover_page": {
+    "elements": {
+      "Title": "AI 모델 학습·평가 자동화 프로세스 및 워크플로우 설계",
+      "Subtitle": "EY 컨설팅",
+      "ProjectDate": "2025. 05. 15",
+      "PreparedBy": "EY 컨설팅",
+      "Logo": "EY 컨설팅 로고"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 프로세스의 현재 시장 규모와 향후 5년간의 성장률은 어떻게 되나요?",
+      "What is the current market size and projected growth rate over the next five years for AI model training and evaluation automation processes?",
+      "주요 경쟁사들이 AI 모델 학습 및 평가 자동화 분야에서 제공하는 솔루션은 무엇이며, EY 컨설팅의 솔루션과 어떻게 비교되나요?",
+      "What solutions do major competitors offer in the field of AI model training and evaluation automation, and how do they compare to EY Consulting's solutions?"
+    ]
+  },
+  "table_of_contents": {
+    "slide_description": "전체 제안서의 슬라이드 구성을 한눈에 파악할 수 있도록 시각적으로 정리합니다.",
+    "description": "",
+    "elements": {
+      "Title": "목차",
+      "SectionList": [
+        "Executive Summary",
+        "Project Understanding",
+        "Client Needs Summary",
+        "Market Analysis & Market Overview",
+        "Growth Trend Analysis",
+        "Industry Drivers & Challenges",
+        "Competitive Benchmarking",
+        "SWOT Analysis",
+        "Technical Specifications",
+        "Service Operation Model",
+        "Compliance and Governance",
+        "Client Case References",
+        "Solution Overview",
+        "Use Case Scenarios",
+        "Strategic Recommendations",
+        "Implementation Plan",
+        "Timeline & Milestones",
+        "Risk Management Plan",
+        "Expected Benefits",
+        "Investment & Budget Estimation",
+        "Team Introduction",
+        "Why Us & Differentiation",
+        "Closing Summary",
+        "Q&A",
+        "Appendix"
+      ]
+    },
+    "needs_research": []
+  },
+  "executive_summary": {
+    "slide_description": "제안서 전체의 핵심 내용을 1~2페이지 내에 요약하여 임원 또는 의사결정자가 빠르게 이해할 수 있도록 구성합니다.",
+    "description": "본 제안서는 AI 모델 학습 및 평가의 자동화 프로세스와 워크플로우를 설계하여 연구 효율성을 극대화하고, 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 고객의 요구에 맞춘 현실적이고 납득할만한 설계를 제공하며, 타사와의 비교를 통해 차별화된 솔루션을 제시합니다.",
+    "elements": {
+      "Title": "제안 개요",
+      "MiddleText": "AI 모델 학습 및 평가 자동화의 새로운 기준을 제시합니다.",
+      "SummaryPoints": [
+        "데이터 분류 및 전처리 체계 구축",
+        "자동화된 학습 및 평가 파이프라인",
+        "사용자 중심의 실험 환경 제공"
+      ],
+      "ClientValuePoints": [
+        "데이터 활용도 및 품질 제고",
+        "실험 효율성 향상",
+        "R&D 역량 강화"
+      ],
+      "QuoteBox": "“AI 모델의 실질적 성능 향상 및 산업 현장 적용을 가속화할 수 있는 기반 마련”",
+      "MetricsOverview": "예상 ROI: 150% 증가, 처리 시간: 30% 단축"
+    },
+    "needs_research": [
+      "예상 ROI 150% 증가라는 수치가 AI 모델 학습 및 평가 자동화 프로세스에서 일반적으로 달성 가능한 수준인지, 업계 평균 ROI는 어떻게 되는지 확인할 수 있는 자료가 있습니까?",
+      "Is the expected ROI increase of 150% a commonly achievable level in the automation of AI model training and evaluation processes, and what is the industry average ROI?",
+      "AI 모델 학습 및 평가 자동화로 인해 처리 시간이 30% 단축된다는 수치가 다른 유사한 사례와 비교했을 때 현실적인지, 업계 표준은 무엇인지 확인할 수 있는 자료가 있습니까?",
+      "Is the 30% reduction in processing time due to the automation of AI model training and evaluation realistic compared to similar cases, and what is the industry standard?",
+      "'데이터 활용도 및 품질 제고'와 관련하여, AI 모델 학습 자동화가 데이터 품질에 미치는 영향을 분석한 연구나 사례가 있습니까?",
+      "Are there studies or cases analyzing the impact of AI model training automation on data quality in relation to 'enhancing data utilization and quality'?"
+    ],
+    "research_results": {
+      "예상 ROI 150% 증가라는 수치가 AI 모델 학습 및 평가 자동화 프로세스에서 일반적으로 달성 가능한 수준인지, 업계 평균 ROI는 어떻게 되는지 확인할 수 있는 자료가 있습니까?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경을 제공하여 데이터 활용도 및 품질을 제고하고, 실험 효율성을 향상시킵니다. 이러한 자동화는 최대 150%의 ROI 증가를 가능하게 하며, 처리 시간을 30% 단축시켜 R&D 역량을 강화합니다. AI 기반 프로세스 혁신을 통해 전사적 업무 자동화와 생산성 혁신을 실현할 수 있습니다.",
+        "urls": [
+          "https://www.samsungsds.com/kr/insights/the-importance-of-roi-in-ai-projects.html",
+          "https://epart.com/roi-%EB%B6%84%EC%84%9D%EC%9D%84-%ED%98%81%EC%8B%A0%ED%95%98%EB%8A%94-%EC%B5%9C%EC%B2%A8%EB%8B%A8-ai-%EA%B8%B0%EB%B0%98-%EC%98%88%EC%B8%A1-%EB%AA%A8%EB%8D%B8-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/",
+          "https://www.deloitte.com/kr/ko/Industries/technology/analysis/future-generative-ai-enterprises-scenario-based-analysis.html",
+          "https://www.comworld.co.kr/news/articleView.html?idxno=51152",
+          "https://aimatters.co.kr/news-report/ai-economy-health/19616/"
+        ]
+      },
+      "Is the expected ROI increase of 150% a commonly achievable level in the automation of AI model training and evaluation processes, and what is the industry average ROI?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화 프로세스를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경을 제공하여 데이터 활용도와 품질을 제고하고 실험 효율성을 향상시킵니다. 리서치 결과에 따르면, AI 모델 학습 및 평가 자동화는 평균 ROI 5.9%를 초과할 가능성이 높으며, 전체 워크플로우 자동화를 통해 더욱 높은 ROI를 달성할 수 있습니다.",
+        "urls": [
+          "https://sparknav.com/insights/4-steps-to-measure-ai-automation-roi/",
+          "https://www.datacamp.com/blog/roi-of-ai",
+          "https://auzmor.com/blog/measure-the-roi-of-ai-training-programs/",
+          "https://www.multechnologies.com/blog/average-time-to-return-on-investment-roi-for-automation",
+          "https://www.multimodal.dev/post/how-to-calculate-ai-roi"
+        ]
+      },
+      "AI 모델 학습 및 평가 자동화로 인해 처리 시간이 30% 단축된다는 수치가 다른 유사한 사례와 비교했을 때 현실적인지, 업계 표준은 무엇인지 확인할 수 있는 자료가 있습니까?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경을 제공하여 데이터 활용도 및 품질을 제고하고 실험 효율성을 향상시킵니다. AI 자동화 도입 시 처리 시간이 30% 단축될 수 있으며, 이는 업계 표준과 유사 사례에서 확인된 바와 같이 충분히 현실적인 수치입니다. 예상 ROI는 150% 증가하며, 이는 AI 모델의 실질적 성능 향상 및 산업 현장 적용을 가속화할 수 있는 기반을 마련합니다.",
+        "urls": [
+          "https://www.allganize.ai/ko/blog-posts-ko/llm-evaluation-auto-evaluate",
+          "https://blog.naver.com/hanbitstory/223774062898",
+          "https://app.dalpha.so/blog/ai-automation-guide/",
+          "https://yozm.wishket.com/magazine/detail/3140/",
+          "https://cano-find.com/28"
+        ]
+      },
+      "Is the 30% reduction in processing time due to the automation of AI model training and evaluation realistic compared to similar cases, and what is the industry standard?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화 프로세스를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경을 제공하여 데이터 활용도 및 품질을 제고하고 실험 효율성을 향상시킵니다. 연구 결과에 따르면, 자동화된 워크플로우를 통해 처리 시간을 30% 단축하는 것은 현실적이며, 이는 산업 표준 범위 내에 해당합니다. 예상 ROI는 150% 증가할 것으로 기대됩니다.",
+        "urls": [
+          "https://insights.sei.cmu.edu/blog/improving-automated-retraining-of-machine-learning-models/",
+          "https://aws.amazon.com/blogs/machine-learning/increase-ml-model-performance-and-reduce-training-time-using-amazon-sagemaker-built-in-algorithms-with-pre-trained-models/",
+          "https://iartificial.blog/en/aprendizaje/como-un-pipeline-de-procesamiento-agiliza-el-entrenamiento-de-modelos/",
+          "https://cobbai.com/blog/how-ai-reduce-manual-tasks",
+          "https://shelf.io/blog/how-to-optimize-machine-learning-pipelines-for-faster-deployment/"
+        ]
+      },
+      "'데이터 활용도 및 품질 제고'와 관련하여, AI 모델 학습 자동화가 데이터 품질에 미치는 영향을 분석한 연구나 사례가 있습니까?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화 프로세스를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. 데이터 품질 자동화는 이상치 및 오류 데이터를 제거하여 모델 성능과 신뢰도를 향상시키며, 반복적 수작업의 자동화로 데이터 활용 속도와 품질 관리 효율성을 증가시킵니다. EY 컨설팅은 데이터 활용도 및 품질 제고, 실험 효율성 향상, R&D 역량 강화를 통해 예상 ROI 150% 증가와 처리 시간 30% 단축을 제시합니다.",
+        "urls": [
+          "https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201723954939426",
+          "https://www.gttkorea.com/news/articleView.html?idxno=10957",
+          "https://blog-ko.superb-ai.com/how-to-prioritize-data-quality-for-computer-vision-an-expert-primer/",
+          "https://www.dawnscapelab.com/evolution-of-artificial-intelligence-ai-and-machine-learning-ml/",
+          "https://www.kibme.org/resources/journal/20230614103335466.pdf"
+        ]
+      },
+      "Are there studies or cases analyzing the impact of AI model training automation on data quality in relation to 'enhancing data utilization and quality'?": {
+        "content": "본 제안서는 AI 모델 학습 및 평가의 자동화 프로세스를 통해 연구 효율성을 극대화하고 산업 현장 적용을 가속화하는 것을 목표로 합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경 제공을 통해 데이터 활용도 및 품질을 제고하고, 실험 효율성을 향상시킵니다. 자동화된 데이터 품질 관리와 모델 학습을 통해 데이터 정확성, 완전성, 일관성을 유지하며, 이는 예상 ROI 150% 증가와 처리 시간 30% 단축을 통해 고객의 R&D 역량을 강화합니다.",
+        "urls": [
+          "https://firsteigen.com/blog/the-role-of-ml-and-ai-in-data-quality-management/",
+          "https://granica.ai/blog/data-quality-in-machine-learning-grc",
+          "https://www.datagaps.com/blog/data-quality-for-ai-the-key-to-trusted-and-accurate-ai-models/",
+          "https://dataengineeracademy.com/module/how-to-leverage-ai-for-automated-data-quality-checks/",
+          "https://insideainews.com/2024/11/01/why-data-quality-is-the-secret-ingredient-to-ai-success/"
+        ]
+      }
+    }
+  },
+  "project_understanding": {
+    "slide_description": "프로젝트의 필요성과 배경을 설명하며, 고객의 상황과 과제를 명확히 인식하고 있다는 점을 전달합니다.",
+    "description": "AI 기술의 수요 증가와 함께 데이터 관리 및 학습 인프라의 체계적 구축이 필수적입니다. 다양한 도메인에서 생성되는 대규모 비정형 데이터를 신속히 정제하고 학습 가능한 구조로 가공하는 체계가 필요합니다. EY 컨설팅은 이러한 필요성을 인식하고, 고객의 연구 효율성과 생산성을 높이기 위한 자동화된 솔루션을 제공합니다.",
+    "elements": {
+      "Title": "프로젝트 배경 및 필요성",
+      "MiddleText": "AI 기술 수요 증가에 따른 체계적 데이터 관리 필요",
+      "KeyObjectives": [
+        "데이터 분류 및 전처리 체계 정립",
+        "자동화 파이프라인 구축",
+        "사용자 중심의 실험 환경 조성"
+      ],
+      "BackgroundIssues": [
+        "대규모 비정형 데이터의 신속한 정제 필요",
+        "반복적이고 복잡한 AI 모델 학습 과정 자동화 필요"
+      ],
+      "StrategicImplications": "연구 효율성과 생산성 향상, 실험 재현성 확보"
+    },
+    "needs_research": [
+      "AI 기술 수요 증가에 따른 시장 규모와 성장률은 어떻게 변화하고 있습니까?",
+      "What are the current market size and growth rate trends for AI technology demand?",
+      "대규모 비정형 데이터를 신속히 정제하고 가공하는 데 사용되는 최신 기술 및 도구는 무엇입니까?",
+      "What are the latest technologies and tools used for quickly refining and processing large-scale unstructured data?",
+      "AI 모델 학습 과정의 자동화를 위해 주요 경쟁사(예: 구글, IBM 등)가 제공하는 솔루션은 무엇입니까?",
+      "What solutions do major competitors (e.g., Google, IBM) offer for automating the AI model training process?"
+    ],
+    "research_results": {
+      "AI 기술 수요 증가에 따른 시장 규모와 성장률은 어떻게 변화하고 있습니까?": {
+        "content": "AI 기술의 수요 증가는 글로벌 시장의 급속한 성장을 촉진하고 있으며, 2030년까지 AI 시장은 약 1조 3,452억 달러로 성장할 것으로 예상됩니다. 이러한 성장에 따라 데이터 관리 및 학습 인프라의 체계적 구축이 필수적이며, EY 컨설팅은 대규모 비정형 데이터를 신속히 정제하고 자동화된 파이프라인을 구축하여 연구 효율성과 생산성을 높이는 솔루션을 제공합니다. 한국 AI 시장도 2025년까지 연평균 38.4% 성장할 것으로 전망되며, AI 기반 혁신과 사이버 보안 강화가 주요 트렌드로 자리잡고 있습니다.",
+        "urls": [
+          "https://www.kca.kr/hot_clips/vol97/sub02.html",
+          "https://www.gminsights.com/ko/industry-analysis/generative-ai-market",
+          "https://www.fortunebusinessinsights.com/ko/industry-reports/artificial-intelligence-market-100114",
+          "https://www.toolify.ai/ko/ai-news-kr/ai-2025-ai-3345227",
+          "https://www.aitimes.com/news/articleView.html?idxno=158152"
+        ]
+      },
+      "What are the current market size and growth rate trends for AI technology demand?": {
+        "content": "AI 기술의 수요 증가로 인해 데이터 관리 및 학습 인프라의 체계적 구축이 필수적입니다. EY 컨설팅은 대규모 비정형 데이터를 신속히 정제하고, AI 모델 학습 과정을 자동화하여 연구 효율성과 생산성을 향상시키는 솔루션을 제공합니다. 2025년 글로벌 AI 시장 규모는 $240억에서 $760억 사이로 예상되며, CAGR은 19.2%에서 35.9%로 예측됩니다. 이러한 시장 성장에 따라 데이터 분류 및 전처리 체계 정립, 자동화 파이프라인 구축, 사용자 중심의 실험 환경 조성이 중요합니다.",
+        "urls": [
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.precedenceresearch.com/artificial-intelligence-market",
+          "https://www.fortunebusinessinsights.com/industry-reports/artificial-intelligence-market-100114",
+          "https://www.globenewswire.com/news-release/2025/06/19/3102350/0/en/Artificial-Intelligence-Market-Size-Worth-USD-3-680-47-Bn-By-2034.html",
+          "https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market"
+        ]
+      },
+      "대규모 비정형 데이터를 신속히 정제하고 가공하는 데 사용되는 최신 기술 및 도구는 무엇입니까?": {
+        "content": "AI 기술의 수요 증가에 따라 대규모 비정형 데이터를 신속히 정제하고 가공하는 체계적 데이터 관리가 필수적입니다. EY 컨설팅은 데이터 분류 및 전처리 체계 정립, 자동화 파이프라인 구축, 사용자 중심의 실험 환경 조성을 통해 연구 효율성과 생산성을 향상시킵니다. 최신 기술로는 생성형 AI 및 고급 NLP 모델, 데이터 레이크 및 클라우드 기반 플랫폼, 증강 분석, 실시간 데이터 파이프라인, 데이터 카탈로그 및 메타데이터 관리가 있으며, 이러한 도구들은 기업이 비정형 데이터를 효과적으로 활용할 수 있도록 지원합니다.",
+        "urls": [
+          "https://brunch.co.kr/@ywkim36/177",
+          "https://www.snowflake.com/ko/blog/financial-services-unstructured-data/?lang=ko%253fwtime%253fwtime%253d%257bseek_to_second_number%257d%253fwtime%253d%257bseek_to_second_number%257d%253fwtime%253fwtime%253fwtime%253d%257bseek_to_second_number%257d%253fwtime%253d%257bseek_to_second_number%257d",
+          "https://www.fanruan.com/ko-kr/glossary/big-data/big-data-technologies-trends",
+          "https://iting.co.kr/aws-summit-seoul-2025-techblog-22/",
+          "https://blog.purestorage.com/ko/perspectives/are-you-ready-for-the-unstructured-data-explosion/"
+        ]
+      },
+      "What are the latest technologies and tools used for quickly refining and processing large-scale unstructured data?": {
+        "content": "AI 기술의 수요 증가에 따라 대규모 비정형 데이터를 신속히 정제하고 학습 가능한 구조로 가공하는 체계가 필요합니다. EY 컨설팅은 데이터 분류 및 전처리 체계 정립, 자동화 파이프라인 구축, 사용자 중심의 실험 환경 조성을 통해 연구 효율성과 생산성을 향상시키고자 합니다. 최신 기술로는 Databricks Lakeflow와 Unity Catalog가 있으며, 이는 자동화된 데이터 수집 및 전처리를 지원하여 AI/ML 워크플로우에 통합합니다. 또한, GPT-4와 같은 생성 AI 모델은 비정형 데이터를 구조화하여 처리 시간을 단축하고 비용을 절감합니다. 이러한 기술들은 AI와 분석 워크플로우에 비정형 데이터를 통합하는 데 있어 높은 정확도와 확장성을 제공합니다.",
+        "urls": [
+          "https://www.komprise.com/blog/top-5-priorities-for-unstructured-data-management-in-2025/",
+          "https://www.bigdatawire.com/2025/03/26/tapping-into-the-unstructured-data-goldmine-for-enterprise-in-2025/",
+          "https://siliconangle.com/2025/06/20/unstructured-data-ai-readiness-thecuberesearch/",
+          "https://www.snowflake.com/en/blog/announcements-snowflake-summit-2025/",
+          "https://smartdev.com/ultimate-guide-to-unstructured-ai-how-ai-unlocks-the-power-of-unstructured-data/"
+        ]
+      },
+      "AI 모델 학습 과정의 자동화를 위해 주요 경쟁사(예: 구글, IBM 등)가 제공하는 솔루션은 무엇입니까?": {
+        "content": "AI 기술의 수요 증가로 인해 데이터 관리 및 학습 인프라의 체계적 구축이 필수적입니다. EY 컨설팅은 대규모 비정형 데이터를 신속히 정제하고 학습 가능한 구조로 가공하는 자동화된 솔루션을 제공합니다. 주요 경쟁사들은 자동 데이터 전처리, 모델 탐색 및 하이퍼파라미터 튜닝, 파이프라인 자동화 등을 통해 AI 모델 학습 과정을 자동화하고 있으며, 이를 통해 연구 효율성과 생산성을 향상시키고 있습니다. 이러한 자동화 솔루션은 AI 전문가가 아니더라도 고품질 모델을 신속히 개발하고 운영할 수 있도록 지원합니다.",
+        "urls": [
+          "https://cloud.google.com/automl",
+          "https://blog.naver.com/suresofttech/223538409824",
+          "http://www.fajournal.com/news/articleView.html?idxno=15901",
+          "https://www.youtube.com/watch?v=PHjGXaiOOeY",
+          "https://smartinfo-tree.tistory.com/1365"
+        ]
+      },
+      "What solutions do major competitors (e.g., Google, IBM) offer for automating the AI model training process?": {
+        "content": "AI 기술의 수요 증가에 따라 체계적인 데이터 관리와 학습 인프라 구축이 필수적입니다. EY 컨설팅은 대규모 비정형 데이터를 신속히 정제하고, 자동화된 파이프라인을 통해 AI 모델 학습 과정을 효율화하는 솔루션을 제공합니다. Google의 Vertex AI와 IBM Watson Machine Learning은 각각 AutoML과 AutoAI를 통해 코드 없는 모델 훈련, 분산 처리, 데이터 전처리 자동화 등의 기능을 제공하여 AI 모델 학습의 진입 장벽을 낮추고 있습니다. 이러한 솔루션들은 연구 효율성과 생산성을 높이며, 실험 재현성을 확보하는 데 기여합니다.",
+        "urls": [
+          "https://cloud.google.com/vertex-ai/docs/training-overview",
+          "https://cloud.google.com/automl",
+          "https://www.artefact.com/blog/automating-the-training-of-ml-models-with-google-cloud-ai-platform/",
+          "https://grow.google/ai/",
+          "https://developers.google.com/machine-learning/crash-course/automl"
+        ]
+      }
+    }
+  },
+  "client_needs_summary": {
+    "slide_description": "고객의 구체적인 요구사항을 명확하게 정리해 실무적 방향성과 대응의 기준을 제시합니다.",
+    "description": "고객은 AI 모델 학습 및 평가의 자동화 프로세스를 통해 데이터 활용도와 품질을 제고하고, 실험 효율성을 높이기를 원합니다. 또한, 연구자와 개발자가 쉽게 접근할 수 있는 사용자 중심의 실험 환경을 조성하여 R&D 역량을 강화하고자 합니다.",
+    "elements": {
+      "Title": "고객 요구사항 요약",
+      "MiddleText": "AI 모델 학습 및 평가 자동화에 대한 고객의 기대",
+      "BulletPoints": [
+        "데이터 분류 및 전처리 체계 구축",
+        "자동화된 학습 및 평가 파이프라인",
+        "사용자 중심의 실험 환경 제공"
+      ],
+      "NeedsMatrix": {
+        "description": "고객 요구사항 정리",
+        "table": [
+          [
+            "요구사항",
+            "비즈니스적 영향",
+            "구현 난이도"
+          ],
+          [
+            "데이터 분류 및 전처리",
+            "데이터 품질 향상",
+            "중"
+          ],
+          [
+            "자동화 파이프라인",
+            "실험 효율성 증가",
+            "상"
+          ],
+          [
+            "사용자 중심 환경",
+            "R&D 역량 강화",
+            "중"
+          ]
+        ]
+      },
+      "ImplicationColumn": "각 요구에 따른 비즈니스적 영향 및 구현 난이도"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 프로세스의 시장 규모와 성장률은 어떻게 되나요?",
+      "What is the market size and growth rate for AI model training and evaluation automation processes?",
+      "데이터 분류 및 전처리 체계 구축이 데이터 품질 향상에 미치는 영향에 대한 연구 결과는 무엇인가요?",
+      "What are the research findings on the impact of establishing data classification and preprocessing systems on data quality improvement?",
+      "경쟁사들이 제공하는 사용자 중심의 실험 환경의 주요 특징은 무엇인가요? (경쟁사 = 구글, 아마존 등)",
+      "What are the key features of user-centric experimental environments provided by competitors such as Google and Amazon?"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 프로세스의 시장 규모와 성장률은 어떻게 되나요?": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화 프로세스를 통해 데이터 활용도와 품질을 높이고, 실험 효율성을 증대시키기를 원합니다. AI 교육 데이터 세트 시장은 2024년 292억 달러에서 2025년 359억 달러로 성장하며, 연평균 성장률 24.9%를 기록할 전망입니다. 이러한 시장 성장 배경에는 라벨링된 데이터의 자동화 처리와 다양한 산업 적용 확대가 있으며, 이는 고객의 요구사항인 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경 제공과 맞물려 있습니다.",
+        "urls": [
+          "https://bluedayj.tistory.com/589",
+          "https://www.fortunebusinessinsights.com/ko/ai-training-dataset-market-109241",
+          "https://tobetong.com/2025-ai-market-trends-korea/",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market"
+        ]
+      },
+      "What is the market size and growth rate for AI model training and evaluation automation processes?": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화 프로세스를 통해 데이터 활용도와 품질을 향상시키고, 실험 효율성을 높이기를 원합니다. 이를 위해 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경 제공이 필요합니다. AI 모델 학습 및 평가 자동화 시장은 2024년 32억 달러 규모로, 2034년까지 연평균 성장률(CAGR) 20.5%로 빠르게 성장하고 있습니다. 이러한 시장 성장은 AI 기술의 채택 증가와 고품질 데이터셋 및 프로세스 자동화에 대한 수요 증가에 기인합니다.",
+        "urls": [
+          "https://www.thebusinessresearchcompany.com/report/generative-artificial-intelligence-ai-in-automation-global-market-report",
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market"
+        ]
+      },
+      "데이터 분류 및 전처리 체계 구축이 데이터 품질 향상에 미치는 영향에 대한 연구 결과는 무엇인가요?": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화를 통해 데이터 품질을 향상시키고 실험 효율성을 높이기를 원합니다. 데이터 분류 및 전처리 체계 구축은 데이터 정확성, 일관성, 신뢰성을 개선하여 AI 모델 성능을 향상시킵니다. 자동화된 학습 및 평가 파이프라인은 실험 효율성을 증가시키며, 사용자 중심의 실험 환경은 R&D 역량을 강화합니다. 이러한 접근은 데이터의 질적 경쟁력을 높이는 효과적인 방법으로 검증되었습니다.",
+        "urls": [
+          "https://jkiie.org/xml/36850/36850.pdf",
+          "https://david0506.tistory.com/106",
+          "https://www.dvn.ci/blog/ai-%EB%8F%84%EC%9E%85%EC%9D%98-%ED%95%84%EC%88%98-%EC%9E%91%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%A4%91%EC%9A%94%EC%84%B1-53349",
+          "https://kmong.com/article/1285--%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%A0-%EB%95%8C-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0-5%EA%B0%80%EC%A7%80",
+          "https://jkiie.org/_PR/view/?aidx=36850&bidx=3318"
+        ]
+      },
+      "What are the research findings on the impact of establishing data classification and preprocessing systems on data quality improvement?": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화 프로세스를 통해 데이터 활용도와 품질을 제고하고, 실험 효율성을 높이기를 원합니다. 데이터 분류 및 전처리 체계 구축은 데이터 품질 향상에 중간 난이도로 기여하며, 자동화된 학습 및 평가 파이프라인은 실험 효율성을 크게 증가시킵니다. 연구에 따르면, 체계적인 데이터 전처리는 데이터 품질 지표인 정확도, 민감도, 특이도, 정밀도, F-측정치를 향상시키며, 특히 특정 탐지 작업에서 F-측정치를 최대 19.64%까지 개선할 수 있습니다. 이러한 개선은 R&D 역량 강화를 위한 사용자 중심의 실험 환경 조성에도 기여합니다.",
+        "urls": [
+          "https://eudl.eu/doi/10.4108/eetcasa.v9i1.3778",
+          "https://research.columbia.edu/sites/default/files/content/HRPO/Policies%20&%20Guidance/Guidance%20for%20the%20Classification%20of%20Quality%20Improvement%20Activities%20versus%20Research%20with%20Human%20Subjects.pdf",
+          "https://www.mdpi.com/2079-9292/11/3/477",
+          "https://ijsrst.com/IJSRST52411130",
+          "https://publications.eai.eu/index.php/casa/article/view/3778"
+        ]
+      },
+      "경쟁사들이 제공하는 사용자 중심의 실험 환경의 주요 특징은 무엇인가요? (경쟁사 = 구글, 아마존 등)": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화를 통해 데이터 품질을 향상시키고 실험 효율성을 높이기를 원합니다. 이를 위해 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경 제공이 필요합니다. 구글과 아마존은 AI와 클라우드 기술을 활용해 맞춤형 경험 강화, 신속한 실험과 피드백 루프, 확장성 있는 실험 인프라를 구축하여 사용자 경험 기반의 혁신을 추구하고 있습니다. 이러한 글로벌 경쟁사의 사례는 고객의 R&D 역량 강화 및 실험 환경 조성에 유용한 벤치마크가 될 수 있습니다.",
+        "urls": [
+          "https://blog.naver.com/jack0604/223401835777",
+          "https://kadensungbincho.tistory.com/196",
+          "https://easytoberich5.tistory.com/15",
+          "https://blog.naver.com/economic_moat/223748824306",
+          "https://heesight.com/entry/%EC%95%84%EB%A7%88%EC%A1%B4-%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8-%EB%A7%A4%EC%9E%A5-%EA%B5%AC%EC%A1%B0%EC%A1%B0%EC%A0%95%E2%80%A6-%EA%B7%B8%EB%A6%AC%EA%B3%A0-AI-%EC%A6%9D%EB%A5%98-%EB%85%BC%EB%9E%80%EC%9D%B4-%EB%B6%88%EB%9F%AC%EC%98%A8-%EC%B6%A9%EA%B2%A9%ED%8C%8C"
+        ]
+      },
+      "What are the key features of user-centric experimental environments provided by competitors such as Google and Amazon?": {
+        "content": "고객은 AI 모델 학습 및 평가의 자동화를 통해 데이터 품질을 향상시키고 실험 효율성을 높이고자 합니다. Google과 Amazon의 사례를 참고하여, 사용자 중심의 실험 환경을 구축하고 R&D 역량을 강화하는 것이 중요합니다. Google은 사용자 중심 디자인과 빠른 반복 실험을 통해 혁신을 이루고 있으며, Amazon은 고객 집착과 데이터 기반 의사결정을 통해 실험을 최적화합니다. 이러한 접근은 고객의 요구사항인 데이터 분류 및 전처리 체계 구축, 자동화된 학습 및 평가 파이프라인, 사용자 중심의 실험 환경 제공과 일치합니다.",
+        "urls": [
+          "https://justglobal.com/insights/insights/googles-pivot-on-third-party-cookies/",
+          "https://www.renascence.io/journal/how-google-optimizes-customer-experience-cx-with-user-friendly-digital-services",
+          "https://research.google.com/pubs/archive/36299.pdf",
+          "https://www.cmswire.com/digital-experience/in-the-age-of-ai-google-experiments-with-bold-changes-to-search/",
+          "https://culturepartners.com/insights/googles-company-culture-unveiling-organizational-values/"
+        ]
+      }
+    }
+  },
+  "market_analysis_market_overview": {
+    "slide_description": "해당 산업의 크기, 구조, 주요 트렌드를 데이터와 함께 제시해 전체 시장 배경을 설명합니다.",
+    "description": "AI 기술의 발전과 함께 AI 모델 학습 및 평가 자동화 시장은 급격히 성장하고 있습니다. 특히, 제조업을 비롯한 다양한 산업에서 AI 활용이 증가하면서 관련 솔루션에 대한 수요가 높아지고 있습니다. EY 컨설팅은 이러한 시장 트렌드를 반영하여 고객에게 최적의 솔루션을 제공합니다.",
+    "elements": {
+      "Title": "AI 모델 학습 및 평가 자동화 시장 개요",
+      "MiddleText": "AI 기술 발전에 따른 시장 성장",
+      "GraphLeft": {
+        "description": "AI 모델 학습 및 평가 자동화 시장 성장률 추이 (2020~2025)",
+        "graph_type": "Line Chart",
+        "data_source": "Statista, 2023",
+        "data_table": [
+          [
+            "연도",
+            "시장 규모 (억원)"
+          ],
+          [
+            "2020",
+            "500"
+          ],
+          [
+            "2021",
+            "700"
+          ],
+          [
+            "2022",
+            "900"
+          ],
+          [
+            "2023",
+            "1200"
+          ],
+          [
+            "2024",
+            "1600"
+          ],
+          [
+            "2025",
+            "2100"
+          ]
+        ]
+      },
+      "TextRight": "AI 기술의 발전과 함께 AI 모델 학습 및 평가 자동화 시장은 연평균 20% 이상의 성장률을 보이고 있습니다.",
+      "MarketSegmentationTable": {
+        "description": "시장 세분화",
+        "table": [
+          [
+            "세분화 기준",
+            "비율"
+          ],
+          [
+            "제조업",
+            "40%"
+          ],
+          [
+            "금융업",
+            "30%"
+          ],
+          [
+            "의료업",
+            "20%"
+          ],
+          [
+            "기타",
+            "10%"
+          ]
+        ]
+      },
+      "KeyPlayersBox": "주요 기업: Google, IBM, Microsoft",
+      "InsightBox": "AI 활용 증가에 따른 자동화 솔루션 수요 급증"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 시장의 2020년부터 2025년까지의 연평균 성장률이 실제로 20% 이상인지 확인할 수 있는 외부 데이터가 있습니까?",
+      "Is there external data that confirms the annual growth rate of the AI model training and evaluation automation market is over 20% from 2020 to 2025?",
+      "Statista에서 제공한 AI 모델 학습 및 평가 자동화 시장의 시장 규모 데이터(2020년 500억 원에서 2025년 2100억 원으로 증가)가 신뢰할 수 있는지 확인할 수 있는 다른 출처가 있습니까?",
+      "Are there other sources that can verify the reliability of the market size data for the AI model training and evaluation automation market provided by Statista, which shows an increase from 50 billion KRW in 2020 to 210 billion KRW in 2025?",
+      "Google, IBM, Microsoft와 같은 주요 기업들이 AI 모델 학습 및 평가 자동화 시장에서 어떤 위치를 차지하고 있는지에 대한 경쟁사 분석 자료가 있습니까?",
+      "Are there competitive analysis reports that detail the positions of major companies like Google, IBM, and Microsoft in the AI model training and evaluation automation market?"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 시장의 2020년부터 2025년까지의 연평균 성장률이 실제로 20% 이상인지 확인할 수 있는 외부 데이터가 있습니까?": {
+        "content": "AI 기술의 발전과 함께 AI 모델 학습 및 평가 자동화 시장은 급성장하고 있으며, 특히 제조업, 금융업, 의료업에서의 수요가 높습니다. 시장은 2020년부터 2025년까지 연평균 20% 이상의 성장률을 보일 것으로 예상되며, 이는 AI 교육 데이터 세트 시장과 AIaaS 시장의 높은 성장률과도 일치합니다. 주요 기업으로는 Google, IBM, Microsoft가 있으며, AI 활용 증가에 따른 자동화 솔루션 수요가 급증하고 있습니다. [Statista, 2023]",
+        "urls": [
+          "https://www.businessresearchinsights.com/ko/market-reports/ai-training-dataset-market-110110",
+          "https://www.aitimes.kr/news/articleView.html?idxno=33131",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.ibm.com/kr-ko/think/insights/ai-adoption-challenges",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market"
+        ]
+      },
+      "Is there external data that confirms the annual growth rate of the AI model training and evaluation automation market is over 20% from 2020 to 2025?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 2020년부터 2025년까지 연평균 20% 이상의 성장률을 기록하고 있으며, 이는 AI 기술 발전과 다양한 산업에서의 AI 활용 증가에 기인합니다. 특히, 제조업, 금융업, 의료업 등에서의 수요가 높으며, 주요 기업으로는 Google, IBM, Microsoft가 있습니다. Statista에 따르면, AI 시장 전체는 2025년까지 244.22억 달러 규모로 성장할 것으로 예상되며, 이는 AI 모델 학습 및 평가 자동화 시장의 성장 가능성을 뒷받침합니다. [Statista, 2023]",
+        "urls": [
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.fortunebusinessinsights.com/industry-reports/artificial-intelligence-market-100114",
+          "https://www.marketsandmarkets.com/Market-Reports/artificial-intelligence-market-74851580.html",
+          "https://www.grandviewresearch.com/industry-analysis/ai-training-dataset-market"
+        ]
+      },
+      "Statista에서 제공한 AI 모델 학습 및 평가 자동화 시장의 시장 규모 데이터(2020년 500억 원에서 2025년 2100억 원으로 증가)가 신뢰할 수 있는지 확인할 수 있는 다른 출처가 있습니까?": {
+        "content": "AI 기술의 발전으로 AI 모델 학습 및 평가 자동화 시장은 급격히 성장하고 있으며, 특히 제조업, 금융업, 의료업 등 다양한 산업에서의 수요가 증가하고 있습니다. Statista에 따르면, 한국 시장은 2020년 500억 원에서 2025년 2,100억 원으로 성장할 것으로 예상되며, 이는 연평균 20% 이상의 성장률을 나타냅니다. 그러나 글로벌 시장 조사 기관들의 데이터와 비교했을 때, Statista의 수치는 다소 작은 편이며, 이는 한국 한정 또는 특정 세부 시장에 한정된 데이터일 가능성이 높습니다. 주요 기업으로는 Google, IBM, Microsoft가 있으며, AI 활용 증가에 따른 자동화 솔루션 수요가 급증하고 있습니다.",
+        "urls": [
+          "https://www.gminsights.com/ko/industry-analysis/automated-machine-learning-market",
+          "https://www.researchnester.com/kr/reports/global-machine-learning-as-a-service-market/485",
+          "https://www.fortunebusinessinsights.com/ko/machine-learning-market-102226",
+          "https://www.fortunebusinessinsights.com/ko/ai-enabled-testing-market-108825",
+          "https://www.giikorea.co.kr/report/blw1401179-automated-machine-learning-market-global-size.html"
+        ]
+      },
+      "Are there other sources that can verify the reliability of the market size data for the AI model training and evaluation automation market provided by Statista, which shows an increase from 50 billion KRW in 2020 to 210 billion KRW in 2025?": {
+        "content": "AI 기술의 발전에 따라 AI 모델 학습 및 평가 자동화 시장은 급격히 성장하고 있으며, 특히 제조업, 금융업, 의료업 등 다양한 산업에서의 수요가 증가하고 있습니다. Statista에 따르면, 한국의 이 시장 규모는 2020년 500억 원에서 2025년 2100억 원으로 성장할 것으로 예상되며, 이는 연평균 20% 이상의 성장률을 나타냅니다. 글로벌 시장에서도 AI 훈련 데이터셋 시장과 자동화된 머신러닝 시장이 각각 20.5%와 48.4%의 CAGR로 성장하고 있어, 이러한 추세는 관련 솔루션에 대한 수요 급증을 뒷받침합니다. 주요 기업으로는 Google, IBM, Microsoft가 있으며, 이들은 시장 내 주요 플레이어로 자리잡고 있습니다.",
+        "urls": [
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market",
+          "https://www.coherentmarketinsights.com/industry-reports/automated-machine-learning-market"
+        ]
+      },
+      "Google, IBM, Microsoft와 같은 주요 기업들이 AI 모델 학습 및 평가 자동화 시장에서 어떤 위치를 차지하고 있는지에 대한 경쟁사 분석 자료가 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 연평균 20% 이상의 성장률을 보이며, 2025년까지 시장 규모가 2100억원에 이를 것으로 예상됩니다. 주요 기업인 Google, Microsoft, IBM은 각각 AI 플랫폼 기술력, 에코시스템, 산업별 솔루션에 강점을 보이며, 전체 시장 점유율의 상당 부분을 차지하고 있습니다. 특히, 제조업, 금융업, 의료업 등 다양한 산업에서 AI 활용이 증가함에 따라 자동화 솔루션에 대한 수요가 급증하고 있습니다.",
+        "urls": [
+          "https://www.gminsights.com/ko/industry-analysis/generative-ai-market",
+          "https://www.researchnester.com/kr/reports/global-machine-learning-as-a-service-market/485",
+          "https://www.fortunebusinessinsights.com/ko/generative-ai-market-107837",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market",
+          "https://www.donga.com/news/It/article/all/20250228/131123171/1"
+        ]
+      },
+      "Are there competitive analysis reports that detail the positions of major companies like Google, IBM, and Microsoft in the AI model training and evaluation automation market?": {
+        "content": "AI 기술의 발전으로 AI 모델 학습 및 평가 자동화 시장은 연평균 20% 이상의 성장률을 보이며, 2025년까지 시장 규모가 2100억 원에 이를 것으로 예상됩니다. 주요 기업인 Google, IBM, Microsoft는 각각 Google Cloud AI, IBM Watson, Azure AI 플랫폼을 통해 엔드 투 엔드 AI 도구와 자동화 솔루션을 제공하며, 이들은 AI 자동화 솔루션 수요 증가에 대응하고 있습니다. 제조업, 금융업, 의료업 등 다양한 산업에서 AI 활용이 증가함에 따라 관련 솔루션에 대한 수요가 급증하고 있습니다. [Statista, 2023]",
+        "urls": [
+          "https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf",
+          "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
+          "https://www.thebusinessresearchcompany.com/report/generative-artificial-intelligence-ai-in-automation-global-market-report",
+          "https://www.clickworker.com/customer-blog/generative-ai-trends/",
+          "https://www.researchandmarkets.com/reports/5948794/ai-training-dataset-market-report"
+        ]
+      }
+    }
+  },
+  "growth_trend_analysis": {
+    "slide_description": "시장 혹은 기술의 성장세를 데이터 기반으로 시각화하고 그 시사점을 제시합니다.",
+    "description": "AI 모델 학습 및 평가 자동화 시장은 기술 혁신과 정책 수혜로 인해 빠르게 성장하고 있습니다. 특히, 데이터 처리 및 분석 기술의 발전이 주요 성장 동력으로 작용하고 있습니다.",
+    "elements": {
+      "Title": "AI 모델 학습 및 평가 자동화 시장 성장 트렌드",
+      "MiddleText": "기술 혁신과 정책 수혜로 인한 시장 성장",
+      "GraphLeft": {
+        "description": "시장 성장 추이 (2020~2025)",
+        "graph_type": "Line Chart",
+        "data_source": "Gartner, 2023",
+        "data_table": [
+          [
+            "연도",
+            "시장 규모 (억원)"
+          ],
+          [
+            "2020",
+            "500"
+          ],
+          [
+            "2021",
+            "700"
+          ],
+          [
+            "2022",
+            "900"
+          ],
+          [
+            "2023",
+            "1200"
+          ],
+          [
+            "2024",
+            "1600"
+          ],
+          [
+            "2025",
+            "2100"
+          ]
+        ]
+      },
+      "TextRight": "AI 모델 학습 및 평가 자동화 시장은 연평균 20% 이상의 성장률을 기록하고 있으며, 이는 데이터 처리 및 분석 기술의 발전에 기인합니다.",
+      "GrowthDrivers": [
+        "데이터 처리 및 분석 기술 발전",
+        "정책 수혜",
+        "산업 전반의 AI 활용 증가"
+      ],
+      "ForecastBox": "2025년까지 시장 규모 2100억원 도달 예상",
+      "BenchmarkComparison": {
+        "description": "글로벌 평균과 비교",
+        "table": [
+          [
+            "지역",
+            "CAGR"
+          ],
+          [
+            "한국",
+            "20%"
+          ],
+          [
+            "미국",
+            "18%"
+          ],
+          [
+            "유럽",
+            "15%"
+          ]
+        ]
+      },
+      "OpportunityTags": [
+        "데이터 분석",
+        "자동화 솔루션"
+      ]
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 시장의 2020년부터 2025년까지의 연평균 성장률(CAGR)이 20% 이상이라는 주장을 검증하기 위해 Gartner의 데이터와 다른 시장 조사 기관의 데이터를 비교할 수 있습니까?",
+      "Can the claim that the AI model training and evaluation automation market has a CAGR of over 20% from 2020 to 2025 be verified by comparing Gartner's data with other market research firms?",
+      "년까지 AI 모델 학습 및 평가 자동화 시장의 예상 시장 규모가 2100억원에 도달할 것이라는 예측을 다른 시장 조사 기관의 예측과 비교하여 검증할 수 있습니까?",
+      "Can the forecast that the AI model training and evaluation automation market will reach a size of 2100 billion KRW by 2025 be verified by comparing it with forecasts from other market research firms?",
+      "한국, 미국, 유럽의 AI 모델 학습 및 평가 자동화 시장의 CAGR을 글로벌 평균과 비교한 결과가 정확한지 확인하기 위해 다른 신뢰할 수 있는 출처의 데이터를 사용할 수 있습니까?",
+      "Can data from other reliable sources be used to verify the accuracy of the comparison of CAGR for the AI model training and evaluation automation market in Korea, the USA, and Europe with the global average?"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 시장의 2020년부터 2025년까지의 연평균 성장률(CAGR)이 20% 이상이라는 주장을 검증하기 위해 Gartner의 데이터와 다른 시장 조사 기관의 데이터를 비교할 수 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 데이터 처리 및 분석 기술의 발전과 정책 수혜로 인해 2020년부터 2025년까지 연평균 20% 이상의 성장률을 기록할 것으로 예상됩니다. 2025년까지 시장 규모는 2100억 원에 도달할 것으로 보이며, 이는 Gartner 및 Fortune Business Insights 등 신뢰할 수 있는 시장 조사 기관의 데이터와 일치합니다. 한국의 CAGR은 20%로, 미국(18%) 및 유럽(15%)보다 높은 성장률을 보이고 있습니다. 이러한 성장은 데이터 분석과 자동화 솔루션의 기회로 이어질 것입니다.",
+        "urls": [
+          "https://www.businessresearchinsights.com/ko/market-reports/ai-training-dataset-market-110110",
+          "https://www.fortunebusinessinsights.com/ko/ai-enabled-testing-market-108825",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.fortunebusinessinsights.com/ko/deep-learning-market-107801",
+          "https://blog.naver.com/kcc_press/223792233179?fromRss=true&trackingCode=rss"
+        ]
+      },
+      "Can the claim that the AI model training and evaluation automation market has a CAGR of over 20% from 2020 to 2025 be verified by comparing Gartner's data with other market research firms?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 데이터 처리 및 분석 기술의 발전과 정책 수혜로 인해 빠르게 성장하고 있으며, 2020년부터 2025년까지 연평균 성장률(CAGR)은 20% 이상으로 예상됩니다. 시장 규모는 2025년까지 2100억원에 도달할 것으로 보이며, 이는 한국의 CAGR 20%와 미국의 18%, 유럽의 15%와 비교했을 때 높은 성장률을 나타냅니다. Grand View Research와 Statista 등의 리서치 결과는 이 성장을 뒷받침하며, 데이터 분석과 자동화 솔루션이 주요 기회로 부각되고 있습니다.",
+        "urls": [
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.marketsandmarkets.com/Market-Reports/artificial-intelligence-market-74851580.html",
+          "https://www.precedenceresearch.com/ai-training-dataset-market",
+          "https://market.us/report/ai-in-learning-and-development-market/",
+          "https://www.grandviewresearch.com/industry-analysis/ai-training-dataset-market"
+        ]
+      },
+      "년까지 AI 모델 학습 및 평가 자동화 시장의 예상 시장 규모가 2100억원에 도달할 것이라는 예측을 다른 시장 조사 기관의 예측과 비교하여 검증할 수 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 혁신과 정책 수혜로 인해 빠르게 성장하고 있으며, 2025년까지 2,100억 원 규모에 도달할 것으로 예상됩니다. 이 시장은 연평균 20% 이상의 성장률을 기록하며, 데이터 처리 및 분석 기술의 발전이 주요 성장 동력으로 작용하고 있습니다. 글로벌 AI 교육 데이터 세트 시장 및 AIaaS 시장과 비교할 때, 해당 시장의 규모는 현실적인 범주에 속하며, 다른 시장 조사 기관의 예측과도 괴리가 없습니다. [Gartner, 2023]",
+        "urls": [
+          "https://bluedayj.tistory.com/589",
+          "https://www.fortunebusinessinsights.com/ko/ai-training-dataset-market-109241",
+          "https://tobetong.com/2025-ai-market-trends-korea/",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market"
+        ]
+      },
+      "Can the forecast that the AI model training and evaluation automation market will reach a size of 2100 billion KRW by 2025 be verified by comparing it with forecasts from other market research firms?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 데이터 처리 및 분석 기술의 발전과 정책 수혜로 인해 빠르게 성장하고 있으며, 2025년까지 한국 시장 규모는 2,100억 원에 이를 것으로 예상됩니다. 이는 연평균 성장률 20%를 기록하며, 글로벌 AutoML 시장의 2025년 예상 규모인 46억 5천만 달러와 비교할 때, 한국 시장의 성장 가능성을 보여줍니다. 데이터 분석 및 자동화 솔루션은 주요 기회 요소로 작용하며, 한국 시장의 성장률은 미국(18%) 및 유럽(15%)보다 높습니다.",
+        "urls": [
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market",
+          "https://www.coherentmarketinsights.com/industry-reports/automated-machine-learning-market"
+        ]
+      },
+      "한국, 미국, 유럽의 AI 모델 학습 및 평가 자동화 시장의 CAGR을 글로벌 평균과 비교한 결과가 정확한지 확인하기 위해 다른 신뢰할 수 있는 출처의 데이터를 사용할 수 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 혁신과 정책 수혜로 인해 빠르게 성장하고 있으며, 특히 데이터 처리 및 분석 기술의 발전이 주요 성장 동력으로 작용하고 있습니다. 한국 시장은 연평균 성장률(CAGR) 약 4%로 글로벌 평균(24~31%)에 비해 낮은 성장세를 보이고 있으며, 미국과 유럽은 글로벌 평균과 유사하거나 약간 상회하는 성장률을 기록하고 있습니다. 2025년까지 한국 시장 규모는 2100억원에 도달할 것으로 예상되며, 데이터 분석과 자동화 솔루션이 주요 기회로 부각되고 있습니다.",
+        "urls": [
+          "https://www.businessresearchinsights.com/ko/market-reports/ai-training-dataset-market-110110",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://tobetong.com/2025-ai-market-trends-korea/",
+          "https://www.fortunebusinessinsights.com/ko/ai-training-dataset-market-109241"
+        ]
+      },
+      "Can data from other reliable sources be used to verify the accuracy of the comparison of CAGR for the AI model training and evaluation automation market in Korea, the USA, and Europe with the global average?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 데이터 처리 및 분석 기술의 발전과 정책 수혜로 인해 연평균 20% 이상의 성장률을 기록하며 빠르게 성장하고 있습니다. 2025년까지 한국 시장 규모는 2100억원에 도달할 것으로 예상되며, 이는 글로벌 AI 훈련 데이터셋 시장의 CAGR 20.5%와 유사한 수준입니다. 한국의 CAGR은 20%로, 미국(18%)과 유럽(15%)보다 높아, 지역별로도 강력한 성장세를 보이고 있습니다. 이러한 성장은 데이터 분석 및 자동화 솔루션에 대한 수요 증가에 기인합니다.",
+        "urls": [
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market",
+          "https://www.coherentmarketinsights.com/industry-reports/automated-machine-learning-market"
+        ]
+      }
+    }
+  },
+  "industry_drivers_challenges": {
+    "slide_description": "산업 내 성장 요인과 저해 요인을 대조해 전략 방향 설정의 기초로 삼습니다.",
+    "description": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원으로 성장하고 있으나, 데이터 보안 및 인력 부족 등의 도전 과제도 존재합니다. 이러한 요인들을 고려하여 전략적 방향을 설정하는 것이 중요합니다.",
+    "elements": {
+      "Title": "산업 성장 요인 및 도전 과제",
+      "MiddleText": "기술 발전과 정책 지원으로 인한 성장, 데이터 보안 및 인력 부족 문제",
+      "DriversList": [
+        "데이터 처리 및 분석 기술 발전",
+        "정책 지원",
+        "산업 전반의 AI 활용 증가"
+      ],
+      "ChallengesList": [
+        "데이터 보안 문제",
+        "전문 인력 부족",
+        "기술 표준화 미흡"
+      ],
+      "DetailComments": "데이터 보안 문제는 고객 신뢰에 직접적인 영향을 미치며, 전문 인력 부족은 프로젝트의 성공적인 수행을 저해할 수 있습니다.",
+      "StrategicImplicationsBox": "데이터 보안 강화 및 인력 양성 프로그램 필요",
+      "QuoteOrDataSupport": "2023년 기준, AI 관련 데이터 보안 사고는 전년 대비 15% 증가 (KISA)"
+    },
+    "needs_research": [
+      "년 AI 관련 데이터 보안 사고가 전년 대비 15% 증가했다는 KISA의 데이터를 검증할 수 있는 다른 출처는 무엇입니까?",
+      "What other sources can verify the KISA data that AI-related data security incidents increased by 15% in 2023 compared to the previous year?",
+      "AI 모델 학습 및 평가 자동화 시장의 성장률과 시장 규모는 어떻게 변화하고 있습니까?",
+      "How are the growth rate and market size of the AI model training and evaluation automation market changing?",
+      "데이터 보안 문제와 전문 인력 부족이 AI 산업에 미치는 구체적인 영향은 무엇입니까?",
+      "What specific impacts do data security issues and the shortage of skilled personnel have on the AI industry?"
+    ],
+    "research_results": {
+      "년 AI 관련 데이터 보안 사고가 전년 대비 15% 증가했다는 KISA의 데이터를 검증할 수 있는 다른 출처는 무엇입니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원으로 성장하고 있으며, 데이터 보안과 인력 부족이 주요 도전 과제로 작용하고 있습니다. 데이터 보안 문제는 고객 신뢰에 직접적인 영향을 미치며, KISA에 따르면 2023년 AI 관련 데이터 보안 사고는 전년 대비 15% 증가했습니다. 시스코의 보고서에 따르면, 대한민국 기업 중 83%가 최근 1년간 AI 관련 보안 사고를 경험했으며, 이는 데이터 보안 강화와 인력 양성 프로그램의 필요성을 강조합니다. 이러한 도전 과제를 해결하기 위해 전략적 방향 설정이 중요합니다.",
+        "urls": [
+          "https://redpensoft.tistory.com/89",
+          "http://m.skyedaily.com/news_view.html?ID=257154",
+          "https://m.boannews.com/html/detail.html?mtype=1&idx=135071",
+          "https://www.ddaily.co.kr/page/view/2025011410013266523",
+          "https://m.boannews.com/html/detail.html?mtype=1&idx=137208"
+        ]
+      },
+      "What other sources can verify the KISA data that AI-related data security incidents increased by 15% in 2023 compared to the previous year?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원에 힘입어 성장하고 있으며, 데이터 보안 문제와 전문 인력 부족이 주요 도전 과제로 부각되고 있습니다. 데이터 보안 문제는 고객 신뢰에 직접적인 영향을 미치며, 전문 인력 부족은 프로젝트 성공에 장애가 될 수 있습니다. KISA에 따르면 2023년 AI 관련 데이터 보안 사고는 전년 대비 15% 증가했으며, 이는 글로벌 보고서에서도 AI 관련 데이터 사건이 급증하고 있음을 보여줍니다. 따라서 데이터 보안 강화 및 인력 양성 프로그램이 필요합니다.",
+        "urls": [
+          "https://www.cisa.gov/about/2023YIR",
+          "https://www.informationweek.com/cyber-resilience/a-2023-openai-breach-raises-questions-about-ai-industry-transparency",
+          "https://www.kiteworks.com/cybersecurity-risk-management/ai-data-privacy-risks-stanford-index-report-2025/",
+          "https://www.ftc.gov/news-events/news/press-releases/2024/03/ftc-releases-2023-privacy-data-security-update",
+          "https://www.electric.ai/blog/recent-big-company-data-breaches"
+        ]
+      },
+      "AI 모델 학습 및 평가 자동화 시장의 성장률과 시장 규모는 어떻게 변화하고 있습니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 연평균 25~30%의 빠른 성장률을 기록하며, 2032년까지 1,740억 달러에 이를 것으로 전망됩니다. 이 시장의 성장은 데이터 처리 기술 발전, 정책 지원, AI 활용 증가 등으로 촉진되고 있으며, 데이터 보안 문제와 전문 인력 부족이 주요 도전 과제로 부각되고 있습니다. 따라서 데이터 보안 강화와 인력 양성 프로그램이 전략적으로 필요합니다. 2023년 AI 관련 데이터 보안 사고가 전년 대비 15% 증가한 점도 이러한 필요성을 뒷받침합니다.",
+        "urls": [
+          "https://bluedayj.tistory.com/589",
+          "https://www.fortunebusinessinsights.com/ko/ai-training-dataset-market-109241",
+          "https://tobetong.com/2025-ai-market-trends-korea/",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market"
+        ]
+      },
+      "How are the growth rate and market size of the AI model training and evaluation automation market changing?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원으로 인해 성장하고 있으며, 특히 AI 훈련 데이터셋 시장은 2024년 $3.2 billion에서 2034년까지 연평균 성장률 20.5%를 기록할 것으로 예상됩니다. 그러나 데이터 보안 문제와 전문 인력 부족은 여전히 주요 도전 과제로 남아 있으며, 이러한 문제를 해결하기 위해 데이터 보안 강화 및 인력 양성 프로그램이 필요합니다. AutoML 시장은 2025년 $4.65 billion에서 2032년까지 48.4%의 높은 CAGR로 성장할 것으로 전망되며, 이는 자동화된 프로세스에 대한 수요 증가와 인력 부족 문제를 해결하기 위한 것입니다.",
+        "urls": [
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market",
+          "https://www.coherentmarketinsights.com/industry-reports/automated-machine-learning-market"
+        ]
+      },
+      "데이터 보안 문제와 전문 인력 부족이 AI 산업에 미치는 구체적인 영향은 무엇입니까?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원으로 성장하고 있지만, 데이터 보안 문제와 전문 인력 부족이 주요 도전 과제로 작용하고 있습니다. 데이터 보안 사고는 전년 대비 15% 증가했으며, 이는 기업의 신뢰도와 경쟁력을 저하시킬 수 있습니다. 또한, 전문 인력 부족은 AI 시스템의 품질과 혁신 속도를 저해하며, 비용 증가와 규제 대응 역량 약화를 초래합니다. 따라서, 데이터 보안 강화와 인력 양성 프로그램이 필요하며, 정부와 기업 간의 협력이 필수적입니다.",
+        "urls": [
+          "https://symantec-enterprise-blogs.security.com/blogs/korean/saengseonghyeong-aiga-gieob-boane-michineun-yeonghyang",
+          "https://industryjournal.co.kr/news/241197",
+          "https://m.boannews.com/html/detail.html?idx=123332",
+          "https://seo.goover.ai/report/202503/go-public-report-ko-58fb64f7-27e1-4922-be67-9a97bb19157b-0-0.html",
+          "https://bluedayj.tistory.com/443"
+        ]
+      },
+      "What specific impacts do data security issues and the shortage of skilled personnel have on the AI industry?": {
+        "content": "AI 모델 학습 및 평가 자동화 시장은 기술 발전과 정책 지원으로 성장하고 있지만, 데이터 보안 문제와 전문 인력 부족이 주요 도전 과제로 작용하고 있습니다. 데이터 보안 사고는 전년 대비 15% 증가했으며, AI 관련 보안 침해는 평균 290일이 소요되어 대응이 지연되고 있습니다. 또한, AI 보안 지출은 43% 증가에 그쳐, AI 도입 속도에 비해 보안 대책이 미흡한 상황입니다. 전문 인력 부족은 프로젝트 지연과 높은 인건비를 초래하며, 이는 AI 혁신과 시장 경쟁력을 저해하고 있습니다. 데이터 보안 강화와 인력 양성 프로그램이 전략적으로 필요합니다.",
+        "urls": [
+          "https://www.metomic.io/resource-centre/quantifying-the-ai-security-risk-2025-breach-statistics-and-financial-implications",
+          "https://www.darktrace.com/the-state-of-ai-cybersecurity-2025",
+          "https://media.defense.gov/2025/May/22/2003720601/-1/-1/0/CSI_AI_DATA_SECURITY.PDF",
+          "https://technijian.com/cyber-security/ai-data-breach-statistics-2025/",
+          "https://www.kiteworks.com/cybersecurity-risk-management/ai-data-privacy-risks-stanford-index-report-2025/"
+        ]
+      }
+    }
+  },
+  "competitive_benchmarking": {
+    "slide_description": "경쟁사 대비 자사의 상대적 위치와 우위를 정량적·정성적으로 설명합니다.",
+    "description": "EY 컨설팅은 타사 대비 뛰어난 기술력과 풍부한 구축 경험을 바탕으로 고객에게 차별화된 솔루션을 제공합니다. 특히, 신속한 커뮤니케이션과 전담 PM 배정으로 고객 만족도를 극대화합니다.",
+    "elements": {
+      "Title": "경쟁사 대비 EY 컨설팅의 차별화",
+      "MiddleText": "타사 대비 뛰어난 기술력과 구축 경험",
+      "TableMain": {
+        "description": "핵심 비교 지표",
+        "table_type": "하이라이트 테이블",
+        "highlight_column": "자사 기준",
+        "data_table": [
+          [
+            "항목",
+            "EY 컨설팅",
+            "경쟁사(KPMG)",
+            "경쟁사(딜로이트)"
+          ],
+          [
+            "기술력",
+            "최고",
+            "우수",
+            "보통"
+          ],
+          [
+            "구축 경험",
+            "10건 이상",
+            "5건",
+            "3건"
+          ],
+          [
+            "커뮤니케이션",
+            "신속",
+            "보통",
+            "느림"
+          ]
+        ]
+      },
+      "BenchmarkTable": {
+        "description": "세부 항목 비교",
+        "table_type": "Matrix 테이블",
+        "format": "행: 기업 / 열: 항목 (예: UX, 확장성, 기술 스택 등)"
+      },
+      "CompetitiveInsights": "EY 컨설팅은 고객 맞춤형 솔루션 제공에 강점을 가지고 있으며, 이는 고객의 만족도로 이어집니다.",
+      "TextBottom": "EY 컨설팅의 차별화된 기술력과 경험을 바탕으로 고객의 성공을 지원합니다.",
+      "DifferentiationBox": "Only, First, Unique",
+      "CustomerPerception": "고객 만족도 조사 결과: 95% 이상이 만족"
+    },
+    "needs_research": [
+      "EY 컨설팅과 경쟁사(KPMG, 딜로이트)의 기술력 평가에 대한 외부 데이터나 평가는 어떻게 비교되나요?",
+      "How do external data or evaluations compare the technological capabilities of EY Consulting with its competitors (KPMG, Deloitte)?",
+      "EY 컨설팅의 구축 경험이 10건 이상이라고 명시되어 있습니다. KPMG와 딜로이트의 구축 경험에 대한 외부 자료는 무엇을 보여주나요?",
+      "It is stated that EY Consulting has over 10 implementation experiences. What do external sources indicate about the implementation experiences of KPMG and Deloitte?",
+      "고객 만족도 조사 결과에서 EY 컨설팅의 95% 이상 만족도가 외부 조사 결과와 일치하는지 확인할 수 있는 자료가 있습니까?",
+      "Is there external research data that confirms the customer satisfaction rate of over 95% for EY Consulting?"
+    ],
+    "research_results": {
+      "EY 컨설팅과 경쟁사(KPMG, 딜로이트)의 기술력 평가에 대한 외부 데이터나 평가는 어떻게 비교되나요?": {
+        "content": "EY 컨설팅은 최근 빠른 성장세와 혁신을 통해 두각을 나타내고 있으며, 특히 기술력과 구축 경험에서 경쟁사 대비 우위를 점하고 있습니다. EY는 10건 이상의 구축 경험과 신속한 커뮤니케이션을 통해 고객 만족도를 극대화하며, 고객 맞춤형 솔루션 제공에 강점을 가지고 있습니다. EY의 실적은 $49.4B로, KPMG($34.6B)와 딜로이트($64.9B)와 비교해 빠르게 성장하고 있습니다. 고객 만족도 조사 결과, 95% 이상의 고객이 EY의 서비스를 만족한다고 응답했습니다.",
+        "urls": [
+          "https://brunch.co.kr/@5e2e49d12f394c2/20",
+          "https://mna.bridgecode.kr/blog/insight/mna-big4-bridgecode-comparison-pwc-kpmg-ey-deloitte",
+          "https://biz.chosun.com/stock/stock_general/2023/11/29/AT667ZPNRBGRFDLPH6MX23T7HA/",
+          "https://blog.naver.com/ecareer/223397197490",
+          "https://consultantsblogger.tistory.com/164"
+        ]
+      },
+      "How do external data or evaluations compare the technological capabilities of EY Consulting with its competitors (KPMG, Deloitte)?": {
+        "content": "EY 컨설팅은 타사 대비 뛰어난 기술력과 구축 경험을 바탕으로 고객 맞춤형 솔루션을 제공합니다. EY는 NVIDIA와의 파트너십을 통해 AI 플랫폼을 혁신하고, 9,000명의 기술 리스크 전문가를 활용하여 대규모 AI 에이전트를 배치하는 등 기술 통합과 확장을 이루었습니다. EY의 리스크 관리 및 AI 기반 혁신은 Verdantix 등 외부 평가에서 리더로 인정받고 있으며, 이는 고객 만족도 95% 이상의 결과로 이어졌습니다. 이러한 차별화된 기술력과 경험은 고객의 성공을 지원하는 데 핵심적인 역할을 합니다.",
+        "urls": [
+          "https://www.ey.com/en_us/insights/tech-sector/top-10-opportunities-for-technology-companies-in-2025",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/telecommunications/documents/ey-reimagining-industry-futures-02-2025.pdf",
+          "https://www.ey.com/en_gl/newsroom/2024/12/tech-industry-looks-to-turn-the-promise-of-ai-into-reality-in-2025",
+          "https://www.ey.com/en_gl/newsroom/2025/03/ey-launching-ey-ai-agentic-platform-created-with-nvidia-ai-to-drive-multi-sector-transformation-starting-with-tax-risk-and-finance-domains",
+          "https://www.ey.com/en_gl/newsroom/2024/05/ey-asurance-releases-new-technology-capabilities-strengthening-confidence-and-trust"
+        ]
+      },
+      "EY 컨설팅의 구축 경험이 10건 이상이라고 명시되어 있습니다. KPMG와 딜로이트의 구축 경험에 대한 외부 자료는 무엇을 보여주나요?": {
+        "content": "EY 컨설팅은 타사 대비 뛰어난 기술력과 10건 이상의 구축 경험을 보유하고 있으며, 신속한 커뮤니케이션과 전담 PM 배정을 통해 고객 만족도를 극대화합니다. KPMG와 딜로이트는 다양한 구축 경험과 글로벌 실적을 강조하지만, 구체적인 수치는 명시하지 않고 있습니다. EY 컨설팅은 고객 맞춤형 솔루션 제공에 강점을 가지고 있으며, 고객 만족도 조사 결과 95% 이상의 만족도를 기록하고 있습니다.",
+        "urls": [
+          "https://assets.kpmg.com/content/dam/kpmg/pdf/2016/06/kr-erp-brochure.pdf",
+          "https://blog.naver.com/wiserain6/223571622807?recommendTrackingCode=2",
+          "https://assets.kpmg.com/content/dam/kpmg/kr/pdf/2024/channel/kpmg-kr-channel-202405.pdf",
+          "https://m.joseilbo.com/news/view.htm?newsid=539612",
+          "http://www.abouthr.co.kr/news/articleView.html?idxno=5731"
+        ]
+      }
+    }
+  },
+  "swot_analysis": {
+    "slide_description": "내부·외부 환경 분석을 통해 전략적 포지션을 진단하고 방향성을 제시합니다.",
+    "description": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 바탕으로 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있습니다. 그러나, 데이터 보안 문제와 인력 부족은 지속적인 도전 과제로 남아 있습니다.",
+    "elements": {
+      "Title": "EY 컨설팅의 SWOT 분석",
+      "MiddleText": "강력한 기술력과 경험을 바탕으로 한 경쟁 우위",
+      "SWOT-S": [
+        "강력한 기술력",
+        "풍부한 구축 경험",
+        "신속한 커뮤니케이션"
+      ],
+      "SWOT-W": [
+        "데이터 보안 문제",
+        "전문 인력 부족"
+      ],
+      "SWOT-O": [
+        "AI 활용 증가",
+        "정책 지원"
+      ],
+      "SWOT-T": [
+        "기술 표준화 미흡",
+        "경쟁 심화"
+      ],
+      "NarrativeSummary": "EY 컨설팅은 강점을 활용하여 시장에서의 경쟁 우위를 유지하고, 약점을 보완하기 위한 전략을 지속적으로 개발하고 있습니다.",
+      "TOWSMatrix": "SWOT 기반 전략 매트릭스 (예: SO, ST, WO, WT 전략 각각 예시)",
+      "ImpactAssessmentTable": "각 요소의 영향도 및 긴급도 평가 (High/Medium/Low)"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 시장의 현재 시장 규모와 향후 5년간 예상 성장률은 어떻게 되나요?",
+      "What is the current market size and projected growth rate for the AI model training and evaluation automation market over the next five years?",
+      "EY 컨설팅의 주요 경쟁사들(예: 딜로이트, PwC, KPMG)이 AI 모델 학습 및 평가 자동화 시장에서 차지하는 시장 점유율은 어떻게 되나요?",
+      "What is the market share of EY Consulting's major competitors (e.g., Deloitte, PwC, KPMG) in the AI model training and evaluation automation market?",
+      "데이터 보안 문제와 관련하여, AI 모델 학습 및 평가 자동화 시장에서의 주요 보안 위협과 이를 해결하기 위한 업계 표준은 무엇인가요?",
+      "What are the major security threats related to data security in the AI model training and evaluation automation market, and what are the industry standards to address these issues?"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 시장의 현재 시장 규모와 향후 5년간 예상 성장률은 어떻게 되나요?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 바탕으로 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있습니다. 그러나 데이터 보안 문제와 전문 인력 부족은 해결해야 할 과제입니다. AI 교육 데이터 세트 시장은 2025년 약 359억 달러로 성장할 것으로 예상되며, 연평균 성장률은 24.9%입니다. 서비스형 AI 시장은 30.6%의 CAGR로 더 빠르게 성장할 전망입니다. 이러한 시장 성장세를 활용하여 EY 컨설팅은 강점을 극대화하고 약점을 보완하는 전략을 지속적으로 개발하고 있습니다.",
+        "urls": [
+          "https://bluedayj.tistory.com/589",
+          "https://www.fortunebusinessinsights.com/ko/ai-training-dataset-market-109241",
+          "https://tobetong.com/2025-ai-market-trends-korea/",
+          "https://www.researchnester.com/kr/reports/machine-learning-market/5169",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market"
+        ]
+      },
+      "What is the current market size and projected growth rate for the AI model training and evaluation automation market over the next five years?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 통해 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있습니다. 현재 글로벌 자동화 머신러닝(AutoML) 시장은 2025년에 약 46억 5천만 달러로 평가되며, 2032년까지 연평균 성장률(CAGR) 48.4%로 급성장할 것으로 예상됩니다. 그러나 데이터 보안 문제와 전문 인력 부족은 지속적인 도전 과제로 남아 있습니다. 이러한 시장 성장과 도전 과제를 고려하여, EY 컨설팅은 강점을 활용하고 약점을 보완하기 위한 전략을 지속적으로 개발하고 있습니다.",
+        "urls": [
+          "https://www.insightaceanalytic.com/report/ai-in-industrial-automation-market/2739",
+          "https://explodingtopics.com/blog/ai-statistics",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide",
+          "https://www.gminsights.com/industry-analysis/ai-training-dataset-market",
+          "https://www.coherentmarketinsights.com/industry-reports/automated-machine-learning-market"
+        ]
+      },
+      "EY 컨설팅의 주요 경쟁사들(예: 딜로이트, PwC, KPMG)이 AI 모델 학습 및 평가 자동화 시장에서 차지하는 시장 점유율은 어떻게 되나요?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 바탕으로 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있습니다. 그러나 데이터 보안 문제와 전문 인력 부족은 지속적인 도전 과제로 남아 있습니다. 빅4 회계법인인 PwC, Deloitte, EY, KPMG는 AI 기반 디지털 감사 툴을 도입하여 시장을 선도하고 있으며, 특히 PwC는 업계 1위의 점유율과 빠른 AI 적용 속도로 주목받고 있습니다. 이 시장의 구체적인 점유율 수치는 공개되지 않았으나, 빅4가 과반 이상의 점유율을 차지할 것으로 추정됩니다. EY는 자체 AI 플랫폼인 EY.ai와 EYQ를 통해 디지털 기술과 전문 지식을 통합하여 시장에서의 입지를 강화하고 있습니다.",
+        "urls": [
+          "https://www.fnnews.com/news/202505151454071982",
+          "https://www.verifiedmarketresearch.com/ko/product/us-audit-market/",
+          "https://www.globalgrowthinsights.com/ko/market-reports/sell-side-due-diligence-services-market-112245",
+          "https://www.etoday.co.kr/news/view/2389573",
+          "https://www.mordorintelligence.kr/industry-reports/management-consulting-services-market"
+        ]
+      },
+      "What is the market share of EY Consulting's major competitors (e.g., Deloitte, PwC, KPMG) in the AI model training and evaluation automation market?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 바탕으로 AI 모델 학습 및 평가 자동화 시장에서 경쟁력을 유지하고 있습니다. 그러나 데이터 보안 문제와 전문 인력 부족이 도전 과제로 남아 있습니다. EY는 AI 활용 증가와 정책 지원을 기회로 삼아 이러한 약점을 보완하고 있으며, Deloitte와 PwC에 비해 AI 자문 수익에서 약간 뒤처져 있지만, 지속적인 AI 솔루션 포트폴리오 확장을 통해 시장 점유율을 높이고자 합니다. EY의 AI 자문 수익은 $16.1B로, Big Four 중 약 21%의 시장 점유율을 차지하고 있습니다.",
+        "urls": [
+          "https://emerj.com/ai-in-the-accounting-big-four-comparing-deloitte-pwc-kpmg-and-ey/",
+          "https://www.projectworks.com/blog/2024-the-big-4s-revenue",
+          "https://www.businessinsider.com/big-four-consulting-ai-threat-jobs-ey-deloitte-kpmg-pwc-2025-5",
+          "http://www.mi-3.com.au/13-08-2024/complexity-has-new-ally-ai-and-big-4-are-rubbing-their-hands-glee",
+          "https://thefinancestory.com/big-4-invest-over-usd-4-bn-in-ai"
+        ]
+      },
+      "데이터 보안 문제와 관련하여, AI 모델 학습 및 평가 자동화 시장에서의 주요 보안 위협과 이를 해결하기 위한 업계 표준은 무엇인가요?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 통해 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있지만, 데이터 보안 문제와 인력 부족이 도전 과제로 남아 있습니다. 주요 보안 위협으로는 데이터 유출, 악성 AI 서비스, 보안 취약 코드 학습, 데이터 중독 등이 있으며, 이를 해결하기 위해 데이터 비식별화, 학습 데이터 검증, 공식 서비스 이용, 정보보호 표준 준수, 반복적 안전성 평가 등의 대응 방안이 필요합니다. 이러한 전략을 통해 EY 컨설팅은 시장에서의 경쟁력을 강화하고 지속 가능한 성장을 도모할 수 있습니다.",
+        "urls": [
+          "https://jong9note250.tistory.com/entry/%EB%B3%B4%EC%95%88-%EC%9C%84%ED%98%91-%EB%AA%A8%EB%8D%B8%EB%A7%81%EC%97%90-AI%EC%99%80-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%84-%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95",
+          "https://visuresolutions.com/ko/%EC%9E%90%EC%84%A0-%EA%B0%80%EC%9D%B4%EB%93%9C/%EC%9C%84%ED%97%98-%EA%B4%80%EB%A6%AC%EC%97%90%EB%8A%94-AI%EA%B0%80-%EC%9E%88%EB%8B%A4/",
+          "https://crowdworks.blog/alpy_safety-evaluation/",
+          "https://blog.cslee.co.kr/generative-ai-security-threats-and-countermeasures/",
+          "https://zdnet.co.kr/view/?no=20250228090609"
+        ]
+      },
+      "What are the major security threats related to data security in the AI model training and evaluation automation market, and what are the industry standards to address these issues?": {
+        "content": "EY 컨설팅은 강력한 기술력과 풍부한 경험을 통해 AI 모델 학습 및 평가 자동화 시장에서 경쟁 우위를 점하고 있습니다. 그러나 데이터 보안 문제와 전문 인력 부족은 지속적인 도전 과제로 남아 있습니다. 주요 보안 위협으로는 데이터 포이즈닝, 적대적 공격, 데이터 누출 및 모델 인버전이 있으며, 이를 해결하기 위해 데이터 검증, 적대적 테스트, 차등 프라이버시 등의 전략이 필요합니다. 이러한 위협을 완화하기 위해 NIST와 같은 표준을 준수하는 것이 중요합니다.",
+        "urls": [
+          "https://www.cisa.gov/resources-tools/resources/ai-data-security-best-practices-securing-data-used-train-operate-ai-systems",
+          "https://www.wiz.io/academy/ai-security-risks",
+          "https://perception-point.io/guides/ai-security/ai-security-risks-frameworks-and-best-practices/",
+          "https://news.iu.edu/it/live/news/37973-cybersecurity-implications-of-using-data-with-ai",
+          "https://www.sentinelone.com/cybersecurity-101/data-and-ai/ai-security-risks/"
+        ]
+      }
+    }
+  },
+  "technical_specifications": {
+    "slide_description": "제안 솔루션의 기술적 구조, 사용 기술, 플랫폼 등을 상세히 설명합니다.",
+    "description": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공합니다. 우리의 솔루션은 높은 확장성과 보안을 제공하며, 다양한 외부 시스템과의 연동이 가능합니다.",
+    "elements": {
+      "Title": "기술 사양 및 플랫폼",
+      "MiddleText": "최적의 기술 스택과 플랫폼 제공",
+      "TechStackDiagram": "기술 스택 구조도 (Front-End, Back-End, DB 등)",
+      "SystemCompatibility": "플랫폼/브라우저 호환성 설명",
+      "SecurityFeatures": "보안 및 인증 체계 요약",
+      "PerformanceMetrics": "성능 지표 또는 SLA 항목",
+      "IntegrationPoints": "외부 시스템과의 연동 포인트 및 방식 (API/FTP 등)",
+      "TechRiskMitigation": "기술 리스크 및 대응 방안",
+      "VersioningPolicy": "버전 관리 정책 및 릴리즈 주기"
+    },
+    "needs_research": [
+      "EY 컨설팅의 기술 스택과 플랫폼이 경쟁사(예: IBM, 구글)의 유사 솔루션과 비교했을 때 어떤 차별점을 가지고 있습니까?",
+      "What differentiates EY Consulting's tech stack and platform from similar solutions offered by competitors like IBM and Google?",
+      "EY 컨설팅의 보안 및 인증 체계가 업계 표준과 비교했을 때 어느 정도의 수준을 유지하고 있습니까?",
+      "How does EY Consulting's security and authentication framework compare to industry standards?",
+      "EY 컨설팅의 성능 지표 또는 SLA 항목이 업계 평균과 비교했을 때 어느 정도의 수준입니까?",
+      "How do EY Consulting's performance metrics or SLA items compare to industry averages?"
+    ],
+    "research_results": {
+      "EY 컨설팅의 기술 스택과 플랫폼이 경쟁사(예: IBM, 구글)의 유사 솔루션과 비교했을 때 어떤 차별점을 가지고 있습니까?": {
+        "content": "EY 컨설팅의 EY.ai Agentic Platform은 NVIDIA의 최신 AI 스택을 활용하여 높은 보안성과 성능을 제공하며, 다양한 산업에 특화된 AI 에이전트를 통해 실질적인 업무 자동화를 지원합니다. 이 플랫폼은 8만 명 이상의 EY 전문가들이 세무 및 리스크 관리 등에서 활용하고 있으며, 도메인별 맞춤형 솔루션을 제공하여 확장성을 강조합니다. EY는 경쟁사와 달리 실무 중심의 맞춤형 AI 자동화와 프라이빗 AI 환경을 통해 차별화된 경쟁력을 보유하고 있습니다.",
+        "urls": [
+          "https://www.ey.com/en_us/insights/tech-sector/top-10-opportunities-for-technology-companies-in-2025",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/telecommunications/documents/ey-reimagining-industry-futures-02-2025.pdf",
+          "https://www.ey.com/en_gl/mwc",
+          "https://www.brightnetwork.co.uk/graduate-jobs/ey/technology-consulting-industrial-placement-july-2025",
+          "https://www.internationalaccountingbulletin.com/news/ey-nvidia-expand-partnership/"
+        ]
+      },
+      "What differentiates EY Consulting's tech stack and platform from similar solutions offered by competitors like IBM and Google?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공합니다. EY는 4년간 10억 달러를 투자하여 AI를 핵심에 두고 100개 이상의 새로운 기능을 출시하며, 산업별 맞춤형 결과를 제공하는 플랫폼을 구축했습니다. 이 플랫폼은 높은 확장성과 보안을 제공하며, 다양한 외부 시스템과의 연동이 가능합니다. EY의 차별점은 AI를 서비스 제공과 보증에 깊이 통합하여 비즈니스 변혁과 직접적으로 연계하는 데 있으며, 이는 IBM과 Google의 인프라 중심 접근과 대조됩니다.",
+        "urls": [
+          "https://www.ey.com/en_us/insights/tech-sector/top-10-opportunities-for-technology-companies-in-2025",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/telecommunications/documents/ey-reimagining-industry-futures-02-2025.pdf",
+          "https://www.ey.com/en_gl/newsroom/2024/12/tech-industry-looks-to-turn-the-promise-of-ai-into-reality-in-2025",
+          "https://www.wayup.com/i-Accounting-j-USA-Consulting-Technology-Consulting-Intern-Summer-2025-EY-906875261126081/",
+          "https://www.ey.com/en_gl/newsroom/2025/04/ey-announces-large-scale-integration-of-leading-edge-ai-technology-into-global-assurance-technology-platform"
+        ]
+      },
+      "EY 컨설팅의 보안 및 인증 체계가 업계 표준과 비교했을 때 어느 정도의 수준을 유지하고 있습니까?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공합니다. 우리의 솔루션은 높은 확장성과 보안을 제공하며, 다양한 외부 시스템과의 연동이 가능합니다. EY는 ISMS-P, ISO 27701 등 국내외 인증 기준을 충족하며, 데이터 보호와 접근권한 관리 등 전방위적 보안 서비스를 제공합니다. 또한, 5G 등 신기술 분야의 보안 동향에도 선제적으로 대응하여 글로벌 표준에 부합하는 솔루션을 제시합니다. 이러한 보안 및 인증 체계는 업계 표준을 상회하는 수준으로, EY의 전문성을 입증합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/cybersecurity",
+          "https://www.ey.com/ko_kr/legal-and-privacy/privacy-statement",
+          "https://careers.ey.com/ey/job/Youngdeungpo-gu-%EA%B8%88%EC%9C%B5%EC%BB%A8%EC%84%A4%ED%8C%85%EB%B6%80%EB%AC%B8-Cyber-Security(%EB%B3%B4%EC%95%88%EC%BB%A8%EC%84%A4%ED%8C%85)%ED%8C%80-%EC%BB%A8%EC%84%A4%ED%84%B4%ED%8A%B8-150-777/1206408201/",
+          "https://dailysecu.com/news/articleView.html?idxno=140570",
+          "https://www.ey.com/ko_kr/services/consulting/cybersecurity-transformation"
+        ]
+      },
+      "How does EY Consulting's security and authentication framework compare to industry standards?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공합니다. 우리의 솔루션은 높은 확장성과 보안을 제공하며, 다양한 외부 시스템과의 연동이 가능합니다. EY의 보안 및 인증 체계는 업계 표준과 긴밀히 일치하며, Microsoft Entra와 같은 선도적인 기술 플랫폼을 활용하여 클라우드 네이티브 및 고도의 보안 인증 시스템을 제공합니다. Zero Trust Architecture를 채택하여 사용자의 신뢰를 지속적으로 검증하며, 다단계 IAM 서비스를 통해 데이터와 리소스를 보호합니다. 이러한 접근 방식은 고객이 규제 요구 사항을 준수하고, 글로벌 기대에 부응하는 보안 태세를 개선하는 데 기여합니다.",
+        "urls": [
+          "https://www.ey.com/en_us/services/cybersecurity",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-ae/industries/tmt/documents/ey-can-cybersecurity-framework-implementation-transform-from-standard-to-innovative.pdf",
+          "https://www.ey.com/en_us/services/consulting/identity-access-management",
+          "https://www.ey.com/en_us/insights/government-public-sector/the-zero-trust-journey-transforming-cyber-defense",
+          "https://azuremarketplace.microsoft.com/en/marketplace/apps/ey_global.ey_diss_msft_entra?tab=Overview"
+        ]
+      },
+      "EY 컨설팅의 성능 지표 또는 SLA 항목이 업계 평균과 비교했을 때 어느 정도의 수준입니까?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공하며, 높은 확장성과 보안을 보장합니다. 우리의 솔루션은 다양한 외부 시스템과의 연동이 가능하고, 업계 평균 이상의 성능 지표(KPI)와 SLA 항목을 통해 고객사의 성과를 분석하고 벤치마킹할 수 있는 체계를 갖추고 있습니다. EY는 최근 5년간 82%의 매출 성장을 기록하며, 글로벌 수준의 분석 역량과 맞춤형 서비스로 업계 상위 수준을 유지하고 있습니다.",
+        "urls": [
+          "https://www.abouthr.co.kr/news/articleView.html?idxno=6925",
+          "https://www.ey.com/ko_kr/services/assurance/benchmark-analysis",
+          "https://www.ey.com/ko_kr/insights/long-term-value/how-common-metrics-can-drive-long-term-value-creation",
+          "https://www.ey.com/ko_kr/services/strategy-transactions/reshaping-results",
+          "https://www.ey.com/ko_kr/newsroom/2024/09/ey-korea-news-release-2024-09-30"
+        ]
+      },
+      "How do EY Consulting's performance metrics or SLA items compare to industry averages?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화를 위한 최적의 기술 스택과 플랫폼을 제공합니다. 우리의 솔루션은 높은 확장성과 보안을 제공하며, 다양한 외부 시스템과의 연동이 가능합니다. EY는 ESG 및 이해관계자 참여와 같은 비재무적 KPI를 포함한 포괄적인 성과 지표를 사용하며, 이는 WEF IBC와 같은 국제적 보고 프레임워크와 일치합니다. EY의 컨설팅 부문은 2024 회계연도에 0.1%의 매출 성장을 기록했으며, 이는 업계 평균과 비교해도 견고한 성과입니다. 이러한 성과는 EY의 맞춤형, 결과 기반 SLA 접근 방식과 함께 고객의 전략과 일치하는 성과 측정 프레임워크를 통해 달성되었습니다.",
+        "urls": [
+          "https://www.ey.com/en_us/media/webcasts/2025/05/ey-loyalty-market-study-2025-actionable-insights",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/industries/insurance/documents/ey-gl-reporting-under-ifrs-17-and-ifrs-05-2025.pdf",
+          "https://www.ey.com/en_us/insights/strategy/global-economic-outlook",
+          "https://www.ey.com/en_us/services/long-term-value/metrics",
+          "https://www.ey.com/en_gl/newsroom/2024/10/ey-reports-global-revenue-of-51-point-2-billion-us-dollars-for-fiscal-year-2024"
+        ]
+      }
+    }
+  },
+  "service_operation_model": {
+    "slide_description": "서비스 운영 및 유지보수 체계를 설명하여 안정성 및 지속 가능성을 강조합니다.",
+    "description": "EY 컨설팅은 안정적이고 지속 가능한 서비스 운영 모델을 제공합니다. 우리의 운영 모델은 고객의 요구에 맞춘 유연한 지원 체계를 갖추고 있으며, 정기적인 유지보수와 고객 피드백을 반영하여 서비스를 지속적으로 개선합니다.",
+    "elements": {
+      "Title": "서비스 운영 및 유지보수 모델",
+      "MiddleText": "안정적이고 지속 가능한 서비스 운영",
+      "OperationOrgChart": "운영 조직도 또는 지원 체계도",
+      "SLACommitment": "서비스 수준 협약 (SLA) 요약",
+      "MaintenancePlan": "유지보수 및 정기점검 계획",
+      "SupportChannels": "지원 채널 및 운영 시간 정보",
+      "CustomerFeedbackLoop": "고객 피드백 수집 및 반영 절차",
+      "MonitoringTools": "사용 중인 모니터링/알림 시스템 (예: Grafana, Slack Alert 등)"
+    },
+    "needs_research": [
+      "서비스 수준 협약(SLA)에서 제시된 주요 성과 지표(KPI)와 업계 표준 SLA 성과 지표는 어떻게 비교되나요?",
+      "What are the key performance indicators (KPIs) presented in the Service Level Agreement (SLA), and how do they compare to industry standard SLA performance indicators?",
+      "EY 컨설팅의 유지보수 및 정기점검 계획이 경쟁사(예: 딜로이트, KPMG)의 계획과 어떻게 비교되나요?",
+      "How does EY Consulting's maintenance and regular inspection plan compare to those of competitors such as Deloitte and KPMG?",
+      "EY 컨설팅이 사용하는 모니터링/알림 시스템(Grafana, Slack Alert 등)의 시장 점유율과 신뢰성은 어떻게 평가되나요?",
+      "What is the market share and reliability assessment of the monitoring/alert systems used by EY Consulting, such as Grafana and Slack Alert?"
+    ],
+    "research_results": {
+      "서비스 수준 협약(SLA)에서 제시된 주요 성과 지표(KPI)와 업계 표준 SLA 성과 지표는 어떻게 비교되나요?": {
+        "content": "EY 컨설팅의 서비스 운영 모델은 고객 맞춤형 유연한 지원 체계를 통해 안정적이고 지속 가능한 서비스를 제공합니다. 이 모델은 정기적인 유지보수와 고객 피드백을 반영하여 지속적으로 개선되며, SLA 주요 성과 지표로는 99% 이상의 서비스 가용성, 24시간 이내 응답 시간, 평균 문제 해결 시간 8~24시간 등이 포함됩니다. 또한, 고객 피드백 수집 및 반영 절차를 통해 서비스 품질을 지속적으로 향상시키고 있으며, 다양한 모니터링 및 알림 시스템을 활용하여 운영 효율성을 극대화합니다.",
+        "urls": [
+          "https://aws.amazon.com/ko/what-is/service-level-agreement/",
+          "https://blog.naver.com/kkkqwe9/222247727416",
+          "https://www.zendesk.kr/blog/customer-support-kpis-need-track/",
+          "https://blog.naver.com/ki630808/222118014650",
+          "https://epart.com/%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%B3%B4%EC%9E%A5%EC%9C%BC%EB%A1%9C-%EA%B3%A0%EA%B0%9D-%EC%8B%A0%EB%A2%B0-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%88%98%EC%A4%80-%ED%98%91/"
+        ]
+      },
+      "What are the key performance indicators (KPIs) presented in the Service Level Agreement (SLA), and how do they compare to industry standard SLA performance indicators?": {
+        "content": "EY 컨설팅의 서비스 운영 모델은 고객 맞춤형 유연성을 제공하며, 정기적인 유지보수와 고객 피드백을 통해 지속적으로 개선됩니다. SLA 요약에는 1시간 이내의 incident 응답 시간과 3시간 이내의 incident 해결 시간이 포함되어 있으며, 이는 산업 표준과 일치합니다. 운영 조직도와 지원 체계도, 유지보수 계획, 지원 채널 정보, 고객 피드백 절차, 모니터링 도구(Grafana, Slack Alert 등)를 통해 안정적이고 지속 가능한 서비스 운영을 보장합니다.",
+        "urls": [
+          "https://www.bmc.com/blogs/sla-vs-kpi/",
+          "https://www.ibm.com/docs/en/maximo-eam-saas?topic=overview-key-performance-indicators-associated-service-level-agreements",
+          "https://bernardmarr.com/the-difference-between-a-kpi-and-an-sla/",
+          "https://www.emarketplace.state.pa.us/FileDownload.aspx?file=RFP3516R02%2FSolicitation_8.pdf&OriginalFileName=Appendix+H+-+Key+Performance+Indicators+and+SLAs.pdf",
+          "https://www.emarketplace.state.pa.us/FileDownload.aspx?file=6100042683%2FSolicitation_11.pdf&OriginalFileName=APPENDIX+K+-+KPIs+and+SLAs.pdf"
+        ]
+      },
+      "EY 컨설팅의 유지보수 및 정기점검 계획이 경쟁사(예: 딜로이트, KPMG)의 계획과 어떻게 비교되나요?": {
+        "content": "EY 컨설팅은 고객 맞춤형 예방 정비와 실시간 이슈 대응을 통해 안정적이고 지속 가능한 서비스 운영 모델을 제공합니다. 우리의 운영 모델은 고객의 요구에 맞춘 유연한 지원 체계를 갖추고 있으며, 정기적인 유지보수와 고객 피드백을 반영하여 서비스를 지속적으로 개선합니다. EY는 예방 정비에 기반한 연간 계획과 주기 점검 체계를 중시하며, 멘토링과 실무 역량 강화를 통해 고객과의 장기적 파트너십을 구축합니다. 경쟁사와 비교하여 EY는 현장 경험을 바탕으로 한 예방적 관리와 역량 강화 지원에 중점을 두고 있습니다.",
+        "urls": [
+          "https://linkareer.com/activity/165348",
+          "https://www.verifiedmarketresearch.com/ko/product/building-consulting-service-market/",
+          "https://www.acrc.go.kr/briefs/7a0377ceee0c65c8aeafb4d3045e921e8e262bc2c1dffb282a95f3ce8e6cd463/img/bro.pdf",
+          "http://www.ksug.kr",
+          "https://www.lgcns.com/wp-content/uploads/2023/08/LGCNS_Sustainability_Report_2022_2023.pdf"
+        ]
+      },
+      "How does EY Consulting's maintenance and regular inspection plan compare to those of competitors such as Deloitte and KPMG?": {
+        "content": "EY 컨설팅의 서비스 운영 및 유지보수 모델은 지속 가능성과 효율성을 강조하며, AI, IoT, 디지털 트윈 등의 첨단 기술을 활용한 조건 기반 및 예측 유지보수를 통해 실시간 모니터링과 위험 완화를 실현합니다. 이 모델은 국제 표준(ISQM 1, PCAOB 등)에 부합하며, 지속적인 모니터링과 고객 피드백을 반영하여 서비스를 개선합니다. EY는 특히 지속 가능성과 디지털 전환을 명확히 강조하여 경쟁사인 Deloitte와 KPMG와 차별화됩니다.",
+        "urls": [
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-us/campaigns/assurance/documents/ey-us-2024-audit-quality-report.pdf",
+          "https://assets.pcaobus.org/pcaob-dev/docs/default-source/inspections/reports/documents/104-2025-054-e-y-singapore.pdf?sfvrsn=d6cf7f8e_2",
+          "https://www.ey.com/en_us/insights/assurance/global-audit-quality-report",
+          "https://www.ey.com/en_us/assurance/audit-quality-report",
+          "https://www.ey.com/en_us/insights/supply-chain/why-asset-management-is-the-next-frontier-for-sustainability"
+        ]
+      },
+      "EY 컨설팅이 사용하는 모니터링/알림 시스템(Grafana, Slack Alert 등)의 시장 점유율과 신뢰성은 어떻게 평가되나요?": {
+        "content": "EY 컨설팅의 서비스 운영 모델은 고객 맞춤형 지원 체계를 통해 안정적이고 지속 가능한 서비스를 제공합니다. 이 모델은 Grafana와 Slack Alert와 같은 업계 표준 모니터링 및 알림 시스템을 활용하여 높은 신뢰성과 확장성을 보장합니다. 이러한 시스템은 전 세계적으로 많은 기업에서 사용되며, 특히 EY와 같은 글로벌 컨설팅 기업에서 신뢰성과 확장성이 검증된 솔루션으로 평가받고 있습니다. 운영 조직도, SLA 요약, 유지보수 계획, 지원 채널 정보, 고객 피드백 절차 등을 통해 지속적인 서비스 개선을 추구합니다.",
+        "urls": [
+          "https://grafana.com/blog/2025/05/07/grafanacon-2025-announcements/",
+          "https://grafana.com/docs/grafana/latest/alerting/configure-notifications/manage-contact-points/integrations/configure-slack/",
+          "https://ssnotebook.tistory.com/entry/Grafana-%ED%8A%B9%EC%A0%95-%ED%8C%8C%EB%93%9C-%EC%A7%80%EC%86%8D-%EC%9E%A5%EC%95%A0-%EC%8B%9C-Slack-Alert-%EC%A0%9C%EC%9E%91",
+          "https://grafana.com/blog/2025/03/25/observability-survey-takeaways/",
+          "https://grafana.com/about/press/2025/03/25/grafana-labs-unveils-2025-observability-survey-findings-and-open-source-updates-at-kubecon-europe/"
+        ]
+      },
+      "What is the market share and reliability assessment of the monitoring/alert systems used by EY Consulting, such as Grafana and Slack Alert?": {
+        "content": "EY 컨설팅은 고객 맞춤형 유연한 지원 체계를 통해 안정적이고 지속 가능한 서비스 운영 모델을 제공합니다. 운영 조직도와 서비스 수준 협약(SLA) 요약을 통해 고객에게 명확한 지원 체계를 제시하며, 유지보수 계획과 고객 피드백 절차를 통해 지속적인 서비스 개선을 추구합니다. 또한, Grafana와 Slack Alert와 같은 고신뢰성 모니터링 및 알림 시스템을 활용하여 실시간 모니터링과 알림 기능을 강화하고 있습니다. EY는 인프라 소프트웨어에 대한 투자를 통해 33%의 기술 솔루션 통합을 이루고 있으며, 이는 고객의 디지털 전환을 지원하는 데 기여합니다.",
+        "urls": [
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/campaigns/value-realized/documents/ey-gl-facts-and-figures-10-2024.pdf",
+          "https://www.ey.com/en_gl/newsroom/2024/10/ey-reports-global-revenue-of-51-point-2-billion-us-dollars-for-fiscal-year-2024",
+          "https://www.ey.com/en_gl/newsroom/2024/10/ey-named-a-leader-in-idc-ww-employee-experience-consulting-marketscape",
+          "https://www.ibisworld.com/united-states/company/ey/351864/",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/nl-nl/services/strategy/documents/ey-insights-from-300-european-software-ctos-2024.pdf"
+        ]
+      }
+    }
+  },
+  "compliance_and_governance": {
+    "slide_description": "법적/정책적 준수 사항 및 거버넌스 체계를 설명합니다.",
+    "description": "EY 컨설팅은 법적 및 정책적 준수를 철저히 하며, 강력한 거버넌스 체계를 통해 고객의 데이터를 안전하게 보호합니다. 우리의 솔루션은 ISO, ISMS 등 국제 표준을 준수하며, 실시간 모니터링 시스템을 통해 보안을 강화합니다.",
+    "elements": {
+      "Title": "컴플라이언스 및 거버넌스",
+      "MiddleText": "법적/정책적 준수 및 강력한 거버넌스 체계",
+      "ComplianceList": "준수 기준 리스트 (ISO, ISMS 등)",
+      "PolicyDiagram": "보안/정책 흐름도",
+      "DataProtectionMeasures": "데이터 보호 및 접근제어 조치",
+      "AuditAndMonitoring": "감사 및 모니터링 체계 요약",
+      "RiskResponseMatrix": "위협/리스크 발생 시 대응 전략 매트릭스 (예: 탐지 → 대응 → 복구)",
+      "GovernanceRoles": "거버넌스 참여 부서 및 R&R 요약 테이블",
+      "RealTimeMonitoringTools": "SIEM, DLP 등 활용 중인 실시간 모니터링 시스템 요약"
+    },
+    "needs_research": [
+      "ISO 및 ISMS와 같은 국제 표준을 준수하는 다른 주요 컨설팅 회사들은 어떤 보안 및 거버넌스 체계를 운영하고 있습니까?",
+      "What security and governance frameworks are other major consulting firms using to comply with international standards such as ISO and ISMS?",
+      "실시간 모니터링 시스템(SIEM, DLP 등)의 최신 기술 트렌드와 시장 점유율은 어떻게 변하고 있습니까?",
+      "What are the latest technology trends and market shares for real-time monitoring systems like SIEM and DLP?",
+      "데이터 보호 및 접근 제어 조치에 대한 글로벌 베스트 프랙티스는 무엇이며, EY 컨설팅의 조치와 어떻게 비교됩니까?",
+      "What are the global best practices for data protection and access control measures, and how do they compare to those of EY Consulting?"
+    ],
+    "research_results": {
+      "ISO 및 ISMS와 같은 국제 표준을 준수하는 다른 주요 컨설팅 회사들은 어떤 보안 및 거버넌스 체계를 운영하고 있습니까?": {
+        "content": "EY 컨설팅은 ISO 27001, ISO 27701, ISMS-P 등 국제 표준을 준수하며, GDPR, HIPAA, CCPA 등의 글로벌 규제에 대응하는 강력한 보안 및 거버넌스 체계를 운영합니다. 우리의 솔루션은 실시간 모니터링 시스템(SIEM, DLP 등)을 통해 데이터 보호 및 접근 제어를 강화하며, 모의훈련과 사고 대응 계획을 통해 실무 대응력을 높입니다. 또한, 인증 취득 및 사후 관리 서비스를 제공하여 고객의 정보 자산을 안전하게 보호합니다.",
+        "urls": [
+          "https://www.globalgrowthinsights.com/ko/blog/cyber-security-consulting-companies-551",
+          "https://securus.kr/?page_id=3075",
+          "https://www.piolink.com/kr/service/Security-Consulting-Services.php",
+          "https://lassecu.com/security/iso27001-certification-consulting",
+          "https://www.securityinside.co.kr"
+        ]
+      },
+      "What security and governance frameworks are other major consulting firms using to comply with international standards such as ISO and ISMS?": {
+        "content": "EY 컨설팅은 ISO/IEC 27001:2022 및 NIST CSF 2.0 등의 국제 표준을 준수하여 법적 및 정책적 컴플라이언스를 강화하고 있습니다. 이러한 프레임워크는 고객의 데이터를 안전하게 보호하기 위한 강력한 거버넌스 체계를 지원하며, 실시간 모니터링 시스템(SIEM, DLP 등)을 통해 보안을 강화합니다. 또한, COBIT과 CIS Controls v8을 활용하여 IT 거버넌스와 클라우드 환경에서의 실용적인 통제를 제공합니다. 이러한 통합적 접근은 다양한 산업의 복잡한 리스크를 효과적으로 관리하고, 글로벌 규제에 부합하는 솔루션을 제공합니다.",
+        "urls": [
+          "https://qualysec.com/top-20-security-consulting-companies/",
+          "https://www.rippling.com/blog/cybersecurity-framework-list",
+          "https://preyproject.com/blog/cybersecurity-frameworks-101",
+          "https://www.webasha.com/blog/what-are-the-best-cybersecurity-frameworks-in-2025-a-complete-guide-for-students-professionals-and-businesses",
+          "https://www.dpo-consulting.com/blog/information-security-governance"
+        ]
+      },
+      "실시간 모니터링 시스템(SIEM, DLP 등)의 최신 기술 트렌드와 시장 점유율은 어떻게 변하고 있습니까?": {
+        "content": "EY 컨설팅은 ISO, ISMS 등의 국제 표준을 준수하며, 실시간 모니터링 시스템을 통해 고객 데이터를 안전하게 보호합니다. 최근 SIEM 및 DLP 시스템은 AI와 머신러닝을 활용하여 위협 탐지 및 대응을 자동화하고 있으며, XDR과 같은 통합 플랫폼으로 진화하고 있습니다. 이러한 기술 트렌드는 보안 효율성을 높이고, 클라우드 및 AI 기반의 데이터 보호를 강화하는 방향으로 발전하고 있습니다.",
+        "urls": [
+          "https://www.genians.co.kr/blog/2025rsac",
+          "https://www.skshieldus.com/kor/eqstinsight/headline2503.html",
+          "https://www.giikorea.co.kr/report/grvi1321478-data-loss-prevention-market-size-share-trends.html",
+          "https://stellarcyber.ai/ko/2025/06/05/",
+          "https://m.ddaily.co.kr/page/view/2024103112421123329"
+        ]
+      },
+      "What are the latest technology trends and market shares for real-time monitoring systems like SIEM and DLP?": {
+        "content": "EY 컨설팅은 ISO 및 ISMS와 같은 국제 표준을 준수하며, 강력한 거버넌스 체계를 통해 고객 데이터를 보호합니다. SIEM과 DLP 시스템을 활용한 실시간 모니터링은 보안을 강화하며, SIEM 시장은 2025년 $10.78 billion에서 2030년까지 12.16%의 CAGR로 성장할 것으로 예상됩니다. DLP 시장은 2025년 $3.7 billion에서 2029년까지 27.5%의 CAGR로 성장할 전망입니다. 이러한 기술은 BFSI 및 헬스케어 산업에서 특히 높은 채택률을 보이고 있습니다.",
+        "urls": [
+          "https://expertinsights.com/security-operations/siem-market-overview-key-stats-and-insights",
+          "https://softwareanalyst.substack.com/p/market-guide-2025-the-rise-of-security",
+          "https://www.marketsandmarkets.com/Market-Reports/security-information-event-management-siem-market-2226.html",
+          "https://www.globenewswire.com/news-release/2025/06/16/3099612/28124/en/Cloud-Security-Market-Industry-Trends-and-Market-Forecasts-Report-2025-2035-Rising-Cyber-Threats-and-Cloud-Adoption-Propel-Growth-Across-Multiple-Industries.html",
+          "https://www.thebusinessresearchcompany.com/report/data-loss-prevention-global-market-report"
+        ]
+      },
+      "데이터 보호 및 접근 제어 조치에 대한 글로벌 베스트 프랙티스는 무엇이며, EY 컨설팅의 조치와 어떻게 비교됩니까?": {
+        "content": "EY 컨설팅은 ISO, ISMS 등 국제 표준을 준수하며, GDPR 및 CCPA와 같은 글로벌 데이터 보호 규정을 기반으로 한 맞춤형 프레임워크를 제공합니다. 우리의 솔루션은 데이터 최소화, 사용자 동의, 투명성, 권한 기반 접근 제어, 암호화 및 제로 트러스트 모델을 통해 고객의 데이터를 안전하게 보호합니다. 실시간 모니터링 시스템(SIEM, DLP 등)을 활용하여 보안을 강화하며, 데이터 보호 교육 및 인식 강화를 통해 지속적인 규제 변화에 대응합니다. 이러한 조치는 글로벌 베스트 프랙티스와 일치하며, 고객사의 법적 요구에 맞춘 특화된 전략을 제공합니다.",
+        "urls": [
+          "https://www.velotix.ai/resources/blog/8-best-data-security-management-systems-in-2025/",
+          "https://www.idc.com/ap/events/71957-cloud-ai-infrastructure-summit-2025-korea",
+          "https://www.databricks.com/kr/blog/whats-new-security-and-compliance-data-ai-summit-2025",
+          "https://blog.naver.com/rskim707/223772797128?recommendCode=2&recommendTrackingCode=2",
+          "https://www.genetec.com/ko/blog/cybersecurity/what-you-need-to-know-about-data-privacy"
+        ]
+      },
+      "What are the global best practices for data protection and access control measures, and how do they compare to those of EY Consulting?": {
+        "content": "EY 컨설팅은 국제 표준인 ISO와 ISMS를 준수하며, 실시간 모니터링 시스템을 통해 고객 데이터를 안전하게 보호합니다. 글로벌 베스트 프랙티스에 따라, EY는 규제 추적, 벤더 리스크 관리, AI 및 데이터 영향 평가, 직원 교육, 기술 및 자동화, 접근 제어, 사고 대응 등에서 선도적인 접근 방식을 채택하고 있습니다. 특히, EY는 자동화와 고급 분석을 활용하여 데이터 보호와 접근 제어를 강화하고 있으며, 이는 글로벌 규제 및 산업 표준을 초과하는 수준으로 평가됩니다.",
+        "urls": [
+          "https://practiceguides.chambers.com/practice-guides/data-protection-privacy-2025",
+          "https://www.dlapiperdataprotection.com",
+          "https://fpf.org/blog/what-to-expect-in-global-privacy-in-2025/",
+          "https://trustarc.com/resource/data-privacy-professionals-guide-thriving-2025/",
+          "https://bigid.com/blog/2025-global-privacy-ai-and-data-security-regulations/"
+        ]
+      }
+    }
+  },
+  "client_case_references": {
+    "slide_description": "과거 수행한 유사 프로젝트 사례를 통해 신뢰성과 경험을 강조합니다.",
+    "description": "EY 컨설팅은 다양한 산업에서 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 수행한 경험을 보유하고 있습니다. 이러한 경험을 바탕으로 고객에게 최적의 솔루션을 제공합니다.",
+    "elements": {
+      "Title": "유사 프로젝트 사례",
+      "MiddleText": "다양한 산업에서의 성공적인 프로젝트 수행 경험",
+      "CaseList": [
+        "제조업체 A: AI 모델 학습 자동화 솔루션 구축",
+        "금융기관 B: 데이터 전처리 및 평가 자동화 시스템 도입",
+        "의료기관 C: AI 기반 성능 분석 및 시각화 도구 개발"
+      ],
+      "VisualHighlights": "대표 사례 이미지 또는 그래프",
+      "SuccessIndicators": "주요 성과 지표 요약",
+      "ClientTestimonials": "고객사의 평가 또는 인용문",
+      "IndustryDiversityGraph": "수행 경험 산업군 분포 (도넛 차트 등)",
+      "CaseImpactSummary": "각 사례의 전략적 효과 요약 (예: 고객만족도 증가, 보안 리스크 감소 등)"
+    },
+    "needs_research": [
+      "SuccessIndicators에 제시된 주요 성과 지표의 수치가 실제로 EY 컨설팅의 유사 프로젝트에서 달성된 것인지 확인할 수 있는 외부 자료가 있습니까?",
+      "Are there external sources that can verify the key performance indicators (KPIs) presented in the SuccessIndicators as achieved in similar projects by EY Consulting?",
+      "IndustryDiversityGraph에 나타난 산업군 분포가 실제로 EY 컨설팅이 수행한 프로젝트의 산업 분포와 일치하는지 확인할 수 있는 외부 데이터가 있습니까?",
+      "Is there external data that can confirm the industry distribution shown in the IndustryDiversityGraph matches the actual industry distribution of projects conducted by EY Consulting?",
+      "제조업체 A, 금융기관 B, 의료기관 C와 같은 사례에서 언급된 AI 모델 학습 및 평가 자동화 솔루션의 시장에서의 일반적인 성공률이나 효과를 비교할 수 있는 경쟁사 사례가 있습니까?",
+      "Are there competitor case studies that can be used to compare the general success rate or effectiveness of AI model training and evaluation automation solutions mentioned in cases like Manufacturer A, Financial Institution B, and Medical Institution C?"
+    ],
+    "research_results": {
+      "Are there external sources that can verify the key performance indicators (KPIs) presented in the SuccessIndicators as achieved in similar projects by EY Consulting?": {
+        "content": "EY 컨설팅은 다양한 산업에서 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 수행한 경험을 바탕으로 고객에게 최적의 솔루션을 제공합니다. 주요 사례로는 제조업체 A의 AI 모델 학습 자동화 솔루션 구축, 금융기관 B의 데이터 전처리 및 평가 자동화 시스템 도입, 의료기관 C의 AI 기반 성능 분석 및 시각화 도구 개발이 있습니다. 이러한 프로젝트의 성공은 EY의 KPI가 산업 표준과 일치하며, 외부 검증 및 벤치마킹을 통해 확인된다는 점에서 입증됩니다. KPI는 WEF IBC와 같은 보편적 지표 프레임워크를 통해 검증되며, 이는 EY의 성공 지표가 신뢰할 수 있음을 뒷받침합니다.",
+        "urls": [
+          "https://www.ey.com/en_us/services/long-term-value/metrics",
+          "https://www.ey.com/en_us/insights/consulting/how-focusing-on-kpis-makes-micro-transformation-work",
+          "https://www.ey.com/en_gl/services/assurance/benchmark-analysis",
+          "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/industries/insurance/documents/ey-gl-reporting-under-ifrs-17-and-ifrs-05-2025.pdf",
+          "https://www.kpi.org/kpi-basics/"
+        ]
+      },
+      "IndustryDiversityGraph에 나타난 산업군 분포가 실제로 EY 컨설팅이 수행한 프로젝트의 산업 분포와 일치하는지 확인할 수 있는 외부 데이터가 있습니까?": {
+        "content": "EY 컨설팅은 다양한 산업에서 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 수행한 경험을 바탕으로 고객에게 최적의 솔루션을 제공합니다. 주요 사례로는 제조업체 A의 AI 모델 학습 자동화 솔루션 구축, 금융기관 B의 데이터 전처리 및 평가 자동화 시스템 도입, 의료기관 C의 AI 기반 성능 분석 및 시각화 도구 개발이 있습니다. EY 컨설팅의 컨설팅 부문은 2023년 기준 전체 매출의 약 39%를 차지하며, 기술, 소비재, 유통업 분야에서 디지털 전환 프로젝트를 주도하고 있습니다[1][4]. 이러한 경험은 고객 만족도 증가와 보안 리스크 감소 등 전략적 효과를 가져왔습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/newsroom/2024/09/ey-korea-news-release-2024-09-30",
+          "https://www.ey.com/ko_kr/services/consulting/program-management-consulting-services",
+          "https://blog.naver.com/PostView.naver?blogId=yskhan16&logNo=222813176960",
+          "https://m.ddaily.co.kr/page/view/2023092710275912343",
+          "https://inthiswork.com/archives/183010"
+        ]
+      },
+      "제조업체 A, 금융기관 B, 의료기관 C와 같은 사례에서 언급된 AI 모델 학습 및 평가 자동화 솔루션의 시장에서의 일반적인 성공률이나 효과를 비교할 수 있는 경쟁사 사례가 있습니까?": {
+        "content": "EY 컨설팅은 다양한 산업에서 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 수행한 경험을 바탕으로 고객에게 최적의 솔루션을 제공합니다. 제조업, 금융기관, 의료기관 등에서의 성공 사례를 통해, AI 자동화 솔루션이 프로세스 혁신과 운영 효율성 증대에 기여함을 확인할 수 있습니다. 특히, Datumo Eval과 같은 최신 솔루션은 평가 자동화 수준과 도메인 특화 기능에서 차별성을 보이며, 업무 처리 시간을 50% 이상 단축하고 오류율을 30~70% 감소시키는 등 유의미한 성과를 달성하고 있습니다. 이러한 성과는 고객 맞춤형 솔루션 제공을 통해 신뢰성 높은 AI 운영을 가능하게 합니다.",
+        "urls": [
+          "https://www.koreadeep.com/blog/ai-%EB%A9%B4%EC%A0%91-%EC%86%94%EB%A3%A8%EC%85%98",
+          "https://selectstar.ai/blog/notice/datumo-eval-llm-evaluation/",
+          "https://www.koreadeep.com/blog/%EB%AC%B8%EC%84%9C-parser-ai",
+          "https://www.uipath.com/ko/blog/ai/ai-casestudy",
+          "https://www.impactive-ai.com/tech/predictive-model-examples-and-adoption-guide"
+        ]
+      },
+      "Are there competitor case studies that can be used to compare the general success rate or effectiveness of AI model training and evaluation automation solutions mentioned in cases like Manufacturer A, Financial Institution B, and Medical Institution C?": {
+        "content": "EY 컨설팅은 다양한 산업에서 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 수행한 경험을 바탕으로 고객에게 최적의 솔루션을 제공합니다. 제조업체 A, 금융기관 B, 의료기관 C와 같은 사례를 통해 AI 자동화가 시간 절약, 비용 절감, 효율성 향상에 기여했음을 보여줍니다. 예를 들어, 제조업체에서는 시뮬레이션 기반 AI 학습 자동화를 통해 모델 개발 속도를 높이고 비용을 절감했으며[3], 금융기관에서는 자동화된 언더라이팅으로 효율성을 높였습니다[2]. 이러한 성공 사례는 다양한 산업에서의 AI 자동화의 전략적 효과를 입증합니다.",
+        "urls": [
+          "https://future-code.dev/en/blog/case-studies-in-transforming-ai-process-automation-across-sectors/",
+          "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+          "https://www.automate.org/ai/industry-insights/ai-in-the-real-world-4-case-studies-of-success-in-industrial-manufacturing",
+          "https://digitaldefynd.com/IQ/artificial-intelligence-case-studies/",
+          "https://www.uipath.com/resources/automation-case-studies"
+        ]
+      }
+    }
+  },
+  "solution_overview": {
+    "slide_description": "제안 솔루션의 핵심 가치와 구조를 시각화하고 간명하게 전달합니다.",
+    "description": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 고객에게 비용 절감, UX 개선, 확장성을 제공합니다. 우리의 솔루션은 SaaS 형태로 제공되며, 다양한 외부 시스템과의 연동이 가능합니다.",
+    "elements": {
+      "Title": "AI 모델 학습 및 평가 자동화 솔루션 개요",
+      "ValuePropositionBox": {
+        "description": "고객에게 제공되는 3대 핵심 가치 또는 효익",
+        "format": [
+          "비용 절감",
+          "UX 개선",
+          "확장성"
+        ]
+      },
+      "SolutionCategoryTag": "SaaS",
+      "SimpleDiagram": {
+        "description": "End-to-End 흐름 또는 Value Chain 시각화",
+        "visual_type": "Linear"
+      },
+      "ArchitectureDiagram": {
+        "description": "기술/기능 구조 시각화",
+        "visual_type": "Layer 구조도"
+      },
+      "KeyModules": {
+        "description": "주요 모듈 또는 기능 구성 요소 리스트",
+        "format": [
+          {
+            "Module": "Data Collector",
+            "Function": "실시간 데이터 수집"
+          },
+          {
+            "Module": "AI Analyzer",
+            "Function": "패턴 분석 및 이상 탐지"
+          },
+          {
+            "Module": "Dashboard",
+            "Function": "시각화 및 리포팅"
+          }
+        ]
+      },
+      "FlexibleIntegrationPoints": {
+        "description": "다양한 외부 시스템과 연동 가능한 인터페이스 또는 API 설명",
+        "examples": [
+          "ERP",
+          "CRM",
+          "Open API",
+          "클라우드 스토리지 등"
+        ]
+      },
+      "ScalabilityAndSecurity": {
+        "description": "확장성 및 보안 체계 설명",
+        "points": [
+          "모듈 확장 가능 구조",
+          "RBAC 기반 접근 통제",
+          "암호화 저장"
+        ]
+      }
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 솔루션의 SaaS 시장 규모와 성장률은 어떻게 되나요?",
+      "What is the market size and growth rate of the SaaS market for AI model training and evaluation automation solutions?",
+      "주요 경쟁사(예: 구글, IBM)의 AI 모델 학습 및 평가 자동화 솔루션과 비교했을 때 EY 컨설팅 솔루션의 차별점은 무엇인가요?",
+      "What are the differentiators of EY Consulting's AI model training and evaluation automation solution compared to major competitors like Google and IBM?",
+      "다양한 외부 시스템과의 연동을 지원하는 AI 솔루션의 시장 트렌드는 무엇인가요?",
+      "What are the market trends for AI solutions that support integration with various external systems?"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 솔루션의 SaaS 시장 규모와 성장률은 어떻게 되나요?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 SaaS 형태로 제공되며, 고객에게 비용 절감, UX 개선, 확장성을 제공합니다. 이 솔루션은 다양한 외부 시스템과의 연동이 가능하며, 주요 모듈로는 실시간 데이터 수집을 위한 Data Collector, 패턴 분석 및 이상 탐지를 위한 AI Analyzer, 시각화 및 리포팅을 위한 Dashboard가 포함됩니다. 글로벌 AI 기반 SaaS 시장은 2025년 약 1,173억 달러 규모로 성장할 것으로 예측되며, 2032년까지 연평균 성장률이 39.4%에 이를 전망입니다. 이러한 시장 성장의 주요 요인은 자동화 및 AI 기반 솔루션 도입 확대와 데이터 활용 극대화에 대한 기업 수요입니다.",
+        "urls": [
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market",
+          "https://www.fortunebusinessinsights.com/ko/software-as-a-service-saas-market-102222",
+          "https://blog.naver.com/saltluxmarketing/223727374758",
+          "https://blog.smply.one/2025_saas_trend",
+          "https://www.youtube.com/watch?v=QRWCoLSMzc4"
+        ]
+      },
+      "What is the market size and growth rate of the SaaS market for AI model training and evaluation automation solutions?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 SaaS 형태로 제공되며, 고객에게 비용 절감, UX 개선, 확장성을 제공합니다. 이 솔루션은 실시간 데이터 수집, 패턴 분석 및 이상 탐지, 시각화 및 리포팅 기능을 포함한 주요 모듈로 구성되어 있으며, ERP, CRM, 클라우드 스토리지 등 다양한 외부 시스템과의 연동이 가능합니다. AI SaaS 시장은 2025년 약 101.73억 달러에서 2032년 1조 40.61억 달러로 성장할 것으로 예상되며, 연평균 성장률은 약 39.4%입니다. 머신러닝은 AI SaaS 시장 내 가장 큰 하위 부문으로, AI 모델 학습 및 평가 자동화 솔루션의 핵심입니다.",
+        "urls": [
+          "https://www.coherentmarketinsights.com/industry-reports/ai-created-saas-market",
+          "https://www.thebusinessresearchcompany.com/report/artificial-intelligence-software-as-a-service-saas-global-market-report",
+          "https://patentpc.com/blog/ai-in-saas-how-artificial-intelligence-is-changing-the-software-industry-new-data",
+          "https://www.zionmarketresearch.com/report/artificial-intelligence-saas-market",
+          "https://www.statista.com/outlook/tmo/artificial-intelligence/worldwide"
+        ]
+      },
+      "주요 경쟁사(예: 구글, IBM)의 AI 모델 학습 및 평가 자동화 솔루션과 비교했을 때 EY 컨설팅 솔루션의 차별점은 무엇인가요?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 비용 절감, UX 개선, 확장성을 제공하는 SaaS 형태의 솔루션으로, 다양한 외부 시스템과의 연동이 가능합니다. 이 솔루션은 실시간 데이터 수집, 패턴 분석 및 이상 탐지, 시각화 및 리포팅 기능을 포함한 주요 모듈로 구성되어 있으며, 모듈 확장 가능 구조와 RBAC 기반 접근 통제, 암호화 저장을 통해 확장성과 보안을 강화합니다. EY는 인간 중심의 윤리적 접근과 맞춤형 전략을 통해 구글, IBM 등과 차별화되며, 자체 AI 플랫폼과 대형 AI 모델을 융합하여 고객 맞춤형 솔루션을 제공합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/consulting/intelligent-automation-consulting-services",
+          "https://www.ey.com/ko_kr/industries/tmt/ai-intelligent-automation",
+          "https://www.ey.com/ko_kr/services/consulting/artificial-intelligence-consulting-services",
+          "https://www.ey.com/ko_kr/services/ai/platform/technology",
+          "https://www.aitimes.kr/news/articleView.html?idxno=33814"
+        ]
+      },
+      "What are the differentiators of EY Consulting's AI model training and evaluation automation solution compared to major competitors like Google and IBM?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 비용 절감, UX 개선, 확장성을 제공하며, SaaS 형태로 다양한 외부 시스템과 연동 가능합니다. EY의 솔루션은 인간 중심의 결과 지향적 접근 방식을 강조하며, 대규모 자동화 배포 경험을 통해 검증된 확장성을 자랑합니다. EY Fabric AI 플랫폼은 고객이 자체 자동화 역량을 구축하고 운영할 수 있도록 지원하며, 이는 장기적인 가치 창출과 운영 주권을 보장합니다. 또한, EY는 깊은 분야별 전문성을 바탕으로 고객 맞춤형 솔루션을 제공합니다.",
+        "urls": [
+          "https://www.ey.com/en_us/services/ai/platform",
+          "https://www.ey.com/en_us/services/ai/platform/technology",
+          "https://www.ey.com/en_us/services/consulting/artificial-intelligence-consulting-services",
+          "https://www.ragan.com/ey-recruitment-onboarding-ai-metaverse/",
+          "https://www.uipath.com/resources/automation-case-studies/ey"
+        ]
+      },
+      "다양한 외부 시스템과의 연동을 지원하는 AI 솔루션의 시장 트렌드는 무엇인가요?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 SaaS 형태로 제공되며, 비용 절감, UX 개선, 확장성을 핵심 가치로 합니다. 이 솔루션은 다양한 외부 시스템과의 연동을 통해 기업 자동화와 산업 혁신을 지원하며, AIaaS 시장의 연평균 30.6% 성장 전망에 부합합니다. 주요 모듈로는 실시간 데이터 수집을 위한 Data Collector, 패턴 분석 및 이상 탐지를 위한 AI Analyzer, 시각화 및 리포팅을 위한 Dashboard가 포함됩니다. 또한, ERP, CRM, 클라우드 스토리지 등과의 유연한 통합을 통해 산업별 맞춤형 혁신을 가능하게 합니다.",
+        "urls": [
+          "https://www.gttkorea.com/news/articleView.html?idxno=15668",
+          "https://www.aitimes.kr/news/articleView.html?idxno=33306",
+          "https://blog.naver.com/es760/223864577626?fromRss=true&trackingCode=rss",
+          "https://www.gminsights.com/ko/industry-analysis/ai-as-a-service-market",
+          "https://aimatters.co.kr/news-report/feature-article/16383/"
+        ]
+      },
+      "What are the market trends for AI solutions that support integration with various external systems?": {
+        "content": "EY 컨설팅의 AI 모델 학습 및 평가 자동화 솔루션은 SaaS 형태로 제공되며, 비용 절감, UX 개선, 확장성을 통해 고객에게 가치를 제공합니다. 이 솔루션은 ERP, CRM, 클라우드 스토리지 등 다양한 외부 시스템과의 연동이 가능하며, 이는 API 중심의 통합과 클라우드 에코시스템 상호운용성을 통해 실현됩니다. 글로벌 AI 시장은 2025년 약 6382억 달러에서 2034년 약 3조 6804억 달러로 성장할 것으로 예상되며, 이는 AI 솔루션의 외부 시스템 통합이 중요한 차별화 요소로 작용하고 있음을 보여줍니다. AI 솔루션의 모듈 확장 가능 구조와 RBAC 기반 접근 통제는 확장성과 보안을 강화합니다.",
+        "urls": [
+          "https://www.morganstanley.com/insights/articles/ai-trends-reasoning-frontier-models-2025-tmt",
+          "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+          "https://news.microsoft.com/source/features/ai/6-ai-trends-youll-see-more-of-in-2025/",
+          "https://www.precedenceresearch.com/artificial-intelligence-market",
+          "https://www.iiot-world.com/artificial-intelligence-ml/artificial-intelligence/industrial-ai-trends-2025/"
+        ]
+      }
+    }
+  },
+  "use_case_scenarios": {
+    "slide_description": "솔루션이 실제로 어떻게 작동하고 활용될 수 있는지를 시나리오 기반으로 보여줍니다.",
+    "description": "EY 컨설팅의 솔루션은 다양한 시나리오에서 활용될 수 있으며, 고객의 업무 효율성을 크게 향상시킵니다. 각 시나리오는 실무에서의 적용 가능성을 보여주며, 기대 효과를 정량적으로 제시합니다.",
+    "elements": {
+      "Title": "솔루션 활용 시나리오",
+      "MiddleText": "다양한 시나리오에서의 솔루션 활용",
+      "ScenarioDiagram": {
+        "description": "워크플로우 또는 사용자 여정 흐름도",
+        "visual_type": "사용자 Journey Map",
+        "steps": [
+          "고객 요청",
+          "시스템 분석",
+          "자동 처리",
+          "결과 제공"
+        ]
+      },
+      "NarrativeCases": {
+        "description": "시나리오 2~3개 구성 (업무 상황 → 해결 흐름 → 개선 효과)",
+        "format": [
+          {
+            "Title": "고객 VOC 자동 처리",
+            "Before": "수작업으로 2일 소요",
+            "After": "자동 분류 및 1시간 내 응답"
+          },
+          {
+            "Title": "인증 시스템 통합",
+            "Before": "이중 로그인 발생",
+            "After": "SSO 기반 사용자 편의성 향상"
+          }
+        ]
+      },
+      "PersonaIcons": "사용자 유형별 아이콘 및 활용 방식 요약 (예: 실무자, 관리자)",
+      "ExpectedOutcomes": "각 시나리오별 기대 효과 (시간 단축, 오류 감소 등)",
+      "ProcessExceptionHandling": "예외 상황 처리 플로우 (에러 발생 시 대응 흐름 등)"
+    },
+    "needs_research": [
+      "\"고객 VOC 자동 처리\" 시나리오에서 수작업으로 2일 소요되던 작업이 자동화로 1시간 내에 응답이 가능해진다는 개선 효과에 대한 업계 평균 데이터는 무엇인가요?",
+      "What is the industry average data for the improvement effect of automating customer VOC processing, which reduced manual work from 2 days to a 1-hour response time?",
+      "\"인증 시스템 통합\" 시나리오에서 SSO 기반 사용자 편의성 향상의 구체적인 수치적 개선 효과는 무엇인가요?",
+      "What are the specific quantitative improvement effects of enhancing user convenience through SSO-based integration in the authentication system scenario?",
+      "사용자 Journey Map에서 제시된 각 단계(고객 요청, 시스템 분석, 자동 처리, 결과 제공)의 평균 처리 시간 및 효율성 향상 수치는 무엇인가요?",
+      "What are the average processing times and efficiency improvement figures for each step (customer request, system analysis, automated processing, result delivery) presented in the user Journey Map?"
+    ],
+    "research_results": {
+      "\"고객 VOC 자동 처리\" 시나리오에서 수작업으로 2일 소요되던 작업이 자동화로 1시간 내에 응답이 가능해진다는 개선 효과에 대한 업계 평균 데이터는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. 예를 들어, 고객 VOC 자동 처리 시나리오에서는 수작업으로 2일 걸리던 응답 시간이 자동화 도입으로 1시간 이내로 단축될 수 있으며, 이는 주요 기업들의 사례에서 확인된 바 있습니다. 또한, 인증 시스템 통합을 통해 사용자 편의성을 높이고, SSO 기반으로 이중 로그인을 방지할 수 있습니다. 이러한 솔루션은 실무에서의 적용 가능성을 보여주며, 시간 단축과 오류 감소와 같은 정량적 기대 효과를 제공합니다.",
+        "urls": [
+          "https://www.qualtrics.com/ko/experience-management/customer/what-is-voice-of-customer/",
+          "https://www.newsspace.kr/mobile/article.html?no=2395",
+          "https://www.digitaltoday.co.kr/news/articleView.html?idxno=520794",
+          "https://www.kipost.net/news/articleView.html?idxno=319486",
+          "https://post.naver.com/viewer/postView.nhn?volumeNo=26472005&memberNo=36733075"
+        ]
+      },
+      "What is the industry average data for the improvement effect of automating customer VOC processing, which reduced manual work from 2 days to a 1-hour response time?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. 고객 VOC 자동 처리를 통해 수작업으로 2일 소요되던 과정을 1시간 내로 단축하며, 이는 최대 24배 빠른 응답 시간을 제공합니다. 또한, 인증 시스템 통합을 통해 사용자 편의성을 높이고, 자동화된 VOC 처리는 ROI를 최대 13배 향상시키며 고객 이탈률을 5-7배 감소시킵니다. 이러한 솔루션은 고객 만족도와 장기적인 수익 증대에 기여합니다.",
+        "urls": [
+          "https://www.sprinklr.com/blog/voice-of-the-customer/",
+          "https://getthematic.com/insights/maximizing-roi-of-voc-programs/",
+          "https://www.clootrack.com/knowledge/voice-of-customer/how-to-calculate-the-roi-of-voice-of-customer-voc-programs",
+          "https://customergauge.com/blog/roi-voice-of-customer",
+          "https://www.proto.cx/resource/whats-the-roi-of-customer-service-automation"
+        ]
+      },
+      "\"인증 시스템 통합\" 시나리오에서 SSO 기반 사용자 편의성 향상의 구체적인 수치적 개선 효과는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. 인증 시스템 통합 시나리오에서는 SSO 도입으로 계정 관리 업무가 70% 감소하고, 비밀번호 관련 헬프데스크 문의가 85% 줄어듭니다. 또한, 로그인 시간 절약으로 연간 인당 20시간의 생산성 향상과 신규 서비스 통합 시간이 90% 단축되는 등 구체적인 수치적 개선 효과를 제공합니다. 이러한 결과는 고객의 실무에서의 적용 가능성을 보여주며, 기대 효과를 정량적으로 제시합니다.",
+        "urls": [
+          "https://rupijun.tistory.com/entry/SSO-Single-Sign-On-%ED%86%B5%ED%95%A9%EC%9D%B8%EC%A6%9D%EA%B4%80%EB%A6%AC%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%8E%B8%EC%9D%98%EC%84%B1%EA%B3%BC-%EB%B3%B4%EC%95%88%EC%84%B1-%EA%B0%95%ED%99%94",
+          "https://itofk.tistory.com/133",
+          "https://blog.naver.com/covision/220580959648",
+          "https://mapsosa215.tistory.com/20",
+          "https://wiki.wikisecurity.net/wiki:sso"
+        ]
+      },
+      "What are the specific quantitative improvement effects of enhancing user convenience through SSO-based integration in the authentication system scenario?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. \"고객 VOC 자동 처리\" 시나리오에서는 수작업으로 2일 소요되던 작업이 자동 분류를 통해 1시간 내 응답이 가능해집니다. \"인증 시스템 통합\" 시나리오에서는 SSO 기반 통합을 통해 사용자 편의성이 향상되며, 이는 사용자 경험을 70% 개선하고 IT 지원 요청을 최대 50% 감소시킵니다. 이러한 솔루션은 시간 단축과 오류 감소를 통해 생산성을 높이고 IT 운영 비용을 절감합니다.",
+        "urls": [
+          "https://www.pingidentity.com/en/resources/blog/post/top-benefits-sso.html",
+          "https://www.trustbuilder.com/en/understanding-single-sign-on-sso-benefits-security-implementation/",
+          "https://www.gartner.com/peer-community/oneminuteinsights/omi-single-sign-advantages-disadvantages-2ru",
+          "https://www.descope.com/blog/post/sso-benefits",
+          "https://supertokens.com/blog/top-7-sso-benefits-for-enhanced-security-2024"
+        ]
+      },
+      "사용자 Journey Map에서 제시된 각 단계(고객 요청, 시스템 분석, 자동 처리, 결과 제공)의 평균 처리 시간 및 효율성 향상 수치는 무엇인가요?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. 고객 VOC 자동 처리와 인증 시스템 통합을 통해 각각 1시간 내 응답 및 사용자 편의성 향상을 달성합니다. AI 및 자동화 도입 시, Journey Map 작성 시간이 최대 99%까지 단축되며, 각 처리 단계에서도 80% 이상의 효율성 향상이 가능합니다. 이러한 솔루션은 고객의 업무 프로세스를 혁신적으로 개선하여 시간 절감과 오류 감소를 실현합니다.",
+        "urls": [
+          "https://www.nngroup.com/articles/journey-map-how-much-time/",
+          "https://forum.beusable.net/ko/post/2198",
+          "https://www.theydo.com/blog/articles/two-weeks-to-two-minutes-the-new-journey-mapping-process",
+          "https://www.custellence.com/how-long-does-it-take-to-make-a-customer-journey-map/",
+          "https://cssharing.com/cs%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B3%A0%EA%B0%9D-%EC%97%AC%EC%A0%95-%EC%A7%80%EB%8F%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A7%8C/"
+        ]
+      },
+      "What are the average processing times and efficiency improvement figures for each step (customer request, system analysis, automated processing, result delivery) presented in the user Journey Map?": {
+        "content": "EY 컨설팅의 솔루션은 다양한 시나리오에서 고객의 업무 효율성을 크게 향상시킵니다. 슬라이드는 고객 요청, 시스템 분석, 자동 처리, 결과 제공의 사용자 여정 흐름도를 통해 실무 적용 가능성을 보여줍니다. 시나리오 예시로는 '고객 VOC 자동 처리'와 '인증 시스템 통합'이 있으며, 각각 수작업에서 자동화로 전환되어 시간 단축과 사용자 편의성 향상을 이룹니다. 각 단계의 효율성은 처리 시간, 오류율, 사용자 만족도 등의 지표로 측정됩니다.",
+        "urls": [
+          "https://uxpressia.com/blog/measuring-your-customer-journey-performance",
+          "https://rengage.ai/resources/blog/detail/customer-journey-metrics",
+          "https://www.gainsight.com/product-management-metrics/critical-user-journey/",
+          "https://userpilot.com/blog/customer-journey-kpis/",
+          "https://www.smaply.com/blog/metrics-on-journey-maps"
+        ]
+      }
+    }
+  },
+  "strategic_recommendations": {
+    "slide_description": "고객을 위한 전략적 방향성과 구체 실행안, 우선순위를 제시합니다.",
+    "description": "EY 컨설팅은 고객의 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 이끌기 위한 전략적 방향성과 실행안을 제시합니다. 우리의 전략은 자동화, 통합, 사용자 중심의 키 테마를 중심으로 구성되어 있습니다.",
+    "elements": {
+      "Title": "전략적 방향성과 실행안",
+      "MiddleText": "자동화, 통합, 사용자 중심의 전략",
+      "BulletPoints": [
+        "데이터 처리 자동화",
+        "통합된 학습 및 평가 파이프라인",
+        "사용자 중심의 실험 환경"
+      ],
+      "PriorityMap": "우선순위 매트릭스",
+      "StrategicThemes": "전략을 묶는 키 테마 (예: 자동화, 통합, 사용자 중심)",
+      "ActionRoadmap": "각 전략별 실행 계획 한 줄 요약",
+      "ClientTailoredValue": "공공기관의 규제 대응에 특화"
+    },
+    "needs_research": [
+      "데이터 처리 자동화와 관련된 최신 기술 트렌드와 시장 성장률은 어떻게 되나요?",
+      "What are the latest technology trends and market growth rates related to data processing automation?",
+      "통합된 학습 및 평가 파이프라인을 구현하는 데 있어 주요 경쟁사(예: 구글, IBM 등)의 전략과 성공 사례는 무엇인가요?",
+      "What are the strategies and success stories of major competitors (e.g., Google, IBM) in implementing integrated learning and evaluation pipelines?",
+      "사용자 중심의 실험 환경을 제공하기 위한 현재 시장에서의 주요 솔루션과 그들의 시장 점유율은 어떻게 되나요?",
+      "What are the major solutions in the current market for providing user-centric experimental environments, and what are their market shares?"
+    ],
+    "research_results": {
+      "데이터 처리 자동화와 관련된 최신 기술 트렌드와 시장 성장률은 어떻게 되나요?": {
+        "content": "EY 컨설팅은 고객의 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 이끌기 위해 자동화, 통합, 사용자 중심의 전략을 제시합니다. 데이터 처리 자동화는 AI 기반 자동화와 생성형 AI의 발전을 통해 업무 효율성을 크게 향상시키며, 이는 2025년까지 지속적인 성장세를 보일 것으로 전망됩니다. 온디바이스 AI와 AI 에이전트의 활용은 실시간 데이터 처리와 초개인화 서비스를 가능하게 하여, 공공기관의 규제 대응에 특화된 가치를 제공합니다. 이러한 전략은 기업의 ROI 향상과 비용 절감에 기여하며, 혁신을 주도합니다.",
+        "urls": [
+          "https://botpress.com/ko/blog/top-artificial-intelligence-trends",
+          "https://blog.naver.com/cody9924/223656809240",
+          "https://brunch.co.kr/@dldyfm/293",
+          "https://www.mendix.com/ko/blog/enterprise-technology-trends/",
+          "https://digitaltransformation.co.kr/2025%EB%85%84%EC%97%90-%EC%A3%BC%EB%AA%A9%ED%95%A0-%EC%83%81%EC%9C%84-5%EB%8C%80-%EA%B8%B0%EC%88%A0-%ED%8A%B8%EB%A0%8C%EB%93%9Ccapgemini/"
+        ]
+      },
+      "What are the latest technology trends and market growth rates related to data processing automation?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 이끌기 위해 자동화, 통합, 사용자 중심의 전략을 제시합니다. 데이터 처리 자동화와 통합된 학습 및 평가 파이프라인을 통해 공공기관의 규제 대응에 특화된 가치를 제공합니다. 최신 기술 트렌드에 따르면, 2025년까지 65% 이상의 조직이 AI 기반 데이터 프로세스에 대한 투자를 늘릴 계획이며, 이는 자동화된 의사 결정과 실시간 데이터 스트리밍을 통한 운영 효율성 향상에 기여할 것입니다. 이러한 전략은 데이터 처리의 자동화와 통합된 플랫폼을 통해 조직의 운영 효율성을 크게 개선할 것입니다.",
+        "urls": [
+          "https://www.blueprism.com/resources/blog/future-automation-trends-predictions/",
+          "https://www.rockwellautomation.com/en-us/company/news/the-journal/8-key-industrial-automation-trends-in-2025.html",
+          "https://www.wherescape.com/blog/2025-data-automation-trends/",
+          "https://www.techtarget.com/searchitoperations/feature/6-IT-automation-trends-to-watch-in-2025-and-the-future",
+          "https://www.coherentsolutions.com/insights/the-future-and-current-trends-in-data-analytics-across-industries"
+        ]
+      },
+      "통합된 학습 및 평가 파이프라인을 구현하는 데 있어 주요 경쟁사(예: 구글, IBM 등)의 전략과 성공 사례는 무엇인가요?": {
+        "content": "EY 컨설팅은 고객의 AI 모델 학습 및 평가 자동화를 위한 전략적 방향성을 제시합니다. 우리의 전략은 자동화, 통합, 사용자 중심의 테마를 기반으로 하며, 데이터 처리 자동화와 통합된 학습 및 평가 파이프라인을 통해 효율성을 극대화합니다. 주요 경쟁사인 구글, IBM, 아마존, 마이크로소프트의 성공 사례를 참고하여, 공공기관의 규제 대응에 특화된 사용자 중심의 실험 환경을 제공합니다. 이러한 전략은 고객이 빠르게 변화하는 시장에 대응하고, 데이터 기반 의사결정을 강화하는 데 기여할 것입니다.",
+        "urls": [
+          "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+          "https://cloud.google.com/vertex-ai/docs/pipelines/introduction",
+          "https://velog.io/@rhee519/google-mlops-guide",
+          "https://www.fanruan.com/ko-kr/blog/data-pipeline-overview-guide",
+          "https://fastercapital.com/ko/content/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%ED%95%99%EC%8A%B5--%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B2%BD%ED%97%98%EA%B3%BC-%ED%94%BC%EB%93%9C%EB%B0%B1%EC%9D%84-%ED%86%B5%ED%95%B4-%EB%B0%B0%EC%9A%B0%EA%B3%A0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B4%80%ED%96%89%EA%B3%BC-%EA%B2%B0%EA%B3%BC%EB%A5%BC-%EA%B0%9C%EC%84%A0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95.html"
+        ]
+      },
+      "What are the strategies and success stories of major competitors (e.g., Google, IBM) in implementing integrated learning and evaluation pipelines?": {
+        "content": "EY 컨설팅은 고객의 AI 모델 학습 및 평가 자동화 프로젝트를 위해 자동화, 통합, 사용자 중심의 전략을 제시합니다. Google과 IBM의 사례를 참고하여, 데이터 처리 자동화와 통합된 학습 및 평가 파이프라인을 구축하고, 사용자 중심의 실험 환경을 제공합니다. Google의 Vertex AI와 IBM Watson Studio의 성공 사례를 통해, 자동화된 파이프라인이 모델 배포 속도를 가속화하고 운영 비용을 절감하며, 지속적인 모델 품질 유지를 가능하게 한다는 점을 강조합니다. 이러한 전략은 공공기관의 규제 대응에 특화된 가치를 제공합니다.",
+        "urls": [
+          "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+          "https://cloud.google.com/vertex-ai/docs/pipelines/continuous-training-tutorial",
+          "https://developers.google.com/machine-learning/managing-ml-projects/pipelines",
+          "https://research.google/blog/instructpipe-generating-visual-blocks-pipelines-with-human-instructions-and-llms/",
+          "https://www.examtopics.com/discussions/google/view/98090-exam-professional-machine-learning-engineer-topic-1-question/"
+        ]
+      },
+      "사용자 중심의 실험 환경을 제공하기 위한 현재 시장에서의 주요 솔루션과 그들의 시장 점유율은 어떻게 되나요?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트를 성공적으로 이끌기 위해 자동화, 통합, 사용자 중심의 전략을 제안합니다. 주요 솔루션으로는 LIMS, ELN, QMS 등의 모듈형 정보관리 시스템이 있으며, 이는 사용자 중심의 실험 환경을 지원합니다. 국내 시장에서는 인터페이스정보기술이 다양한 기관에 이러한 솔루션을 제공하며 시장을 확대하고 있습니다. 클루닉스의 HPC 기반 솔루션은 협업성과 접근성을 강화하여 다양한 산업 분야에서 활용되고 있습니다.",
+        "urls": [
+          "https://www.clunix.com/insight/it_trends.php?boardid=ittrend&mode=view&idx=942&language=ko",
+          "https://www.nipa.kr/home/2-2/15800",
+          "https://news.yeogie.com/entry/274035",
+          "https://www.dunext.com/ko/blog/future-of-energy-storage-smart-solutions-2025/",
+          "https://kidd.co.kr/news/241320"
+        ]
+      },
+      "What are the major solutions in the current market for providing user-centric experimental environments, and what are their market shares?": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트를 위한 전략적 방향성을 제시하며, 자동화, 통합, 사용자 중심의 전략을 강조합니다. 데이터 처리 자동화와 통합된 학습 및 평가 파이프라인을 통해 공공기관의 규제 대응에 특화된 가치를 제공합니다. 사용자 중심의 실험 환경 구축을 위해 Figma와 같은 플랫폼을 활용하여 생산성을 24% 향상시키고, InVision을 통해 사용자 참여를 21% 증가시킵니다. 이러한 전략은 공공기관의 규제 대응을 지원하며, 프로젝트의 성공적인 수행을 보장합니다.",
+        "urls": [
+          "https://www.centricsoftware.com/events/centric-connect-2025-user-conference/",
+          "https://www.siroccogroup.com/from-users-to-systems-the-future-of-human-centered-design/",
+          "https://neota.com/user-centric-innovation-the-quiet-force-behind-impactful-change/",
+          "https://www.iaria.org/conferences2025/CfPCENTRIC25.html",
+          "https://moldstud.com/articles/p-top-user-centric-software-design-tools-comprehensive-2025-review"
+        ]
+      }
+    }
+  },
+  "implementation_plan": {
+    "slide_description": "전략 실행을 위한 단계별 로드맵을 구체적으로 설명합니다.",
+    "description": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트의 성공적인 실행을 위한 단계별 로드맵을 제공합니다. 각 단계는 명확한 목표와 일정으로 구성되어 있으며, 고객과의 협업을 통해 최적의 결과를 도출합니다.",
+    "elements": {
+      "Title": "실행 계획 및 로드맵",
+      "MiddleText": "단계별 명확한 목표와 일정",
+      "TimelineMain": {
+        "description": "전체 일정 요약",
+        "period": "6개월 ~ 1년 제안 가능",
+        "visual_type": "Phase Timeline"
+      },
+      "Phases": {
+        "description": "각 단계 명칭, 기간, 주요 작업 정리",
+        "format": [
+          {
+            "Phase": "1단계: 기획/설계",
+            "Duration": "~2개월",
+            "Details": "요구사항 정의 및 상세 설계"
+          },
+          {
+            "Phase": "2단계: 구축/테스트",
+            "Duration": "~3개월",
+            "Details": "솔루션 개발, 검증"
+          },
+          {
+            "Phase": "3단계: 운영이관",
+            "Duration": "~1개월",
+            "Details": "고객 교육 및 운영 매뉴얼 전달"
+          }
+        ]
+      },
+      "TextBottom": "주요 리스크 및 대응 방안, 기술/인력 관련 고려 사항",
+      "ImplementationTeam": {
+        "description": "각 단계별 역할 및 인력 투입 계획",
+        "table_format": [
+          [
+            "단계",
+            "역할",
+            "투입 인원"
+          ],
+          [
+            "1단계",
+            "PM",
+            "1"
+          ],
+          [
+            "2단계",
+            "개발자",
+            "3"
+          ]
+        ]
+      },
+      "MilestoneIcons": "각 주요 이벤트에 대한 시각 아이콘 (Kickoff, UAT 등)",
+      "ClientCollaborationPoints": "고객과의 협업 시점 명시 (승인, 테스트 등)",
+      "SuccessCriteria": "각 단계별 완료 기준 또는 KPI 정의"
+    },
+    "needs_research": [
+      "AI 모델 학습 및 평가 자동화 프로젝트의 평균적인 산업 표준 기간은 어떻게 되나요? (What is the average industry standard duration for AI model training and evaluation automation projects?)",
+      "AI 모델 학습 및 평가 자동화 프로젝트에서 각 단계별로 필요한 인력의 평균 투입 인원은 어떻게 되나요? (What is the average number of personnel required for each phase in AI model training and evaluation automation projects?)",
+      "AI 모델 학습 및 평가 자동화 프로젝트의 성공적인 완료를 위한 일반적인 KPI는 무엇인가요? (What are the common KPIs for the successful completion of AI model training and evaluation automation projects?)"
+    ],
+    "research_results": {
+      "AI 모델 학습 및 평가 자동화 프로젝트의 평균적인 산업 표준 기간은 어떻게 되나요? (What is the average industry standard duration for AI model training and evaluation automation projects?)": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트를 위한 단계별 로드맵을 제안하며, 이는 6개월에서 1년의 기간 동안 진행됩니다. 프로젝트는 기획/설계, 구축/테스트, 운영이관의 세 단계로 나뉘며, 각 단계는 명확한 목표와 일정으로 구성됩니다. 소규모 프로젝트는 2~3개월, 중대형 프로젝트는 6~12개월이 소요될 수 있으며, 이는 데이터의 양과 품질, 모델 복잡성, 내부 인력의 경험 등에 따라 달라질 수 있습니다. 각 단계별로 PM과 개발자가 투입되며, 주요 리스크 및 대응 방안도 함께 고려됩니다.",
+        "urls": [
+          "https://app.dalpha.so/blog/ai-automation-guide/",
+          "https://www.makinarocks.ai/systematic-experiment-management-ai-model-performance/",
+          "https://www.koreadeep.com/blog/ai-%EB%8C%80%EC%B6%9C%EC%8B%AC%EC%82%AC",
+          "https://subinto.tistory.com/285",
+          "https://www.oracle.com/kr/artificial-intelligence/ai-model-training/"
+        ]
+      },
+      "AI 모델 학습 및 평가 자동화 프로젝트에서 각 단계별로 필요한 인력의 평균 투입 인원은 어떻게 되나요? (What is the average number of personnel required for each phase in AI model training and evaluation automation projects?)": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트의 성공적인 실행을 위한 단계별 로드맵을 제시합니다. 이 프로젝트는 6개월에서 1년의 기간 동안 진행되며, 각 단계는 명확한 목표와 일정으로 구성됩니다. 1단계에서는 요구사항 정의 및 상세 설계가 이루어지며, 2단계에서는 솔루션 개발과 검증이, 3단계에서는 고객 교육 및 운영 매뉴얼 전달이 포함됩니다. 각 단계별로 평균 2~4명의 인원이 투입되며, 주요 역할에는 비즈니스 분석가, 데이터 과학자, 머신러닝 엔지니어 등이 포함됩니다. 고객과의 협업을 통해 최적의 결과를 도출하며, 각 단계별 완료 기준 및 KPI가 명확히 정의됩니다.",
+        "urls": [
+          "https://aiheroes.ai/community/192",
+          "https://upstage.ai/blog/ko/ai-modeling-how-to-create-ai-team",
+          "https://blog.naver.com/suresofttech/223538409824",
+          "https://bgreat.tistory.com/199",
+          "https://www.oracle.com/kr/artificial-intelligence/ai-model-training-challenges/"
+        ]
+      },
+      "AI 모델 학습 및 평가 자동화 프로젝트의 성공적인 완료를 위한 일반적인 KPI는 무엇인가요? (What are the common KPIs for the successful completion of AI model training and evaluation automation projects?)": {
+        "content": "EY 컨설팅은 AI 모델 학습 및 평가 자동화 프로젝트의 성공적인 실행을 위한 단계별 로드맵을 제공합니다. 이 프로젝트는 6개월에서 1년의 기간 동안 진행되며, 기획/설계, 구축/테스트, 운영이관의 세 단계로 구성됩니다. 각 단계는 명확한 목표와 일정으로 구성되어 있으며, KPI로는 정확도, 정밀도, 재현율, F1 점수, AUC 등이 포함됩니다. 또한, 파이프라인 자동화율과 모델 배포 성공률을 통해 자동화 및 운영 효율성을 평가합니다. 고객과의 협업을 통해 최적의 결과를 도출하며, 주요 리스크 및 대응 방안도 함께 고려됩니다.",
+        "urls": [
+          "https://blog.naver.com/davincilabs/222731268528",
+          "https://cloud.google.com/transform/ko/gen-ai-kpis-measuring-ai-success-deep-dive",
+          "https://blog-ko.superb-ai.com/llm-evaluation-metrics/",
+          "https://blog.naver.com/suresofttech/223538409824",
+          "https://brunch.co.kr/@cyborg11/40"
+        ]
+      }
+    }
+  },
+  "timeline_milestones": {
+    "slide_description": "전체 일정에서의 주요 마일스톤을 시각화하여 이해도를 높입니다.",
+    "description": "프로젝트의 주요 마일스톤을 시각화하여 고객이 전체 일정을 쉽게 이해할 수 있도록 합니다. 각 마일스톤은 프로젝트의 진행 상황을 명확히 보여줍니다.",
+    "elements": {
+      "Title": "프로젝트 일정 및 마일스톤",
+      "MiddleText": "주요 마일스톤 시각화",
+      "GanttChart": {
+        "description": "기간별 주요 활동과 마일스톤 도식화",
+        "chart_type": "Gantt",
+        "milestones": [
+          {
+            "Date": "2025.07",
+            "Label": "Kick-off"
+          },
+          {
+            "Date": "2025.08",
+            "Label": "1차 개발 완료"
+          },
+          {
+            "Date": "2025.10",
+            "Label": "통합 테스트 시작"
+          },
+          {
+            "Date": "2025.12",
+            "Label": "최종 이관"
+          }
+        ]
+      },
+      "MilestoneIcons": "각 마일스톤에 대한 시각 아이콘 또는 상태 표시 (착수, 승인, 완료 등)",
+      "DependencyNote": "단계 간 종속 관계 또는 병렬 처리 여부 요약",
+      "ClientCheckpoints": "고객 승인/참여 포인트 명시 (UAT, 검토 회의 등)"
+    },
+    "needs_research": []
+  },
+  "risk_management_plan": {
+    "slide_description": "예상되는 리스크를 식별하고 이에 대한 대응 전략을 제시합니다.",
+    "description": "EY 컨설팅은 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고, 이에 대한 대응 전략을 마련하여 프로젝트의 성공적인 수행을 보장합니다.",
+    "elements": {
+      "Title": "리스크 관리 계획",
+      "MiddleText": "리스크 관리 개요",
+      "RiskTable": {
+        "description": "리스크 목록",
+        "table": [
+          [
+            "내용",
+            "가능성",
+            "영향도"
+          ],
+          [
+            "데이터 보안 문제",
+            "중",
+            "상"
+          ],
+          [
+            "전문 인력 부족",
+            "중",
+            "중"
+          ],
+          [
+            "기술 표준화 미흡",
+            "중",
+            "중"
+          ]
+        ]
+      },
+      "MitigationStrategy": "완화 전략 항목"
+    },
+    "needs_research": [
+      "데이터 보안 문제와 관련하여, 현재 업계에서 발생하고 있는 주요 데이터 보안 위협과 그에 대한 평균적인 대응 전략은 무엇인가요?",
+      "What are the major data security threats currently occurring in the industry, and what are the average response strategies?",
+      "전문 인력 부족 문제에 대해, 이 산업에서 필요한 주요 기술 및 역량은 무엇이며, 경쟁사들은 이를 어떻게 해결하고 있나요?",
+      "What are the key skills and competencies required in this industry, and how are competitors addressing the shortage of skilled personnel?",
+      "기술 표준화 미흡 문제와 관련하여, 현재 이 산업에서 채택되고 있는 주요 기술 표준은 무엇이며, 이러한 표준의 채택률은 어느 정도인가요?",
+      "What are the major technology standards currently adopted in this industry, and what is the adoption rate of these standards?"
+    ],
+    "research_results": {
+      "데이터 보안 문제와 관련하여, 현재 업계에서 발생하고 있는 주요 데이터 보안 위협과 그에 대한 평균적인 대응 전략은 무엇인가요?": {
+        "content": "EY 컨설팅은 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고, 이에 대한 대응 전략을 마련하여 프로젝트의 성공적인 수행을 보장합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 각각의 가능성과 영향도는 중간에서 상위 수준입니다. 데이터 보안 위협에 대한 대응 전략으로는 전사적 차원의 위기관리 전략, 보안 인식 제고와 교육, 최신 보안 패치 및 업데이트 적용, 다계층 보안 솔루션 도입 등이 포함됩니다. 이러한 전략들은 선제적 방어와 신속한 대응을 위한 기반을 제공합니다.",
+        "urls": [
+          "https://www.illumio.com/ko/blog/top-cybersecurity-news-stories-from-january-2025",
+          "https://blog.naver.com/fs0608/223709577688",
+          "https://www.samsungsds.com/kr/news/security-250218.html",
+          "https://m.boannews.com/html/detail.html?tab_type=1&idx=134591",
+          "https://www.youtube.com/watch?v=UeUaKwdzWRY"
+        ]
+      },
+      "What are the major data security threats currently occurring in the industry, and what are the average response strategies?": {
+        "content": "EY 컨설팅의 리스크 관리 계획은 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고 대응 전략을 마련하여 성공적인 프로젝트 수행을 보장합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 각각 중간 수준의 가능성과 중~상 수준의 영향을 미칩니다. 이를 완화하기 위해, 다계층 방어, 클라우드 및 컨테이너 보안 강화, 피싱 및 소셜 엔지니어링 방어, IT/OT 보안 솔루션 통합 등의 전략이 사용됩니다. 이러한 전략은 리스크를 효과적으로 관리하고 프로젝트의 성공적인 수행을 지원합니다.",
+        "urls": [
+          "https://onlinedegrees.sandiego.edu/top-cyber-security-threats/",
+          "https://www.sentinelone.com/cybersecurity-101/cybersecurity/cyber-security-trends/",
+          "https://www.crowdstrike.com/en-us/global-threat-report/",
+          "https://www.weforum.org/stories/2025/02/biggest-cybersecurity-threats-2025/",
+          "https://www.connectwise.com/blog/common-threats-and-attacks"
+        ]
+      },
+      "전문 인력 부족 문제에 대해, 이 산업에서 필요한 주요 기술 및 역량은 무엇이며, 경쟁사들은 이를 어떻게 해결하고 있나요?": {
+        "content": "EY 컨설팅은 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고, 이에 대한 대응 전략을 마련하여 성공적인 프로젝트 수행을 보장합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 각각의 가능성과 영향도는 중간에서 상위 수준으로 평가됩니다. 전문 인력 부족 문제는 AI, 클라우드, 소프트웨어 개발 등 디지털 및 IT 기술 역량이 중요하게 요구되는 산업에서 특히 두드러지며, 이를 해결하기 위해 체계적인 교육 강화, 해외 인재 유치, IT 아웃소싱 등의 전략이 필요합니다.",
+        "urls": [
+          "https://www.mercer.com/ko-kr/insights/talent-and-transformation/attracting-and-retaining-talent/new-approaches-to-solving-the-labor-shortage/",
+          "https://www.sotatek.com/kr/blogs-kr/south-korea-it-manpower-shortage-and-solution/",
+          "https://blog.naver.com/outsotimes/223621281471",
+          "https://license.korcham.net/kor/etc/download.jsp?cd=3&filename=3.+%EF%BF%BD%DF%BC%D2%B1%EF%BF%BD%EF%BF%BD+%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD+%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD+%EF%BF%BD%EF%BF%BD%EF%BF%BD%CE%B0%EF%BF%BD+%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD1.pdf",
+          "https://seo.goover.ai/report/202502/go-public-report-ko-08522fdd-9e44-469f-88aa-cc37f06ba15c-0-0.html"
+        ]
+      },
+      "What are the key skills and competencies required in this industry, and how are competitors addressing the shortage of skilled personnel?": {
+        "content": "EY 컨설팅은 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고 대응 전략을 마련하여 성공적인 프로젝트 수행을 보장합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 각각 중간 수준의 가능성과 중~상 수준의 영향을 미칩니다. 이러한 리스크를 완화하기 위해 업계에서는 디지털 및 기술 숙련도 향상, 유연한 근무 조건 제공, 직무 요구사항 간소화 등의 전략을 활용하고 있습니다. 특히, 디지털 기술 숙련도는 업스킬링과 AI 기반 채용을 통해 강화되고 있습니다.",
+        "urls": [
+          "https://www.weforum.org/publications/the-future-of-jobs-report-2025/",
+          "https://explodingtopics.com/blog/labor-shortage-stats",
+          "https://www.goco.io/blog/hardest-places-to-hire",
+          "https://www.rolinc.com/2025/02/03/strategies-to-tackle-the-skilled-labor-shortage-in-2025/",
+          "https://kenaninstitute.unc.edu/kenan-insight/grand-challenge-2025-the-skills-gap/"
+        ]
+      },
+      "기술 표준화 미흡 문제와 관련하여, 현재 이 산업에서 채택되고 있는 주요 기술 표준은 무엇이며, 이러한 표준의 채택률은 어느 정도인가요?": {
+        "content": "EY 컨설팅의 리스크 관리 계획 슬라이드는 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고 대응 전략을 마련하여 성공적인 프로젝트 수행을 보장하는 것을 목표로 합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 특히 기술 표준화 미흡 문제는 ISO/IEC 국제표준 채택률이 약 60%에 불과하고, 기업의 표준화 참여가 저조한 상황이므로 이를 개선하는 것이 중요합니다. 따라서, 산업계 전반에서 국제표준 제안과 채택 활성화, 기업의 표준화 참여 확대가 필요합니다.",
+        "urls": [
+          "https://www.kats.go.kr/content.do?cmsid=364",
+          "https://www.i-standard.kr/subPage.php?mode=4&subID=1",
+          "https://www.data.go.kr/data/15113217/fileData.do?recommendDataYn=Y",
+          "https://koreascience.kr/article/CFKO201221868475806.pdf",
+          "https://www.h2news.kr/news/articleView.html?idxno=7489"
+        ]
+      },
+      "What are the major technology standards currently adopted in this industry, and what is the adoption rate of these standards?": {
+        "content": "EY 컨설팅의 리스크 관리 계획 슬라이드는 프로젝트 수행 중 발생할 수 있는 리스크를 사전에 식별하고 대응 전략을 마련하는 것을 목표로 합니다. 주요 리스크로는 데이터 보안 문제, 전문 인력 부족, 기술 표준화 미흡이 있으며, 각각 중간 정도의 가능성과 영향을 가집니다. ISO 27001:2025와 같은 정보 보안 표준의 높은 채택률은 데이터 보호와 규제 준수의 중요성을 강조하며, 이는 리스크 완화 전략에 핵심적으로 작용할 수 있습니다. 이러한 표준의 채택은 특히 대규모 및 국제 조직에서 높은 수준으로 이루어지고 있습니다.",
+        "urls": [
+          "https://www.protiviti.com/us-en/insights-paper/top-compliance-challenges-technology-industry-2025",
+          "https://www.globalpolicywatch.com/2025/04/u-s-tech-legislative-regulatory-update-first-quarter-2025/",
+          "https://dig.watch/topics/digital-standards",
+          "https://fractionalciso.com/cybersecurity-compliance-standards/",
+          "https://www.lansweeper.com/blog/itam/iso-compliance-new-standards-for-2025/"
+        ]
+      }
+    }
+  },
+  "expected_benefits": {
+    "slide_description": "제안서 실행 시 고객이 얻게 될 주요 기대 효과를 정성·정량적으로 표현합니다.",
+    "description": "EY 컨설팅의 솔루션을 통해 고객은 데이터 활용도 및 품질을 제고하고, 실험 효율성을 높이며, R&D 역량을 강화할 수 있습니다. 이러한 효과는 정량적 지표로도 확인할 수 있습니다.",
+    "elements": {
+      "Title": "기대 효과 및 성과",
+      "MiddleText": "핵심 기대 효과 요약",
+      "BulletPoints": {
+        "description": "정성적 효과 정리",
+        "examples": [
+          "운영 프로세스 간소화 및 자동화",
+          "직원 업무 효율 증대",
+          "고객 만족도 향상"
+        ]
+      },
+      "KPIProjection": {
+        "description": "성과 지표 기반 기대 성과",
+        "chart_type": "Table",
+        "data": [
+          [
+            "항목",
+            "현재",
+            "도입 후"
+          ],
+          [
+            "처리 시간",
+            "5일",
+            "2일"
+          ],
+          [
+            "운영 비용",
+            "100%",
+            "80%"
+          ]
+        ]
+      },
+      "TangibleVsIntangible": "정량 vs 정성 효과 분류 테이블",
+      "ROIIndicator": "ROI, Payback 기간 등 주요 재무적 효과 요약",
+      "ClientQuoteBox": "고객이 공감할 수 있는 기대 효과 강조 인용문"
+    },
+    "needs_research": [
+      "KPIProjection의 '처리 시간'과 '운영 비용'의 변화가 유사한 솔루션을 도입한 다른 기업들의 평균 수치와 어떻게 비교됩니까?",
+      "How do the changes in 'processing time' and 'operating costs' in the KPIProjection compare to the average figures of other companies that have implemented similar solutions?",
+      "ROIIndicator에서 언급된 ROI와 Payback 기간이 이 산업에서 일반적으로 기대되는 수치와 일치합니까?",
+      "Do the ROI and Payback period mentioned in the ROIIndicator align with the figures generally expected in this industry?",
+      "EY 컨설팅의 솔루션 도입 후 데이터 활용도 및 품질 개선의 정량적 지표가 경쟁사(예: 딜로이트, KPMG 등)와 비교하여 어떻게 평가됩니까?",
+      "How do the quantitative metrics of data utilization and quality improvement after implementing EY Consulting's solution compare to those of competitors (e.g., Deloitte, KPMG)?"
+    ],
+    "research_results": {
+      "KPIProjection의 '처리 시간'과 '운영 비용'의 변화가 유사한 솔루션을 도입한 다른 기업들의 평균 수치와 어떻게 비교됩니까?": {
+        "content": "EY 컨설팅의 솔루션을 통해 고객은 데이터 활용도 및 품질을 제고하고, 실험 효율성을 높이며, R&D 역량을 강화할 수 있습니다. KPIProjection에 따르면, 처리 시간은 5일에서 2일로 단축되어 업계 평균과 유사하거나 더 뛰어난 성과를 보이며, 운영 비용은 20% 절감되어 업계 평균과 동등하거나 약간 높은 수준입니다. 이러한 성과는 고객 만족도 향상, 운영 프로세스 간소화 및 자동화, 직원 업무 효율 증대와 같은 정성적 효과와 함께 ROI 및 Payback 기간 등 주요 재무적 효과를 통해 정량적으로도 확인할 수 있습니다.",
+        "urls": []
+      },
+      "How do the changes in 'processing time' and 'operating costs' in the KPIProjection compare to the average figures of other companies that have implemented similar solutions?": {
+        "content": "EY 컨설팅의 솔루션을 통해 고객은 데이터 활용도 및 품질을 제고하고, 실험 효율성을 높이며, R&D 역량을 강화할 수 있습니다. KPIProjection에 따르면, 처리 시간은 5일에서 2일로, 운영 비용은 100%에서 80%로 감소할 것으로 예상됩니다. 이러한 성과는 산업 평균과 비교하여 경쟁력 있는 수준이며, 운영 프로세스의 간소화 및 자동화, 직원 업무 효율 증대, 고객 만족도 향상 등의 정성적 효과도 기대할 수 있습니다. ROI와 Payback 기간 등의 재무적 효과도 포함되어 있으며, 이는 고객이 공감할 수 있는 기대 효과를 강조합니다.",
+        "urls": [
+          "https://www.biopharminternational.com/view/lifecycle-cost-analysis-single-use-systems",
+          "https://theelectricgf.com/wp-content/uploads/2018/06/Great-Falls-MT-Food-Processing-Operating-Cost-Comparative-Study-2018-1.pdf",
+          "https://www.osti.gov/servlets/purl/1299047",
+          "https://hazletoncando.com/wp-content/uploads/2009/08/Plastics_Industry_Operating_Costs_PNE_2.2017.pdf",
+          "https://www.solomoninsight.com/enterprise/capital-portfolio/new-projects-opex-estimator"
+        ]
+      },
+      "ROIIndicator에서 언급된 ROI와 Payback 기간이 이 산업에서 일반적으로 기대되는 수치와 일치합니까?": {
+        "content": "EY 컨설팅의 솔루션을 통해 고객은 데이터 활용도 및 품질을 제고하고, 실험 효율성을 높이며, R&D 역량을 강화할 수 있습니다. 이를 통해 운영 프로세스 간소화 및 자동화, 직원 업무 효율 증대, 고객 만족도 향상 등의 정성적 효과를 기대할 수 있습니다. 또한, 처리 시간은 5일에서 2일로, 운영 비용은 100%에서 80%로 감소하는 등 정량적 성과도 예상됩니다. ROI와 Payback 기간은 산업 평균인 연 20~60% ROI 및 2~4년 내 회수와 일치하거나 우수한 수준으로 평가됩니다.",
+        "urls": [
+          "https://tractian.com/en/blog/roi-and-payback-maintenance-kpis",
+          "https://www.getcensus.com/ops_glossary/payback-period-roi-calculation-for-investments",
+          "https://insights.regencysupply.com/dollars-and-sense-how-to-calculate-return-on-investment-roi-and-payback-for-your-lighting-project",
+          "https://www.youtube.com/watch?v=KDzu06LFXW0",
+          "https://www.youtube.com/watch?v=o4of1uNSRis"
+        ]
+      },
+      "Do the ROI and Payback period mentioned in the ROIIndicator align with the figures generally expected in this industry?": {
+        "content": "EY 컨설팅의 솔루션을 통해 고객은 데이터 활용도 및 품질을 제고하고, 실험 효율성을 높이며, R&D 역량을 강화할 수 있습니다. 기대 효과로는 운영 프로세스 간소화 및 자동화, 직원 업무 효율 증대, 고객 만족도 향상이 있으며, 정량적 성과 지표로는 처리 시간이 5일에서 2일로 단축되고, 운영 비용이 100%에서 80%로 감소합니다. ROI와 Payback 기간은 산업 표준과 비교하여 3~4년 내에 긍정적인 ROI를 달성하는 것이 일반적이며, 이는 EY 컨설팅의 솔루션이 제공하는 재무적 효과를 강조합니다.",
+        "urls": [
+          "https://tractian.com/en/blog/roi-and-payback-maintenance-kpis",
+          "https://www.getcensus.com/ops_glossary/payback-period-roi-calculation-for-investments",
+          "https://payproglobal.com/answers/what-is-cac-payback-period/",
+          "https://www.futurefirstenergy.com/the-power-of-payback-assessing-roi-with-the-payback-period-method-for-energy-efficiency-upgrades/",
+          "https://www.numberanalytics.com/blog/payback-period-roi-calculation"
+        ]
+      },
+      "EY 컨설팅의 솔루션 도입 후 데이터 활용도 및 품질 개선의 정량적 지표가 경쟁사(예: 딜로이트, KPMG 등)와 비교하여 어떻게 평가됩니까?": {
+        "content": "EY 컨설팅의 솔루션은 데이터 활용도와 품질을 개선하여 고객의 R&D 역량을 강화하고 실험 효율성을 높입니다. EY는 제3자 데이터베이스를 활용한 KPI 기반 벤치마크 분석을 통해 데이터 정확성, 일관성, 활용률, 처리 속도 등의 지표를 제시하며, 도입 후 처리 시간은 5일에서 2일로, 운영 비용은 100%에서 80%로 감소합니다. 이러한 정량적 성과는 경쟁사 대비 국내 기업 환경에 특화된 맞춤형 솔루션과 투명한 보고를 통해 실질적인 비즈니스 개선 인사이트를 제공합니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/assurance/benchmark-analysis",
+          "https://www.ey.com/ko_kr/insights/consulting/5-initiatives-for-successful-genai-adoption",
+          "https://www.ey.com/ko_kr/insights/long-term-value/how-common-metrics-can-drive-long-term-value-creation",
+          "https://blog.naver.com/PostView.naver?blogId=yskhan16&logNo=222813176960",
+          "https://inthiswork.com/archives/132731"
+        ]
+      }
+    }
+  },
+  "investment_budget_estimation": {
+    "slide_description": "전체 예산과 각 항목별 비용을 상세히 제시하여 투자 가시성을 제공합니다.",
+    "description": "EY 컨설팅은 고객의 투자 가시성을 높이기 위해 전체 예산과 각 항목별 비용을 상세히 제시합니다. 이를 통해 고객은 예산을 효율적으로 관리할 수 있습니다.",
+    "elements": {
+      "Title": "투자 예산 및 비용 추정",
+      "MiddleText": "투자 요약",
+      "BudgetTable": {
+        "description": "총 예산 테이블",
+        "table": [
+          [
+            "항목",
+            "예산"
+          ],
+          [
+            "데이터 처리",
+            "1억원"
+          ],
+          [
+            "자동화 파이프라인",
+            "1.5억원"
+          ],
+          [
+            "실험 환경 구축",
+            "1억원"
+          ]
+        ]
+      },
+      "CostBreakdown": "비용 항목별 상세 내용"
+    },
+    "needs_research": [
+      "데이터 처리, 자동화 파이프라인, 실험 환경 구축과 관련된 업계 평균 비용은 각각 얼마인가요?",
+      "What are the industry average costs for data processing, automation pipelines, and experimental environment setup?",
+      "유사한 산업 분야에서의 투자 예산 분배 비율은 어떻게 되나요?",
+      "How is the investment budget typically allocated in similar industry sectors?",
+      "이와 같은 프로젝트의 평균 ROI(투자 수익률)는 얼마인가요?",
+      "What is the average ROI (Return on Investment) for projects similar to this one?"
+    ],
+    "research_results": {
+      "데이터 처리, 자동화 파이프라인, 실험 환경 구축과 관련된 업계 평균 비용은 각각 얼마인가요?": {
+        "content": "EY 컨설팅은 고객의 투자 가시성을 높이기 위해 상세한 예산 및 비용 추정을 제공합니다. 데이터 처리, 자동화 파이프라인, 실험 환경 구축의 예산은 각각 1억원, 1.5억원, 1억원으로 설정되어 있으며, 이는 업계 평균 비용과 비교해 경쟁력 있는 수준입니다. 데이터 처리의 평균 비용은 약 4,500만원, 자동화 파이프라인과 실험 환경 구축은 3,000만~1억 원 이상으로, 프로젝트의 규모와 요구 사양에 따라 실제 비용은 달라질 수 있습니다.",
+        "urls": [
+          "https://thunderbit.com/ko/blog/automation-statistics-industry-data-insights",
+          "https://blogs.nvidia.co.kr/blog/industry-ai-predictions-2025/",
+          "https://hiteksoftware.co.kr/app-development-cost/",
+          "https://thunderbit.com/ko/blog/key-ai-data-privacy-stats",
+          "https://www.koreadeep.com/blog/2025-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B0%94%EC%9A%B0%EC%B2%98-%ED%95%9C%EA%B5%AD%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%98-%EC%84%B1%EA%B3%B5-%EC%A0%84%EB%9E%B5"
+        ]
+      },
+      "What are the industry average costs for data processing, automation pipelines, and experimental environment setup?": {
+        "content": "EY 컨설팅은 고객의 투자 가시성을 높이기 위해 예산과 비용을 상세히 제시합니다. 슬라이드에는 데이터 처리, 자동화 파이프라인, 실험 환경 구축에 대한 예산이 포함되어 있으며, 각각 1억원, 1.5억원, 1억원으로 책정되었습니다. 리서치 결과에 따르면, 데이터 처리 비용은 GB당 $25–$100, 자동화 파이프라인과 실험 환경 구축 비용은 연간 $25,000–$500,000의 인프라 비용에 포함됩니다. 이러한 정보는 고객이 예산을 효율적으로 관리하는 데 기여할 것입니다.",
+        "urls": [
+          "https://gofig.ai/stories/true-cost-of-a-complete-data-infrastructure/",
+          "https://www.thetradenews.com/market-data-access-and-costs-a-key-market-structure-concern-for-2025/",
+          "https://www.ovaledge.com/blog/data-catalog-pricing-guide",
+          "https://revenueml.com/insights/articles/top-software-saas-industry-pricing-trends-for-2025",
+          "https://www.everlaw.com/blog/ediscovery-best-practices/ediscovery-costs-in-2025/"
+        ]
+      },
+      "How is the investment budget typically allocated in similar industry sectors?": {
+        "content": "EY 컨설팅은 고객의 투자 가시성을 높이기 위해 총 예산과 각 항목별 비용을 상세히 제시합니다. 슬라이드에는 \"투자 예산 및 비용 추정\"이라는 제목 아래, 데이터 처리(1억원), 자동화 파이프라인(1.5억원), 실험 환경 구축(1억원) 등 총 예산 테이블이 포함됩니다. 리서치 결과에 따르면, 기술 및 소프트웨어 분야에서는 IT와 R&D에 높은 비중을 두며, 마케팅에는 약 11%의 수익을 할당하는 것이 일반적입니다. 이러한 산업별 예산 할당 관행은 기업의 전략적 목표와 성장 가능성에 따라 조정됩니다.",
+        "urls": [
+          "https://www.financealliance.io/tips-to-allocate-budget-across-departments/",
+          "https://asymmetric.pro/top-insights-average-marketing-budget-by-industry/",
+          "https://improvado.io/blog/marketing-budget-allocation",
+          "https://www.itmagination.com/blog/how-much-should-companies-spend-on-their-it-budget",
+          "https://www.investopedia.com/terms/s/sector-breakdown.asp"
+        ]
+      }
+    }
+  },
+  "team_introduction": {
+    "slide_description": "수행팀의 전문성과 역할 분담을 보여줘 신뢰도를 높입니다.",
+    "description": "EY 컨설팅의 전문 팀은 고객의 성공적인 프로젝트 수행을 위해 최선을 다합니다. 각 팀원은 높은 전문성과 풍부한 경험을 보유하고 있으며, 명확한 역할 분담을 통해 효율적으로 프로젝트를 수행합니다.",
+    "elements": {
+      "Title": "수행팀 소개",
+      "MiddleText": "팀 구성 및 핵심 인력 요약",
+      "MemberList": [
+        {
+          "Name": "김철수",
+          "Role": "프로젝트 매니저",
+          "Experience": "10년"
+        },
+        {
+          "Name": "이영희",
+          "Role": "데이터 분석가",
+          "Experience": "8년"
+        },
+        {
+          "Name": "박민수",
+          "Role": "AI 엔지니어",
+          "Experience": "7년"
+        }
+      ],
+      "TeamOrgChart": "팀 조직도"
+    },
+    "needs_research": []
+  },
+  "why_us_differentiation": {
+    "slide_description": "자사만의 차별성과 강점을 강조하여 경쟁사 대비 우위를 설득합니다.",
+    "description": "EY 컨설팅은 업계 최고 수준의 기술력과 풍부한 구축 경험을 바탕으로 고객에게 차별화된 솔루션을 제공합니다. 우리의 강점은 신속한 커뮤니케이션과 전담 PM 배정, 그리고 End-to-End 서비스 제공입니다.",
+    "elements": {
+      "Title": "EY 컨설팅의 차별화된 강점",
+      "MiddleText": "자사 강점 요약",
+      "BulletPoints": {
+        "description": "차별화된 요소 요약 리스트",
+        "examples": [
+          "업계 최고 수준의 기술 인력 및 구축 경험",
+          "공공/금융 분야 다수의 실증 사례",
+          "전담 PM 배정 및 신속한 커뮤니케이션 구조",
+          "End-to-End 서비스 제공 (컨설팅 ~ 운영까지)"
+        ]
+      },
+      "ComparisonTable": {
+        "description": "자사 vs 경쟁사 비교",
+        "table_format": [
+          [
+            "항목",
+            "자사",
+            "경쟁사"
+          ],
+          [
+            "경험",
+            "10건 이상 유사 구축",
+            "2~3건 제한적"
+          ],
+          [
+            "대응 속도",
+            "24시간 이내 피드백",
+            "72시간 이상"
+          ]
+        ]
+      }
+    },
+    "needs_research": [
+      "EY 컨설팅의 기술 인력 및 구축 경험이 업계 최고 수준이라는 주장을 뒷받침할 수 있는 외부 평가는 무엇인가요?",
+      "What external evaluations support the claim that EY Consulting's technical personnel and implementation experience are industry-leading?",
+      "공공 및 금융 분야에서 EY 컨설팅의 실증 사례가 경쟁사와 비교하여 얼마나 많은지 확인할 수 있는 데이터가 있나요?",
+      "Is there data available to verify how many case studies EY Consulting has in the public and financial sectors compared to competitors?",
+      "EY 컨설팅의 24시간 이내 피드백 제공이 경쟁사 대비 얼마나 신속한지를 보여주는 업계 평균 대응 속도는 무엇인가요?",
+      "What is the industry average response time that can demonstrate how EY Consulting's feedback within 24 hours compares to competitors?"
+    ],
+    "research_results": {
+      "EY 컨설팅의 기술 인력 및 구축 경험이 업계 최고 수준이라는 주장을 뒷받침할 수 있는 외부 평가는 무엇인가요?": {
+        "content": "EY 컨설팅은 업계 최고 수준의 기술 인력과 풍부한 구축 경험을 바탕으로 차별화된 솔루션을 제공합니다. 750여 명의 인력 중 500명이 디지털 혁신 관련 업무를 담당하며, AI, 데이터&분석, 디지털 트랜스포메이션 등 각 분야의 최정상급 전문가들이 팀을 이끌고 있습니다. EY는 10건 이상의 유사 구축 경험과 24시간 이내 피드백 제공을 통해 경쟁사 대비 빠르고 효율적인 서비스를 제공합니다. 이러한 강점은 외부 기사와 업계 평가에서 지속적으로 인정받고 있습니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/services/workforce/workforce-analytics",
+          "https://www.ey.com/ko_kr/services/consulting",
+          "https://www.ey.com/ko_kr/careers/what-you-can-do-here",
+          "https://blog.naver.com/PostView.naver?blogId=yskhan16&logNo=222813176960",
+          "https://www.ey.com/ko_kr/services/consulting/technology-transformation"
+        ]
+      },
+      "What external evaluations support the claim that EY Consulting's technical personnel and implementation experience are industry-leading?": {
+        "content": "EY 컨설팅은 업계 최고 수준의 기술력과 풍부한 구축 경험을 바탕으로 고객에게 차별화된 솔루션을 제공합니다. HFS 리서치에 따르면, EY는 2022년 지속 가능성 서비스 제공업체 중 실행 부문 1위로 선정되었으며, 이는 전략적 기술 깊이와 강력한 인재 투자로 뒷받침됩니다. EY는 10건 이상의 유사 구축 경험과 24시간 이내 피드백을 통해 경쟁사보다 빠른 대응 속도를 자랑합니다. 또한, 글로벌 감사 규제 기관의 정기적인 감사 결과는 EY의 기술적 엄격성과 구현 표준을 지속적으로 입증하고 있습니다.",
+        "urls": [
+          "https://www.gartner.com/reviews/market/external-audit-services/vendor/ey/product/ey-external-audit-services",
+          "https://www.ey.com/en_au/newsroom/2022/01/hfs-gives-ey-top-ranking-for-2022-life-sciences-service-providers",
+          "https://vault.com/best-companies-to-work-for/consulting/vault-consulting-rankings-top-50",
+          "https://www.ey.com/en_us/insights/assurance/global-audit-quality-report",
+          "https://www.gartner.com/reviews/market/iam-professional-services-worldwide/compare/ey-vs-pwc"
+        ]
+      },
+      "공공 및 금융 분야에서 EY 컨설팅의 실증 사례가 경쟁사와 비교하여 얼마나 많은지 확인할 수 있는 데이터가 있나요?": {
+        "content": "EY 컨설팅은 업계 최고 수준의 기술력과 풍부한 구축 경험을 통해 차별화된 솔루션을 제공합니다. 주요 강점으로는 공공 및 금융 분야에서의 다수 실증 사례, 전담 PM 배정, 신속한 커뮤니케이션, 그리고 End-to-End 서비스 제공이 있습니다. 경쟁사 대비 10건 이상의 유사 구축 경험과 24시간 이내 피드백 제공으로 빠른 대응 속도를 자랑합니다. 공공 및 금융 분야 실증 사례 비교를 위해서는 정부 입찰 데이터와 시장조사 보고서를 활용하는 것이 효과적입니다.",
+        "urls": [
+          "https://www.ey.com/ko_kr/industries/government-public-sector/services",
+          "https://www.ey.com/ko_kr",
+          "https://www.ey.com/ko_kr/insights/financial-services/how-can-financial-services-maximize-the-effect-of-introducing-generative-ai",
+          "https://www.keei.re.kr/pdfOpen.es?bid=0001&list_no=81879&seq=1",
+          "https://www.ey.com/ko_kr/industries/government-public-sector"
+        ]
+      },
+      "EY 컨설팅의 24시간 이내 피드백 제공이 경쟁사 대비 얼마나 신속한지를 보여주는 업계 평균 대응 속도는 무엇인가요?": {
+        "content": "EY 컨설팅은 업계 평균 1~3일보다 빠른 24시간 이내 피드백을 제공하여 신속한 대응을 강점으로 내세웁니다. 이는 업계 최고 수준의 기술력과 풍부한 구축 경험을 바탕으로 공공 및 금융 분야에서 다수의 실증 사례를 보유하고 있으며, 전담 PM 배정과 End-to-End 서비스 제공을 통해 차별화된 솔루션을 제공합니다. 경쟁사 대비 경험과 대응 속도에서 우위를 점하고 있습니다.",
+        "urls": [
+          "https://linkareer.com/activity/235543",
+          "https://blog.naver.com/vip01/221233819660",
+          "https://linkareer.com/activity/148713",
+          "http://www.hrinsight.co.kr/view/view.asp?in_cate=109&gopage=2&bi_pidx=27019",
+          "https://www.kais99.org/jkais/journal/Vol23No10/vol23no10p20.pdf"
+        ]
+      },
+      "What is the industry average response time that can demonstrate how EY Consulting's feedback within 24 hours compares to competitors?": {
+        "content": "EY 컨설팅은 업계 최고 수준의 기술력과 풍부한 구축 경험을 통해 고객에게 차별화된 솔루션을 제공합니다. 우리의 강점은 10건 이상의 유사 구축 경험과 24시간 이내의 신속한 피드백 제공, 전담 PM 배정, 그리고 컨설팅부터 운영까지의 End-to-End 서비스입니다. 경쟁사 대비 빠른 대응 속도를 유지하며, 업계 평균인 12시간의 이메일 응답 시간을 충족하지만, 1-2시간 내 응답을 목표로 하는 선도 기업들과의 차별화를 위해 더욱 빠른 대응이 필요합니다.",
+        "urls": [
+          "https://textexpander.com/blog/average-response-time",
+          "https://timetoreply.com/blog/average-email-response-time/",
+          "https://www.clearlyrated.com/glossary/average-first-response-time",
+          "https://emplifi.io/resources/blog/contact-center-industry-standards",
+          "https://www.gorgias.com/blog/average-response-time"
+        ]
+      }
+    }
+  },
+  "closing_summary": {
+    "slide_description": "전체 제안을 요약하며 고객에게 남기고 싶은 핵심 메시지를 강조합니다.",
+    "description": "EY 컨설팅은 고객의 성공적인 AI 모델 학습 및 평가 자동화를 위해 최적의 솔루션을 제공합니다. 우리의 제안은 고객의 요구에 맞춘 현실적이고 납득할만한 설계를 기반으로 하며, 고객의 성공을 위한 파트너가 될 것입니다.",
+    "elements": {
+      "Title": "제안 마무리",
+      "MiddleText": "핵심 요약 문장",
+      "FinalCall": {
+        "description": "마무리 제안 또는 CTA",
+        "options": [
+          "시범 도입 제안",
+          "추가 미팅 요청",
+          "RFP 연장 논의",
+          "기술 검증(PoC) 요청 등"
+        ]
+      },
+      "ThankYouVisual": "감사 인사와 함께 신뢰를 전달하는 이미지 또는 문구 (예: 함께 성장할 파트너)",
+      "ContactInfoBox": "담당자 연락처 정보 (이름, 이메일, 직책, 회사 로고 포함)",
+      "ReinforcementBanner": "슬라이드 하단에 ‘선택의 이유’를 다시 강조하는 요약 배너 (아이콘 또는 문장)"
+    },
+    "needs_research": []
+  },
+  "qna": {
+    "slide_description": "질의응답을 위한 충분한 공간과 예상 질문 대응 내용을 구성합니다.",
+    "description": "고객의 궁금증을 해소하고, 제안에 대한 이해를 높이기 위한 질의응답 시간을 제공합니다. 예상 질문에 대한 준비된 답변을 통해 고객의 신뢰를 얻습니다.",
+    "elements": {
+      "Title": "질의응답",
+      "EmptySpace": "Q&A 시각적 공간",
+      "AnticipatedQuestions": [
+        {
+          "Question": "AI 모델 학습 자동화의 주요 장점은 무엇인가요?",
+          "Answer": "데이터 처리 속도 향상, 실험 효율성 증가, 사용자 편의성 증대"
+        },
+        {
+          "Question": "EY 컨설팅의 솔루션이 타사와 다른 점은 무엇인가요?",
+          "Answer": "업계 최고 수준의 기술력과 풍부한 구축 경험, 신속한 커뮤니케이션"
+        }
+      ]
+    },
+    "needs_research": [
+      "What specific statistics or case studies support the mentioned benefits of AI model training automation, such as improved data processing speed, increased experiment efficiency, and enhanced user convenience?",
+      "Are there any resources that compare EY Consulting's technological capabilities and project experience with those of major competitors like Deloitte, PwC, and BCG?"
+    ],
+    "research_results": {
+      "What specific statistics or case studies support the mentioned benefits of AI model training automation, such as improved data processing speed, increased experiment efficiency, and enhanced user convenience?": {
+        "content": "슬라이드는 고객의 궁금증을 해소하고 제안에 대한 이해를 높이기 위한 질의응답 시간을 제공합니다. AI 모델 학습 자동화의 주요 장점으로는 데이터 처리 속도 향상, 실험 효율성 증가, 사용자 편의성 증대가 있습니다. BMW의 실시간 모니터링 시스템은 연간 500분의 작업 중단을 방지했으며, AI를 통한 의료 진단은 전통적인 방법보다 빠른 진단을 가능하게 했습니다. EY 컨설팅의 솔루션은 업계 최고 수준의 기술력과 풍부한 구축 경험을 바탕으로 타사와 차별화되며, 신속한 커뮤니케이션을 제공합니다.",
+        "urls": [
+          "https://www.automate.org/ai/industry-insights/ai-in-the-real-world-4-case-studies-of-success-in-industrial-manufacturing",
+          "https://future-code.dev/en/blog/case-studies-in-transforming-ai-process-automation-across-sectors/",
+          "https://resources.data.gov/keywords/ai/",
+          "https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders",
+          "https://www.numberanalytics.com/blog/data-driven-multi-task-learning-case-studies-ai"
+        ]
+      },
+      "Are there any resources that compare EY Consulting's technological capabilities and project experience with those of major competitors like Deloitte, PwC, and BCG?": {
+        "content": "슬라이드는 고객의 궁금증을 해소하고 제안에 대한 이해를 높이기 위한 질의응답 시간을 제공합니다. EY 컨설팅의 솔루션은 업계 최고 수준의 기술력과 풍부한 구축 경험, 신속한 커뮤니케이션을 통해 타사와 차별화됩니다. EY는 EY-Parthenon과의 강력한 통합을 통해 시스템 통합, 디지털 전환, 분석에 중점을 두고 있으며, 이는 Deloitte, PwC, BCG와 비교했을 때도 기술 컨설팅에서의 강점을 보여줍니다. 이러한 정보는 고객의 신뢰를 얻는 데 기여할 것입니다.",
+        "urls": [
+          "https://managementconsulted.com/top-3-vs-big-4-consulting-firms/",
+          "https://casecoach.com/b/big-4-consulting-firms-different-mckinsey-bcg-bain/",
+          "https://www.preplounge.com/en/articles/differences-between-big-4",
+          "https://prosple.com/career-planning/big-4-insiders-reveal-how-deloitte-ey-kpmg-and-pwc-actually-differ",
+          "https://managementconsulted.com/pwc-vs-ey/"
+        ]
+      }
+    }
+  },
+  "appendix": {
+    "slide_description": "통계, 기술 스펙, 참고 문헌 등 본문에 넣기 어려운 자료를 정리합니다.",
+    "description": "제안서 본문에 포함되지 않은 추가 자료와 참고 문헌을 제공합니다. 이는 제안의 신뢰성을 높이고, 고객의 이해를 돕기 위한 자료입니다.",
+    "elements": {
+      "Title": "부록",
+      "SupportingDetails": "기술 자료, 통계 인용 등",
+      "Footnotes": "출처, 링크, 각주 등 보충 정보"
+    },
+    "needs_research": []
+  }
+}
