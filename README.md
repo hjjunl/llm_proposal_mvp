@@ -26,7 +26,8 @@ This project aims to build an intelligent automation system that reads and analy
 ---
 
 ## 🧠 RFP Intelligence Workflow
-![image](https://github.com/user-attachments/assets/7a11393f-cbb2-4051-829c-3c3b9f7176bf)
+![image](https://github.com/user-attachments/assets/2d7df595-1805-4782-aa76-54b98b1236b7)
+
 
 ## 1. Client Input
 - Upload RFP file (PDF, DOCX)
