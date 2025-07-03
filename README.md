@@ -87,15 +87,6 @@ Final review by human consultant to ensure:
 
 ---
 
-## ⚙️ Tech Stack
-
-- `Python`, `LangChain`, `OpenAI GPT API`  
-- `Google Search` / `SerpAPI` for real-time content retrieval  
-- `PPTX Generation Libraries` for automated document creation  
-- Optional: `Streamlit` or `Gradio` for front-end interface (planned)
-
----
-
 ## 🚧 Status
 
 Currently in MVP development phase.  
