@@ -1,0 +1,6 @@
+streamlit==1.37.0
+pandas>=2.0.0
+python-pptx>=0.6.22
+Pillow>=10.0.0
+numpy>=1.24.0
+notion-client>=2.2.1
