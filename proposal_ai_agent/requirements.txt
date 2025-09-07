@@ -1,11 +1,48 @@
-# --- Streamlit 앱 필수 ---
+# --- Core for Streamlit app ---
 streamlit==1.37.0
-rich==13.9.4            # Cloud가 rich를 올려도 여기선 13으로 고정
+rich==13.9.4                  # streamlit 1.37는 rich<14 요구
 reportlab==4.2.5
 pandas==2.3.2
-numpy==2.2.2            # scipy와 호환 위해 2.2.x로 임시 다운
+numpy==2.2.2                  # scipy와 호환(1.14.x는 <2.3 요구)
 python-pptx==1.0.2
 Pillow==10.4.0
 requests==2.32.5
 notion-client==2.5.0
 python-dotenv==1.0.1
+
+# Excel engines
+openpyxl==3.1.5               # .xlsx
+xlrd==2.0.1                   # .xls (구형)
+pyxlsb==1.0.10                # .xlsb (필요시)
+
+# --- Data / ML stack ---
+scipy==1.14.1                 # numpy<2.3 범위 → 2.2.2와 호환
+scikit-learn==1.5.2
+matplotlib==3.9.2
+plotly==5.23.0
+tqdm==4.66.4
+gensim==4.3.3
+
+# --- LLM / LangChain / RAG ---
+openai==1.52.2
+anthropic==0.39.0
+google-generativeai==0.7.2
+tiktoken==0.7.0
+langchain==0.2.16
+langchain-openai==0.1.22
+langchain-experimental==0.0.64
+chromadb==0.5.5
+datasets==2.20.0
+transformers==4.44.2
+accelerate==0.34.2
+sentencepiece==0.2.0
+sentence-transformers==3.0.1
+faiss-cpu==1.12.0             # Py3.13 지원 되는 휠
+
+# --- Utils ---
+beautifulsoup4==4.12.3
+pydub==0.25.1                 # 런타임에 ffmpeg 필요(옵션)
+psutil==6.0.0
+setuptools>=68
+speedtest-cli==2.1.3
+feedparser==6.0.11
