@@ -1,8 +1,10 @@
 # app.py
 # Streamlit: 제안 옵션 선택 → (요청별 인라인 미리보기) → PDF/Excel/PPT 내보내기
-# - "요청별 옵션 선택" 라디오 바로 아래에 미리보기 카드 표시
-# - 미리보기는 "제안요청 제목" 아래 줄에 "옵션 N — 대제목"을 가볍게 표시(하위 레벨 톤)
-# - PDF/PPT/Excel 및 한글 폰트 자동탐지, 옵션 대제목 생성 그대로 유지
+# - META/본문에서 불필요한 따옴표/라벨([붙여넣기]) 제거
+# - 미리보기에 META 요약(첫 유의미 라인) 보여줌
+# - 빈 섹션 헤더 자동 숨김
+# - PDF/PPT/Excel 내보내기도 동일한 정리 로직 적용
+# - 한글 폰트 자동탐지 유지
 
 import os
 import io
@@ -17,8 +19,7 @@ import streamlit as st
 
 # ====== PDF (ReportLab) ======
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle,
-    Flowable
+    SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Flowable
 )
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
@@ -33,7 +34,7 @@ from pptx.util import Pt, Inches
 from pptx.enum.text import PP_ALIGN
 
 # =====================================================================================
-# 유틸: 안전 문자열/리스트/JSON
+# 안전 문자열/파싱 유틸
 # =====================================================================================
 
 def S(x: Any) -> str:
@@ -90,13 +91,63 @@ def try_extract_overview_table_from_row(row: pd.Series) -> Optional[Dict[str, An
     return None
 
 # =====================================================================================
+# 텍스트 정리 유틸 (붙여넣기/따옴표/빈줄 제거)
+# =====================================================================================
+
+def strip_wrapper_quotes(s: str) -> str:
+    t = s.strip()
+    # 양끝 큰따옴표/작은따옴표/백틱 제거
+    while (t.startswith('"') and t.endswith('"')) or (t.startswith("'") and t.endswith("'")) or (t.startswith("`") and t.endswith("`")):
+        t = t[1:-1].strip()
+    return t
+
+def sanitize_text(raw: Any) -> str:
+    """본문/메타용 텍스트 정리:
+       - CRLF -> LF
+       - 바깥 따옴표 제거
+       - [붙여넣기] 라인 제거
+       - 과도한 빈 줄 축소
+    """
+    s = S(raw)
+    if not s:
+        return ""
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    s = strip_wrapper_quotes(s)
+
+    cleaned_lines: List[str] = []
+    for line in s.split("\n"):
+        t = line.strip()
+        if not t:
+            continue
+        if t.startswith("[붙여넣기]"):
+            # 라벨 라인은 제거
+            continue
+        cleaned_lines.append(t)
+    # 빈 줄 축소
+    return "\n".join(cleaned_lines)
+
+def lines_for_display(raw: Any) -> List[str]:
+    """화면/문서 표시용 라인 목록. sanitize 후 반환."""
+    s = sanitize_text(raw)
+    if not s:
+        return []
+    return [ln.strip() for ln in s.split("\n") if ln.strip()]
+
+def first_meaningful_line(raw: Any) -> str:
+    """미리보기 요약용: 첫 유의미 라인 반환(불릿 기호 제거)."""
+    for ln in lines_for_display(raw):
+        t = ln.lstrip("-•·").strip()
+        if t:
+            return t
+    return ""
+
+# =====================================================================================
 # 한글 폰트 자동 탐지/등록
 # =====================================================================================
 
 def _candidate_font_paths() -> list[Tuple[str, Optional[int], str]]:
     sys = platform.system()
     cands: list[Tuple[str, Optional[int], str]] = []
-
     env_path = os.getenv("KOREAN_TTF_PATH")
     if env_path and os.path.exists(env_path):
         idx = None
@@ -164,7 +215,7 @@ PP_KO_FONT = _ppt_ko_font_name()
 PDF_KO_FONT = register_korean_font_for_pdf()
 
 # =====================================================================================
-# PDF 스타일 + HR(구분선)
+# PDF 스타일 + HR
 # =====================================================================================
 
 def build_pdf_styles() -> Dict[str, ParagraphStyle]:
@@ -215,11 +266,9 @@ class HR(Flowable):
         self.color = color
         self.spaceBefore = spaceBefore
         self.spaceAfter = spaceAfter
-
     def wrap(self, availWidth, availHeight):
         self._w = availWidth if self.width == 1 else min(self.width, availWidth)
         return self._w, self.thickness + self.spaceBefore + self.spaceAfter
-
     def draw(self):
         self.canv.saveState()
         self.canv.setStrokeColor(self.color)
@@ -278,6 +327,8 @@ def bullets_from_paragraphs(slide, left, top, width, height, lines: List[str], s
     tf.clear()
     first = True
     for line in lines:
+        if not S(line).strip():
+            continue
         if first:
             p = tf.paragraphs[0]
             first = False
@@ -336,16 +387,11 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     styles["K-Body"].leading = int(body_size * 1.3)
 
     story: List[Any] = []
-
     title = f"{S(client_info.get('고객사',''))} 제안 옵션 패키지"
     sub = f"{S(client_info.get('작성팀',''))} · {S(client_info.get('작성일',''))}"
-    story += [
-        Spacer(1, 18),
-        Paragraph(title, styles["K-Title"]),
-        Paragraph(sub, styles["K-Label"]),
-        HR(),
-    ]
+    story += [Spacer(1, 18), Paragraph(title, styles["K-Title"]), Paragraph(sub, styles["K-Label"]), HR()]
 
+    # 요약 테이블
     summary_rows = []
     for req_id, grp in selected_df.groupby("요청 ID"):
         if req_id in ("COVER", "CLOSING"):
@@ -384,11 +430,7 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     for idx_req, req_id in enumerate(ordered_ids):
         grp = selected_df[selected_df["요청 ID"] == req_id]
         req_title = S(grp["요청 제목"].iloc[0] if "요청 제목" in grp.columns else req_id)
-
-        story += [
-            Paragraph(f"[{S(req_id)}] {req_title}", styles["K-H1"]),
-            HR()
-        ]
+        story += [Paragraph(f"[{S(req_id)}] {req_title}", styles["K-H1"]), HR()]
 
         sel_opts = [x for x in grp["옵션번호"].unique().tolist() if S(x).isdigit()]
         sel = S(sel_opts[0]) if sel_opts else ""
@@ -397,33 +439,30 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
             gg = grp[grp["옵션번호"] == sel]
             if not gg.empty and "옵션대제목" in gg.columns:
                 big = S(gg["옵션대제목"].iloc[0])
-
         if sel:
             story.append(Paragraph(f"옵션 {sel} · {big}", styles["K-H2"]))
             story.append(HR(color=colors.HexColor("#EEEEEE")))
 
+        # OVERVIEW
         over = grp[grp["슬라이드번호"] == "OVERVIEW"]
         if not over.empty:
             ov = over.iloc[0]
             ov_tab = try_extract_overview_table_from_row(ov)
-            if ov_tab:
-                cols = ov_tab.get("columns", [])
-                rows = ov_tab.get("rows", [])
-                data = [cols] + rows if cols and rows else []
-                if data:
-                    t = Table(data, hAlign='LEFT')
-                    t.setStyle(TableStyle([
-                        ('FONTNAME', (0,0), (-1,-1), PDF_KO_FONT or 'Helvetica'),
-                        ('FONTSIZE', (0,0), (-1,0), 10.5),
-                        ('FONTSIZE', (0,1), (-1,-1), 9.5),
-                        ('BACKGROUND', (0,0), (-1,0), colors.HexColor("#F2F2F2")),
-                        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.HexColor("#E1E1E1")),
-                        ('BOX', (0,0), (-1,-1), 0.5, colors.HexColor("#D0D0D0")),
-                        ('TOPPADDING', (0,0), (-1,-1), 3),
-                        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
-                    ]))
-                    story += [t, HR()]
+            if ov_tab and ov_tab.get("columns") and ov_tab.get("rows"):
+                t = Table([ov_tab["columns"]] + ov_tab["rows"], hAlign='LEFT')
+                t.setStyle(TableStyle([
+                    ('FONTNAME', (0,0), (-1,-1), PDF_KO_FONT or 'Helvetica'),
+                    ('FONTSIZE', (0,0), (-1,0), 10.5),
+                    ('FONTSIZE', (0,1), (-1,-1), 9.5),
+                    ('BACKGROUND', (0,0), (-1,0), colors.HexColor("#F2F2F2")),
+                    ('INNERGRID', (0,0), (-1,-1), 0.25, colors.HexColor("#E1E1E1")),
+                    ('BOX', (0,0), (-1,-1), 0.5, colors.HexColor("#D0D0D0")),
+                    ('TOPPADDING', (0,0), (-1,-1), 3),
+                    ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+                ]))
+                story += [t, HR()]
 
+        # META
         meta = grp[grp["슬라이드번호"] == "META"]
         if not meta.empty:
             m = meta.iloc[0]
@@ -433,19 +472,21 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 ("리스크", m.get("리스크")),
                 ("완화책", m.get("완화책")),
             ]
+            kept = 0
             for i, (h, b) in enumerate(parts):
+                body_lines = lines_for_display(b)
+                if not body_lines:
+                    continue
                 story.append(Paragraph(S(h), styles["K-H3"]))
-                if S(b):
-                    for ln in [x.strip() for x in S(b).split("\n") if x.strip()]:
-                        story.append(Paragraph(ln, styles["K-Body"]))
-                if i < len(parts) - 1:
-                    story.append(HR())
-
+                for ln in body_lines:
+                    story.append(Paragraph(S(ln), styles["K-Body"]))
+                kept += 1
+                story.append(HR())
+            # 타임라인
             tl = parse_timeline(m.get("타임라인"))
             if tl:
                 story += [Paragraph("타임라인(주)", styles["K-H3"])]
                 tidata = [["Phase", "기간(주)"]] + [[S(x.get("phase")), S(x.get("duration_weeks"))] for x in tl]
-                from reportlab.platypus import Table
                 tt = Table(tidata, hAlign='LEFT', colWidths=[110*mm, 30*mm])
                 tt.setStyle(TableStyle([
                     ('FONTNAME', (0,0), (-1,-1), PDF_KO_FONT or 'Helvetica'),
@@ -457,6 +498,7 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 ]))
                 story += [tt, HR(color=colors.HexColor("#EEEEEE"))]
 
+        # 상세
         detail = grp[grp["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
         if not detail.empty:
             detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -465,17 +507,13 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 story.append(Paragraph(S(r.get("제목")), styles["K-H2"]))
                 if S(r.get("부제목")):
                     story.append(Paragraph(S(r.get("부제목")), styles["K-H3"]))
-                body = S(r.get("본문초안"))
-                if body:
-                    for ln in [x.strip() for x in body.split("\n") if x.strip()]:
-                        story.append(Paragraph(ln, styles["K-Body"]))
-
+                for ln in lines_for_display(r.get("본문초안")):
+                    story.append(Paragraph(S(ln), styles["K-Body"]))
                 urls = parse_url_list(r.get("URL"))
                 if urls:
                     story.append(Paragraph("참고 URL", styles["K-H3"]))
                     for u in urls:
                         story.append(Paragraph(S(u), styles["K-Body"]))
-
                 if j < len(detail) - 1:
                     story.append(HR())
 
@@ -493,6 +531,7 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     prs = Presentation()
     blank = prs.slide_layouts[6]
 
+    # 커버
     cover = prs.slides.add_slide(blank)
     title = f"{S(client_info.get('고객사',''))} 제안 옵션 패키지"
     subtitle = f"{S(client_info.get('작성팀',''))} · {S(client_info.get('작성일',''))}"
@@ -511,28 +550,24 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
             if not gg.empty and "옵션대제목" in gg.columns:
                 big = S(gg["옵션대제목"].iloc[0])
 
+        # 섹션 헤더
         s = prs.slides.add_slide(blank)
         add_title_subtitle(s, f"[{S(req_id)}] {req_title}", f"옵션 {sel} · {big}")
 
+        # META 요약(첫 줄만 3~4개)
         meta = grp[grp["슬라이드번호"] == "META"]
         if not meta.empty:
             m = meta.iloc[0]
-            y = 2.2
-            add_textbox(s, 0.9, y, 10.6, 0.5, f"옵션 {sel} · {big}", size=22, bold=True)
-            y += 0.7
             bullets = []
-            if S(m.get("왜_이_옵션")):
-                bullets.append("• " + S(m.get("왜_이_옵션")).split("\n")[0])
-            if S(m.get("적합_시그널")):
-                bullets.append("• " + S(m.get("적합_시그널")).split("\n")[0])
-            if S(m.get("리스크")):
-                bullets.append("• " + S(m.get("리스크")).split("\n")[0])
-            if S(m.get("완화책")):
-                bullets.append("• " + S(m.get("완화책")).split("\n")[0])
-            if not bullets:
-                bullets = ["• 요약 정보"]
-            bullets_from_paragraphs(s, 0.9, y, 10.6, 3.5, bullets, size=body_size)
+            for raw in (m.get("왜_이_옵션"), m.get("적합_시그널"), m.get("리스크"), m.get("완화책")):
+                line = first_meaningful_line(raw)
+                if line:
+                    bullets.append("• " + line)
+            if bullets:
+                add_textbox(s, 0.9, 2.2, 10.6, 0.5, f"옵션 {sel} · {big}", size=22, bold=True)
+                bullets_from_paragraphs(s, 0.9, 3.0, 10.6, 3.8, bullets, size=body_size)
 
+        # 상세 슬라이드
         detail = grp[grp["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
         if not detail.empty:
             detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -540,15 +575,15 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
             for _, r in detail.iterrows():
                 ss = prs.slides.add_slide(blank)
                 add_title_subtitle(ss, S(r.get("제목")), f"옵션 {sel} · {big}")
-                body = S(r.get("본문초안"))
-                if body:
-                    lines = [ln.strip() for ln in body.split("\n") if ln.strip()]
-                    bullets_from_paragraphs(ss, 0.9, 2.2, 10.6, 4.8, lines, size=body_size)
+                body_lines = lines_for_display(r.get("본문초안"))
+                if body_lines:
+                    bullets_from_paragraphs(ss, 0.9, 2.2, 10.6, 4.8, body_lines, size=body_size)
                 urls = parse_url_list(r.get("URL"))
                 if urls:
                     add_textbox(ss, 0.9, 7.3, 10.6, 0.5, "참고 URL", size=14, bold=True)
                     add_textbox(ss, 0.9, 7.8, 10.6, 0.8, "\n".join(urls), size=12)
 
+    # 클로징
     closing = prs.slides.add_slide(blank)
     add_title_subtitle(closing, "다음 단계", "")
     bullets_from_paragraphs(closing, 0.9, 2.2, 10.6, 3.0, [
@@ -585,11 +620,11 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
     opt_df = sub_df[sub_df["옵션번호"] == selected_opt]
     big = S(opt_df["옵션대제목"].iloc[0]) if not opt_df.empty and "옵션대제목" in opt_df.columns else ""
 
-    # 상단: 제안요청 제목(굵게), 아래 줄: 옵션 N — 대제목(캡션 톤)
+    # 상단: 제안요청 제목(굵게), 아래 줄: 옵션 N — 대제목(캡션)
     st.markdown(f"**{req_title}**")
     st.caption(f"선택: 옵션 {selected_opt} — {big}")
 
-    # OVERVIEW 비교표는 확장형으로
+    # OVERVIEW 표 (옵션 비교)
     ov = sub_df[sub_df["슬라이드번호"] == "OVERVIEW"]
     if not ov.empty:
         ov_tab = try_extract_overview_table_from_row(ov.iloc[0])
@@ -597,36 +632,36 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
             with st.expander("옵션 비교(OVERVIEW)", expanded=False):
                 st.table(pd.DataFrame(ov_tab["rows"], columns=ov_tab["columns"]))
 
-    # META 요약(각 항목 첫 줄만 간략 표기)
+    # META 요약 (첫 유의미 라인만)
     meta = opt_df[opt_df["슬라이드번호"] == "META"]
     if not meta.empty:
         m = meta.iloc[0]
         col1, col2 = st.columns(2)
         with col1:
-            st.markdown("**왜 이 옵션인가**")
-            msg = S(m.get("왜_이_옵션"))
-            if msg:
-                st.write(msg.split("\n")[0])
-            st.markdown("**적합 시그널**")
-            msg = S(m.get("적합_시그널"))
-            if msg:
-                st.write(msg.split("\n")[0])
+            line = first_meaningful_line(m.get("왜_이_옵션"))
+            if line:
+                st.markdown("**왜 이 옵션인가**")
+                st.write(line)
+            line = first_meaningful_line(m.get("적합_시그널"))
+            if line:
+                st.markdown("**적합 시그널**")
+                st.write(line)
         with col2:
-            st.markdown("**리스크**")
-            msg = S(m.get("리스크"))
-            if msg:
-                st.write(msg.split("\n")[0])
-            st.markdown("**완화책**")
-            msg = S(m.get("완화책"))
-            if msg:
-                st.write(msg.split("\n")[0])
+            line = first_meaningful_line(m.get("리스크"))
+            if line:
+                st.markdown("**리스크**")
+                st.write(line)
+            line = first_meaningful_line(m.get("완화책"))
+            if line:
+                st.markdown("**완화책**")
+                st.write(line)
 
         tl = parse_timeline(m.get("타임라인"))
         if tl:
             with st.expander("타임라인(주)", expanded=False):
                 st.table(pd.DataFrame(tl))
 
-    # 상세: 첫 1~2개만 미리보기(짧게), 전체는 확장
+    # 상세: 상단 2개 간단 미리보기 + 전체 보기
     detail = opt_df[opt_df["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
     if not detail.empty:
         detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -634,19 +669,18 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
         top_n = detail.head(2)
         for _, r in top_n.iterrows():
             st.markdown(f"- **{S(r.get('제목'))}**")
-            b = S(r.get("본문초안"))
-            if b:
-                st.write("  " + b.split("\n")[0])
+            fl = first_meaningful_line(r.get("본문초안"))
+            if fl:
+                st.write("  " + fl)
 
         with st.expander("상세 슬라이드 전체 보기", expanded=False):
             for _, r in detail.iterrows():
                 st.markdown(f"**{S(r.get('제목'))}**")
                 if S(r.get("부제목")):
                     st.caption(S(r.get("부제목")))
-                body = S(r.get("본문초안"))
-                if body:
-                    for ln in [x.strip() for x in body.split("\n") if x.strip()]:
-                        st.write("- " + ln)
+                body_lines = lines_for_display(r.get("본문초안"))
+                for ln in body_lines:
+                    st.write("- " + ln)
                 urls = parse_url_list(r.get("URL"))
                 if urls:
                     st.caption("참고 URL")
@@ -697,7 +731,6 @@ with col_b:
 with col_c:
     today_str = datetime.now().strftime("%Y-%m-%d")
     date_str = st.text_input("작성일", value=today_str)
-
 client_info = {"고객사": client_name, "작성팀": author, "작성일": date_str}
 
 st.markdown("#### 3) 요청별 옵션 선택 (아래에 즉시 미리보기)")
@@ -711,7 +744,7 @@ for rid in req_ids:
     if not opts:
         continue
 
-    # 라디오에 "옵션 N — 대제목" 형태
+    # 라디오에 "옵션 N — 대제목"
     big_title_map = {}
     for o in opts:
         g = sub[sub["옵션번호"] == o]
@@ -729,12 +762,12 @@ for rid in req_ids:
     )
     sel_map[rid] = sel
 
-    # 👉 선택 직후 인라인 미리보기 카드
+    # 인라인 미리보기
     with st.container():
         render_inline_preview(rid, sub, sel)
     st.divider()
 
-# 선택 데이터 구성(내보내기용)
+# 선택 데이터 구성
 frames = []
 cover_rows = df[df["요청 ID"] == "COVER"]
 if not cover_rows.empty:
