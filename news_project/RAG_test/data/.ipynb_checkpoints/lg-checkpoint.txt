@@ -1,0 +1,4 @@
+LG.com 프로젝트에서 는 AEM, GP1, Magento, Middleware, Jira등의 시스템을 사용한다.
+
+Weekly 미팅시 Jira내 closed된 티켓 수, WIP 티켓 수, 리드타임(티켓 완료되기까지 시간)등의 weekly 현황을 확인한다.
+
