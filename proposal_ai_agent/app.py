@@ -1,22 +1,33 @@
 # app.py
 # Streamlit: 제안 옵션 선택 → (요청별 인라인 미리보기) → PDF/Excel/PPT 내보내기
-# - META/본문에서 불필요한 따옴표/라벨([붙여넣기]) 제거
-# - 미리보기에 META 요약(첫 유의미 라인) 보여줌
-# - 빈 섹션 헤더 자동 숨김
-# - PDF/PPT/Excel 내보내기도 동일한 정리 로직 적용
-# - 한글 폰트 자동탐지 유지
+# + 추가: (1) RFP 업로드/방향성 입력 (2) 고객/프로젝트 히스토리
+# 폴더 구조:
+#   DB/
+#     RFP/                ← 업로드된 RFP 원본 저장
+#     proposal_result/    ← 분석 산출물 및 config.json 저장
+#     proposal/           ← (선택) 템플릿 등
+#     clients.db          ← SQLite (자동 생성)
 
 import os
 import io
+import re
 import json
+import sqlite3
 import platform
+from pathlib import Path
 from datetime import datetime
 from typing import Optional, Tuple, List, Dict, Any
+# 맨 위 import들 사이에 추가
+# 기존 (에러 발생 라인)
+
+# 교체
+from pipeline.rfp2proposal import build_flows_from_user_inputs, extract_text_from_file
+from pipeline.inputs2flows import build_flows_from_user_inputs
+import shutil  # ← 파일/폴더 삭제용
 
 import pandas as pd
 import numpy as np
 import streamlit as st
-
 # ====== PDF (ReportLab) ======
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Flowable
@@ -32,18 +43,242 @@ from reportlab.pdfbase.ttfonts import TTFont
 from pptx import Presentation
 from pptx.util import Pt, Inches
 from pptx.enum.text import PP_ALIGN
+# 맨 위 import들 사이에 추가 (안전 import)
+import os, streamlit as st
+
+def _set_env_from_secrets():
+    # st.secrets → os.environ 주입 (없는 건 건너뜀)
+    for name in ("OPENAI_API_KEY", "PERPLEXITY_API_KEY"):
+        if name in st.secrets and st.secrets[name] and not os.getenv(name):
+            os.environ[name] = str(st.secrets[name])
+
+_set_env_from_secrets()
+
+try:
+    from pipeline.inputs2flows import build_flows_from_user_inputs
+except Exception as e:
+    def build_flows_from_user_inputs(*args, **kwargs):
+        raise ImportError(
+            f"pipeline.inputs2flows.build_flows_from_user_inputs import 실패: {e}"
+        )
 
 # =====================================================================================
-# 안전 문자열/파싱 유틸
+# 전역 경로/DB 경로 (자동 생성)
 # =====================================================================================
+ROOT = Path(__file__).resolve().parent
+DB_DIR = ROOT / "DB"
+RFP_DIR = DB_DIR / "RFP"
+RESULT_DIR = DB_DIR / "proposal_result"
+PROPOSAL_DIR = DB_DIR / "proposal"
+SQLITE_PATH = DB_DIR / "clients.db"
 
+for p in [DB_DIR, RFP_DIR, RESULT_DIR, PROPOSAL_DIR]:
+    p.mkdir(parents=True, exist_ok=True)
+
+def _ensure_parent(path: Path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+def _ts() -> str:
+    return datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+
+_SAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
+def _sanitize(name: str) -> str:
+    return _SAFE_CHARS.sub("-", name.strip().replace(" ", "-"))
+
+# =====================================================================================
+# SQLite (고객/프로젝트/RFP 파일)
+# =====================================================================================
+def _get_conn():
+    conn = sqlite3.connect(str(SQLITE_PATH))
+    conn.execute("PRAGMA foreign_keys = ON;")
+    return conn
+
+def init_db():
+    conn = _get_conn()
+    cur = conn.cursor()
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS clients(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL,
+        capability TEXT,
+        headcount TEXT,
+        past_projects TEXT,
+        created_at TEXT NOT NULL
+    );
+    """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS projects(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        client_id INTEGER NOT NULL,
+        title TEXT NOT NULL,
+        direction TEXT NOT NULL,
+        status TEXT DEFAULT 'NEW',
+        created_at TEXT NOT NULL,
+        FOREIGN KEY(client_id) REFERENCES clients(id) ON DELETE CASCADE
+    );
+    """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS rfp_files(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        project_id INTEGER NOT NULL,
+        filename TEXT NOT NULL,
+        stored_path TEXT NOT NULL,
+        uploaded_at TEXT NOT NULL,
+        FOREIGN KEY(project_id) REFERENCES projects(id) ON DELETE CASCADE
+    );
+    """)
+    conn.commit()
+    conn.close()
+
+def upsert_client(name: str, capability: str="", headcount: str="", past_projects: str="") -> int:
+    conn = _get_conn()
+    cur = conn.cursor()
+    now = datetime.utcnow().isoformat()
+    cur.execute("SELECT id FROM clients WHERE name=?", (name,))
+    row = cur.fetchone()
+    if row:
+        cid = row[0]
+        if any([capability, headcount, past_projects]):
+            cur.execute("""
+                UPDATE clients SET
+                    capability=COALESCE(NULLIF(?, ''), capability),
+                    headcount=COALESCE(NULLIF(?, ''), headcount),
+                    past_projects=COALESCE(NULLIF(?, ''), past_projects)
+                WHERE id=?
+            """, (capability, headcount, past_projects, cid))
+    else:
+        cur.execute("""
+            INSERT INTO clients(name, capability, headcount, past_projects, created_at)
+            VALUES (?, ?, ?, ?, ?)
+        """, (name, capability, headcount, past_projects, now))
+        cid = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return cid
+
+def create_project(client_id: int, title: str, direction: str) -> int:
+    conn = _get_conn()
+    cur = conn.cursor()
+    now = datetime.utcnow().isoformat()
+    cur.execute("""
+        INSERT INTO projects(client_id, title, direction, created_at)
+        VALUES (?, ?, ?, ?)
+    """, (client_id, title, direction, now))
+    pid = cur.lastrowid
+    conn.commit()
+    conn.close()
+    return pid
+
+def attach_rfp(project_id: int, filename: str, stored_path: Path):
+    conn = _get_conn()
+    cur = conn.cursor()
+    now = datetime.utcnow().isoformat()
+    cur.execute("""
+        INSERT INTO rfp_files(project_id, filename, stored_path, uploaded_at)
+        VALUES (?, ?, ?, ?)
+    """, (project_id, filename, str(stored_path), now))
+    conn.commit()
+    conn.close()
+
+def fetch_client_names() -> List[str]:
+    conn = _get_conn()
+    rows = conn.execute("SELECT name FROM clients ORDER BY name").fetchall()
+    conn.close()
+    return [r[0] for r in rows]
+
+def fetch_client_id_by_name(name: str) -> Optional[int]:
+    conn = _get_conn()
+    row = conn.execute("SELECT id FROM clients WHERE name=?", (name,)).fetchone()
+    conn.close()
+    return row[0] if row else None
+
+def fetch_client_info(client_id: int) -> Tuple[str, str, str]:
+    conn = _get_conn()
+    row = conn.execute("SELECT capability, headcount, past_projects FROM clients WHERE id=?", (client_id,)).fetchone()
+    conn.close()
+    return row if row else ("", "", "")
+
+def list_projects(client_id: int):
+    conn = _get_conn()
+    rows = conn.execute("""
+        SELECT id, title, direction, created_at, status
+        FROM projects WHERE client_id=? ORDER BY id DESC
+    """, (client_id,)).fetchall()
+    conn.close()
+    return rows
+
+def list_rfp_files(project_id: int):
+    conn = _get_conn()
+    rows = conn.execute("""
+        SELECT filename, stored_path, uploaded_at
+        FROM rfp_files WHERE project_id=? ORDER BY id DESC
+    """, (project_id,)).fetchall()
+    conn.close()
+    return rows
+# ================================
+# 삭제 헬퍼 (프로젝트/클라이언트)
+# ================================
+def delete_project(project_id: int) -> None:
+    """프로젝트와 연결된 RFP/결과물 폴더를 안전 삭제 후, DB 레코드 제거."""
+    # 파일/폴더 정리
+    try:
+        # 업로드된 RFP 폴더 제거
+        proj_rfp_dir = RFP_DIR / str(project_id)
+        shutil.rmtree(proj_rfp_dir, ignore_errors=True)
+        # 결과물 폴더 제거
+        proj_out_dir = RESULT_DIR / str(project_id)
+        shutil.rmtree(proj_out_dir, ignore_errors=True)
+    except Exception:
+        pass
+
+    # DB 삭제 (rfp_files는 FK ON DELETE CASCADE로 함께 삭제)
+    conn = _get_conn()
+    try:
+        conn.execute("DELETE FROM projects WHERE id=?", (project_id,))
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def delete_client_and_all(client_id: int) -> None:
+    """클라이언트 전체 삭제 (모든 프로젝트 + 파일 포함)."""
+    # 먼저 해당 클라이언트의 프로젝트 폴더들 삭제
+    conn = _get_conn()
+    try:
+        pids = [r[0] for r in conn.execute("SELECT id FROM projects WHERE client_id=?", (client_id,)).fetchall()]
+    finally:
+        conn.close()
+    for pid in pids:
+        delete_project(pid)
+
+    # 클라이언트 레코드 삭제
+    conn = _get_conn()
+    try:
+        conn.execute("DELETE FROM clients WHERE id=?", (client_id,))
+        conn.commit()
+    finally:
+        conn.close()
+
+# =====================================================================================
+# 안전 문자열/파싱 유틸 (기존)
+# =====================================================================================
 def S(x: Any) -> str:
     if x is None:
         return ""
     if isinstance(x, float) and np.isnan(x):
         return ""
     return str(x)
+# 🔧 NEW: DF 스키마 보강 함수
+REQUIRED_SLIM_COLS = ["요청 ID","요청 제목","옵션번호","슬라이드번호","제목","부제목","본문초안",
+    "왜_이_옵션","적합_시그널","리스크","완화책","타임라인","URL","옵션대제목"]
 
+def ensure_slim_schema(df: pd.DataFrame) -> pd.DataFrame:
+    df=df.copy()
+    for c in REQUIRED_SLIM_COLS:
+        if c not in df.columns: df[c]=""
+    df["슬라이드번호"]=df["슬라이드번호"].astype(str)
+    df["옵션번호"]=df["옵션번호"].astype(str)
+    return df
 def parse_url_list(val: Any) -> List[str]:
     if val is None or (isinstance(val, float) and np.isnan(val)):
         return []
@@ -91,50 +326,37 @@ def try_extract_overview_table_from_row(row: pd.Series) -> Optional[Dict[str, An
     return None
 
 # =====================================================================================
-# 텍스트 정리 유틸 (붙여넣기/따옴표/빈줄 제거)
+# 텍스트 정리 유틸 (기존)
 # =====================================================================================
-
 def strip_wrapper_quotes(s: str) -> str:
     t = s.strip()
-    # 양끝 큰따옴표/작은따옴표/백틱 제거
     while (t.startswith('"') and t.endswith('"')) or (t.startswith("'") and t.endswith("'")) or (t.startswith("`") and t.endswith("`")):
         t = t[1:-1].strip()
     return t
 
 def sanitize_text(raw: Any) -> str:
-    """본문/메타용 텍스트 정리:
-       - CRLF -> LF
-       - 바깥 따옴표 제거
-       - [붙여넣기] 라인 제거
-       - 과도한 빈 줄 축소
-    """
     s = S(raw)
     if not s:
         return ""
     s = s.replace("\r\n", "\n").replace("\r", "\n")
     s = strip_wrapper_quotes(s)
-
     cleaned_lines: List[str] = []
     for line in s.split("\n"):
         t = line.strip()
         if not t:
             continue
         if t.startswith("[붙여넣기]"):
-            # 라벨 라인은 제거
             continue
         cleaned_lines.append(t)
-    # 빈 줄 축소
     return "\n".join(cleaned_lines)
 
 def lines_for_display(raw: Any) -> List[str]:
-    """화면/문서 표시용 라인 목록. sanitize 후 반환."""
     s = sanitize_text(raw)
     if not s:
         return []
     return [ln.strip() for ln in s.split("\n") if ln.strip()]
 
 def first_meaningful_line(raw: Any) -> str:
-    """미리보기 요약용: 첫 유의미 라인 반환(불릿 기호 제거)."""
     for ln in lines_for_display(raw):
         t = ln.lstrip("-•·").strip()
         if t:
@@ -142,9 +364,8 @@ def first_meaningful_line(raw: Any) -> str:
     return ""
 
 # =====================================================================================
-# 한글 폰트 자동 탐지/등록
+# 한글 폰트 자동 탐지/등록 (기존)
 # =====================================================================================
-
 def _candidate_font_paths() -> list[Tuple[str, Optional[int], str]]:
     sys = platform.system()
     cands: list[Tuple[str, Optional[int], str]] = []
@@ -215,9 +436,8 @@ PP_KO_FONT = _ppt_ko_font_name()
 PDF_KO_FONT = register_korean_font_for_pdf()
 
 # =====================================================================================
-# PDF 스타일 + HR
+# PDF 스타일 + HR (기존)
 # =====================================================================================
-
 def build_pdf_styles() -> Dict[str, ParagraphStyle]:
     styles = getSampleStyleSheet()
     base = PDF_KO_FONT or styles["Normal"].fontName
@@ -279,9 +499,8 @@ class HR(Flowable):
 PDF_STYLES = build_pdf_styles()
 
 # =====================================================================================
-# PPT 도우미
+# PPT 도우미 (기존)
 # =====================================================================================
-
 def apply_ppt_text_style(shape, size_pt: int = 16, bold: bool = False, align: str = "left", line_spacing: float = 1.2):
     if not hasattr(shape, "text_frame") or shape.text_frame is None:
         return
@@ -341,9 +560,8 @@ def bullets_from_paragraphs(slide, left, top, width, height, lines: List[str], s
     return tb
 
 # =====================================================================================
-# 옵션 대제목 생성
+# 옵션 대제목 생성 (기존)
 # =====================================================================================
-
 def compute_option_big_titles(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     if "옵션대제목" not in df.columns:
@@ -373,9 +591,8 @@ def compute_option_big_titles(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 # =====================================================================================
-# PDF 생성
+# PDF/PPT/Excel 생성 (기존)
 # =====================================================================================
-
 def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=11) -> bytes:
     buf = io.BytesIO()
     doc = SimpleDocTemplate(
@@ -391,7 +608,6 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     sub = f"{S(client_info.get('작성팀',''))} · {S(client_info.get('작성일',''))}"
     story += [Spacer(1, 18), Paragraph(title, styles["K-Title"]), Paragraph(sub, styles["K-Label"]), HR()]
 
-    # 요약 테이블
     summary_rows = []
     for req_id, grp in selected_df.groupby("요청 ID"):
         if req_id in ("COVER", "CLOSING"):
@@ -443,7 +659,6 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
             story.append(Paragraph(f"옵션 {sel} · {big}", styles["K-H2"]))
             story.append(HR(color=colors.HexColor("#EEEEEE")))
 
-        # OVERVIEW
         over = grp[grp["슬라이드번호"] == "OVERVIEW"]
         if not over.empty:
             ov = over.iloc[0]
@@ -462,7 +677,6 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 ]))
                 story += [t, HR()]
 
-        # META
         meta = grp[grp["슬라이드번호"] == "META"]
         if not meta.empty:
             m = meta.iloc[0]
@@ -472,17 +686,14 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 ("리스크", m.get("리스크")),
                 ("완화책", m.get("완화책")),
             ]
-            kept = 0
-            for i, (h, b) in enumerate(parts):
+            for (h, b) in parts:
                 body_lines = lines_for_display(b)
                 if not body_lines:
                     continue
                 story.append(Paragraph(S(h), styles["K-H3"]))
                 for ln in body_lines:
                     story.append(Paragraph(S(ln), styles["K-Body"]))
-                kept += 1
                 story.append(HR())
-            # 타임라인
             tl = parse_timeline(m.get("타임라인"))
             if tl:
                 story += [Paragraph("타임라인(주)", styles["K-H3"])]
@@ -498,7 +709,6 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 ]))
                 story += [tt, HR(color=colors.HexColor("#EEEEEE"))]
 
-        # 상세
         detail = grp[grp["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
         if not detail.empty:
             detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -523,15 +733,10 @@ def build_pdf(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     doc.build(story)
     return buf.getvalue()
 
-# =====================================================================================
-# PPT 생성
-# =====================================================================================
-
 def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=16) -> bytes:
     prs = Presentation()
     blank = prs.slide_layouts[6]
 
-    # 커버
     cover = prs.slides.add_slide(blank)
     title = f"{S(client_info.get('고객사',''))} 제안 옵션 패키지"
     subtitle = f"{S(client_info.get('작성팀',''))} · {S(client_info.get('작성일',''))}"
@@ -550,11 +755,9 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
             if not gg.empty and "옵션대제목" in gg.columns:
                 big = S(gg["옵션대제목"].iloc[0])
 
-        # 섹션 헤더
         s = prs.slides.add_slide(blank)
         add_title_subtitle(s, f"[{S(req_id)}] {req_title}", f"옵션 {sel} · {big}")
 
-        # META 요약(첫 줄만 3~4개)
         meta = grp[grp["슬라이드번호"] == "META"]
         if not meta.empty:
             m = meta.iloc[0]
@@ -567,7 +770,6 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                 add_textbox(s, 0.9, 2.2, 10.6, 0.5, f"옵션 {sel} · {big}", size=22, bold=True)
                 bullets_from_paragraphs(s, 0.9, 3.0, 10.6, 3.8, bullets, size=body_size)
 
-        # 상세 슬라이드
         detail = grp[grp["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
         if not detail.empty:
             detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -583,7 +785,6 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
                     add_textbox(ss, 0.9, 7.3, 10.6, 0.5, "참고 URL", size=14, bold=True)
                     add_textbox(ss, 0.9, 7.8, 10.6, 0.8, "\n".join(urls), size=12)
 
-    # 클로징
     closing = prs.slides.add_slide(blank)
     add_title_subtitle(closing, "다음 단계", "")
     bullets_from_paragraphs(closing, 0.9, 2.2, 10.6, 3.0, [
@@ -596,9 +797,85 @@ def build_ppt(selected_df: pd.DataFrame, client_info: Dict[str, str], body_size=
     prs.save(out)
     return out.getvalue()
 
-# =====================================================================================
-# Excel 생성
-# =====================================================================================
+# ==== 키 유틸 ====
+import time, traceback, requests
+
+import os, time, requests, traceback
+import streamlit as st
+
+# --- 시크릿/환경 로더 ---
+def get_secret(name: str, fallback_env: str | None = None) -> str:
+    """
+    1) st.secrets[name] -> 2) os.environ[name] -> 3) os.environ[fallback_env]
+    """
+    try:
+        v = st.secrets.get(name)
+        if v: return str(v)
+    except Exception:
+        pass
+    v = os.getenv(name)
+    if v: return v
+    if fallback_env:
+        v = os.getenv(fallback_env)
+        if v: return v
+    return ""
+
+def key_badge(name: str, fallback_env: str | None = None) -> str:
+    val = get_secret(name, fallback_env)
+    ok = bool(val)
+    short = (val[:6] + "…" + val[-4:]) if val else "MISSING"
+    color = "#10B981" if ok else "#EF4444"
+    return f"""
+    <span style="display:inline-block;padding:4px 8px;border-radius:6px;
+                background:{color};color:white;font-weight:600;font-size:12px">
+        {name}: {short}
+    </span>
+    """
+
+# --- 핑(OpenAI) ---
+def ping_openai(model: str = "gpt-4o-mini") -> dict:
+    api_key = get_secret("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY가 없습니다.")
+    url = "https://api.openai.com/v1/chat/completions"
+    payload = {
+        "model": model,
+        "messages": [{"role":"user","content":"ping"}],
+        "temperature": 0.0,
+        "max_tokens": 5,
+    }
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    t0 = time.time()
+    r = requests.post(url, headers=headers, json=payload, timeout=30)
+    dt = time.time() - t0
+    if r.status_code != 200:
+        raise RuntimeError(f"OpenAI {r.status_code}: {r.text[:300]}")
+    data = r.json()
+    text = data["choices"][0]["message"]["content"]
+    return {"latency_sec": dt, "text": text}
+
+# ✅ 모델을 유효한 이름으로 교체
+def ping_perplexity(model: str = "sonar-pro") -> dict:
+    api_key = get_secret("PERPLEXITY_API_KEY") or get_secret("PPLX_API_KEY") or get_secret("PEPLEXITY_API_KEY")
+    if not api_key:
+        raise RuntimeError("PERPLEXITY_API_KEY가 없습니다.")
+    url = "https://api.perplexity.ai/chat/completions"
+    payload = {
+        "model": model,                         # sonar 아님
+        "messages": [{"role": "user", "content": "ping"}],
+        "temperature": 0.0,
+        "max_tokens": 8,
+    }
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    t0 = time.time()
+    r = requests.post(url, headers=headers, json=payload, timeout=30)
+    dt = time.time() - t0
+    if r.status_code != 200:
+        raise RuntimeError(f"Perplexity {r.status_code}: {r.text[:300]}")
+    data = r.json()
+    text = data["choices"][0]["message"]["content"]
+    return {"latency_sec": dt, "text": text}
+
 
 def build_excel(selected_df: pd.DataFrame) -> bytes:
     out = io.BytesIO()
@@ -611,20 +888,17 @@ def build_excel(selected_df: pd.DataFrame) -> bytes:
     return out.getvalue()
 
 # =====================================================================================
-# 인라인 미리보기 렌더러 (요청별 카드)
+# 인라인 미리보기 렌더러 (기존)
 # =====================================================================================
-
 def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
     sub_df = sub_df.copy()
     req_title = S(sub_df["요청 제목"].iloc[0] if "요청 제목" in sub_df.columns and not sub_df.empty else req_id)
     opt_df = sub_df[sub_df["옵션번호"] == selected_opt]
     big = S(opt_df["옵션대제목"].iloc[0]) if not opt_df.empty and "옵션대제목" in opt_df.columns else ""
 
-    # 상단: 제안요청 제목(굵게), 아래 줄: 옵션 N — 대제목(캡션)
     st.markdown(f"**{req_title}**")
     st.caption(f"선택: 옵션 {selected_opt} — {big}")
 
-    # OVERVIEW 표 (옵션 비교)
     ov = sub_df[sub_df["슬라이드번호"] == "OVERVIEW"]
     if not ov.empty:
         ov_tab = try_extract_overview_table_from_row(ov.iloc[0])
@@ -632,7 +906,6 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
             with st.expander("옵션 비교(OVERVIEW)", expanded=False):
                 st.table(pd.DataFrame(ov_tab["rows"], columns=ov_tab["columns"]))
 
-    # META 요약 (첫 유의미 라인만)
     meta = opt_df[opt_df["슬라이드번호"] == "META"]
     if not meta.empty:
         m = meta.iloc[0]
@@ -661,7 +934,6 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
             with st.expander("타임라인(주)", expanded=False):
                 st.table(pd.DataFrame(tl))
 
-    # 상세: 상단 2개 간단 미리보기 + 전체 보기
     detail = opt_df[opt_df["슬라이드번호"].apply(lambda v: S(v).isdigit())].copy()
     if not detail.empty:
         detail["슬라이드번호"] = detail["슬라이드번호"].astype(int)
@@ -689,134 +961,566 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
                 st.divider()
 
 # =====================================================================================
-# Streamlit UI
+# Streamlit UI: 탭 구성 (1) Excel 기반 (2) RFP 업로드 (3) 히스토리
 # =====================================================================================
+st.set_page_config(page_title="Proposal Builder", layout="wide")
+init_db()
 
-st.set_page_config(page_title="Proposal Options Builder", layout="wide")
-st.title("제안 옵션 선택 · 미리보기 · 내보내기")
+st.title("제안 생성 · 미리보기 · 내보내기 (자동/엑셀)")
+tab1, tab2, tab3 = st.tabs(["📥 Excel 업로드", "⚡ 자동 생성(LLM·RFP/방향성)", "🗂️ 고객 히스토리"])
 
-with st.sidebar:
-    st.subheader("내보내기")
-    pdf_body_size = st.slider("PDF 본문 글자 크기", 9, 14, 11)
-    ppt_body_size = st.slider("PPT 본문 글자 크기", 12, 20, 16)
-    st.markdown("---")
-    st.caption(f"OS: {platform.system()} | PDF Font: {PDF_KO_FONT or '기본'} | PPT Font: {_ppt_ko_font_name()}")
+# -------------------------- TAB 1: 기존 Excel 흐름 --------------------------
+with tab1:
+    with st.sidebar:
+        st.subheader("내보내기 설정")
+        pdf_body_size = st.slider("PDF 본문 글자 크기", 9, 14, 11)
+        ppt_body_size = st.slider("PPT 본문 글자 크기", 12, 20, 16)
+        st.markdown("---")
+        st.caption(f"OS: {platform.system()} | PDF Font: {PDF_KO_FONT or '기본'} | PPT Font: {_ppt_ko_font_name()}")
 
-st.markdown("#### 1) 데이터 업로드")
-uploaded = st.file_uploader("`slim_master_slide` CSV/Excel 업로드", type=["csv", "xlsx"])
-if uploaded is None:
-    st.info("CSV/Excel를 업로드하세요. (필수 컬럼 예시: 요청 ID, 요청 제목, 옵션번호, 슬라이드번호, 제목, 부제목, 본문초안, 왜_이_옵션, 적합_시그널, 리스크, 완화책, 타임라인, URL, (선택) 옵션대제목)")
-    st.stop()
+    st.markdown("#### 1) 데이터 업로드")
+    uploaded = st.file_uploader("`slim_master_slide` CSV/Excel 업로드", type=["csv", "xlsx"])
+    if uploaded is None:
+        st.info("CSV/Excel를 업로드하세요. (필수 컬럼 예시: 요청 ID, 요청 제목, 옵션번호, 슬라이드번호, 제목, 부제목, 본문초안, 왜_이_옵션, 적합_시그널, 리스크, 완화책, 타임라인, URL, (선택) 옵션대제목)")
+    else:
+        if uploaded.name.lower().endswith(".csv"):
+            df = pd.read_csv(uploaded, dtype=str).fillna("")
+        else:
+            df = pd.read_excel(uploaded, dtype=str).fillna("")
 
-if uploaded.name.lower().endswith(".csv"):
-    df = pd.read_csv(uploaded, dtype=str).fillna("")
-else:
-    df = pd.read_excel(uploaded, dtype=str).fillna("")
+        required_cols = ["요청 ID","요청 제목","옵션번호","슬라이드번호","제목","부제목","본문초안","왜_이_옵션","적합_시그널","리스크","완화책","타임라인","URL"]
+        for c in required_cols:
+            if c not in df.columns:
+                df[c] = ""
 
-required_cols = ["요청 ID","요청 제목","옵션번호","슬라이드번호","제목","부제목","본문초안","왜_이_옵션","적합_시그널","리스크","완화책","타임라인","URL"]
-for c in required_cols:
-    if c not in df.columns:
-        df[c] = ""
+        df = compute_option_big_titles(df)
+        df["슬라이드번호"] = df["슬라이드번호"].astype(str)
+        df["옵션번호"] = df["옵션번호"].astype(str)
 
-df = compute_option_big_titles(df)
-df["슬라이드번호"] = df["슬라이드번호"].astype(str)
-df["옵션번호"] = df["옵션번호"].astype(str)
+        st.markdown("#### 2) 고객 정보")
+        col_a, col_b, col_c = st.columns(3)
+        with col_a:
+            client_name = st.text_input("고객사", value="")
+        with col_b:
+            author = st.text_input("작성팀", value="")
+        with col_c:
+            today_str = datetime.now().strftime("%Y-%m-%d")
+            date_str = st.text_input("작성일", value=today_str)
+        client_info = {"고객사": client_name, "작성팀": author, "작성일": date_str}
 
-st.markdown("#### 2) 고객 정보")
-col_a, col_b, col_c = st.columns(3)
-with col_a:
-    client_name = st.text_input("고객사", value="")
-with col_b:
-    author = st.text_input("작성팀", value="")
-with col_c:
-    today_str = datetime.now().strftime("%Y-%m-%d")
-    date_str = st.text_input("작성일", value=today_str)
-client_info = {"고객사": client_name, "작성팀": author, "작성일": date_str}
+        st.markdown("#### 3) 요청별 옵션 선택 (아래에 즉시 미리보기)")
+        req_ids = [x for x in df["요청 ID"].unique().tolist() if x not in ("COVER","CLOSING")]
+        sel_map: Dict[str, str] = {}
 
-st.markdown("#### 3) 요청별 옵션 선택 (아래에 즉시 미리보기)")
-req_ids = [x for x in df["요청 ID"].unique().tolist() if x not in ("COVER","CLOSING")]
-sel_map: Dict[str, str] = {}
+        for rid in req_ids:
+            sub = df[df["요청 ID"] == rid]
+            req_title = S(sub["요청 제목"].iloc[0] if not sub.empty else rid)
+            opts = sorted({o for o in sub["옵션번호"].unique().tolist() if S(o).isdigit()},
+                          key=lambda x: int(x) if S(x).isdigit() else 999)
+            if not opts:
+                continue
+            big_title_map = {}
+            for o in opts:
+                g = sub[sub["옵션번호"] == o]
+                bt = S(g["옵션대제목"].iloc[0]) if not g.empty and "옵션대제목" in g.columns else ""
+                big_title_map[o] = bt
 
-for rid in req_ids:
-    sub = df[df["요청 ID"] == rid]
-    req_title = S(sub["요청 제목"].iloc[0] if not sub.empty else rid)
-    opts = sorted({o for o in sub["옵션번호"].unique().tolist() if S(o).isdigit()}, key=lambda x: int(x) if S(x).isdigit() else 999)
-    if not opts:
-        continue
+            st.markdown(f"**[{rid}] {req_title}**")
+            sel = st.radio(
+                "옵션을 선택하세요",
+                options=opts,
+                horizontal=True,
+                index=0,
+                key=f"sel_{rid}",
+                format_func=lambda o: f"{o} — {big_title_map.get(o, '')}" if big_title_map.get(o, "") else f"{o}"
+            )
+            sel_map[rid] = sel
+            with st.container():
+                render_inline_preview(rid, sub, sel)
+            st.divider()
 
-    # 라디오에 "옵션 N — 대제목"
-    big_title_map = {}
-    for o in opts:
-        g = sub[sub["옵션번호"] == o]
-        bt = S(g["옵션대제목"].iloc[0]) if not g.empty and "옵션대제목" in g.columns else ""
-        big_title_map[o] = bt
+        frames = []
+        cover_rows = df[df["요청 ID"] == "COVER"]
+        if not cover_rows.empty:
+            frames.append(cover_rows)
+        for rid, sel in sel_map.items():
+            sub = df[df["요청 ID"] == rid]
+            overview = sub[sub["슬라이드번호"] == "OVERVIEW"]
+            if not overview.empty:
+                frames.append(overview)
+            part = sub[sub["옵션번호"] == sel]
+            frames.append(part)
+        closing_rows = df[df["요청 ID"] == "CLOSING"]
+        if not closing_rows.empty:
+            frames.append(closing_rows)
+        selected_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=df.columns)
 
-    st.markdown(f"**[{rid}] {req_title}**")
-    sel = st.radio(
-        "옵션을 선택하세요",
-        options=opts,
-        horizontal=True,
-        index=0,
-        key=f"sel_{rid}",
-        format_func=lambda o: f"{o} — {big_title_map.get(o, '')}" if big_title_map.get(o, "") else f"{o}"
+        st.markdown("#### 4) 내보내기")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if st.button("📄 PDF 생성", use_container_width=True):
+                try:
+                    pdf_bytes = build_pdf(selected_df, client_info, body_size=pdf_body_size)
+                    st.success("PDF 생성 완료")
+                    st.download_button("PDF 다운로드", data=pdf_bytes, file_name="proposal_options.pdf",
+                                       mime="application/pdf", use_container_width=True)
+                except Exception as e:
+                    st.error(f"PDF 생성 오류: {e}")
+
+        with col2:
+            if st.button("📊 Excel 생성", use_container_width=True):
+                try:
+                    xlsx_bytes = build_excel(selected_df)
+                    st.success("Excel 생성 완료")
+                    st.download_button("Excel 다운로드", data=xlsx_bytes, file_name="proposal_options.xlsx",
+                                       mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                       use_container_width=True)
+                except Exception as e:
+                    st.error(f"Excel 생성 오류: {e}")
+
+        with col3:
+            if st.button("🖼️ PPT 생성", use_container_width=True):
+                try:
+                    ppt_bytes = build_ppt(selected_df, client_info, body_size=ppt_body_size)
+                    st.success("PPT 생성 완료")
+                    st.download_button("PPT 다운로드", data=ppt_bytes, file_name="proposal_options.pptx",
+                                       mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                       use_container_width=True)
+                except Exception as e:
+                    st.error(f"PPT 생성 오류: {e}")
+
+        with st.expander("선택 데이터 미리보기(전체)", expanded=False):
+            st.dataframe(selected_df, use_container_width=True)
+
+# ---- 자동 DF 생성 캐시 (같은 RFP/방향성 재실행 빠르게) ----
+@st.cache_data(show_spinner=False, ttl=3600)
+def _cached_build_flows_from_user_inputs(rfp_path, client_name, user_direction, notes, model_main):
+    return build_flows_from_user_inputs(
+        rfp_path=rfp_path,
+        client_name=client_name,
+        user_direction=user_direction,
+        notes=notes,
+        model_main=model_main,
     )
-    sel_map[rid] = sel
 
-    # 인라인 미리보기
+
+# ---------------- TAB 2: RFP 업로드/방향성 ----------------
+# -------------------------- TAB 2: RFP 업로드/방향성 --------------------------
+with tab2:
+    st.subheader("RFP 업로드 & 고객 방향성 입력")
+
+    # ---- 세션 키들 ----
+    LAST_PROJECT_KEY = "last_project"       # 최근 등록 프로젝트 메타
+    AUTO_PAYLOAD_KEY = "auto_df_payload"    # 자동 생성 DF + 메타
+
+    # 유틸: 스키마 보강
+    def _ensure_slim_schema(df: pd.DataFrame) -> pd.DataFrame:
+        need = ["요청 ID","요청 제목","옵션번호","슬라이드번호","제목","부제목","본문초안",
+                "왜_이_옵션","적합_시그널","리스크","완화책","타임라인","URL","옵션대제목"]
+        out = df.copy()
+        for c in need:
+            if c not in out.columns:
+                out[c] = ""
+        # astype errors='ignore' 는 일부 버전에서 경고를 내므로 try 처리
+        try:
+            out["슬라이드번호"] = out["슬라이드번호"].astype(str)
+            out["옵션번호"] = out["옵션번호"].astype(str)
+        except Exception:
+            pass
+        return out
+
+    # --- LLM 진단/핑 섹션 ---
     with st.container():
-        render_inline_preview(rid, sub, sel)
-    st.divider()
+        st.markdown("### 🧪 LLM 진단")
+        st.markdown(
+            key_badge("OPENAI_API_KEY") + " &nbsp; " +
+            key_badge("PERPLEXITY_API_KEY") + " &nbsp; " +
+            key_badge("PPLX_API_KEY")      + " &nbsp; " +
+            key_badge("PEPLEXITY_API_KEY"),
+            unsafe_allow_html=True
+        )
+        c1, c2, c3 = st.columns([1,1,2])
+        with c1:
+            if st.button("🔔 OpenAI 핑"):
+                try:
+                    res = ping_openai(model="gpt-4o-mini")
+                    st.success(f"OpenAI OK · {res['latency_sec']:.2f}s · “{res['text']}”")
+                except Exception as e:
+                    st.error(f"OpenAI 실패: {e}")
+                    st.caption("키/네트워크/방화벽/프록시를 확인하세요.")
+        with c2:
+            if st.button("🌐 Perplexity 핑"):
+                try:
+                    res = ping_perplexity(model="llama-3.1-mini")
+                    st.success(f"Perplexity OK · {res['latency_sec']:.2f}s · “{res['text']}”")
+                except Exception as e:
+                    st.error(f"Perplexity 실패: {e}")
+                    st.caption("키 이름을 PERPLEXITY_API_KEY로 설정했는지 확인하세요.")
 
-# 선택 데이터 구성
-frames = []
-cover_rows = df[df["요청 ID"] == "COVER"]
-if not cover_rows.empty:
-    frames.append(cover_rows)
-for rid, sel in sel_map.items():
-    sub = df[df["요청 ID"] == rid]
-    overview = sub[sub["슬라이드번호"] == "OVERVIEW"]
-    if not overview.empty:
-        frames.append(overview)
-    part = sub[sub["옵션번호"] == sel]
-    frames.append(part)
-closing_rows = df[df["요청 ID"] == "CLOSING"]
-if not closing_rows.empty:
-    frames.append(closing_rows)
-selected_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=df.columns)
 
-st.markdown("#### 4) 내보내기")
-col1, col2, col3 = st.columns(3)
-with col1:
-    if st.button("📄 PDF 생성", use_container_width=True):
-        try:
-            pdf_bytes = build_pdf(selected_df, client_info, body_size=pdf_body_size)
-            st.success("PDF 생성 완료")
-            st.download_button("PDF 다운로드", data=pdf_bytes, file_name="proposal_options.pdf",
-                               mime="application/pdf", use_container_width=True)
-        except Exception as e:
-            st.error(f"PDF 생성 오류: {e}")
 
-with col2:
-    if st.button("📊 Excel 생성", use_container_width=True):
-        try:
-            xlsx_bytes = build_excel(selected_df)
-            st.success("Excel 생성 완료")
-            st.download_button("Excel 다운로드", data=xlsx_bytes, file_name="proposal_options.xlsx",
-                               mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                               use_container_width=True)
-        except Exception as e:
-            st.error(f"Excel 생성 오류: {e}")
+    # 입력칸 초기화 제어
+    if "rfp_form_version" not in st.session_state:
+        st.session_state.rfp_form_version = 0
+    def _reset_inputs():
+        st.session_state.rfp_form_version += 1
 
-with col3:
-    if st.button("🖼️ PPT 생성", use_container_width=True):
-        try:
-            ppt_bytes = build_ppt(selected_df, client_info, body_size=ppt_body_size)
-            st.success("PPT 생성 완료")
-            st.download_button("PPT 다운로드", data=ppt_bytes, file_name="proposal_options.pptx",
-                               mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
-                               use_container_width=True)
-        except Exception as e:
-            st.error(f"PPT 생성 오류: {e}")
+    # 1) 고객 선택/등록
+    with st.expander("고객 선택/등록", expanded=True):
+        mode = st.radio("고객 선택 방식", ["기존 고객 선택", "신규 고객 등록"], horizontal=True,
+                        key=f"mode_{st.session_state.rfp_form_version}")
 
-with st.expander("선택 데이터 미리보기(전체)", expanded=False):
-    st.dataframe(selected_df, use_container_width=True)
+        if mode == "기존 고객 선택":
+            names = ["-- 선택 --"] + fetch_client_names()
+            client_name = st.selectbox("고객명", options=names, index=0,
+                                       key=f"client_select_{st.session_state.rfp_form_version}")
+            capability = headcount = past_projects = ""
+        else:
+            client_name = st.text_input("고객명*", placeholder="예: 고객사명",
+                                        key=f"client_new_{st.session_state.rfp_form_version}")
+            capability = st.text_area("고객 역량/특기", key=f"cap_{st.session_state.rfp_form_version}")
+            headcount = st.text_area("인원 정보", key=f"head_{st.session_state.rfp_form_version}")
+            past_projects = st.text_area("전에 진행한 프로젝트", key=f"past_{st.session_state.rfp_form_version}")
+
+    # 2) 프로젝트/방향성/RFP
+    with st.form(f"rfp_form_{st.session_state.rfp_form_version}"):
+        col1, col2 = st.columns(2)
+        with col1:
+            project_title = st.text_input("프로젝트 제목*", placeholder="예: 2025 이커머스 고도화 제안",
+                                          key=f"title_{st.session_state.rfp_form_version}")
+            direction = st.text_area("고객 방향성/원하는 바*", height=160,
+                                     placeholder="예: 전환율 개선, CRM 연동, 보안 준수, 자동 리포트…",
+                                     key=f"dir_{st.session_state.rfp_form_version}")
+        with col2:
+            rfp_file = st.file_uploader("RFP 파일 업로드 (PDF/DOCX/TXT)", type=["pdf", "docx", "txt"],
+                                        key=f"rfp_{st.session_state.rfp_form_version}")
+            notes = st.text_area("추가 메모(선택)", key=f"notes_{st.session_state.rfp_form_version}")
+
+        a, b = st.columns([1,1])
+        submitted = a.form_submit_button("등록하기")
+        b.form_submit_button("입력칸 초기화", on_click=_reset_inputs)
+
+    # 3) 제출 처리 → 세션에 저장하고 즉시 리런
+    if submitted:
+        if not client_name or client_name == "-- 선택 --":
+            st.error("고객명을 선택/입력해주세요.")
+            st.stop()
+        if not project_title or not direction:
+            st.error("프로젝트 제목과 고객 방향성은 필수입니다.")
+            st.stop()
+        if not rfp_file:
+            st.error("RFP 파일을 업로드해주세요.")
+            st.stop()
+
+        client_id = upsert_client(client_name, capability, headcount, past_projects)
+        project_id = create_project(client_id, project_title, direction)
+
+        ts = _ts()
+        safe_name = _sanitize(rfp_file.name)
+        proj_rfp_dir = RFP_DIR / str(project_id)
+        stored_path = proj_rfp_dir / f"{ts}__{safe_name}"
+        _ensure_parent(stored_path)
+        with open(stored_path, "wb") as f:
+            f.write(rfp_file.getbuffer())
+        attach_rfp(project_id, rfp_file.name, stored_path)
+
+        proj_out_dir = RESULT_DIR / str(project_id)
+        _ensure_parent(proj_out_dir / "config.json")
+        config = {
+            "project_id": project_id,
+            "client_name": client_name,
+            "project_title": project_title,
+            "direction": direction,
+            "rfp_path": str(stored_path),
+            "notes": notes or "",
+            "created_at": ts,
+            "out_dir": str(proj_out_dir)
+        }
+        (proj_out_dir / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        # ➜ 세션에 저장하고 리런 (아래 ‘자동 DF’ 섹션이 항상 보이게)
+        st.session_state[LAST_PROJECT_KEY] = config
+        st.session_state[AUTO_PAYLOAD_KEY] = None  # 새 프로젝트이므로 초기화
+        st.rerun()
+
+    # 4) 최근 프로젝트가 있으면 “자동 DF 생성” 섹션 항상 노출
+    last_proj = st.session_state.get(LAST_PROJECT_KEY)
+
+    # >>> AUTO_BUSY / 로그 초기화
+    if "AUTO_BUSY" not in st.session_state:
+        st.session_state.AUTO_BUSY = False
+    if "autolog" not in st.session_state:
+        st.session_state.autolog = []
+
+    if last_proj:
+        st.success(f"등록 완료! 프로젝트 ID: {last_proj['project_id']}")
+        st.markdown("### ⚡ 엑셀 업로드 없이 바로 옵션 선택 (LLM 파이프라인)")
+
+        # ▶ 눈에 확 띄는 상태 영역 + 진행바 + 로그
+        status_box = st.empty()
+        prog_bar = st.progress(0, text=("실행 중…" if st.session_state.AUTO_BUSY else "대기 중…"))
+        log_expander = st.expander("실시간 진행 로그 보기", expanded=True)
+        log_area = log_expander.empty()
+
+        def _log(msg: str):
+            # 진행 로그를 매번 갱신 렌더
+            st.session_state.autolog.append(msg)
+            log_area.write("\n".join(f"- {m}" for m in st.session_state.autolog[-200:]))
+
+        # 버튼은 바쁠 때 비활성화
+        has_openai = bool(os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY", ""))
+        has_pplx   = bool(os.getenv("PERPLEXITY_API_KEY") or st.secrets.get("PERPLEXITY_API_KEY", "") or
+                        os.getenv("PEPLEXITY_API_KEY") or os.getenv("PPLX_API_KEY"))
+        btn_disabled = (not has_openai) or (not has_pplx) or st.session_state.AUTO_BUSY
+        btn_label = "⏳ 생성 중…" if st.session_state.AUTO_BUSY else "🚀 자동 DF 생성 (고객 방향성 + RFP 기반)"
+
+        action_col1, _ = st.columns([1, 3])
+        with action_col1:
+            if st.button(btn_label, use_container_width=True,
+                        key=f"autodf_{last_proj['project_id']}", disabled=btn_disabled):
+
+                # 필수 키 점검(명확한 에러)
+                if not has_openai:
+                    st.error("OpenAI API 키가 없습니다. .streamlit/secrets.toml 또는 환경변수에 설정하세요.")
+                    st.stop()
+                if not has_pplx:
+                    st.error("Perplexity API 키가 없습니다. .streamlit/secrets.toml 또는 환경변수에 설정하세요.")
+                    st.stop()
+
+                # >>> 바쁨 상태 시작 (중복 실행 방지)
+                st.session_state.AUTO_BUSY = True
+                # 기존 로그/프로그레스 초기화
+                st.session_state.autolog = []
+                prog_bar.progress(0, text="초기화…")
+
+                # 큰 상태 패널
+                with status_box.status("LLM 준비 중…", expanded=True) as st_status:
+                    try:
+                        prog_bar.progress(5, text="세션/환경 초기화")
+                        _log("세션/환경 초기화 완료")
+
+                        st.write("1/4 RFP 텍스트 파싱…")
+                        _log("RFP 텍스트 추출 시작")
+                        prog_bar.progress(15, text="RFP 텍스트 추출…")
+                        try:
+                            if 'extract_text_from_file' in globals():
+                                _ = extract_text_from_file(last_proj["rfp_path"])
+                                _log("RFP 텍스트 추출 완료")
+                            else:
+                                _log("RFP 텍스트 추출 스킵(함수 미로딩)")
+                        except Exception as e:
+                            _log(f"RFP 텍스트 추출 경고: {e}")
+
+
+                        st.write("2/4 LLM 분석(요청/질문/업데이트 플랜)…")
+                        prog_bar.progress(35, text="LLM 분석 시작…")
+                        _log("OpenAI/Perplexity 호출 시작")
+
+                        # 핵심: 내부에서 LLM 호출 (시간 걸림) — 진행 중 UI가 유지됨
+                        with st.spinner("🚀 LLM 분석 및 슬라이드 흐름 생성 중…"):
+                            auto_df = build_flows_from_user_inputs(
+                                rfp_path=last_proj["rfp_path"],
+                                client_name=last_proj["client_name"],
+                                user_direction=last_proj["direction"],
+                                notes=last_proj.get("notes", ""),
+                                # model_main 등 내부 기본값 사용 가능
+                            )
+                        _log("LLM 파이프라인 완료")
+                        prog_bar.progress(70, text="스키마 정리…")
+
+                        st.write("3/4 스키마/옵션 제목 정리…")
+                        auto_df = _ensure_slim_schema(auto_df)
+                        auto_df = compute_option_big_titles(auto_df)
+                        _log("스키마/옵션대제목 정리 완료")
+
+                        st.write("4/4 결과 저장…")
+                        out_dir = Path(last_proj["out_dir"])
+                        out_dir.mkdir(parents=True, exist_ok=True)
+                        auto_xlsx = out_dir / f"auto_df_{last_proj['project_id']}.xlsx"
+                        with pd.ExcelWriter(auto_xlsx, engine="xlsxwriter") as w:
+                            auto_df.to_excel(w, index=False, sheet_name="auto_df")
+                        _log(f"파일 저장: {auto_xlsx}")
+
+                        # 세션에 결과 탑재
+                        st.session_state[AUTO_PAYLOAD_KEY] = {
+                            "df": auto_df,
+                            "meta": {
+                                "project_id": last_proj["project_id"],
+                                "client_name": last_proj["client_name"],
+                                # created_at 키가 없을 수도 있어 호환 처리
+                                "created_at": last_proj.get("created_at") or last_proj.get("ts", ""),
+                            }
+                        }
+                        prog_bar.progress(100, text="완료")
+                        st_status.update(label="✅ 자동 DF 생성 완료 — 아래에서 옵션을 선택하세요.", state="complete")
+                        st.toast("자동 DF 생성 완료!", icon="✅")
+                        try:
+                            st.rerun()
+                        except Exception:
+                            pass  # Streamlit 내부 RerunData 예외는 무시
+
+                    except Exception as e:
+                        prog_bar.progress(100, text="오류")
+                        _log(f"오류 발생: {e}")
+                        st_status.update(label="❌ 실패", state="error")
+                        st.error(f"자동 DF 생성 실패: {e}")
+                        # 필요 시 디버그용
+                        # st.code(traceback.format_exc())
+                        # >>> 바쁨 상태 해제
+                        st.session_state.AUTO_BUSY = False
+
+        # 5) 자동 DF가 있으면 즉시 옵션 선택 UI
+        payload = st.session_state.get(AUTO_PAYLOAD_KEY)
+        if payload and "df" in payload:
+            auto_df: pd.DataFrame = payload["df"]
+            meta = payload.get("meta", {})
+            st.markdown("---")
+            st.markdown("### ✅ 자동 생성 DF 미리보기 & 옵션 선택")
+
+            # 요청별 옵션 선택
+            st.markdown("#### 3-A) 요청별 옵션 선택")
+            req_ids = [x for x in auto_df["요청 ID"].unique().tolist() if x not in ("COVER","CLOSING")]
+            sel_map: Dict[str, str] = {}
+
+            for rid in req_ids:
+                sub = auto_df[auto_df["요청 ID"] == rid]
+                req_title = S(sub["요청 제목"].iloc[0] if not sub.empty else rid)
+                opts = sorted({o for o in sub["옵션번호"].unique().tolist() if S(o).isdigit()},
+                              key=lambda x: int(x) if S(x).isdigit() else 999)
+                if not opts:
+                    continue
+
+                big_title_map = {}
+                for o in opts:
+                    g = sub[sub["옵션번호"] == o]
+                    bt = S(g["옵션대제목"].iloc[0]) if not g.empty and "옵션대제목" in g.columns else ""
+                    big_title_map[o] = bt
+
+                st.markdown(f"**[{rid}] {req_title}**")
+                sel = st.radio(
+                    "옵션을 선택하세요",
+                    options=opts,
+                    horizontal=True,
+                    index=0,
+                    key=f"auto_sel_{meta.get('project_id','X')}_{rid}",
+                    format_func=lambda o: f"{o} — {big_title_map.get(o, '')}" if big_title_map.get(o, "") else f"{o}"
+                )
+                sel_map[rid] = sel
+
+                with st.container():
+                    # 네 코드 시그니처에 맞춤 (rid, sub, sel)
+                    render_inline_preview(rid, sub, sel)
+                st.divider()
+
+            # 선택 데이터 집계
+            frames = []
+            cover_rows = auto_df[auto_df["요청 ID"] == "COVER"]
+            if not cover_rows.empty:
+                frames.append(cover_rows)
+            for rid, sel in sel_map.items():
+                sub = auto_df[auto_df["요청 ID"] == rid]
+                overview = sub[sub["슬라이드번호"] == "OVERVIEW"]
+                if not overview.empty:
+                    frames.append(overview)
+                part = sub[sub["옵션번호"] == sel]
+                frames.append(part)
+            closing_rows = auto_df[auto_df["요청 ID"] == "CLOSING"]
+            if not closing_rows.empty:
+                frames.append(closing_rows)
+            selected_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=auto_df.columns)
+
+            # 내보내기
+            st.markdown("#### 4-A) 내보내기")
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                if st.button("📄 PDF 생성", use_container_width=True, key="pdf_auto_df"):
+                    try:
+                        client_info = {"고객사": meta.get("client_name",""), "작성팀": "", "작성일": datetime.now().strftime("%Y-%m-%d")}
+                        pdf_bytes = build_pdf(selected_df, client_info, body_size=11)
+                        st.success("PDF 생성 완료")
+                        st.download_button("PDF 다운로드", data=pdf_bytes, file_name="proposal_options_auto.pdf",
+                                           mime="application/pdf", use_container_width=True)
+                    except Exception as e:
+                        st.error(f"PDF 생성 오류: {e}")
+            with c2:
+                if st.button("📊 Excel 생성", use_container_width=True, key="xlsx_auto_df"):
+                    try:
+                        xlsx_bytes = build_excel(selected_df)
+                        st.success("Excel 생성 완료")
+                        st.download_button("Excel 다운로드", data=xlsx_bytes, file_name="proposal_options_auto.xlsx",
+                                           mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                           use_container_width=True)
+                    except Exception as e:
+                        st.error(f"Excel 생성 오류: {e}")
+            with c3:
+                if st.button("🖼️ PPT 생성", use_container_width=True, key="ppt_auto_df"):
+                    try:
+                        client_info = {"고객사": meta.get("client_name",""), "작성팀": "", "작성일": datetime.now().strftime("%Y-%m-%d")}
+                        ppt_bytes = build_ppt(selected_df, client_info, body_size=16)
+                        st.success("PPT 생성 완료")
+                        st.download_button("PPT 다운로드", data=ppt_bytes, file_name="proposal_options_auto.pptx",
+                                           mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                           use_container_width=True)
+                    except Exception as e:
+                        st.error(f"PPT 생성 오류: {e}")
+
+            with st.expander("자동 생성 DF(전체) 미리보기", expanded=False):
+                st.dataframe(auto_df, use_container_width=True)
+
+            # 숨기기
+            if st.button("🧹 이 자동 DF 숨기기/초기화", help="세션에서 제거합니다. 파일은 유지", key="clear_auto_df"):
+                st.session_state[AUTO_PAYLOAD_KEY] = None
+                st.toast("자동 DF를 숨겼습니다.", icon="🧹")
+                st.rerun()
+
+
+# -------------------------- TAB 3: 고객/프로젝트 히스토리 --------------------------
+with tab3:
+    st.subheader("고객/프로젝트 히스토리")
+    names = ["-- 선택 --"] + fetch_client_names()
+    selected_name = st.selectbox("고객 선택", options=names, index=0)
+
+    if selected_name and selected_name != "-- 선택 --":
+        client_id = fetch_client_id_by_name(selected_name)
+        cap, head, past = fetch_client_info(client_id)
+
+        st.markdown("### 고객 정보")
+        st.write("**역량**:", cap or "-")
+        st.write("**인원 정보**:", head or "-")
+        st.write("**이전 프로젝트**:", past or "-")
+
+        st.divider()
+        st.markdown("### 프로젝트 목록")
+        projects = list_projects(client_id)
+        if st.button("⚠️ 이 고객 전체 삭제", key=f"del_client_{client_id}", help="모든 프로젝트/파일이 삭제됩니다. 복구 불가"):
+            delete_client_and_all(client_id)
+            st.toast("고객 및 모든 프로젝트 삭제 완료", icon="🗑")
+            st.rerun()
+        if not projects:
+            st.info("등록된 프로젝트가 없습니다.")
+        else:
+            for pid, title, direction, created_at, status in projects:
+                # 한 줄 레이아웃: 왼쪽 Expander, 오른쪽 삭제 버튼
+                row = st.container()
+                left, right = row.columns([0.88, 0.12])
+
+                with left:
+                    with st.expander(f"[#{pid}] {title} — {status} ({created_at})", expanded=False):
+                        st.markdown("**방향성**")
+                        st.write(direction or "-")
+                        st.markdown("---")
+                        st.markdown("**RFP 파일**")
+                        files = list_rfp_files(pid)
+                        if not files:
+                            st.write("-")
+                        else:
+                            for fn, sp, up in files:
+                                st.code(f"{fn}  |  {sp}  |  {up}", language="text")
+
+                with right:
+                    st.write("")  # vertical spacing
+                    st.write("")
+                    if st.button("🗑 삭제", key=f"del_proj_{pid}", help="이 프로젝트와 관련 파일을 모두 삭제합니다."):
+                        delete_project(pid)
+                        st.toast(f"프로젝트 #{pid} 삭제 완료", icon="🗑")
+                        st.rerun()
