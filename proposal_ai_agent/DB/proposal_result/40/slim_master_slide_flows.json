@@ -1,0 +1,952 @@
+{
+  "cover": {
+    "title": "제안서(슬림)",
+    "subtitle": "요청사항별 4개 제안 옵션과 슬라이드 흐름",
+    "fields": {
+      "고객사": "",
+      "작성일": "",
+      "작성팀": ""
+    }
+  },
+  "sections": [
+    {
+      "req_id": "요청사항_9",
+      "req_title": "9. 제안 요청사항별 제안 방안 및 구현/벤치마킹 질문 리스트",
+      "overview_slide": {
+        "title": "요청별 옵션 개요",
+        "subtitle": "비교",
+        "table": {
+          "columns": [
+            "옵션",
+            "핵심전략",
+            "기간(주)",
+            "주요KPI",
+            "리스크"
+          ],
+          "rows": [
+            [
+              "1",
+              "몰/스트리트/라이프스타일 세그먼트·트래픽 특성 기반 차별 운영(스태핑·머천·이벤트·옴니)과 Day1 런북 결합",
+              "16",
+              "전환율 18%+, NPS 65+ (T+8주), 평당 매출 $1,350+/월, BOPIS SLA 95%+",
+              "유형 오판에 따른 리소스 미스매치, 피크타임 서비스 붕괴, 지역 수요예측 오류"
+            ],
+            [
+              "2",
+              "2025 KPI 목표 산정 엔진(아키타입×상권×면적×트래픽)과 램프업·인센티브·대시보드 일체화",
+              "16",
+              "전환율(플래그십 12~18%, 일반 18~25%), AOV 150~350달러, 서비스 TAT 60분 내 60%+",
+              "비현실 목표 설정, 데이터 계측 불일치, 인센티브 왜곡"
+            ],
+            [
+              "3",
+              "표준화(Non-Negotiable) vs 현지화(Localizable) 의사결정 매트릭스와 3계층 거버넌스(WW/US/Store) 정립",
+              "16",
+              "SOP 정착률 95%+, 감사 적발 제로, 현지 규정 위반 제로, 변경 릴리스 온타임 95%+",
+              "과도한 표준으로 현장 경직, 현지화 과다로 통제 붕괴"
+            ],
+            [
+              "4",
+              "Apple/Verizon/Dyson 벤치마크로 12개 필수 도메인 정의, 표준-현지화 운영 원칙을 미국 3新·4전환에 적용",
+              "16",
+              "BOPIS SLA 95%+, 개통 20분 내 80%, Care+ 부가율 25%+, Shrink 1%p 개선",
+              "벤치마크 과도 모방, 파트너/통신사 연계 실패, 컷오버 장애"
+            ]
+          ]
+        }
+      },
+      "options": [
+        {
+          "option_no": 1,
+          "option_title": "옵션 1. 매장 유형(몰/스트리트/라이프스타일) 세그먼트·트래픽 특성 기반 차별화 운영",
+          "why_choose": [
+            "유형별 고객·트래픽 패턴을 인력·머천·이벤트·옴니에 즉시 반영해 초기 8주 내 성과 안정화",
+            "7개점 동시/순차 혼합 오픈에서 포맷별 리스크를 구조적으로 축소",
+            "Store-in-a-Box와 결합해 글로벌로 재현 가능한 실행 표준 확보"
+          ],
+          "fit_signals": [
+            "도심·교외 혼재 포트폴리오(스트리트 vs 몰/라이프스타일) 보유",
+            "주말·야간 피크 편차가 크고 대기·개통 병목이 잦음",
+            "이벤트·신제품 런칭의 매출 기여가 높지만 재방문 설계는 약함"
+          ],
+          "risks": [
+            "상권 세분화 오류로 인력/영업시간 배치 미스",
+            "유형별 프로모션·오퍼 미동기화로 전환율 저하",
+            "픽업·반품 동선 혼잡으로 NPS 하락"
+          ],
+          "mitigations": [
+            "오픈 전 2주 유동 인구·피크 타임 계측 후 스케줄 자동화(WFM)",
+            "오퍼·가격 테이블 H-3 동결+이중 검증, Day1 워룸",
+            "픽업 존/큐관리 표준 동선 적용, BOPIS SLA 경보"
+          ],
+          "timeline": [
+            {
+              "phase": "진단·세그먼트 모델링(상권/트래픽/유형 포지셔닝)",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "유형별 운영 설계(스태핑/머천/이벤트/옴니)",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "파일럿·리허설·소프트오프닝",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "오픈·하이퍼케어·표준화",
+              "duration_weeks": "4"
+            }
+          ],
+          "kpis": [
+            {
+              "name": "전환율",
+              "baseline": "파트너 평균",
+              "target": "18%+ (점포 평균), 스트리트 야간 슬롯 20%+",
+              "cadence": "주간"
+            },
+            {
+              "name": "NPS",
+              "baseline": "파트너 평균",
+              "target": "65+ (T+8주)",
+              "cadence": "주간"
+            },
+            {
+              "name": "평당 매출",
+              "baseline": "파트너 평균",
+              "target": "$1,350+/월",
+              "cadence": "월간"
+            },
+            {
+              "name": "BOPIS SLA",
+              "baseline": "도입 전",
+              "target": "95%+ 2시간 내 준비",
+              "cadence": "일일"
+            }
+          ],
+          "slides": [
+            {
+              "slide_no": 1,
+              "title": "유형별 차별화 운영 전략",
+              "subtitle": "몰/스트리트/라이프스타일: 고객·트래픽에 맞춘 운영 설계",
+              "purpose": "매장 유형별로 다른 고객·트래픽 특성을 운영 전반에 연결하는 설계안을 제시",
+              "key_messages": [
+                "몰=패밀리·주말 집중, 스트리트=젊은층·야간, 라이프스타일=커뮤니티·이벤트 중심",
+                "스태핑/영업시간/머천/이벤트/옴니를 유형별 운영 키트로 분리",
+                "Day1 런북과 KPI 워룸으로 8주 안정화"
+              ],
+              "content_draft": "몰/스트리트/라이프스타일 각 유형의 방문 동기와 피크 패턴을 기준으로, 스태핑(야간·주말 증원), VM·체험(가족/신제품/프리미엄), 이벤트(체험 챌린지/컬처 콜라보/커뮤니티 클래스), 옴니(BOPIS·BORIS·SFS)를 차별 적용합니다. 오픈 전 계측과 소프트 오프닝으로 파라미터를 보정하고, Day1~T+14 하이퍼케어로 안정화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "몰: 주말 인력 130%, BOPIS 고속 픽업, 가족 번들·체험 동선",
+                  "스트리트: 야간 시프트 강화, 신제품·컬처 이벤트, 모바일 POS 집중",
+                  "라이프스타일: 커뮤니티 세션 캘린더, 프리미엄 상담·체험, 멤버십 리워드"
+                ]
+              },
+              "urls": [
+                "http://m.apparelnews.co.kr/news/news_view/?idx=205585",
+                "https://blog.datarize.ai/%EA%B3%A0%EA%B0%9D%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8"
+              ]
+            },
+            {
+              "slide_no": 2,
+              "title": "세그먼트·트래픽 진단과 데이터 계측",
+              "subtitle": "오픈 전 2주 계측 기반 파라미터 보정",
+              "purpose": "유형 판별을 데이터로 검증하고 스케줄·머천을 수치화해 적용",
+              "key_messages": [
+                "시간대별 방문·상담·결제 이벤트 태깅",
+                "WFM 연계 스케줄 자동화",
+                "이벤트·시즌 변동성 반영"
+              ],
+              "content_draft": "오픈 T-14부터 방문/대기/상담/결제/픽업 이벤트를 태깅하고, 시간대·요일별 히트맵을 생성합니다. 이를 WFM과 연계해 스태핑을 자동 추천하고, VM 리픽스와 이벤트 타임슬롯을 최적화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "태깅: 방문/상담/결제/픽업 이벤트 식별자 표준화",
+                  "계측: 15분 단위 피크·체류 분석, 슬롯별 서비스 레벨",
+                  "보정: 유형 확정→스태핑·영업시간·머천 파라미터 동결(H-3)"
+                ]
+              },
+              "urls": [
+                "https://www.data.go.kr/data/15125657/fileData.do"
+              ]
+            },
+            {
+              "slide_no": 3,
+              "title": "유형별 운영 키트(스태핑/머천/이벤트)",
+              "subtitle": "Store-in-a-Box: Type A/B/C",
+              "purpose": "유형별 운영 패키지를 키트화하여 현장 적용 용이성 확보",
+              "key_messages": [
+                "포맷별 집기/전기/네트워크 프리셋",
+                "VM·체험 시나리오·라벨·사이니지 패키지",
+                "이벤트 캘린더·스크립트·인센티브"
+              ],
+              "content_draft": "포맷별 키트에 VM 레이아웃·전기/데이터 포인트·체험 시나리오·사이니지·라벨과 이벤트 스크립트를 포함합니다. 몰=가족 챌린지, 스트리트=런칭·콜라보, 라이프스타일=클래스·커뮤니티 중심으로 캘린더를 구성합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "키트 구성: 도면/플래노그램/사이니지 스크립트/체험 가이드",
+                  "이벤트: T-30 PR, T-7 소프트오프닝, T-0 그랜드오프닝",
+                  "인센티브: 예약 쇼율·어태치 KPI 가중치 차등"
+                ]
+              },
+              "urls": [
+                "http://m.apparelnews.co.kr/news/news_view/?idx=205585"
+              ]
+            },
+            {
+              "slide_no": 4,
+              "title": "옴니·서비스 플로우 최적화",
+              "subtitle": "BOPIS/BORIS/SFS·수리·트레이드인",
+              "purpose": "피크 시간대 옴니와 수리 병목 제거로 NPS·전환 동시 개선",
+              "key_messages": [
+                "픽업 존·큐 분리, SLA 경보",
+                "진단 15분·경정비 60분 내 비중 목표",
+                "트레이드인 즉시 크레딧 발급"
+              ],
+              "content_draft": "옴니 데스크를 출입구 근접에 배치하고 대기열을 분리합니다. 수리 접수→진단→수리→픽업 플로우는 시간표준과 알림을 적용하며, 트레이드인은 즉시 크레딧·라벨링·역물류 표준을 적용합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "BOPIS: 2시간 준비, 7일 보관, 노쇼 자동 환수",
+                  "BORIS: 즉시 처리, 상태 판정 체크리스트",
+                  "수리: 1st-time-fix 향상, 상태 알림 SLA"
+                ]
+              },
+              "urls": []
+            },
+            {
+              "slide_no": 5,
+              "title": "KPI·대시보드·리듬",
+              "subtitle": "유형별 KPI 가중치와 리뷰 체계",
+              "purpose": "유형별 KPI 가중치를 달리해 성과를 공정하게 관리",
+              "key_messages": [
+                "공통 KPI + 유형별 가중치",
+                "데일리 허들/위클리 리뷰/먼슬리 점검",
+                "NPS Detractor 회복 프로토콜"
+              ],
+              "content_draft": "매출/전환/ATV/UPT/NPS/재고정확도 공통 KPI에 유형별 가중치를 적용합니다. 데일리 허들로 피크 이슈를 점검하고, 주간 리뷰에서 GAP-원인-액션을 업데이트합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "데일리: 전환·대기·픽업 SLA 실적 점검",
+                  "주간: 이벤트 효과, 어태치, 트레이드인율",
+                  "월간: 어소트/스태핑 리베이스, 교육 코칭 로그"
+                ]
+              },
+              "urls": []
+            },
+            {
+              "slide_no": 6,
+              "title": "벤치마킹 질문 리스트",
+              "subtitle": "세그먼트·트래픽 중심",
+              "purpose": "현장 인터뷰·미스터리 쇼핑·데이터 수집 질문을 표준화",
+              "key_messages": [
+                "핵심 활성 고객 특성",
+                "트래픽 패턴과 이벤트 영향",
+                "유형별 캠페인·KPI 차별"
+              ],
+              "content_draft": "핵심 고객 특성, 시간대/요일별 트래픽 패턴, 이벤트·프로모션의 전환 영향, 브랜드/가격 관여도, 재구매·이탈·충성도 KPI의 유형별 차이를 질문 리스트로 표준화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "활성 고객 세그먼트 정의와 방문 동기?",
+                  "시간대·요일·이벤트별 트래픽 편차와 체류시간?",
+                  "예약·대기·개통의 병목 구간과 처리 SLA?",
+                  "브랜드/가격/제품 속성 관여도 측정·활용 방법?",
+                  "재구매·이탈·충성도 KPI의 유형별 차이와 원인?"
+                ]
+              },
+              "urls": [
+                "https://blog.datarize.ai/%EA%B3%A0%EA%B0%9D%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8"
+              ]
+            },
+            {
+              "slide_no": 7,
+              "title": "리스크·대응·런북 연계",
+              "subtitle": "Day1~T+14 하이퍼케어",
+              "purpose": "오픈 리스크를 런북과 워룸으로 통제",
+              "key_messages": [
+                "H-72/H-24/H0 절차",
+                "오퍼·가격·세금 이중 검증",
+                "장애 워룸·롤백 시나리오"
+              ],
+              "content_draft": "H-72 이미지·가격·세금 로딩, H-24 재고 카운트·데모 리셋, H0 소프트오프닝과 큐관리. 워룸 운영으로 장애 MTTR를 단축하고, 롤백 플랜을 구비합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "체크리스트: 네트워크/결제/프린터/라벨/데모기기",
+                  "이슈 분류·우선순위·에스컬레이션",
+                  "하이퍼케어 리포트: 일일 KPI·결함·액션"
+                ]
+              },
+              "urls": []
+            }
+          ]
+        },
+        {
+          "option_no": 2,
+          "option_title": "옵션 2. 2025 KPI 목표 설정 엔진과 램프업 운영",
+          "why_choose": [
+            "아키타입×상권×면적×트래픽 기반 산정 로직으로 현실적·도전적 목표를 즉시 산출",
+            "계측 정의서·대시보드·인센티브를 한 체계로 묶어 행동 변화를 유도",
+            "월별 램프업 곡선과 이벤트/런칭 영향 모델로 예측가능한 경영"
+          ],
+          "fit_signals": [
+            "전환율·AOV·TAT 정의·계측·리포트가 일관되지 않음",
+            "프로모션/런칭의 목표·사후분석 체계 부재",
+            "인센티브가 KPI와 정렬되지 않아 왜곡 발생"
+          ],
+          "risks": [
+            "목표치 과·소 설정",
+            "데이터 산식 불일치로 현장 신뢰 저하",
+            "인센티브로 인한 비윤리적 판매 유도"
+          ],
+          "mitigations": [
+            "상향·하향식 교차검증과 파일럿 점검",
+            "KPI 정의서·데이터 사전 배포와 교육",
+            "할인/반품/스피프 가드레일과 감사"
+          ],
+          "timeline": [
+            {
+              "phase": "KPI 트리·정의서·데이터 사전 설계",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "목표 산정 엔진·대시보드·인센티브 설계",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "파일럿 산정·UAT·교육·램프업 플랜",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "본오픈·하이퍼케어·목표 재베이스",
+              "duration_weeks": "4"
+            }
+          ],
+          "kpis": [
+            {
+              "name": "전환율",
+              "baseline": "점포별 현행",
+              "target": "플래그십 12~18%, 일반 18~25%",
+              "cadence": "주간"
+            },
+            {
+              "name": "AOV",
+              "baseline": "점포별 현행",
+              "target": "150~350달러(카테고리·어태치 반영)",
+              "cadence": "주간"
+            },
+            {
+              "name": "서비스 TAT(경정비)",
+              "baseline": "점포별 현행",
+              "target": "60분 내 60%+",
+              "cadence": "주간"
+            },
+            {
+              "name": "NPS",
+              "baseline": "점포별 현행",
+              "target": "65+ (T+8주)",
+              "cadence": "주간"
+            }
+          ],
+          "slides": [
+            {
+              "slide_no": 1,
+              "title": "2025 KPI 목표 블루프린트",
+              "subtitle": "정의→계측→목표→인센티브 일체화",
+              "purpose": "KPI 체계를 한 번에 정렬해 실행력을 확보",
+              "key_messages": [
+                "KPI 트리와 정의서로 측정 일관성 확보",
+                "목표 산정 엔진으로 유형별·상권별 타깃 산출",
+                "인센티브·대시보드로 행동 유도"
+              ],
+              "content_draft": "매출/전환/AOV/UPT/NPS/서비스 TAT/재고정확도/옴니 SLA를 KPI 트리로 정리하고, 정의서·산식·태깅 규칙을 배포합니다. 산정 엔진이 아키타입·상권·면적·트래픽을 입력받아 2025 목표와 월별 램프업을 산출합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "정의 표준: 산식·분자/분모·예외·소스",
+                  "램프업: 오픈→T+12개월 곡선",
+                  "가중치: 유형별 KPI 가중치 차등"
+                ]
+              },
+              "urls": [
+                "https://www.shopify.com/kr/blog/basic-ecommerce-metrics",
+                "https://www.zendesk.kr/blog/10-customer-experience-kpis/"
+              ]
+            },
+            {
+              "slide_no": 2,
+              "title": "전환·AOV·TAT 측정 설계",
+              "subtitle": "산식·태깅·대시보드",
+              "purpose": "현장·본부의 숫자 불일치를 제거",
+              "key_messages": [
+                "유효상담 기준 전환 정의",
+                "AOV/UPT에 번들·프로모션 영향 분리 태깅",
+                "TAT 타임스탬프 기준"
+              ],
+              "content_draft": "전환율은 유효상담 대비 구매로 정의하고 고객·일자 매칭 룰을 명시합니다. AOV/UPT는 번들·프로모션 태그로 영향 분리를 지원합니다. 서비스 TAT는 접수→완료 타임스탬프 기반으로 계측합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "전환: 상담 이벤트→결제 이벤트 매칭",
+                  "AOV: 프로모션 코드/번들 태그",
+                  "TAT: SLA 등급(15/60/24h) 구간화"
+                ]
+              },
+              "urls": [
+                "https://www.shopify.com/kr/blog/7365564-32-key-performance-indicators-kpis-for-ecommerce"
+              ]
+            },
+            {
+              "slide_no": 3,
+              "title": "목표 산정 엔진",
+              "subtitle": "아키타입×상권×면적×트래픽",
+              "purpose": "데이터 기반 타깃 산정으로 납득성 확보",
+              "key_messages": [
+                "상향·하향식 교차검증",
+                "경쟁/시즌/이벤트 변수 반영",
+                "월별 램프업 곡선 자동 생성"
+              ],
+              "content_draft": "유형·상권·면적·트래픽 입력값과 경쟁 강도·프로모션·런칭 계획을 반영하여 전환·AOV·TAT 타깃을 계산합니다. 본부 목표와 현장 제안을 교차검증해 확정합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "입력: 트래픽·체류·직원 수·면적",
+                  "보정: 시즌·런칭·프로모션",
+                  "출력: 월별 목표·가중 KPI"
+                ]
+              },
+              "urls": [
+                "https://www.oracle.com/kr/business-analytics/cross-departmental-analytics/kpis-metrics/"
+              ]
+            },
+            {
+              "slide_no": 4,
+              "title": "인센티브·리뷰 리듬",
+              "subtitle": "행동을 바꾸는 보상 설계",
+              "purpose": "KPI 달성을 촉진하되 왜곡을 방지",
+              "key_messages": [
+                "팀·개인 혼합, 옴니 KPI 포함",
+                "할인·반품 가드레일",
+                "주간 코칭·월간 정산"
+              ],
+              "content_draft": "개인/팀/옴니 가중 혼합과 Care+/액세 어태치·BOPIS SLA 포함. 이상 할인·반품 패턴 탐지 룰로 왜곡을 방지합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "BSC: 매출·전환·AOV·NPS·TAT",
+                  "가드레일: 할인 한도·승인 체계",
+                  "코칭: 주간 GAP-원인-액션"
+                ]
+              },
+              "urls": [
+                "https://www.salesforce.com/kr/hub/sales/sales-kpi-kgi/"
+              ]
+            },
+            {
+              "slide_no": 5,
+              "title": "대시보드·경보",
+              "subtitle": "현장 태블릿/임원 웹",
+              "purpose": "실시간 가시성과 조기 경보로 성과 관리",
+              "key_messages": [
+                "실시간/일배치 혼합",
+                "임계치 초과 경보",
+                "스토어·유형·기간 비교"
+              ],
+              "content_draft": "현장용은 실시간 전환·대기·픽업 SLA를, 임원용은 주간/월간 추세·유형 비교를 제공합니다. 임계치 경보로 선제 대응합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "현장: 전환·대기·픽업 SLA",
+                  "임원: 목표 대비·전년/전주",
+                  "경보: 전환 급락·TAT 초과"
+                ]
+              },
+              "urls": [
+                "https://www.adriel.com/ko/blog/marketing-attribution-dashboard"
+              ]
+            },
+            {
+              "slide_no": 6,
+              "title": "벤치마킹 질문 리스트",
+              "subtitle": "KPI·목표·사후분석",
+              "purpose": "목표 설정·검증·학습 루프 질문 표준화",
+              "key_messages": [
+                "정의·산식·계측 일관성",
+                "이벤트·런칭 효과 측정",
+                "인센티브 정렬"
+              ],
+              "content_draft": "각 KPI의 산식·예외, 이벤트/런칭의 KPI 매핑과 사후분석, 인센티브 가중·가드레일 검증 질문을 제공합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "전환·AOV·TAT 정의·산식은 현장과 일치하는가?",
+                  "이벤트별 KPI와 가설·결과·교훈 기록 체계는?",
+                  "옴니 KPI가 목표와 보상에 반영되는가?",
+                  "데이터 품질·지연·누락 이슈 대응은?"
+                ]
+              },
+              "urls": [
+                "https://www.shopify.com/kr/blog/7365564-32-key-performance-indicators-kpis-for-ecommerce",
+                "https://www.zendesk.kr/blog/10-customer-experience-kpis/"
+              ]
+            },
+            {
+              "slide_no": 7,
+              "title": "90일 실행 플랜",
+              "subtitle": "정의서→엔진→대시보드→인센티브",
+              "purpose": "짧은 주기로 목표·측정·보상을 정착",
+              "key_messages": [
+                "30/60/90일 마일스톤",
+                "파일럿→확장",
+                "월간 리베이스"
+              ],
+              "content_draft": "30일: 정의서·데이터 사전·초안 목표. 60일: 파일럿 산정·대시보드 베타·인센티브 샌드박스. 90일: 본오픈·월간 리베이스·감사 체크.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "30일: KPI 정의·산정 로직 설계",
+                  "60일: 파일럿·교육·샌드박스",
+                  "90일: 본오픈·리베이스·감사"
+                ]
+              },
+              "urls": []
+            }
+          ]
+        },
+        {
+          "option_no": 3,
+          "option_title": "옵션 3. 표준화 vs 현지화 거버넌스와 우선순위 체계",
+          "why_choose": [
+            "실패 비용 큰 업무를 표준화하고, 법규·고객·시장 차이를 현지화하여 리스크와 속도를 동시에 확보",
+            "3계층 운영(WW/US/Store)으로 변경·릴리스·감사 체계를 작동",
+            "미국 파일럿을 글로벌 표준으로 승격 가능한 문서·툴 세트 완비"
+          ],
+          "fit_signals": [
+            "국가·주(州)별 법규/세금/노무/프라이버시 요구가 상이",
+            "매장 운영 SOP 편차로 품질·감사 리스크 존재",
+            "변경·릴리스 관리가 산발적"
+          ],
+          "risks": [
+            "과도한 표준으로 현장 대응력 저하",
+            "현지화 분산으로 통제 불가",
+            "릴리스 충돌로 서비스 중단"
+          ],
+          "mitigations": [
+            "우선순위 매트릭스(반복성·리스크·고객임팩트·자동화) 적용",
+            "Change Advisory Board와 롤백 의무화",
+            "분기 릴리스와 핫픽스 분리"
+          ],
+          "timeline": [
+            {
+              "phase": "우선순위 매트릭스 설계·업무 분류",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "Non-Negotiable 라이브러리·현지화 팩 작성",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "거버넌스·릴리스 캘린더·UAT 정착",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "오픈·100일 안정화·감사 사이클",
+              "duration_weeks": "4"
+            }
+          ],
+          "kpis": [
+            {
+              "name": "SOP 정착률",
+              "baseline": "미정",
+              "target": "95%+",
+              "cadence": "월간"
+            },
+            {
+              "name": "컴플라이언스 위반",
+              "baseline": "미정",
+              "target": "0건",
+              "cadence": "월간"
+            },
+            {
+              "name": "릴리스 온타임",
+              "baseline": "미정",
+              "target": "95%+",
+              "cadence": "분기"
+            }
+          ],
+          "slides": [
+            {
+              "slide_no": 1,
+              "title": "표준화 vs 현지화 운영 원칙",
+              "subtitle": "Standardize-to-Scale, Localize-to-Win",
+              "purpose": "업무를 표준·현지화로 구분할 기준을 명확히 제시",
+              "key_messages": [
+                "반복성·리스크·고객임팩트·자동화 가능성 기준",
+                "Non-Negotiable vs Localizable 정의",
+                "글로벌 확산을 고려한 구조"
+              ],
+              "content_draft": "반복성과 리스크가 높은 영역(보안·감사·현금·재고·품질)은 표준화, 법규·언어·결제·세금 등은 현지화합니다. 기준을 문서화하여 업무 분류와 릴리스를 관리합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "표준화: 보안/감사/품질/온보딩/SOP/데이터 정의",
+                  "현지화: 법규/세금/노무/언어/결제/영업시간/환불",
+                  "우선순위: 반복성↑, 리스크↑, 고객임팩트↑, 자동화↑"
+                ]
+              },
+              "urls": [
+                "https://stephow.me/ko/resources/blog/work-standardization-complete-guide"
+              ]
+            },
+            {
+              "slide_no": 2,
+              "title": "3계층 운영 구조",
+              "subtitle": "WW Standard / US Config / Store Flex",
+              "purpose": "버전·책임·변경 권한을 계층별로 구분",
+              "key_messages": [
+                "Non-Negotiable Global",
+                "Regional Configurable(US)",
+                "Store-level Flex"
+              ],
+              "content_draft": "브랜드·보안·KPI 정의 등은 WW 고정, 세금·결제·노동·통신사 연계는 US 설정, VM 어댑트·커뮤니티 이벤트는 Store 자율로 운영합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "WW: KPI/데이터 사전·보안·Playbook",
+                  "US: 세금/결제/환불/ADA·CCPA",
+                  "Store: VM 어댑트·로컬 파트너십"
+                ]
+              },
+              "urls": [
+                "https://www.purestorage.com/kr/knowledge/what-is-data-standardization.html"
+              ]
+            },
+            {
+              "slide_no": 3,
+              "title": "Non-Negotiable 라이브러리",
+              "subtitle": "SOP/체크리스트/런북/데이터 사전",
+              "purpose": "감사·품질·속도를 담보하는 표준 패키지 제공",
+              "key_messages": [
+                "SOP 30+종, 체크리스트 100항목",
+                "Day1 컷오버 런북",
+                "데이터 정의·API 카탈로그"
+              ],
+              "content_draft": "개점·폐점·현금·반품·트레이드인·수리·BOPIS·개통·데모 MDM·사고 대응 등 SOP와 체크리스트, 컷오버 런북, 데이터 사전을 표준화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "SOP: 목적/절차/역할/예외/로그",
+                  "런북: H-72/H-24/H0/H+48 타임라인",
+                  "데이터: KPI 정의서·태깅 규칙"
+                ]
+              },
+              "urls": [
+                "https://committee.tta.or.kr/data/reportDown.jsp?news_num=9227"
+              ]
+            },
+            {
+              "slide_no": 4,
+              "title": "미국 현지화 팩",
+              "subtitle": "세금·프라이버시·ADA·노동·통신사",
+              "purpose": "미국 규제·관행을 체계적으로 반영",
+              "key_messages": [
+                "세금 엔진(Avalara/Vertex) 표준",
+                "CCPA/CPRA 동의/삭제",
+                "ADA 접근성 체크리스트"
+              ],
+              "content_draft": "세금·환불·소비자 보호·프라이버시·ADA·OSHA를 체크리스트와 정책으로 구성하고, 통신사 개통·정산 흐름을 문서화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "세금: 주별 세율·휴대폰 수수료 처리",
+                  "프라이버시: 옵트인·로그·보존",
+                  "ADA: 통로·카운터·사인"
+                ]
+              },
+              "urls": [
+                "https://www.nia.or.kr/common/board/Download.do?bcIdx=26212&cbIdx=65684&fileNo=1"
+              ]
+            },
+            {
+              "slide_no": 5,
+              "title": "변경·릴리스 거버넌스",
+              "subtitle": "Standards Council / Localization Board / CAB",
+              "purpose": "변경 통제와 속도를 동시에 달성",
+              "key_messages": [
+                "연 2회 WW 릴리스",
+                "분기 US 설정 릴리스",
+                "CAB 영향평가·롤백 의무화"
+              ],
+              "content_draft": "WW 표준은 반기 릴리스, US 현지 설정은 분기 릴리스, 긴급 핫픽스는 CAB 승인 하에 롤백 플랜 의무화로 운영합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "릴리스 캘린더·Go/No-Go 기준",
+                  "UAT·샌드박스·회귀 테스트",
+                  "감사 트레일·버전관리"
+                ]
+              },
+              "urls": [
+                "https://www.oda.go.kr/opo/cmcd/comm/downloadFile.do?P_STRE_FILE_NM=A57071EC-AF58-4130-AEAB-EE650F0279F1.pdf"
+              ]
+            },
+            {
+              "slide_no": 6,
+              "title": "벤치마킹 질문 리스트",
+              "subtitle": "표준화·현지화 우선순위",
+              "purpose": "업무 분류·거버넌스 설계를 위한 질문 프레임",
+              "key_messages": [
+                "실패 비용·반복성·임팩트 평가",
+                "법규·관행 식별",
+                "릴리스·롤백 경험 축적"
+              ],
+              "content_draft": "표준화 필수 업무와 현지화 필요 업무를 가르는 기준과 사례, 승인 권한·주기·롤백 케이스를 수집·정리합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "실패 비용이 큰 업무는 무엇이며 표준화로 얼마나 감소 가능한가?",
+                  "법규·관행·언어로 인해 현지화가 불가피한 영역은?",
+                  "변경 승인 권한·평균 리드타임·롤백 사례와 교훈은?"
+                ]
+              },
+              "urls": [
+                "https://stephow.me/ko/resources/blog/work-standardization-complete-guide"
+              ]
+            },
+            {
+              "slide_no": 7,
+              "title": "리스크·대응·감사",
+              "subtitle": "경직 vs 분산의 균형",
+              "purpose": "표준·현지화의 부작용을 사전에 통제",
+              "key_messages": [
+                "경직 완화: Store Flex",
+                "분산 통제: 릴리스 캘린더",
+                "감사·모의훈련"
+              ],
+              "content_draft": "Store Flex로 현장 자율을 부여하되, 릴리스 캘린더와 감사 체크리스트로 통제합니다. 분기 모의훈련으로 인시던트를 대비합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "감사: 월간 내부 점검·분기 외부 리뷰",
+                  "인시던트: 골든아워 절차·커뮤니케이션",
+                  "교육: 변경 릴리스 브리핑·퀴즈"
+                ]
+              },
+              "urls": [
+                "https://www.cisp.or.kr/wp-content/uploads/2021/12/%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%ED%91%9C%EC%A4%80%ED%99%94_%EA%B4%80%EB%A6%AC_%EB%A7%A4%EB%89%B4%EC%96%BC_202106.pdf"
+              ]
+            }
+          ]
+        },
+        {
+          "option_no": 4,
+          "option_title": "옵션 4. Apple/Verizon/Dyson 벤치마크 기반 도메인 정의와 표준-현지화 운영",
+          "why_choose": [
+            "선진사 공통의 12개 필수 도메인 틀을 차용해 빠른 설계·구현",
+            "글로벌 표준(브랜드·보안·CX)과 현지화(결제·규제·통신) 경계 명확화",
+            "벤치마크→갭분석→즉시 적용 과제 20선으로 단기 성과 확보"
+          ],
+          "fit_signals": [
+            "통신사 개통·정산·반품 등 파트너 얽힘이 높음",
+            "체험·상담·수리 분리 운영 설계가 필요",
+            "국가 표준을 글로벌로 확산할 계획"
+          ],
+          "risks": [
+            "벤치마크 맹목적 모방",
+            "통신사 API·정산 연동 실패",
+            "컷오버 장애·롤백 부재"
+          ],
+          "mitigations": [
+            "벤치마크는 원칙만 차용, 현행 데이터로 적합성 검증",
+            "사전 샌드박스·통신사 합동 테스트",
+            "Day1 런북·페일오버·롤백 리허설"
+          ],
+          "timeline": [
+            {
+              "phase": "벤치마크·갭 분석·도메인 정의",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "SOP/아키텍처/표준-현지화 설계",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "테스트·리허설·벤치 PoC",
+              "duration_weeks": "4"
+            },
+            {
+              "phase": "오픈·하이퍼케어·레슨런드",
+              "duration_weeks": "4"
+            }
+          ],
+          "kpis": [
+            {
+              "name": "BOPIS SLA",
+              "baseline": "도입 전",
+              "target": "95%+",
+              "cadence": "일일"
+            },
+            {
+              "name": "개통 리드타임",
+              "baseline": "도입 전",
+              "target": "20분 내 80%",
+              "cadence": "주간"
+            },
+            {
+              "name": "Care+ 부가율",
+              "baseline": "도입 전",
+              "target": "25%+",
+              "cadence": "주간"
+            },
+            {
+              "name": "Shrink 개선",
+              "baseline": "도입 전",
+              "target": "1%p 개선",
+              "cadence": "월간"
+            }
+          ],
+          "slides": [
+            {
+              "slide_no": 1,
+              "title": "벤치마크 기반 운영 설계",
+              "subtitle": "Apple/Verizon/Dyson 인사이트 적용",
+              "purpose": "선진사 원칙을 삼성 매장 운영에 체계적으로 적용",
+              "key_messages": [
+                "12개 필수 도메인 프레임",
+                "표준-현지화 경계 명확화",
+                "오픈·하이퍼케어 일체화"
+              ],
+              "content_draft": "Apple의 표준화된 CX·보안 원칙, Verizon의 개통·정산 표준, Dyson의 체험 중심 VM을 참조하여 12개 도메인을 설계하고, 미국 현지화 요소를 결합합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "도메인: 포맷/부동산/머천/일일운영/CX/옴니/IT/HR/파트너/재무/리스크/PMO",
+                  "표준: 브랜드·보안·KPI 정의·SOP",
+                  "현지화: 결제·세금·통신사·언어·법규"
+                ]
+              },
+              "urls": [
+                "https://namu.wiki/w/iPhone"
+              ]
+            },
+            {
+              "slide_no": 2,
+              "title": "12개 도메인 상세와 적용",
+              "subtitle": "미국 3新·4전환 즉시 적용 항목",
+              "purpose": "도메인별 즉시 실행 항목을 명확히 제시",
+              "key_messages": [
+                "포맷·VM·체험 표준",
+                "개통·정산·반품 표준",
+                "옴니·데이터·보안 표준"
+              ],
+              "content_draft": "포맷/VM, 재고/LP, 옴니·결제, 개통·수리, 인력·교육, 데이터·보안까지 도메인별 SOP와 체크리스트를 납품합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "개통: 캐리어 API/UAT/정산 흐름",
+                  "옴니: BOPIS/BORIS/SFS 운영",
+                  "LP: 시리얼 추적·듀얼컨트롤·사이클카운트"
+                ]
+              },
+              "urls": []
+            },
+            {
+              "slide_no": 3,
+              "title": "표준-현지화 레이어",
+              "subtitle": "Non-Negotiable vs Localizable",
+              "purpose": "글로벌 표준 유지와 현지 적합성의 균형",
+              "key_messages": [
+                "브랜드·보안·CX 표준",
+                "결제·통신·세금 현지화",
+                "릴리스·롤백 거버넌스"
+              ],
+              "content_draft": "브랜드·보안·CX·데이터 표준은 글로벌 고정, 결제/세금/통신은 미국 현지화. 변경은 CAB 승인과 롤백 의무화로 운영합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "WW: CX 루프·보안·KPI/데이터",
+                  "US: 세금·결제·ADA·통신사",
+                  "CAB: 영향평가·롤백·Go/No-Go"
+                ]
+              },
+              "urls": [
+                "https://namu.wiki/w/iPhone",
+                "https://huggingface.co/MRAIRR/kakao_deberta_intent_cls/commit/1640d053905122132e8e722da244c3aaf4e543ea.diff?file=vocab.txt"
+              ]
+            },
+            {
+              "slide_no": 4,
+              "title": "오프닝·하이퍼케어 운영",
+              "subtitle": "Day1 컷오버·워룸·100일 안정화",
+              "purpose": "벤치마크 수준의 오픈 성공률 확보",
+              "key_messages": [
+                "H-72/H-24/H0 런북",
+                "워룸·페일오버·롤백",
+                "100일 KPI 워크사이클"
+              ],
+              "content_draft": "H-72~H0 체크리스트와 장애 워룸, 롤백 시나리오를 리허설합니다. 100일간 주간 코칭·버그픽스·KPI 리뷰를 운영합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "체크: 네트워크/결제/세금/재고/데모",
+                  "워룸: 4시간 스탠드업·MTTR 단축",
+                  "100일: VOC→원인→액션→효과 루프"
+                ]
+              },
+              "urls": []
+            },
+            {
+              "slide_no": 5,
+              "title": "KPI·감사·보안",
+              "subtitle": "선진사 수준의 통제와 투명성",
+              "purpose": "성과·통제·보안을 동시 달성",
+              "key_messages": [
+                "BOPIS SLA·개통 리드타임",
+                "Care+·액세 어태치",
+                "Shrink·재고정확도"
+              ],
+              "content_draft": "옴니 SLA, 개통 리드타임, 부가상품 어태치, Shrink·재고정확도를 대시보드로 상시 모니터링하고 감사·보안 체크리스트를 적용합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "옴니: SLA 95%+ 경보",
+                  "개통: 20분 내 80% 목표·리워크율",
+                  "LP: EAS/RFID·카운트 루틴"
+                ]
+              },
+              "urls": []
+            },
+            {
+              "slide_no": 6,
+              "title": "벤치마킹 질문 리스트",
+              "subtitle": "도메인별 운영·정책·정산",
+              "purpose": "선진사 인터뷰/미쇼핑 질문 프레임",
+              "key_messages": [
+                "CX·큐관리·피크 운영",
+                "개통·정산·반품",
+                "VM·체험·커뮤니티"
+              ],
+              "content_draft": "CX·큐관리, 개통·정산·반품, 체험·커뮤니티 운영에 대한 세부 질문을 표준화합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "피크 시간대 서비스 레벨과 큐관리 방식은?",
+                  "개통 실패·재시도·보상·정산 검증 로직은?",
+                  "반품·DOA 기준과 고객 회복 프로토콜은?",
+                  "체험 클래스 KPI와 커뮤니티 리퍼럴 구조는?"
+                ]
+              },
+              "urls": [
+                "https://namu.wiki/w/iPhone"
+              ]
+            },
+            {
+              "slide_no": 7,
+              "title": "로드맵·리스크",
+              "subtitle": "벤치마크→설계→테스트→오픈",
+              "purpose": "리스크를 줄이는 실행 로드맵 제시",
+              "key_messages": [
+                "스토어 사파리·갭분석",
+                "UAT·샌드박스",
+                "오픈 위원회·하이퍼케어"
+              ],
+              "content_draft": "2주 스토어 사파리로 갭을 도출하고, 샌드박스 UAT로 실패 모드를 제거합니다. 오픈 위원회와 하이퍼케어로 Day1 리스크를 통제합니다.",
+              "paste_blocks": {
+                "body_bulleted": [
+                  "벤치: 30+ 지점 관찰·미쇼핑",
+                  "테스트: SIT/UAT/리그레션",
+                  "운영: H-30/H-7/H0/H+7 게이트"
+                ]
+              },
+              "urls": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "title": "다음 단계",
+    "bullets": [
+      "옵션 선택 워크숍",
+      "데이터/사전조건 점검",
+      "파일럿 범위 합의 및 킥오프"
+    ]
+  }
+}

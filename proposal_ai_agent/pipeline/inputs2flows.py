@@ -5,6 +5,16 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple, Optional
 
 import pandas as pd
+# pipeline/inputs2flows.py
+from openai import OpenAI
+import os
+
+def _get_openai_client():
+    key = os.getenv("OPENAI_API_KEY")
+    if not key:
+        # 에러 대신 명확한 예외 메시지 (상위에서 잡아서 st.error로 보여짐)
+        raise RuntimeError("환경변수 OPENAI_API_KEY가 필요합니다. Streamlit 사이드바에서 입력해주세요.")
+    return OpenAI(api_key=key)
 
 # ---------- 외부 의존 ----------
 # - openai:  pip install openai

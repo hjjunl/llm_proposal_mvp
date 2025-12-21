@@ -22,7 +22,6 @@ from typing import Optional, Tuple, List, Dict, Any
 
 # 교체
 from pipeline.rfp2proposal import build_flows_from_user_inputs, extract_text_from_file
-from pipeline.inputs2flows import build_flows_from_user_inputs
 import shutil  # ← 파일/폴더 삭제용
 
 import pandas as pd
@@ -38,6 +37,7 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from inspect import signature
 
 # ====== PPT (python-pptx) ======
 from pptx import Presentation
@@ -45,6 +45,75 @@ from pptx.util import Pt, Inches
 from pptx.enum.text import PP_ALIGN
 # 맨 위 import들 사이에 추가 (안전 import)
 import os, streamlit as st
+from pipeline import rfp2proposal as r2p
+# 필요한 심벌을 별칭으로 고정
+build_flows_from_user_inputs = r2p.build_flows_from_user_inputs
+extract_text_from_file       = r2p.extract_text_from_file
+# ==== 간단 로그인 유틸 ====
+import hashlib
+
+def _get_users_from_secrets() -> dict:
+    """
+    .streamlit/secrets.toml 예시
+    [auth]
+    enabled = true # 로그인 활성화 여부
+
+    [auth.users]
+    admin = "sha256:xxxxxxxx"  # 비번 sha256 해시(아래 주석 참고)
+    viewer = "sha256:yyyyyyyy"
+
+    파이썬에서 SHA256 만들기:
+    >>> import hashlib; hashlib.sha256("비밀번호".encode()).hexdigest()
+    """
+    try:
+        enabled = bool(st.secrets.get("auth", {}).get("enabled", False))
+        users = dict(st.secrets.get("auth", {}).get("users", {}))
+        return {"enabled": enabled, "users": users}
+    except Exception:
+        return {"enabled": False, "users": {}}
+
+def _hash_pw(pw: str) -> str:
+    return hashlib.sha256(pw.encode()).hexdigest()
+
+def is_authed() -> bool:
+    if "auth_user" not in st.session_state:
+        st.session_state.auth_user = None
+    auth_conf = _get_users_from_secrets()
+    if not auth_conf["enabled"]:
+        return True  # 로그인 비활성화 모드면 통과
+    return st.session_state.auth_user is not None
+
+def login_form(key_prefix="auth"):
+    auth_conf = _get_users_from_secrets()
+    if not auth_conf["enabled"]:
+        return
+    st.sidebar.markdown("### 🔐 로그인")
+    with st.sidebar.form(f"{key_prefix}_login_form", clear_on_submit=False):
+        uid = st.text_input("아이디", key=f"{key_prefix}_uid")
+        pw  = st.text_input("비밀번호", type="password", key=f"{key_prefix}_pw")
+        ok  = st.form_submit_button("로그인")
+    if ok:
+        users = auth_conf["users"]
+        if uid in users:
+            saved = users[uid]
+            good = (saved.split(":",1)[1] == _hash_pw(pw)) if saved.startswith("sha256:") else (saved == pw)
+            if good:
+                st.session_state.auth_user = uid
+                st.sidebar.success(f"환영합니다, {uid}님!")
+                st.rerun()
+            else:
+                st.sidebar.error("아이디 또는 비밀번호가 올바르지 않습니다.")
+        else:
+            st.sidebar.error("존재하지 않는 계정입니다.")
+
+def logout_button():
+    auth_conf = _get_users_from_secrets()
+    if not auth_conf["enabled"]:
+        return
+    if st.session_state.get("auth_user"):
+        if st.sidebar.button("로그아웃"):
+            st.session_state.auth_user = None
+            st.rerun()
 
 def _set_env_from_secrets():
     # st.secrets → os.environ 주입 (없는 건 건너뜀)
@@ -53,14 +122,6 @@ def _set_env_from_secrets():
             os.environ[name] = str(st.secrets[name])
 
 _set_env_from_secrets()
-
-try:
-    from pipeline.inputs2flows import build_flows_from_user_inputs
-except Exception as e:
-    def build_flows_from_user_inputs(*args, **kwargs):
-        raise ImportError(
-            f"pipeline.inputs2flows.build_flows_from_user_inputs import 실패: {e}"
-        )
 
 # =====================================================================================
 # 전역 경로/DB 경로 (자동 생성)
@@ -85,6 +146,20 @@ _SAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
 def _sanitize(name: str) -> str:
     return _SAFE_CHARS.sub("-", name.strip().replace(" ", "-"))
 
+def _call_build_flows_adapted(fn, **kwargs):
+    sig = signature(fn)
+    allowed = set(sig.parameters.keys())
+    # 안전 기본값: 모델 고정
+    if "model_main" in allowed and "model_main" not in kwargs:
+        kwargs["model_main"] = "gpt-5"
+    if "model_deck" in allowed and "model_deck" not in kwargs:
+        kwargs["model_deck"] = "gpt-5"
+    if "out_dir" in allowed and "out_dir" not in kwargs:
+        # 프로젝트 out_dir을 외부에서 넣으면 그대로 사용
+        pass
+    # 존재하지 않는 키는 자동 필터링 (logf 포함)
+    clean = {k: v for k, v in kwargs.items() if k in allowed}
+    return fn(**clean)
 # =====================================================================================
 # SQLite (고객/프로젝트/RFP 파일)
 # =====================================================================================
@@ -168,6 +243,124 @@ def create_project(client_id: int, title: str, direction: str) -> int:
     conn.commit()
     conn.close()
     return pid
+def render_excel_like_flow(
+    df: pd.DataFrame,
+    *,
+    default_client: str = "",
+    default_author: str = "",
+    default_date: Optional[str] = None,
+    pdf_body_size: int = 11,
+    ppt_body_size: int = 16,
+    key_prefix: str = "flow"
+):
+    """Tab1의 Excel 업로드 흐름을 그대로 재사용하는 공용 컴포넌트.
+       - 요청별 옵션 선택 UI
+       - 선택 결과(selected_df)로 PDF/Excel/PPT 내보내기
+    """
+    df = ensure_slim_schema(df)
+    df = compute_option_big_titles(df)
+    df["슬라이드번호"] = df["슬라이드번호"].astype(str)
+    df["옵션번호"] = df["옵션번호"].astype(str)
+
+    # 1) 고객 정보
+    st.markdown("#### 1) 고객 정보")
+    col_a, col_b, col_c = st.columns(3)
+    with col_a:
+        client_name = st.text_input("고객사", value=default_client, key=f"{key_prefix}_client")
+    with col_b:
+        author = st.text_input("작성팀", value=default_author, key=f"{key_prefix}_author")
+    with col_c:
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        date_str = st.text_input("작성일", value=(default_date or today_str), key=f"{key_prefix}_date")
+
+    client_info = {"고객사": client_name, "작성팀": author, "작성일": date_str}
+
+    # 2) 요청별 옵션 선택 (Tab1과 동일)
+    st.markdown("#### 2) 요청별 옵션 선택 (아래에 즉시 미리보기)")
+    req_ids = [x for x in df["요청 ID"].unique().tolist() if x not in ("COVER","CLOSING")]
+    sel_map: Dict[str, str] = {}
+
+    for rid in req_ids:
+        sub = df[df["요청 ID"] == rid]
+        req_title = S(sub["요청 제목"].iloc[0] if not sub.empty else rid)
+        opts = sorted({o for o in sub["옵션번호"].unique().tolist() if S(o).isdigit()},
+                      key=lambda x: int(x) if S(x).isdigit() else 999)
+        if not opts:
+            continue
+
+        big_title_map = {}
+        for o in opts:
+            g = sub[sub["옵션번호"] == o]
+            bt = S(g["옵션대제목"].iloc[0]) if not g.empty and "옵션대제목" in g.columns else ""
+            big_title_map[o] = bt
+
+        st.markdown(f"**[{rid}] {req_title}**")
+        sel = st.radio(
+            "옵션을 선택하세요",
+            options=opts,
+            horizontal=True,
+            index=0,
+            key=f"{key_prefix}_sel_{rid}",
+            format_func=lambda o: f"{o} — {big_title_map.get(o, '')}" if big_title_map.get(o, "") else f"{o}"
+        )
+        sel_map[rid] = sel
+
+        with st.container():
+            render_inline_preview(rid, sub, sel)
+        st.divider()
+
+    # 3) 선택 데이터 집계
+    frames = []
+    cover_rows = df[df["요청 ID"] == "COVER"]
+    if not cover_rows.empty:
+        frames.append(cover_rows)
+    for rid, sel in sel_map.items():
+        sub = df[df["요청 ID"] == rid]
+        overview = sub[sub["슬라이드번호"] == "OVERVIEW"]
+        if not overview.empty:
+            frames.append(overview)
+        part = sub[sub["옵션번호"] == sel]
+        frames.append(part)
+    closing_rows = df[df["요청 ID"] == "CLOSING"]
+    if not closing_rows.empty:
+        frames.append(closing_rows)
+    selected_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=df.columns)
+
+    # 4) 내보내기 (Tab1과 동일)
+    st.markdown("#### 3) 내보내기")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        if st.button("📄 PDF 생성", use_container_width=True, key=f"{key_prefix}_pdf"):
+            try:
+                pdf_bytes = build_pdf(selected_df, client_info, body_size=pdf_body_size)
+                st.success("PDF 생성 완료")
+                st.download_button("PDF 다운로드", data=pdf_bytes, file_name="proposal_options_auto.pdf",
+                                   mime="application/pdf", use_container_width=True)
+            except Exception as e:
+                st.error(f"PDF 생성 오류: {e}")
+    with c2:
+        if st.button("📊 Excel 생성", use_container_width=True, key=f"{key_prefix}_xlsx"):
+            try:
+                xlsx_bytes = build_excel(selected_df)
+                st.success("Excel 생성 완료")
+                st.download_button("Excel 다운로드", data=xlsx_bytes, file_name="proposal_options_auto.xlsx",
+                                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                   use_container_width=True)
+            except Exception as e:
+                st.error(f"Excel 생성 오류: {e}")
+    with c3:
+        if st.button("🖼️ PPT 생성", use_container_width=True, key=f"{key_prefix}_ppt"):
+            try:
+                ppt_bytes = build_ppt(selected_df, client_info, body_size=ppt_body_size)
+                st.success("PPT 생성 완료")
+                st.download_button("PPT 다운로드", data=ppt_bytes, file_name="proposal_options_auto.pptx",
+                                   mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                   use_container_width=True)
+            except Exception as e:
+                st.error(f"PPT 생성 오류: {e}")
+
+    with st.expander("선택 데이터 미리보기(전체)", expanded=False):
+        st.dataframe(selected_df, use_container_width=True)
 
 def attach_rfp(project_id: int, filename: str, stored_path: Path):
     conn = _get_conn()
@@ -215,6 +408,89 @@ def list_rfp_files(project_id: int):
     """, (project_id,)).fetchall()
     conn.close()
     return rows
+def _proj_result_paths(project_id: int) -> Dict[str, Path]:
+    base = RESULT_DIR / str(project_id)
+    return {
+        "config": base / "config.json",
+        "slim_json": base / "slim_master_slide_flows.json",
+        "slim_xlsx": base / "slim_master_slide_flows.xlsx",
+        "auto_df_xlsx": base / f"auto_df_{project_id}.xlsx",
+    }
+
+def _safe_read_json(path: Path) -> dict:
+    try:
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+def _show_file_download(path: Path, label: str, key=None):
+    if path.exists():
+        st.download_button(
+            label=f"📥 {label}",
+            data=path.read_bytes(),
+            file_name=path.name,
+            key=key or f"dl_{label}_{path.name}"
+        )
+    else:
+        st.caption(f"⛔ {label} 파일 없음")
+
+def _show_project_full_result(project_id: int, key_prefix: str = "pview"):
+    paths = _proj_result_paths(project_id)
+
+    st.markdown("#### 결과물 다운로드")
+    c1, c2, c3, c4 = st.columns(4)
+    with c1: _show_file_download(paths["slim_xlsx"], "슬림 플로우 Excel", key=f"{key_prefix}_slim_xlsx")
+    with c2: _show_file_download(paths["slim_json"], "슬림 플로우 JSON", key=f"{key_prefix}_slim_json")
+    with c3: _show_file_download(paths["auto_df_xlsx"], "자동 DF Excel", key=f"{key_prefix}_auto_xlsx")
+    with c4: _show_file_download(paths["config"], "config.json", key=f"{key_prefix}_config")
+    st.markdown("---")
+
+    st.markdown("#### 업로드된 RFP")
+    rfp_files = list_rfp_files(project_id)
+    if not rfp_files:
+        st.write("- (없음)")
+    else:
+        for i, (fn, sp, up) in enumerate(rfp_files, start=1):
+            st.code(f"{fn} | {sp} | {up}", language="text")
+            p = Path(sp)
+            if p.exists():
+                st.download_button("RFP 다운로드", data=p.read_bytes(), file_name=Path(fn).name, key=f"{key_prefix}_rfp_{i}")
+
+    st.markdown("---")
+    st.markdown("#### 자동 DF 미리보기")
+    if paths["auto_df_xlsx"].exists():
+        try:
+            df = pd.read_excel(paths["auto_df_xlsx"])
+            st.dataframe(df.head(200), use_container_width=True, key=f"{key_prefix}_auto_df_table")
+        except Exception as e:
+            st.caption(f"자동 DF 읽기 실패: {e}")
+    else:
+        st.caption("자동 DF 파일이 없습니다.")
+
+    st.markdown("#### 슬림 플로우 Excel 미리보기")
+    if paths["slim_xlsx"].exists():
+        try:
+            df2 = pd.read_excel(paths["slim_xlsx"])
+            st.dataframe(df2.head(300), use_container_width=True, key=f"{key_prefix}_slim_df_table")
+        except Exception as e:
+            st.caption(f"슬림 플로우 Excel 읽기 실패: {e}")
+    else:
+        st.caption("슬림 플로우 Excel 파일이 없습니다.")
+
+    st.markdown("#### 슬림 플로우 JSON 요약")
+    m = _safe_read_json(paths["slim_json"])
+    if m:
+        sec_cnt = len(m.get("sections", []))
+        st.write(f"- 섹션 수: **{sec_cnt}**")
+        if sec_cnt:
+            ex = m["sections"][0]
+            st.write("- 예시 섹션 제목:", ex.get("req_title") or ex.get("title") or "(제목 없음)")
+            st.json({"cover": m.get("cover", {}), "first_section_overview": ex.get("overview_slide", {})})
+    else:
+        st.caption("요약 불가 (파일 없음 또는 파싱 실패)")
+
 # ================================
 # 삭제 헬퍼 (프로젝트/클라이언트)
 # ================================
@@ -803,78 +1079,84 @@ import time, traceback, requests
 import os, time, requests, traceback
 import streamlit as st
 
-# --- 시크릿/환경 로더 ---
-def get_secret(name: str, fallback_env: str | None = None) -> str:
-    """
-    1) st.secrets[name] -> 2) os.environ[name] -> 3) os.environ[fallback_env]
-    """
+# app.py 상단 (imports 아래쪽 어느 위치든 OK)
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
+import os, time, requests
+from openai import OpenAI
+
+def _mask(v: str | None, n: int = 8) -> str:
+    return (v[:n] + "…") if v else ""
+
+# 키 가져오기(환경변수/Secrets 모두 허용)
+def _get_secret(key: str, default: str = "") -> str:
+    val = os.getenv(key, default)
     try:
-        v = st.secrets.get(name)
-        if v: return str(v)
+        import streamlit as st
+        if not val:
+            val = st.secrets.get(key, default)
     except Exception:
         pass
-    v = os.getenv(name)
-    if v: return v
-    if fallback_env:
-        v = os.getenv(fallback_env)
-        if v: return v
-    return ""
+    return val
 
-def key_badge(name: str, fallback_env: str | None = None) -> str:
-    val = get_secret(name, fallback_env)
-    ok = bool(val)
-    short = (val[:6] + "…" + val[-4:]) if val else "MISSING"
-    color = "#10B981" if ok else "#EF4444"
+# 뱃지 HTML
+def key_badge(key_name: str) -> str:
+    val = _get_secret(key_name, "")
+    state = "OK" if val else "NOT SET"
+    color = "#10b981" if val else "#ef4444"
+    tip = _mask(val) if val else "—"
     return f"""
-    <span style="display:inline-block;padding:4px 8px;border-radius:6px;
-                background:{color};color:white;font-weight:600;font-size:12px">
-        {name}: {short}
+    <span style="display:inline-block;padding:4px 8px;border-radius:999px;background:{color}22;
+                 border:1px solid {color}44;color:{color};font-size:12px">
+        {key_name}: <b>{state}</b> <span style="opacity:.7">({tip})</span>
     </span>
     """
 
-# --- 핑(OpenAI) ---
+# OpenAI 핑
 def ping_openai(model: str = "gpt-4o-mini") -> dict:
-    api_key = get_secret("OPENAI_API_KEY")
-    if not api_key:
+    key = _get_secret("OPENAI_API_KEY")
+    if not key:
         raise RuntimeError("OPENAI_API_KEY가 없습니다.")
-    url = "https://api.openai.com/v1/chat/completions"
-    payload = {
-        "model": model,
-        "messages": [{"role":"user","content":"ping"}],
-        "temperature": 0.0,
-        "max_tokens": 5,
-    }
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    cli = OpenAI(api_key=key)
     t0 = time.time()
-    r = requests.post(url, headers=headers, json=payload, timeout=30)
-    dt = time.time() - t0
-    if r.status_code != 200:
-        raise RuntimeError(f"OpenAI {r.status_code}: {r.text[:300]}")
-    data = r.json()
-    text = data["choices"][0]["message"]["content"]
-    return {"latency_sec": dt, "text": text}
+    resp = cli.chat.completions.create(
+        model=model,
+        messages=[{"role":"user","content":"ping"}],
+        temperature=1,
+    )
+    lat = time.time() - t0
+    txt = resp.choices[0].message.content.strip()
+    return {"latency_sec": lat, "text": txt}
 
-# ✅ 모델을 유효한 이름으로 교체
+# Perplexity 핑
+def _get_pplx_key() -> str:
+    return (_get_secret("PERPLEXITY_API_KEY")
+            or _get_secret("PPLX_API_KEY")
+            or _get_secret("PEPLEXITY_API_KEY"))
+
 def ping_perplexity(model: str = "sonar-pro") -> dict:
-    api_key = get_secret("PERPLEXITY_API_KEY") or get_secret("PPLX_API_KEY") or get_secret("PEPLEXITY_API_KEY")
-    if not api_key:
-        raise RuntimeError("PERPLEXITY_API_KEY가 없습니다.")
+    key = _get_pplx_key()
+    if not key:
+        raise RuntimeError("Perplexity API 키가 없습니다. (PERPLEXITY_API_KEY / PPLX_API_KEY / PEPLEXITY_API_KEY)")
     url = "https://api.perplexity.ai/chat/completions"
-    payload = {
-        "model": model,                         # sonar 아님
-        "messages": [{"role": "user", "content": "ping"}],
-        "temperature": 0.0,
-        "max_tokens": 8,
-    }
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     t0 = time.time()
-    r = requests.post(url, headers=headers, json=payload, timeout=30)
-    dt = time.time() - t0
-    if r.status_code != 200:
-        raise RuntimeError(f"Perplexity {r.status_code}: {r.text[:300]}")
+    r = requests.post(
+        url,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        json={
+            "model": model,
+            "messages": [{"role":"user","content":"ping"}],
+            "temperature": 1
+        },
+        timeout=30
+    )
+    if r.status_code >= 400:
+        raise RuntimeError(f"Perplexity {r.status_code}: {r.text}")
+    lat = time.time() - t0
     data = r.json()
-    text = data["choices"][0]["message"]["content"]
-    return {"latency_sec": dt, "text": text}
+    txt = data["choices"][0]["message"]["content"].strip()
+    return {"latency_sec": lat, "text": txt}
 
 
 def build_excel(selected_df: pd.DataFrame) -> bytes:
@@ -965,12 +1247,19 @@ def render_inline_preview(req_id: str, sub_df: pd.DataFrame, selected_opt: str):
 # =====================================================================================
 st.set_page_config(page_title="Proposal Builder", layout="wide")
 init_db()
+login_form()
+logout_button()
+
+init_db()
 
 st.title("제안 생성 · 미리보기 · 내보내기 (자동/엑셀)")
 tab1, tab2, tab3 = st.tabs(["📥 Excel 업로드", "⚡ 자동 생성(LLM·RFP/방향성)", "🗂️ 고객 히스토리"])
 
 # -------------------------- TAB 1: 기존 Excel 흐름 --------------------------
 with tab1:
+    if not is_authed():
+        st.warning("이 메뉴는 로그인 후 이용할 수 있습니다.")
+        st.stop()
     with st.sidebar:
         st.subheader("내보내기 설정")
         pdf_body_size = st.slider("PDF 본문 글자 크기", 9, 14, 11)
@@ -1107,6 +1396,9 @@ def _cached_build_flows_from_user_inputs(rfp_path, client_name, user_direction, 
 # ---------------- TAB 2: RFP 업로드/방향성 ----------------
 # -------------------------- TAB 2: RFP 업로드/방향성 --------------------------
 with tab2:
+    if not is_authed():
+        st.warning("이 메뉴는 로그인 후 이용할 수 있습니다.")
+        st.stop()
     st.subheader("RFP 업로드 & 고객 방향성 입력")
 
     # ---- 세션 키들 ----
@@ -1128,36 +1420,6 @@ with tab2:
         except Exception:
             pass
         return out
-
-    # --- LLM 진단/핑 섹션 ---
-    with st.container():
-        st.markdown("### 🧪 LLM 진단")
-        st.markdown(
-            key_badge("OPENAI_API_KEY") + " &nbsp; " +
-            key_badge("PERPLEXITY_API_KEY") + " &nbsp; " +
-            key_badge("PPLX_API_KEY")      + " &nbsp; " +
-            key_badge("PEPLEXITY_API_KEY"),
-            unsafe_allow_html=True
-        )
-        c1, c2, c3 = st.columns([1,1,2])
-        with c1:
-            if st.button("🔔 OpenAI 핑"):
-                try:
-                    res = ping_openai(model="gpt-4o-mini")
-                    st.success(f"OpenAI OK · {res['latency_sec']:.2f}s · “{res['text']}”")
-                except Exception as e:
-                    st.error(f"OpenAI 실패: {e}")
-                    st.caption("키/네트워크/방화벽/프록시를 확인하세요.")
-        with c2:
-            if st.button("🌐 Perplexity 핑"):
-                try:
-                    res = ping_perplexity(model="llama-3.1-mini")
-                    st.success(f"Perplexity OK · {res['latency_sec']:.2f}s · “{res['text']}”")
-                except Exception as e:
-                    st.error(f"Perplexity 실패: {e}")
-                    st.caption("키 이름을 PERPLEXITY_API_KEY로 설정했는지 확인하세요.")
-
-
 
     # 입력칸 초기화 제어
     if "rfp_form_version" not in st.session_state:
@@ -1318,14 +1580,19 @@ with tab2:
 
                         # 핵심: 내부에서 LLM 호출 (시간 걸림) — 진행 중 UI가 유지됨
                         with st.spinner("🚀 LLM 분석 및 슬라이드 흐름 생성 중…"):
-                            auto_df = build_flows_from_user_inputs(
+                            # UI 로그 함수를 가급적 전달하되, 시그니처에 없으면 어댑터가 제거
+                            auto_df = _call_build_flows_adapted(
+                                build_flows_from_user_inputs,
                                 rfp_path=last_proj["rfp_path"],
                                 client_name=last_proj["client_name"],
                                 user_direction=last_proj["direction"],
                                 notes=last_proj.get("notes", ""),
-                                # model_main 등 내부 기본값 사용 가능
+                                model_main="gpt-5",
+                                model_deck="gpt-5",
+                                out_dir=last_proj["out_dir"],
+                                logf=_log,     # ← 있으면 전달, 없으면 자동 필터
                             )
-                        _log("LLM 파이프라인 완료")
+
                         prog_bar.progress(70, text="스키마 정리…")
 
                         st.write("3/4 스키마/옵션 제목 정리…")
@@ -1369,114 +1636,49 @@ with tab2:
                         # >>> 바쁨 상태 해제
                         st.session_state.AUTO_BUSY = False
 
-        # 5) 자동 DF가 있으면 즉시 옵션 선택 UI
+        # 5) 자동 DF가 있으면 즉시 Excel 업로드와 동일한 플로우로 진행
         payload = st.session_state.get(AUTO_PAYLOAD_KEY)
         if payload and "df" in payload:
             auto_df: pd.DataFrame = payload["df"]
             meta = payload.get("meta", {})
             st.markdown("---")
-            st.markdown("### ✅ 자동 생성 DF 미리보기 & 옵션 선택")
+            st.markdown("### ✅ 자동 생성 DF — Excel 업로드와 동일한 흐름으로 진행")
 
-            # 요청별 옵션 선택
-            st.markdown("#### 3-A) 요청별 옵션 선택")
-            req_ids = [x for x in auto_df["요청 ID"].unique().tolist() if x not in ("COVER","CLOSING")]
-            sel_map: Dict[str, str] = {}
-
-            for rid in req_ids:
-                sub = auto_df[auto_df["요청 ID"] == rid]
-                req_title = S(sub["요청 제목"].iloc[0] if not sub.empty else rid)
-                opts = sorted({o for o in sub["옵션번호"].unique().tolist() if S(o).isdigit()},
-                              key=lambda x: int(x) if S(x).isdigit() else 999)
-                if not opts:
-                    continue
-
-                big_title_map = {}
-                for o in opts:
-                    g = sub[sub["옵션번호"] == o]
-                    bt = S(g["옵션대제목"].iloc[0]) if not g.empty and "옵션대제목" in g.columns else ""
-                    big_title_map[o] = bt
-
-                st.markdown(f"**[{rid}] {req_title}**")
-                sel = st.radio(
-                    "옵션을 선택하세요",
-                    options=opts,
-                    horizontal=True,
-                    index=0,
-                    key=f"auto_sel_{meta.get('project_id','X')}_{rid}",
-                    format_func=lambda o: f"{o} — {big_title_map.get(o, '')}" if big_title_map.get(o, "") else f"{o}"
-                )
-                sel_map[rid] = sel
-
-                with st.container():
-                    # 네 코드 시그니처에 맞춤 (rid, sub, sel)
-                    render_inline_preview(rid, sub, sel)
-                st.divider()
-
-            # 선택 데이터 집계
-            frames = []
-            cover_rows = auto_df[auto_df["요청 ID"] == "COVER"]
-            if not cover_rows.empty:
-                frames.append(cover_rows)
-            for rid, sel in sel_map.items():
-                sub = auto_df[auto_df["요청 ID"] == rid]
-                overview = sub[sub["슬라이드번호"] == "OVERVIEW"]
-                if not overview.empty:
-                    frames.append(overview)
-                part = sub[sub["옵션번호"] == sel]
-                frames.append(part)
-            closing_rows = auto_df[auto_df["요청 ID"] == "CLOSING"]
-            if not closing_rows.empty:
-                frames.append(closing_rows)
-            selected_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=auto_df.columns)
-
-            # 내보내기
-            st.markdown("#### 4-A) 내보내기")
-            c1, c2, c3 = st.columns(3)
-            with c1:
-                if st.button("📄 PDF 생성", use_container_width=True, key="pdf_auto_df"):
-                    try:
-                        client_info = {"고객사": meta.get("client_name",""), "작성팀": "", "작성일": datetime.now().strftime("%Y-%m-%d")}
-                        pdf_bytes = build_pdf(selected_df, client_info, body_size=11)
-                        st.success("PDF 생성 완료")
-                        st.download_button("PDF 다운로드", data=pdf_bytes, file_name="proposal_options_auto.pdf",
-                                           mime="application/pdf", use_container_width=True)
-                    except Exception as e:
-                        st.error(f"PDF 생성 오류: {e}")
-            with c2:
-                if st.button("📊 Excel 생성", use_container_width=True, key="xlsx_auto_df"):
-                    try:
-                        xlsx_bytes = build_excel(selected_df)
-                        st.success("Excel 생성 완료")
-                        st.download_button("Excel 다운로드", data=xlsx_bytes, file_name="proposal_options_auto.xlsx",
-                                           mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                                           use_container_width=True)
-                    except Exception as e:
-                        st.error(f"Excel 생성 오류: {e}")
-            with c3:
-                if st.button("🖼️ PPT 생성", use_container_width=True, key="ppt_auto_df"):
-                    try:
-                        client_info = {"고객사": meta.get("client_name",""), "작성팀": "", "작성일": datetime.now().strftime("%Y-%m-%d")}
-                        ppt_bytes = build_ppt(selected_df, client_info, body_size=16)
-                        st.success("PPT 생성 완료")
-                        st.download_button("PPT 다운로드", data=ppt_bytes, file_name="proposal_options_auto.pptx",
-                                           mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
-                                           use_container_width=True)
-                    except Exception as e:
-                        st.error(f"PPT 생성 오류: {e}")
+            # Tab1과 동일한 공용 컴포넌트(옵션 선택 · 미리보기 · 내보내기) 한 번만 렌더
+            render_excel_like_flow(
+                auto_df,
+                default_client = meta.get("client_name", ""),
+                default_author = "",
+                default_date   = datetime.now().strftime("%Y-%m-%d"),
+                pdf_body_size  = st.session_state.get("pdf_body_size", 11),   # ← 사이드바 값 재사용
+                ppt_body_size  = st.session_state.get("ppt_body_size", 16),   # ← 사이드바 값 재사용
+                key_prefix     = f"auto_{meta.get('project_id','X')}"         # ← 프로젝트별 유니크 키
+            )
 
             with st.expander("자동 생성 DF(전체) 미리보기", expanded=False):
                 st.dataframe(auto_df, use_container_width=True)
 
-            # 숨기기
-            if st.button("🧹 이 자동 DF 숨기기/초기화", help="세션에서 제거합니다. 파일은 유지", key="clear_auto_df"):
+            # 숨기기 버튼도 한 번만 · 유니크 키
+            if st.button(
+                "🧹 이 자동 DF 숨기기/초기화",
+                help="세션에서 제거합니다. 파일은 유지",
+                key=f"clear_auto_df_{meta.get('project_id','X')}"
+            ):
                 st.session_state[AUTO_PAYLOAD_KEY] = None
                 st.toast("자동 DF를 숨겼습니다.", icon="🧹")
                 st.rerun()
 
 
 # -------------------------- TAB 3: 고객/프로젝트 히스토리 --------------------------
+# -------------------------- TAB 3: 고객/프로젝트 히스토리 --------------------------
 with tab3:
+    # 로그인 보호 (secrets.auth.enabled=true 인 경우만 동작)
+    if not is_authed():
+        st.warning("이 메뉴는 로그인 후 이용할 수 있습니다.")
+        st.stop()
+
     st.subheader("고객/프로젝트 히스토리")
+
     names = ["-- 선택 --"] + fetch_client_names()
     selected_name = st.selectbox("고객 선택", options=names, index=0)
 
@@ -1491,31 +1693,30 @@ with tab3:
 
         st.divider()
         st.markdown("### 프로젝트 목록")
-        projects = list_projects(client_id)
+
+        # 고객 전체 삭제
         if st.button("⚠️ 이 고객 전체 삭제", key=f"del_client_{client_id}", help="모든 프로젝트/파일이 삭제됩니다. 복구 불가"):
             delete_client_and_all(client_id)
             st.toast("고객 및 모든 프로젝트 삭제 완료", icon="🗑")
             st.rerun()
+
+        projects = list_projects(client_id)
         if not projects:
             st.info("등록된 프로젝트가 없습니다.")
         else:
             for pid, title, direction, created_at, status in projects:
-                # 한 줄 레이아웃: 왼쪽 Expander, 오른쪽 삭제 버튼
                 row = st.container()
                 left, right = row.columns([0.88, 0.12])
 
                 with left:
                     with st.expander(f"[#{pid}] {title} — {status} ({created_at})", expanded=False):
+                        # 기본 메타
                         st.markdown("**방향성**")
                         st.write(direction or "-")
                         st.markdown("---")
-                        st.markdown("**RFP 파일**")
-                        files = list_rfp_files(pid)
-                        if not files:
-                            st.write("-")
-                        else:
-                            for fn, sp, up in files:
-                                st.code(f"{fn}  |  {sp}  |  {up}", language="text")
+
+                        # ✅ 전체 결과 내역(다운로드/미리보기) 표시
+                        _show_project_full_result(pid, key_prefix=f"proj_{pid}")
 
                 with right:
                     st.write("")  # vertical spacing
