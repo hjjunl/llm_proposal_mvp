@@ -1,109 +1,176 @@
-# 🧠 AI Proposal Automation System
+# 📄 Proposal AI Agent  
+### RFP → Research → PPT Outline Automation System
 
-This project aims to build an intelligent automation system that reads and analyzes RFPs (Request for Proposals), conducts real-time research, and generates customized proposal documents—designed for consultants, agencies, and professionals who need to respond quickly and persuasively to complex business opportunities.
+Proposal AI Agent is an AI-driven system that reads RFP documents (PDF, PPT, Word), analyzes their requirements, conducts supporting research, and generates a **logic-first, evidence-based PPT outline** for proposal creation.
 
----
-
-## 🔍 Overview
-
-- **Input**: Raw RFP text, preferred proposal tone, key terms to emphasize, optional client name and title
-- **Processing**: RFP summarization, needs extraction, slide-type recommendation, research question generation
-- **Research**: Google search & GPT-based document summarization (RAG-style)
-- **Output**: Drafted proposal slides with components like titles, graphs, SWOT tables, timelines, and more
+This project focuses on automating **thinking and structure**, not slide design.  
+It supports consultants, agencies, and strategy teams by accelerating the most time-consuming intellectual steps of proposal work.
 
 ---
 
-## 🧭 User Input Flow
+## 🎯 What This Project Does
 
-| Field | Description |
-|-------|-------------|
-| RFP Document | Full RFP text or uploaded file |
-| Proposal Tone | Formal / Trustworthy / Concise / Creative |
-| Emphasis Keywords | List of business terms to highlight |
-| Client Name (Optional) | Used for cover and body personalization |
-| Project Title (Optional) | Displayed on the proposal cover page |
+This system answers a core question:
 
----
+> “Given this RFP,  
+> what questions must the proposal answer,  
+> what evidence should support those answers,  
+> and how should the PPT be structured?”
 
-## 🧠 RFP Intelligence Workflow
-![image](https://github.com/user-attachments/assets/2d7df595-1805-4782-aa76-54b98b1236b7)
+### ✅ What it DOES
+- Reads real-world RFP documents (PDF / PPT / DOCX)
+- Extracts and analyzes RFP requirements
+- Generates key proposal questions
+- Conducts external research per question
+- Produces a **PPT structure outline** with evidence-based reasoning
 
-
-## 1. Client Input
-- Upload RFP file (PDF, DOCX)
-- Specify proposal tone and direction
-- Provide any additional context or preferences
-
-## 2. RFP Analysis
-- Parse and extract key RFP requirements
-- Generate a concise summary of the RFP
-- Organize content for downstream mapping
-
-## 3.1. Slide Framework Design
-- Match RFP requirements to corresponding slide templates  
-  → 20 standard templates currently available
-
-## 3.2.1. Research Question Generation
-- Generate key research questions for each RFP item
-- Vary question detail based on subscription plan  
-  → (e.g., default vs. advanced tier)
-
-## 3.2.2. Research & Validation
-- Use Search APIs (e.g., SERP API) to conduct external research
-- Validate content relevance and accuracy via AI Agent
-- Fallback to alternative source (e.g., Perplexity API) if needed
-
-## 4. Draft Proposal Generation
-- Map researched insights to the appropriate slide templates
-- Populate charts and tables based on extracted data
-- Incorporate client input to write titles, subtitles, and main content
-
-## 5. Consultant Review
-Final review by human consultant to ensure:
-- Data accuracy and logical consistency
-- Slide formatting and template alignment
-- Clarity and professional tone of language
+### ❌ What it does NOT do
+- Does NOT generate final PPT files
+- Does NOT design slides or visuals
+- Does NOT replace human review or judgment
 
 ---
 
-## 🖥️ Output Format
+## 📥 Supported Input Formats
 
-- 📝 **PowerPoint Draft**: Slide deck including visual elements (charts, tables, SWOT, etc.)
-- 📄 **Reference Document**: Source list for each research-based slide (optional)
-- 📑 **Executive Summary PDF**: Concise one-page summary (optional)
+- 📄 PDF  
+- 🖼️ PowerPoint (PPT / PPTX)  
+- 📝 Word (DOCX)  
 
----
-
-## 📊 Supported Slide Types
-
-- Cover Page, Table of Contents, Project Understanding  
-- Client Needs Summary, Market Overview, Growth Trend Analysis  
-- Drivers & Challenges, Competitive Benchmarking, SWOT Analysis  
-- Solution Overview, Strategic Recommendations, Implementation Plan  
-- Timeline & Milestones, Risk Management, Expected Benefits  
-- Budget Estimation, Team Introduction, Differentiation, Closing Summary, Q&A
-
-> All slide types are matched with LLM-driven logic and built from research-backed inputs.
+No pre-formatting or manual structuring is required.
 
 ---
 
-## 🚧 Status
+## 🧠 Core Concept
 
-Currently in MVP development phase.  
-RFP parsing and research modules are operational.  
-Next steps: visualization engine integration and output formatting polish.
+> **This is not a “proposal writing AI”.  
+It is a “proposal thinking automation system”.**
+
+The system mirrors how experienced consultants work:
+
+1. Read and understand the RFP  
+2. Identify what must be answered  
+3. Research facts, trends, and benchmarks  
+4. Decide what slides are needed and why  
 
 ---
 
-## 💡 Why This Matters
+## 🔄 End-to-End Workflow
 
-Responding to RFPs is a high-effort, high-stakes task.  
-This system transforms the manual hours spent on market research, structure building, and writing—into a guided, intelligent process that empowers professionals to focus on strategy, not slides.
+
+---
+
+## 🧩 Step-by-Step Breakdown
+
+### 1️⃣ RFP Ingestion & Text Extraction
+- Extracts raw text from uploaded documents
+- Handles long, unstructured enterprise RFPs
+- Preserves contextual structure (sections, clauses)
+
+---
+
+### 2️⃣ Requirement Decomposition
+The system identifies:
+- Explicit requirements
+- Implicit expectations
+- Evaluation criteria
+- Mandatory response areas
+
+**Output:**  
+A structured list of questions the proposal must answer.
+
+---
+
+### 3️⃣ Question-Based Research
+For each question, the system:
+- Generates targeted research queries
+- Performs external research via Perplexity APIs
+- Collects facts, statistics, trends, and examples
+
+---
+
+### 4️⃣ Evidence-Centered Reasoning
+Instead of writing slides directly, the system:
+- Links research results to specific questions
+- Filters for relevance and logical support
+- Organizes insights into reasoning blocks
+
+---
+
+### 5️⃣ PPT Outline Generation (Final Output)
+The system produces a **PPT outline blueprint**, including:
+- Recommended slide sequence
+- Purpose of each slide
+- Key messages per slide
+- Supporting evidence references
+- Logical flow across slides
+
+This outline is designed to be reviewed and finalized by humans.
+
+---
+
+## 📦 Output Format
+
+The output is a **structured, human-readable outline**, typically provided as:
+
+- 📊 Table / DataFrame
+- 🧩 Slide-by-slide structure
+- 🔗 Each slide mapped to:
+  - RFP requirement
+  - Research-backed evidence
+  - Intended message
+
+This format supports easy review and downstream use.
+
+---
+
+## 🏗️ System Architecture (Conceptual)
+
+Each layer is separated to ensure:
+- Maintainability
+- Explainability
+- Extensibility
+
+---
+
+## 💡 Why This Project Matters
+
+Most AI proposal tools attempt to skip reasoning and jump directly to writing.
+
+This project takes the opposite approach:
+
+> **Automate thinking first,  
+so humans can write, design, and decide better.**
+
+It demonstrates how LLMs can be used as **structured reasoning systems**, not just text generators.
+
+---
+
+## 🚧 Project Status
+
+- ✅ RFP ingestion (PDF / PPT / DOCX)
+- ✅ Requirement analysis & question generation
+- ✅ Research-backed reasoning pipeline
+- ✅ PPT outline generation
+- ⏳ Agent orchestration & workflow expansion planned
+
+---
+
+## 🚀 Future Extensions
+
+- LangGraph-based agent orchestration
+- Reviewer / approval workflow
+- Slide template mapping
+- SaaS multi-tenant deployment
+- Cost-aware research caching
 
 ---
 
 ## 👤 Author
 
-Hyun Jun Lee  
-📫 hyunjun960214@gmail.com  
-🌐 [LinkedIn](https://www.linkedin.com/in/hyunjun-lee-a37448212/)  
+**HyunJun Lee**  
+Technology Consultant & AI Automation Builder  
+
+📫 Email: hyunjun960214@gmail.com  
+🌐 LinkedIn: https://www.linkedin.com/in/hyunjun-lee-a37448212/
+
