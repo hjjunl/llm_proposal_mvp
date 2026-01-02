@@ -50,6 +50,168 @@ No pre-formatting or manual structuring is required.
 
 ---
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Python**: 3.11 or higher (3.13 recommended)
+- **API Keys**: OpenAI API key (required), Perplexity API key (recommended)
+
+### Installation
+
+#### Option 1: Using pip (Recommended)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/hjjunl/llm_proposal_mvp.git
+   cd llm_proposal_mvp
+   ```
+
+2. **Install dependencies**
+   ```bash
+   cd proposal_ai_agent
+   pip install -r requirements.txt
+   ```
+
+#### Option 2: Using Conda
+
+1. **Create conda environment**
+   ```bash
+   conda env create -f environment.yml
+   conda activate llms
+   ```
+
+2. **Install additional dependencies**
+   ```bash
+   cd proposal_ai_agent
+   pip install -r requirements.txt
+   ```
+
+### Environment Setup
+
+1. **Create `.env` file** in the project root directory:
+   ```bash
+   # In the root directory (llm_proposal_mvp/)
+   touch .env
+   ```
+
+2. **Add your API keys** to the `.env` file:
+   ```env
+   # Required
+   OPENAI_API_KEY=sk-your-openai-api-key-here
+
+   # Recommended (for research functionality)
+   PERPLEXITY_API_KEY=pplx-your-perplexity-api-key-here
+   # Alternative names also supported:
+   # PPLX_API_KEY=pplx-your-key
+   # PEPLEXITY_API_KEY=pplx-your-key
+
+   # Optional (fallback for research)
+   SERP_API_KEY=your-serp-api-key-here
+   ANTHROPIC_API_KEY=sk-ant-your-anthropic-key
+   GOOGLE_API_KEY=AIzaSy-your-google-key
+   ```
+
+   > **Note**: At minimum, you need `OPENAI_API_KEY`. `PERPLEXITY_API_KEY` is highly recommended for research features.
+
+### Running the Application
+
+#### Method 1: Streamlit Web App (Recommended)
+
+1. **Navigate to the proposal_ai_agent directory**
+   ```bash
+   cd proposal_ai_agent
+   ```
+
+2. **Run Streamlit**
+   ```bash
+   streamlit run app.py
+   ```
+
+3. **Access the app**
+   - The app will open automatically in your browser
+   - Default URL: `http://localhost:8501`
+
+4. **Usage**
+   - **Page 1 (RFP Upload)**: Upload RFP documents and enter client information
+   - **Page 2 (Client History)**: View past proposals and project history
+
+#### Method 2: Command Line Interface
+
+For batch processing or automation:
+
+```bash
+cd proposal_ai_agent
+python run_pipeline_once.py \
+    --rfp "DB/RFP/sample.docx" \
+    --client "Client Name" \
+    --direction "Project direction and focus areas"
+```
+
+**Arguments:**
+- `--rfp`: Path to RFP file (PDF, DOCX, or PPTX)
+- `--client`: Client/company name
+- `--direction`: Project direction or focus areas (optional)
+
+**Output:**
+- Results saved to: `DB/proposal_result/manual_run_YYYYmmdd_HHMMSS/auto_df.xlsx`
+
+### Project Structure
+
+```
+llm_proposal_mvp/
+├── proposal_ai_agent/          # Main application directory
+│   ├── app.py                  # Streamlit main app
+│   ├── pages/                  # Streamlit pages
+│   │   ├── 01_RFP_Upload.py   # RFP upload page
+│   │   └── 02_Client_History.py # Client history page
+│   ├── pipeline/               # Core processing modules
+│   │   ├── analyze_rfp.py     # RFP analysis
+│   │   ├── inputs2flows.py    # Flow generation
+│   │   └── rfp2proposal.py    # Main pipeline
+│   ├── utils/                 # Utility functions
+│   ├── DB/                    # Data storage
+│   │   ├── RFP/               # Uploaded RFP files
+│   │   ├── proposal_result/   # Generated proposals
+│   │   └── clients.db         # SQLite database
+│   └── requirements.txt       # Python dependencies
+├── .env                       # Environment variables (create this)
+├── .gitignore
+├── README.md
+└── requirements.txt          # Root-level dependencies
+```
+
+### Troubleshooting
+
+#### Common Issues
+
+1. **ModuleNotFoundError**
+   - Ensure you're in the `proposal_ai_agent` directory when running commands
+   - Try: `pip install -r requirements.txt` again
+
+2. **API Key Errors**
+   - Verify your `.env` file is in the project root
+   - Check that API keys are correctly formatted (no quotes, no spaces)
+   - Restart your terminal/IDE after creating `.env`
+
+3. **Streamlit Port Already in Use**
+   ```bash
+   streamlit run app.py --server.port 8502
+   ```
+
+4. **Database Errors**
+   - The SQLite database (`DB/clients.db`) is created automatically on first run
+   - Ensure the `DB/` directory exists and is writable
+
+### Next Steps
+
+1. Upload your first RFP document through the Streamlit interface
+2. Enter client information and project direction
+3. Review the generated PPT outline
+4. Export results as Excel or PDF
+
+---
+
 ## 🧠 Core Concept
 
 > **This is not a “proposal writing AI”.  
