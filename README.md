@@ -55,7 +55,7 @@ No pre-formatting or manual structuring is required.
 ### Prerequisites
 
 - **Python**: 3.11 or higher (3.13 recommended)
-- **API Keys**: OpenAI API key (required), Perplexity API key (recommended)
+- **API Keys**: OpenAI API key (required), Perplexity API key (required)
 
 ### Installation
 
