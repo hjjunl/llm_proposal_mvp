@@ -29,6 +29,15 @@ This system answers a core question:
 - Does NOT design slides or visuals
 - Does NOT replace human review or judgment
 
+### Demo Screen
+<img width="1613" height="841" alt="화면1" src="https://github.com/user-attachments/assets/ba39b05f-2888-4868-9500-e5a76d0016cb" />
+
+<img width="1202" height="801" alt="화면2" src="https://github.com/user-attachments/assets/86557dc9-8759-4c56-ab24-4c78f800a443" />
+
+### Result
+<img width="1186" height="787" alt="image" src="https://github.com/user-attachments/assets/09316642-b9ac-466c-8e65-9ca1ffa96661" />
+<img width="1136" height="836" alt="image" src="https://github.com/user-attachments/assets/3ccac58b-ffbf-43e7-928e-85aee5e93213" />
+
 ---
 
 ## 📥 Supported Input Formats
