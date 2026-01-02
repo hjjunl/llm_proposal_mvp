@@ -86,4 +86,7 @@ docker-compose.override.yml
 .DS_Store
 Thumbs.db
 
+# Project specific
+news_project/
+
 
